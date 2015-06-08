@@ -1,0 +1,26 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Templates.Blog.Mvc.Models.ViewModels
+
+@model BlogItemPageModel
+
+ <div class="listResult">
+        <h3>
+            @Html.PageLink(Model.CurrentPage)
+        </h3>
+        @if(Model.ShowPublishDate)
+        {
+            <p class="date">@Html.DisplayFor(x => x.CurrentPage.StartPublish)</p>
+        }
+        @if(Model.ShowIntroduction)
+        {           
+            <p>@Model.PreviewText</p>
+        }
+      <span>Tags: </span><span>
+           @foreach (var item in Model.Tags)
+           {
+               <span class="icon-tags">&nbsp;  </span>   <a href="@item.Url">@item.Title</a>
+           }
+     </span>
+        <hr />
+    </div>

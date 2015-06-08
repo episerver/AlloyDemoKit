@@ -1,0 +1,31 @@
+﻿@using AlloyDemoKit.Models.Pages.Models.Pages
+@using EPiServer.Editor
+@using EPiServer.Security
+
+@model PageViewModel<BlogItemPage>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml";
+}
+@Html.FullRefreshPropertiesMetaData()  
+<h1 @Html.EditAttributes(x => x.CurrentPage.Name)>@Model.CurrentPage.Name</h1>
+<p>
+   <div @Html.EditAttributes("PageStartPublish")>
+    @Html.PropertyFor(x => x.CurrentPage.StartPublish, new EPiServer.Web.Mvc.EditHint() { ContentDataPropertyName = "PageStartPublish" })
+    </div>
+    <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
+        <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)"/>
+    </div>
+</p>
+
+<div class="row">
+
+    @Html.Action("Full", "BlogItem", new { currentPage =  Model.CurrentPage })
+     
+</div>
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", Tag = AlloyDemoKit.Global.ContentAreaTags.TwoThirdsWidth })
+
+@section RelatedContent{
+    
+    @Html.PropertyFor(x => x.CurrentPage.RightContentArea, new { CssClass = "row equal-height", Tag = AlloyDemoKit.Global.ContentAreaTags.OneThirdWidth })
+}

@@ -1,0 +1,26 @@
+﻿@model BlogArchiveBlock
+@using EPiServer
+@using AlloyDemoKit.Models.Pages.Models.Blocks
+
+<div class="row">
+    <div class="span4">
+       @if(Model.BlogStart != null){
+           <h3>Archive</h3>
+        <ul>
+            
+            @foreach (var year in DataFactory.Instance.GetChildren<AlloyDemoKit.Models.Pages.Models.Pages.BlogListPage>(Model.BlogStart))
+            {
+                <li>@Html.PageLink(year)</li>
+                <ul>
+                    @foreach (var month in DataFactory.Instance.GetChildren<AlloyDemoKit.Models.Pages.Models.Pages.BlogListPage>(year.ContentLink))
+	                {
+		                 <li>@Html.PageLink(month)</li>
+                    }
+
+                </ul>
+            }
+        </ul>
+           }
+
+    </div>
+</div>

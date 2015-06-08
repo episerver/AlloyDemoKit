@@ -1,0 +1,23 @@
+@model EPiServer.Templates.Alloy.Models.Blocks.YouTubeBlock
+
+<div>
+   @if (Model.HasHeadingText) { 
+         <div class="media">
+             <h1 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h1>
+                 @Html.PropertyFor(x => x.VideoText)
+        </div>
+   }
+  @if (Model.HasVideo) { 
+    <div class="embed" id="embed" runat="server">
+        <div style="position:absolute; width: 100%; height: 100%">
+            <param name='movie' value='<%# CurrentBlock.YouTubeLink %>' />
+            <param name='wmode' value='transparent' />
+            <param name="autoplay" value="false" />
+            <param name="autoload" value="false" />
+            <embed src='@Model.YouTubeLink'
+                   type='application/x-shockwave-flash' wmode='transparent'>
+            </embed>
+        </div>
+    </div>
+  }
+</div>

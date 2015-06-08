@@ -1,0 +1,20 @@
+﻿.epi-icon__search {
+  background: url('../Images/Icons/16px/0135-search.png');
+  height: 16px;
+  width: 16px;
+}
+.epi-icon__article {
+  background: url('../Images/Icons/16px/0005-newspaper.png');
+ height: 16px;
+  width: 16px;
+}
+.epi-icon__blog {
+  background: url('../Images/Icons/16px/0010-blog.png');
+ height: 16px;
+  width: 16px;
+}
+.epi-icon__list {
+  background: url('../Images/Icons/16px/0187-list.png');
+  height: 16px;
+  width: 16px;
+}

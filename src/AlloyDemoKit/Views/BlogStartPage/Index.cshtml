@@ -1,0 +1,25 @@
+﻿@using AlloyDemoKit.Models.Pages
+@model PageViewModel<AlloyDemoKit.Models.Pages.Models.Pages.BlogStartPage>
+
+@{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
+
+<h1 @Html.EditAttributes(x => x.CurrentPage.Name)>@Model.CurrentPage.Name</h1>
+<p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>
+<div class="row">
+   @* <div class="span8 clearfix" @Html.EditAttributes(x => x.CurrentPage.MainBody)>
+        @Html.DisplayFor(m => m.CurrentPage.MainBody)
+    </div>*@
+    <div class="span8 clearfix">
+   @Html.PropertyFor(x => x.CurrentPage.BlogList)
+    </div>
+</div>
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", Tag = AlloyDemoKit.Global.ContentAreaTags.TwoThirdsWidth })
+
+@section RelatedContent{
+    
+    @Html.PropertyFor(x => x.CurrentPage.TagCloud)
+
+    @Html.PropertyFor(x => x.CurrentPage.Archive)
+
+    @Html.PropertyFor(x => x.CurrentPage.RightContentArea, new { CssClass = "row equal-height", Tag = AlloyDemoKit.Global.ContentAreaTags.OneThirdWidth })
+}

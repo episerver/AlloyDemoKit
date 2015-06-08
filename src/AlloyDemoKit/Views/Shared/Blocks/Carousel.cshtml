@@ -1,0 +1,21 @@
+@model CarouselViewModel
+
+@using EPiServer.Templates.Blog.Mvc.Models.Blocks
+
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-border ">
+        <div class="carousel-inner" id="carousel">
+            @if (Model != null)
+            {
+
+                foreach (var item in Model.Items.Select((value, i) => new { i, value }))
+                {
+                    @Html.Partial("CarouselItemBlock", item.value, new ViewDataDictionary() { { "index", item.i } })
+                }
+            }
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+    </div><!-- /.carousel -->

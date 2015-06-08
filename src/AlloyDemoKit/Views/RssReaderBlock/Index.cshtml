@@ -1,0 +1,27 @@
+@model RssReaderBlockViewModel
+@using MyProject.Delegate.Models.ViewModels
+
+<div class="rssfeed">
+    @if (Model.HasHeadingText)
+    {
+        <h2>@Model.Heading</h2>
+        <p>@Model.DescriptiveText</p>
+    }
+    <ul>
+        @foreach (var item in Model.RssList)
+        {
+            <li>
+                <div class="listResult">
+                    <h3>
+                        <a href="@item.Url" title="@item.Title">@item.Title</a>
+                    </h3>
+                    @if (Model.CurrentBlock.IncludePublishDate)
+                    {
+                        <p class="date">@item.PublishDate</p>
+                    }
+                    <hr />
+                </div>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,12 @@
+﻿@model BlogListModel
+@using EPiServer.Templates.Blog.Mvc.Models.ViewModels
+<h2>
+   @Model.Heading
+    
+</h2>
+<hr />
+
+@foreach(var page in Model.Blogs)
+{
+    @Html.Action("Preview", "BlogItem", new { currentPage = page , blogModel = Model})
+}

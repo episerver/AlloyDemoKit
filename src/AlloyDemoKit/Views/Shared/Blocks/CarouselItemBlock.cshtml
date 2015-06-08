@@ -1,0 +1,33 @@
+@model CarouselItemBlock
+
+@using EPiServer.Templates.Blog.Mvc.Models.Blocks
+
+
+<div class="carousel item @(ViewData["index"] as int? == 0 ? "active" : "inactive")">
+    <style>
+        h1.white {
+            color: white !important;
+        }
+    </style>
+
+    <img @Html.EditAttributes(x => x.Image) class="img_carousel" src="@Url.ContentUrl(Model.Image)" />
+    <div style="position: relative">
+
+        <div class="carousel-caption">
+            <h1 @Html.EditAttributes(x => x.Heading) class="white">@Model.Heading</h1>
+            <p @Html.EditAttributes(x => x.SubHeading) class="lead">
+                @Model.SubHeading
+            </p>
+            <a class="btn btn-large btn-primary" title="@Model.ButtonText" href="@Url.ContentUrl(Model.ButtonLink)" @Html.EditAttributes(m => m.ButtonText)>
+                @{
+                    var buttonText = string.IsNullOrWhiteSpace(Model.ButtonText)
+                        ? Html.Translate("/blocks/buttonblockcontrol/buttondefaulttext")
+                        : Model.ButtonText;
+                }
+                @buttonText
+            </a>
+        </div>
+    </div>
+</div>
+
+

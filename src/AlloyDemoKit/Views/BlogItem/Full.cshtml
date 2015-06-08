@@ -1,0 +1,22 @@
+﻿@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Templates.Blog.Mvc.Models.ViewModels
+
+@model BlogItemPageModel
+
+<div class="span8 clearfix">
+   
+    <div @Html.EditAttributes("PageCategory")>
+        <span>Tags: </span>
+
+        @foreach (var item in Model.Tags)
+        {
+            <span class="icon-tags">&nbsp;</span> <a href="@item.Url">@item.Title</a>
+        }
+    </div>
+</div>
+
+<div class="span8 clearfix" @Html.EditAttributes(x => x.MainBody)>
+        @Html.DisplayFor(x => x.MainBody)
+    </div>

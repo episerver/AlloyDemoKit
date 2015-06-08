@@ -1,0 +1,28 @@
+﻿@model TagCloudModel
+
+@using AlloyDemoKit.Models.Pages.Business.Tags
+@using EPiServer
+@using EPiServer.DataAbstraction
+@using EPiServer.Templates.Blog.Mvc.Models.ViewModels
+
+<h3 @Html.EditAttributes(x => x.Heading)>
+    @Html.DisplayFor(x => x.Heading)
+</h3>
+<style>
+.tag-size-1 {
+    font-size: 1.4em;
+}
+.tag-size-2 {
+    font-size: 1.3em;
+}
+.tag-size-3 {
+    font-size: 1.2em;
+}
+.tag-size-4 {
+    font-size: 1.1em;
+}
+    </style>
+@foreach (TagItem tag in Model.Tags)
+{
+    <a class="tag-size-@tag.Weight" href="@tag.Url">@tag.TagName</a>
+}
