@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <episerver>
+      <mai>
+        <defaultname>Connect for Marketing Automation</defaultname>
+        <admin>
+          <mailingtemplatesynchronizejob>
+            <displayname>Connect for Marketing Automation Mailing Synchronize</displayname>
+            <description>This job is going to publish mailing templates which are delayed (to avoid abuse provider's API) to Marketing Automation Integration provider.</description>
+            <successpublish>Successfully published the mailing template with content link {0}.</successpublish>
+            <publishfailed>Error occurs when publishing the mailing template with content link {0}</publishfailed>
+            <notemplatepublished>No mailing template was published.</notemplatepublished>
+          </mailingtemplatesynchronizejob>
+          <displayname>Connect for Marketing Automation</displayname>
+          <noprovider>No provider found. Please install and configure one Marketing Automation provider to continue.</noprovider>
+        </admin>
+        <edit>
+          <form>
+            <submitaction>Marketing Automation Contact List Associated</submitaction>
+            <customurllabel>Store form data in {0} Contact List</customurllabel>
+          </form>
+        </edit>
+        <visitorgroups>
+          <criteria>
+            <database>
+              <category>Connect for Marketing Automation Criteria</category>
+              <displayname>Profile</displayname>
+              <description>Criterion that matches the user's data with a column in a Marketing Automation database</description>
+            </database>
+            <program>
+              <category>Connect for Marketing Automation Criteria</category>
+              <displayname>Program</displayname>
+              <description>Criterion that checks if a user belongs to a certain Marketing Automation program</description>
+            </program>
+            <scoring>
+              <category>Connect for Marketing Automation Criteria</category>
+              <displayname>Scoring Model</displayname>
+              <description>Criterion that checks a user against an Marketing Automation Scoring Model</description>
+            </scoring>
+            <scoringrank>
+              <category>Connect for Marketing Automation Criteria</category>
+              <displayname>Scoring Model Rank</displayname>
+              <description>Criterion that checks a user's rank within an Marketing Automation Scoring Model</description>
+            </scoringrank>
+          </criteria>
+        </visitorgroups>
+      </mai>
+      <edit>
+        <dynamiccontent>
+          <marketingautomationcontent>
+            <displayname>Connect for Marketing Automation Content</displayname>
+            <description>Allows the adding of Marketing Automation Content fields as personalization to site content</description>
+            <featurenotavailable>This feature is not available for this page.</featurenotavailable>
+            <marketingautomationdatabase>Marketing Automation Database:</marketingautomationdatabase>
+            <marketingautomationfields>Marketing Automation Fields:</marketingautomationfields>
+            <environmentvariables>Environmental Variables:</environmentvariables>
+            <newline>New Line</newline>
+            <dropfieldshere>Drop fields here:</dropfieldshere>
+          </marketingautomationcontent>
+        </dynamiccontent>
+      </edit>
+    </episerver>
+    <enums>
+      <episerver>
+        <marketingautomationintegration>
+          <ui>
+            <plugins>
+              <visitorgroups>
+                <criteria>
+                  <database>
+                    <databasecomparecondition>
+                      <equals>equals</equals>
+                      <beginswith>begins with</beginswith>
+                      <contains>contains</contains>
+                      <isnull>is null</isnull>
+                      <isnotnull>is not null</isnotnull>
+                    </databasecomparecondition>
+                  </database>
+                  <scoring>
+                    <comparecondition>
+                      <less>less</less>
+                      <lessorequal>less or equal</lessorequal>
+                      <equal>equal</equal>
+                      <moreorequal>more or equal</moreorequal>
+                      <more>more</more>
+                    </comparecondition>
+                  </scoring>
+                </criteria>
+              </visitorgroups>
+            </plugins>
+          </ui>
+        </marketingautomationintegration>
+      </episerver>
+    </enums>
+  </language>
+</languages>

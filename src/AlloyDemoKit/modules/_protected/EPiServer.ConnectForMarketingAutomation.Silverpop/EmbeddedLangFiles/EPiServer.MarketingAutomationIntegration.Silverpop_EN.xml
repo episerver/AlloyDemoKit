@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+    <language name="English" id="en">
+        <episerver>
+            <silverpop>
+                <providername>Silverpop</providername>
+                <admin>
+                    <displayname>Silverpop Engage</displayname>
+                    <description>Configuration settings for Silverpop Engage.</description>
+                    <cannotconfigure>Please switch provider to Silverpop and configure the settings.</cannotconfigure>
+      
+                    <savesuccessfully>Connected to Silverpop. Your settings have been saved.</savesuccessfully>
+                    <connecttosilverpopfailed>Could not connect to Silverpop.</connecttosilverpopfailed>
+                    <engagepodnumber>Engage pod number</engagepodnumber>
+                    <refreshtoken>Refresh token</refreshtoken>
+                    <clientid>Client ID</clientid>
+                    <clientsecret>Client secret</clientsecret>
+                    <refreshtokenmustbeaguid>Refresh token must be a GUID</refreshtokenmustbeaguid>
+                    <clientidmustbeaguid>Client ID must be a GUID</clientidmustbeaguid>
+                    <clientsecretmustbeaguid>Client secret must be a GUID</clientsecretmustbeaguid>
+                    <cacheminutesmustbegreaterthanorequaltozero>Cache minutes must be a whole number greater than or equal to zero and less than or equal to 100000</cacheminutesmustbegreaterthanorequaltozero>
+                    <timezone>Silverpop API time zone</timezone>
+                    <failedtofetchtimezone>Cannot automatically fetch API time zone, please check again your Engage pod number or Refresh token!</failedtofetchtimezone>
+                    <autofetch>Auto Fetch</autofetch>
+                    <cacheexiry>Cache expiry (in minutes)</cacheexiry>
+                    <contactlistprefix>Contact list prefix</contactlistprefix>
+                    <defaulttrackingscripts>Default tracking scripts.</defaulttrackingscripts>
+                    <custometrackingscripts>Custom tracking scripts.</custometrackingscripts>
+                    <notrackingscripts> No tracking scripts. (use this when you want to handle tracking scripts in your templates)</notrackingscripts>
+                    <trackingcoderequirederrormessage>Tracking code is required.</trackingcoderequirederrormessage>
+                    <invalidfromemailaddress>Invalid from email address.</invalidfromemailaddress>
+                    <invalidreplyemailaddress>Invalid reply email address.</invalidreplyemailaddress>
+                    <engagewebtrackingrequiredomain>Note: Engage web tracking requires domains to be configured in Silverpop Engage for the organization.</engagewebtrackingrequiredomain>
+                    <note>Note:</note>
+                    <cacheupdatecantakesometime>The cache update request can take some time. Request once, and then refresh until you get all results back.</cacheupdatecantakesometime>
+                    <thisserver>This server:</thisserver>
+                    <lastupdaterequest>Last update request from server:</lastupdaterequest>
+                    <lastbroadcast>Last broadcast from this server:</lastbroadcast>
+                    <nonecurrentlystored>(none currently stored)</nonecurrentlystored>
+                    <at>at</at>
+                    <refreshlist>Refresh list</refreshlist>
+                    <refreshlisttooltip>Update the list of cached items</refreshlisttooltip>
+                    <requestupdate>Request update</requestupdate>
+                    <requestupdatetooltip>Update the list of cached items</requestupdatetooltip>
+                    <wipecache>Clear cache</wipecache>
+                    <wipecachetooltip>Clear the cache</wipecachetooltip>
+                    <server>Server</server>
+                    <responded>Responded</responded>
+                    <received>Received</received>
+                    <cachkey>Cache key</cachkey>
+                    <action>Action</action>
+                    <updatenow>Update now</updatenow>
+                    <updatecachetooltip>Update a cached item immediately either by refreshing or removing it</updatecachetooltip>
+                    <fromname>From name</fromname>
+                    <fromaddress>From e-mail address</fromaddress>
+                    <replytoaddress>Reply to e-mail address</replytoaddress>
+                </admin>
+                <visitorgroups>
+                    <criteria>
+                        <database>
+                            <category>EPiServer Silverpop Criteria</category>
+                            <description>Criterion that matches the user's data with a column in an Engage database.</description>
+                            <displayname>Profile</displayname>
+                        </database>
+                        <program>
+                            <category>EPiServer Silverpop Criteria</category>
+                            <description>Criterion that checks if a user belongs to a certain Engage program.</description>
+                            <displayname>Program</displayname>
+                        </program>
+                        <scoring>
+                            <category>EPiServer Silverpop Criteria</category>
+                            <description>Criterion that checks a user against an Engage Scoring Model.</description>
+                            <displayname>Scoring Model</displayname>
+                            <scoretype>
+                                <totalscore>Total Score</totalscore>
+                                <behaviorscore>Behavioral Score</behaviorscore>
+                            </scoretype>
+                        </scoring>
+                        <scoringrank>
+                            <category>EPiServer Silverpop Criteria</category>
+                            <description>Criterion that checks a user's rank within an Engage Scoring Model.</description>
+                            <displayname>Scoring Model Rank</displayname>
+                        </scoringrank>
+                    </criteria>
+                </visitorgroups>
+            </silverpop>
+        </episerver>
+        <contenttypes>
+            <silverpopmailingpage>
+                <name>EPiServer Silverpop Mailing Template</name>
+                <description>EPiServer template to be exported as an Silverpop mailing. The template is automatically synchronized with the Silverpop Engage database.</description>
+                
+                <properties>
+                    <profilesource>
+                        <caption>Profile source</caption>
+                        <help>The Engage profile source for this mailing.</help>
+                    </profilesource>
+                    <subject>
+                        <caption>Subject</caption>
+                        <help>The subject for this mailing.</help>
+                    </subject>
+                    <fromname>
+                        <caption>From name</caption>
+                        <help>The from name for this mailing.</help>
+                    </fromname>
+                    <fromaddress>
+                        <caption>From e-mail address</caption>
+                        <help>The from e-mail address for this mailing.</help>
+                    </fromaddress>
+                    <replyto>
+                        <caption>Reply to e-mail address</caption>
+                        <help>The reply e-mail address for this mailing.</help>
+                    </replyto>
+                    <messageencoding>
+                        <caption>Message encoding</caption>
+                        <help>The encoding type for this mailing.</help>
+                    </messageencoding>
+                    <crmenabled>
+                        <caption>CRM enabled</caption>
+                        <help>States whether the mailing should be available in the CRM system.</help>
+                    </crmenabled>
+                    <confirmpublish>
+                        <caption>Publish to Silverpop Engage</caption>
+                        <help>Use this option to update a page already attached to an existing template.</help>
+                    </confirmpublish>
+                    <htmlbody>
+                        <caption>HTML body</caption>
+                        <help>The rich-text content for this mailing.</help>
+                    </htmlbody>
+                    <textbody>
+                        <caption>Text body</caption>
+                        <help>The content in plain text for this mailing.</help>
+                    </textbody>
+                    <mailingid>
+                        <caption>Mail ID</caption>
+                        <help>Stores the Engage mail ID.</help>
+                    </mailingid>
+                </properties>
+                <namealreadyinuse>An e-mail template with the name '{0}' is already in use in Silverpop. Please choose a different name.</namealreadyinuse>
+            </silverpopmailingpage>
+        </contenttypes>
+    </language>
+</languages>

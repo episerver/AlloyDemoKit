@@ -55,7 +55,7 @@ namespace AlloyDemoKit.Business.Rendering
             viewTemplateModelRegistrator.Add(typeof(SitePageData), new TemplateModel
             {
                 Name = "PagePartial",
-                Inherit = true,
+                Inherited = true,
                 AvailableWithoutTag = true,
                 Path = PagePartialPath("Page.cshtml")
             });
@@ -63,7 +63,7 @@ namespace AlloyDemoKit.Business.Rendering
             viewTemplateModelRegistrator.Add(typeof(SitePageData), new TemplateModel
             {
                 Name = "PagePartialWide",
-                Inherit = true,
+                Inherited = true,
                 Tags = new[] { Global.ContentAreaTags.TwoThirdsWidth, Global.ContentAreaTags.FullWidth },
                 AvailableWithoutTag = false,
                 Path = PagePartialPath("PageWide.cshtml")
@@ -80,11 +80,32 @@ namespace AlloyDemoKit.Business.Rendering
             viewTemplateModelRegistrator.Add(typeof(IContentData), new TemplateModel
             {
                 Name = "NoRendererMessage",
-                Inherit = true,
+                Inherited = true,
                 Tags = new[] { Global.ContentAreaTags.NoRenderer },
                 AvailableWithoutTag = false,
                 Path = BlockPath("NoRenderer.cshtml")
             });
+
+            viewTemplateModelRegistrator.Add(typeof(TwitterBlock), new TemplateModel
+            {
+                Tags = new[] { Global.ContentAreaTags.OneThirdWidth },
+                AvailableWithoutTag = false,
+                Path = BlockPath("TwitterBlockNarrow.cshtml")
+            });
+
+            viewTemplateModelRegistrator.Add(typeof(FacebookBlock), new TemplateModel
+            {
+                Tags = new[] { Global.ContentAreaTags.OneThirdWidth },
+                AvailableWithoutTag = false,
+                Path = BlockPath("FacebookBlockNarrow.cshtml")
+            });
+
+            viewTemplateModelRegistrator.Add(typeof(LinkedInCompanyBlock), new TemplateModel
+            {
+                Tags = new[] { Global.ContentAreaTags.OneThirdWidth },
+                AvailableWithoutTag = false,
+                Path = BlockPath("LinkedInCompanyBlockNarrow.cshtml"),
+            });            
         }
 
         private static string BlockPath(string fileName)
