@@ -28,7 +28,7 @@
     </newspagetemplate>
 
     <searchpagetemplate>
-      <zero>no</zero>
+      <zero>no items</zero>
       <result>Search result</result>
       <searchbutton>Search</searchbutton>
       <searchfor>Your search for</searchfor>

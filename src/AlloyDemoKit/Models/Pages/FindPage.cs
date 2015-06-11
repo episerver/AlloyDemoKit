@@ -9,9 +9,25 @@ using System.ComponentModel;
 namespace AlloyDemoKit.Models.Pages
 {
     [ContentType(DisplayName = "Find Search Page", GUID = "39c8b336-bcb1-4e31-9705-9eb0fda1263b", Description = "Search page based on EPiServer Find")]
+    [AvailableContentTypes(IncludeOn = new[] { typeof(StartPage) })]
     [SiteImageUrl]
-    public class FindPage : SitePageData
+    public class FindPage : SitePageData, IHasRelatedContent
     {
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 310)]
+        [CultureSpecific]
+        public virtual ContentArea RelatedContentArea { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            Name = "Page Heading",
+            Description = "The main heading displayed before search results.",
+            GroupName = SystemTabNames.Content,
+            Order = 300)]
+        public virtual string Heading { get; set; }
+
+
         //Allow editors to control how many hits should be displayed
         //on each search result listing when doing paging.
         [Range(0, 100)]

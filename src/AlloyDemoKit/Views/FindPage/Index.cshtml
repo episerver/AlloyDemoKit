@@ -1,56 +1,249 @@
 @using EPiServer.Editor
+@using EPiServer.Find
 @using EPiServer.Security
-@model FindPageViewModel
+@using EPiServer.Find.Api.Facets
+@using EPiServer.Framework.Web.Resources
+@using System
+@model FindSearchContentModel
 
 @{
     Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml";
+
+    ClientResources.RequireStyle("http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css");
+    ClientResources.RequireScript("http://code.jquery.com/jquery-1.9.1.js");
+    ClientResources.RequireScript("http://code.jquery.com/ui/1.10.3/jquery-ui.js");
 }
 
-<div class="row">
-    <div class="span8,search-form">
-        @*We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other 
-          query string values not in the form we can't use that in edit mode.*@
-        @using(Html.BeginForm(null, null, Model.Layout.SearchPageRouteValues, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get))
-        {
-            <input type="text" tabindex="1" name="q" value="@Model.SearchedQuery"/>
-            <input type="submit" tabindex="2" class="btn" value="@Html.Translate("/searchpagetemplate/searchbutton")" />
+<script language="javascript">
+        function spellcheck(query, hitsCutoff) {
+            $.ajax({
+                url: "@Model.PublicProxyPath" + "/_spellcheck?query=" + query + "&size=1&hits_cutoff=" + hitsCutoff,
+                dataType: 'jsonp',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.hits != undefined && data.hits[0] != undefined) {
+                        var suggestion = data.hits[0].suggestion;
+                        if (suggestion != undefined) {
+                            document.getElementById("suggestion").innerHTML = "<span style=\"color: red;\">@Html.Translate("/searchpagetemplate/suggestion")</span>" + ": <i><a href=\"/search/?q=" + suggestion + "\">" + suggestion + "</a></i>";
+                        }
+                    }
+                }
+            });
         }
+        function relatedQuery(query, hitsCutoff) {
+            $.ajax({
+                url: "@Model.PublicProxyPath" + "/_didyoumean?query=" + query + "&size=3&hits_cutoff=" + hitsCutoff,
+                dataType: 'jsonp',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.hits != undefined && data.hits[0] != undefined) {
+                        var list = [];
+                        var listStats = [];
+                        for (var hit in data.hits) {
+                            if(data.hits[hit].type == 'statistical')
+                            {
+                                listStats.push("<i><a href=\"/search/?q=" + data.hits[hit].suggestion + "\">" + data.hits[hit].suggestion + "</a></i>");
+                            }
+                            else
+                            {
+                                list.push("<i><a href=\"/search/?q=" + data.hits[hit].suggestion + "\">" + data.hits[hit].suggestion + "</a></i>");
+                            }
+                        }
+                        if (list.length > 0)
+                            document.getElementById("suggestion").innerHTML =
+                              "<span style=\"color: red;\">@Html.Translate("/searchpagetemplate/peoplealsosearchedfor")</span>" + ": " + list.join(" ");
+                        if (listStats.length > 0)
+                            document.getElementById("suggestion2").innerHTML =
+                            "<span style=\"color: red;\">People also searched for:</span> " + listStats.join(" ");
+                    }
+                }
+            });
+        }
+
+        $(function () {
+            $("#srchTxt").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "@Model.PublicProxyPath" + "/_autocomplete?prefix=" + request.term + "&size=5",
+                        dataType: "jsonp",
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            response($.map(data.hits, function (item) {
+                                return {
+                                    label: item.query,
+                                    value: item.query
+                                };
+                            }));
+                        }
+                    });
+                },
+                minLength: 2
+            });
+        });
+</script>
+
+<div class="span8 full search-form">
+    <h2>@Html.PropertyFor(m => m.CurrentPage.Heading)</h2>
+
+    @*We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other
+        query string values not in the form we can't use that in edit mode.*@
+    @using (Html.BeginForm(null, null, Model.Layout.SearchPageRouteValues, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get))
+    {
+        <div class="input-group">
+            <input id="srchTxt" type="text" class="form-control" tabindex="1" name="q" style="width:75%;" value="@Model.Query">
+            <span class="input-group-btn">
+                <input type="submit" tabindex="2" class="btn" style="width: 200px" value="@Html.Translate("/searchpagetemplate/searchbutton")" />
+            </span>
+        </div><!-- /input-group -->
+    }
+</div>
+
+
+<div class="row">
+    @*Main area*@
+    <div class="span8">
+
+        @if (Model.Hits != null)
+        {
+            @*<div class="row">*@
+            <div class="span8 grayHead">
+                <h2>@Html.Translate("/searchpagetemplate/result")</h2>
+                <p>
+                    @Html.Translate("/searchpagetemplate/searchfor") <i>@Model.Query</i>
+                    @Html.Translate("/searchpagetemplate/resultedin")
+                    @if (Model.NumberOfHits > 0)
+                    {
+                        @Model.NumberOfHits
+                        @Html.Raw(" ")
+                        @Html.Translate("/searchpagetemplate/hits")
+                    }
+                    else
+                    {
+                        @Html.Translate("/searchpagetemplate/zero")
+
+                        <script type="text/javascript">spellcheck("@Model.Query", @Model.NumberOfHits);</script>
+                    }
+
+                    <script type="text/javascript">relatedQuery("@Model.Query", @Model.NumberOfHits);</script>
+
+                    @*@Html.Translate("/searchpagetemplate/hits")*@
+
+                    <div id="suggestion"></div>
+                    <div id="suggestion2"></div>
+
+                </p>
+            </div>
+
+
+
+            <div class="span8 SearchResults">
+                @foreach (var hit in Model.Hits)
+                {
+                    @*<div class="listResult" style="@(hit.HasBestBetStyle() ? "border: dotted; color: red; border-width: 2px;" : "") ">*@
+                    <div class="listResult" style="@(hit.HasBestBetStyle() ? "background-color: #CCE6FC;" : "") ">
+                        <h3><a href="@hit.Url">@Html.Raw(@hit.Title)</a></h3>
+
+                        <p>
+                            @*<%-- If an image exists and the editor has specified that images should be shown --%>
+                                <%-- by specifying a height for them we show it and let the browser scale the width --%>
+                                <%-- relative to the height. In a real scenario we should use an image scaling library. --%>*@
+                            @if (hit.ImageUri != null)
+                            {
+                                <img src="@hit.ImageUri.ToString()" height="20" />
+                            }
+                            @*                    <%-- Show the excerpt text. As it may contain HTML tags for highlighting we --%>
+                                <%-- don't HTML encode it. --%>*@
+                            @Html.Raw(@hit.Excerpt)
+                        </p>
+
+                        <hr />
+                    </div>
+                }
+            </div>
+
+            @* Display paging controls.*@
+            <div class="span8 pagination pagination-centered">
+                <ul>
+                    @*Link to the previous paging page.*@
+                    @*<li @Model.PagingPage == 1 ? class="disabled" : "active">*@
+                    <li>
+                        <a href="@Model.GetPagingUrl(@Model.PagingPage - 1)">&laquo; </a>
+                    </li>
+
+                    @*Display links for each specific paging page.*@
+                    @for (int pageNumber = 1; pageNumber <= @Model.TotalPagingPages; pageNumber++)
+                    {
+
+                        @*<li @Model.PagingPage == @pageNumber ? class=active : "disabled" >*@
+                        <li>
+                            <a href="@Model.GetPagingUrl(@pageNumber)"> @pageNumber </a>
+                        </li>
+                    }
+
+
+                    @*Link to the next paging page *@
+                    @*                    <li @Model.PagingPage == @Model.TotalPagingPages ? class="disabled" : "" >*@
+                    <li>
+                        <a href="@Model.GetPagingUrl(@Model.PagingPage+1)">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+            @*End of search results area. *@
+            @*</div>*@
+
+        }
+
     </div>
 </div>
 
-@if(Model.Results != null)
+@section RelatedContent
 {
-    <div class="row">
-        <div class="span8 grayHead">
-            <h2>@Html.Translate("/searchpagetemplate/result")</h2>
-            <p>
-                @Html.Translate("/searchpagetemplate/searchfor") <i>@Model.SearchedQuery</i> 
-                @Html.Translate("/searchpagetemplate/resultedin")
-                @if(Model.NumberOfHits > 0)
-                {
-                    @Model.NumberOfHits
-                }
-                else
-                {
-                    @Html.Translate("/searchpagetemplate/zero")
-                }
-                @Html.Translate("/searchpagetemplate/hits")
-            </p>
-        </div>
-    </div>
+    @*Right hand bar*@
+    <div>
 
-    <div class="row">
-        <div class="span8 SearchResults">
-            <div class="listResult">
-                @foreach (var hit in Model.Results)
-                {
-                    <h3><a href="@hit.Url">@Html.Raw(hit.Title)</a></h3>
-                    <p>@Html.Raw(hit.Excerpt)</p>
-                    <hr />
-                }
+       @if (Model != null && Model.Hits != null && Model.Hits.TotalMatching > 0)
+        {
+            @*-- Sidebar in which facets/filter are shown. *@
+
+            @*Sections Facet*@
+            <div class="span4 well block">
+                <h2>Sections</h2>
+                <ul class="nav nav-list">
+
+                @*Link for clearing section filter.*@
+                    <li "@string.IsNullOrWhiteSpace(@Model.SectionFilter) ? class=\" active\" "" " >
+                        <li>
+                            <a href=" @Model.GetSectionGroupUrl("") ">
+                        All (@Model.Hits.FilterFacet("AllSections").Count)
+                        </a>
+                    </li>
+
+                    @foreach (var sectionGroup in Model.Hits.TermsFacetFor(x => x.SearchSection))
+                    {
+                        @*<li "@Model.SectionFilter == @sectionGroup.Term ?" class="active" : "" >*@
+                        <li>
+                            <a href="@Model.GetSectionGroupUrl(sectionGroup.Term)">
+                                @if (@Model.SectionFilter == @sectionGroup.Term)
+                                {
+                                    <strong>@sectionGroup.Term (@sectionGroup.Count)</strong>
+                                }
+                                else
+                                {
+                                    <span>@sectionGroup.Term (@sectionGroup.Count)</span>
+                                }
+                            </a>
+                        </li>
+
+                    }
+
+                    @*<%-- Display number of hits per section with link for filtering by section. --%>*@
+
+                </ul>
             </div>
-        </div>
 
-      
-    </div>
+
+            @*-- End of sidebar. --*@
+        }
+
+        </div>   
 }

@@ -20,91 +20,86 @@ using System.Web.Mvc;
 using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Find.Statistics;
 using EPiServer.Find.Statistics.Api;
+using EPiServer.Find.Framework.Statistics;
+using EPiServer.Find.UI;
+using EPiServer.Globalization;
 
 namespace AlloyDemoKit.Controllers
 {
     public class FindPageController :  PageControllerBase<FindPage>
     {
-        private const int MaxResults = 40;
-        private readonly SearchService _searchService;
-        private readonly ContentSearchHandler _contentSearchHandler;
-        private readonly UrlResolver _urlResolver;
-        private readonly TemplateResolver _templateResolver;
+        private const int MaxResults = 1000;
+        private readonly IClient _searchClient;
+        private readonly IFindUIConfiguration _findUIConfiguration;     
 
         public FindPageController(
-            SearchService searchService, 
-            ContentSearchHandler contentSearchHandler, 
-            TemplateResolver templateResolver,
-            UrlResolver urlResolver)
+            IClient searchClient, 
+            IFindUIConfiguration findUIConfiguration)
         {
-            _searchService = searchService;
-            _contentSearchHandler = contentSearchHandler;
-            _templateResolver = templateResolver;
-            _urlResolver = urlResolver;
+            _searchClient = searchClient;
+            _findUIConfiguration = findUIConfiguration;
         }
 
         [ValidateInput(false)]
         public ViewResult Index(FindPage currentPage, string q)
         {
-            //Create a search/query for the entered search text retrieved from the query string.
-            var query = SearchClient.Instance.UnifiedSearchFor(q).StatisticsTrack();
+            var model = new FindSearchContentModel(currentPage)
+                {
+                    PublicProxyPath = _findUIConfiguration.AbsolutePublicProxyPath()
+                };
 
-            //Filter by Category
-            int categoryId = 3;
-
-            var pages = SearchClient.Instance.Search<PageData>()
-              .Filter(x => x.Category.Match(categoryId))
-              .GetContentResult();
-
-            //Include a facet for sections.
-            query = (IQueriedSearch<ISearchContent>)query.TermsFacetFor(x => x.SearchSection);
-                //Include a facet whose value we can use to show the total number of hits
-                //regardless of section. The filter here is irrelevant but should match *everything*.
-                    //.FilterFacet("AllSections", x =>
-                    //    x.SearchTitle.Exists()
-                    //    | !x.SearchTitle.Exists());
-                //Fetch the specific paging page.
-                    //.Skip(10 * currentPage.PageSize)
-                    //.Take(currentPage.PageSize);
-            //Allow editors (from the Find/Optimizations view) to push specific hits to the top 
-            //for certain search phrases.
-
-
-            //We can (optionally) supply a hit specification as argument to the GetResult
-            //method to control what each hit should contain. Here we create a 
-            //hit specification based on values entered by an editor on the search page.
-            var hitSpec = new HitSpecification
+            if (!string.IsNullOrWhiteSpace(model.Query))
             {
-                HighlightTitle = currentPage.HighlightTitles,
-                HighlightExcerpt = currentPage.HighlightExcerpts,
-                ExcerptLength = currentPage.ExcerptLength
-            };
+                var query =
+                    _searchClient.UnifiedSearchFor(model.Query, _searchClient.Settings.Languages.GetSupportedLanguage(ContentLanguage.PreferredCulture) ??
+                                                  Language.None)
+                                .UsingSynonyms()
+                    //Include a facet whose value we can use to show the total number of hits
+                    //regardless of section. The filter here is irrelevant but should match *everything*.
+                                .TermsFacetFor(x => x.SearchSection)
+                                .FilterFacet("AllSections", x => x.SearchSection.Exists())
+                    //Fetch the specific paging page.
+                                .Skip((model.PagingPage - 1) * model.CurrentPage.PageSize)
+                                .Take(model.CurrentPage.PageSize)
+                    //Range facet for date
+                    //.RangeFacetFor(x => x.SearchUpdateDate, model.PublishedDateRange.ToArray())
+                    //Allow editors (from the Find/Optimizations view) to push specific hits to the top 
+                    //for certain search phrases.
+                                .ApplyBestBets();
 
-            //Execute the query and populate the Result property which the markup (aspx)
-            //will render.
-            var results = query.GetResult(hitSpec);
+                // obey DNT
+                var doNotTrackHeader = System.Web.HttpContext.Current.Request.Headers.Get("DNT");
+                // Should Not track when value equals 1
+                if (doNotTrackHeader == null || doNotTrackHeader.Equals("0"))
+                {
+                    query = query.Track();
+                }
 
-            var model = new FindPageViewModel(currentPage)
-            {
-                Results = results,
-                SearchedQuery = q,
-                NumberOfHits  = results.TotalMatching
-            };
+                //If a section filter exists (in the query string) we apply
+                //a filter to only show hits from a given section.
+                if (!string.IsNullOrWhiteSpace(model.SectionFilter))
+                {
+                    query = query.FilterHits(x => x.SearchSection.Match(model.SectionFilter));
+                }
 
+                //We can (optionally) supply a hit specification as argument to the GetResult
+                //method to control what each hit should contain. Here we create a 
+                //hit specification based on values entered by an editor on the search page.
+                var hitSpec = new HitSpecification
+                {
+                    HighlightTitle = model.CurrentPage.HighlightTitles,
+                    HighlightExcerpt = model.CurrentPage.HighlightExcerpts
+                };
+
+                //Execute the query and populate the Result property which the markup (aspx)
+                //will render.
+                model.Hits = query.GetResult(hitSpec);
+            }
+           
             return View(model);
         }
 
-        private bool HasTemplate(IContent content)
-        {
-            return _templateResolver.HasTemplate(content, TemplateTypeCategories.Page);
-        }
-
-        private bool IsPublished(IVersionable content)
-        {
-            if (content == null)
-                return true;
-            return content.Status.HasFlag(VersionStatus.Published);
-        }
+     
 
        
     }

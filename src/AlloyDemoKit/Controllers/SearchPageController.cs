@@ -65,14 +65,14 @@ namespace AlloyDemoKit.Controllers
         /// Uses EPiServer Search. For more advanced search functionality such as keyword highlighting,
         /// facets and search statistics consider using EPiServer Find.
         /// </remarks>
-        private IEnumerable<SearchContentModel.SearchHit> Search(string searchText, IEnumerable<ContentReference> searchRoots, HttpContextBase context, string languageBranch)
+        private IEnumerable<SearchHit> Search(string searchText, IEnumerable<ContentReference> searchRoots, HttpContextBase context, string languageBranch)
         {
             var searchResults = _searchService.Search(searchText, searchRoots, context, languageBranch, MaxResults);
 
             return searchResults.IndexResponseItems.SelectMany(CreateHitModel);
         }
 
-        private IEnumerable<SearchContentModel.SearchHit> CreateHitModel(IndexResponseItem responseItem)
+        private IEnumerable<SearchHit> CreateHitModel(IndexResponseItem responseItem)
         {
             var content = _contentSearchHandler.GetContent<IContent>(responseItem);
             if (content != null && HasTemplate(content) && IsPublished(content as IVersionable))
@@ -93,9 +93,9 @@ namespace AlloyDemoKit.Controllers
             return content.Status.HasFlag(VersionStatus.Published);
         }
 
-        private SearchContentModel.SearchHit CreatePageHit(IContent content)
+        private SearchHit CreatePageHit(IContent content)
         {
-            return new SearchContentModel.SearchHit
+            return new SearchHit
                 {
                     Title = content.Name,
                     Url = _urlResolver.GetUrl(content.ContentLink),
