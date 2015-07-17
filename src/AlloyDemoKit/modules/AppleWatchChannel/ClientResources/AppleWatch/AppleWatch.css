@@ -1,0 +1,14 @@
+﻿/*
+    Adding styles for our Text TV resolution
+*/
+
+.Sleek .epi-viewPort-290x380
+{
+    background: url("AppleWatch.png") center center no-repeat;
+    /* background-color: blue; */
+}
+
+.Sleek .epi-editorViewport .epi-editorViewport-center.epi-editorViewport-preview .epi-editorViewport-previewBox {
+    background: none !important;
+    /*overflow: hidden !important;*/
+}
