@@ -7,13 +7,14 @@ using AlloyDemoKit.Models.Properties;
 using EPiServer.Web;
 using EPiServer.Shell.ObjectEditing;
 using System.Collections.Generic;
+using DisableIndexingJob.Models.Interfaces;
 
 namespace AlloyDemoKit.Models.Pages
 {
     /// <summary>
     /// Base class for all page types
     /// </summary>
-    public abstract class SitePageData : PageData, ICustomCssInContentArea
+    public abstract class SitePageData : PageData, ICustomCssInContentArea, ISearchDisabled
     {
         [Display(
             GroupName = Global.GroupNames.MetaData,

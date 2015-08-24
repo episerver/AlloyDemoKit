@@ -1,4 +1,4 @@
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @using EPiServer.Framework.Web.Mvc.Html
 @model IPageViewModel<SitePageData>
 <!DOCTYPE html>
@@ -10,6 +10,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=10" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@Model.CurrentPage.MetaTitle</title>
+        @if (Model.CurrentPage.DisableIndexing)
+        {
+        <meta name="robots" content="NOINDEX, NOFOLLOW">
+        }
         @Html.CanonicalLink()
         @Styles.Render("~/bundles/css")
         @Scripts.Render("~/bundles/js")

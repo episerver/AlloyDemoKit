@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="EPiServer.Framework.Web.Mvc.Html" %>
+<%@ Import Namespace="EPiServer.Shell.Web.Mvc.Html" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Robots Txt handler</title>
+    
+        <%= Page.ClientResources("ShellCore") %>
+        <%= Page.ClientResources("ShellWidgets") %>
+        <%= Page.ClientResources("ShellCoreLightTheme") %>
+        <%= Html.CssLink(EPiServer.Web.PageExtensions.ThemeUtility.GetCssThemeUrl(Page, "system.css")) %>
+        <%= Html.CssLink(EPiServer.Web.PageExtensions.ThemeUtility.GetCssThemeUrl(Page, "ToolButton.css"))%>
+        <%= Html.CssLink(EPiServer.Shell.Paths.ToClientResource("CMS", "ClientResources/Epi/Base/CMS.css"))%>
+        
+        <!--[if IE 6]>
+                <%= Html.CssLink(EPiServer.Web.PageExtensions.ThemeUtility.GetCssThemeUrl(Page, "IE6.css"))%>
+                <%= Html.CssLink(EPiServer.Web.PageExtensions.ThemeUtility.GetCssThemeUrl(Page, "IE.css"))%>
+        <![endif]-->
+        <%= Html.ScriptResource(EPiServer.UriSupport.ResolveUrlFromUtilBySettings("javascript/episerverscriptmanager.js"))%>
+        <%= Html.ScriptResource(EPiServer.UriSupport.ResolveUrlFromUtilBySettings("javascript/system.js")) %>
+        <%= Html.ScriptResource(EPiServer.UriSupport.ResolveUrlFromUtilBySettings("javascript/dialog.js")) %>
+        <%= Html.ScriptResource(EPiServer.UriSupport.ResolveUrlFromUtilBySettings("javascript/system.aspx")) %>
+        
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</head>
+<body>
+    <div class="epi-contentContainer epi-padding">
+        <div class="epi-contentArea">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </div>
+</body>
+</html>
