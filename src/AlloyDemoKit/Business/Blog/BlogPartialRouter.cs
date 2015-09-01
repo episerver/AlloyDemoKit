@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using EPiServer.ServiceLocation;
 
 namespace AlloyDemoKit.Models.Pages.Business.Initialization
 {
@@ -45,41 +46,15 @@ namespace AlloyDemoKit.Models.Pages.Business.Initialization
                      var remaingPath = namePart.Remaining;
                     //Update RemainingPath on context.
                     segmentContext.RemainingPath = remaingPath;
-                    var category = Category.Find(categoryName);
+                    var categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
+                    var category = categoryRepository.Get(categoryName);
                     segmentContext.RoutedContentLink = content.ContentLink;
 
                     segmentContext.SetCustomRouteData<Category>("category", category);
                 
 
                     return content;
-                }
-
-                //var user = _securityHandler.GetUserByUserName(SlugDecode(namePart.Next));
-                //if (user != null)
-                //{
-                //    var blog = _myPageHandler.GetMyPage(user).Blog;
-
-                //    var remaingPath = namePart.Remaining;
-                //    segmentContext.SetCustomRouteData<Blog>(BlogPostKey, blog);
-
-                //    //Check if the optional Header part is present
-                //    var headerPart = segmentContext.GetNextValue(namePart.Remaining);
-                //    if (!String.IsNullOrEmpty(headerPart.Next))
-                //    {
-                //        var blogEntry = GetBlogEntry(blog, headerPart);
-                //        if (blogEntry != null)
-                //        {
-                //            remaingPath = headerPart.Remaining;
-                //            segmentContext.SetCustomRouteData<Entry>(BlogEntryKey, blogEntry);
-                //        }
-                //    }
-
-             
-
-                    //We do not change the page which is routed to. Instead we set routed blog/entry on request 
-                    //through SetCustomRouteData which can then be consumed from MyBlog page.
-                //    return content;
-                //}
+                }                
             }
 
             return null;

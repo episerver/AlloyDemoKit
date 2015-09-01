@@ -39,10 +39,11 @@ namespace EPiServer.Templates.Blog.Mvc.Controllers
         public IEnumerable<TagItem> GetTags(PageReference startTagLink)
         {
             List<TagItem> tags = new List<TagItem>();
+            var categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
 
             foreach (var item in TagRepository.Instance.LoadTags())
             {
-                Category cat = Category.Find(item.TagName);
+                Category cat = categoryRepository.Get(item.TagName);
                 string url = string.Empty;
 
                 if (startTagLink != null)

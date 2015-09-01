@@ -61,7 +61,8 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
             {
                 foreach (var catID in item.Category)
                 {
-                    var cat =  Category.Find(catID);
+                    var categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
+                    var cat = categoryRepository.Get(catID);
 
                     var tagitem = tags.Where(x => x.TagName == cat.Name).FirstOrDefault();
 

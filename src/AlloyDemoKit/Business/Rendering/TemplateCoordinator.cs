@@ -55,7 +55,7 @@ namespace AlloyDemoKit.Business.Rendering
             viewTemplateModelRegistrator.Add(typeof(SitePageData), new TemplateModel
             {
                 Name = "PagePartial",
-                Inherited = true,
+                Inherit = true,
                 AvailableWithoutTag = true,
                 Path = PagePartialPath("Page.cshtml")
             });
@@ -63,7 +63,7 @@ namespace AlloyDemoKit.Business.Rendering
             viewTemplateModelRegistrator.Add(typeof(SitePageData), new TemplateModel
             {
                 Name = "PagePartialWide",
-                Inherited = true,
+                Inherit = true,
                 Tags = new[] { Global.ContentAreaTags.TwoThirdsWidth, Global.ContentAreaTags.FullWidth },
                 AvailableWithoutTag = false,
                 Path = PagePartialPath("PageWide.cshtml")
@@ -80,7 +80,7 @@ namespace AlloyDemoKit.Business.Rendering
             viewTemplateModelRegistrator.Add(typeof(IContentData), new TemplateModel
             {
                 Name = "NoRendererMessage",
-                Inherited = true,
+                Inherit = true,
                 Tags = new[] { Global.ContentAreaTags.NoRenderer },
                 AvailableWithoutTag = false,
                 Path = BlockPath("NoRenderer.cshtml")

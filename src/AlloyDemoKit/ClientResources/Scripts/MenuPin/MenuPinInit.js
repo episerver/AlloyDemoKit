@@ -1,82 +1,159 @@
 ﻿define(
     ["dojo/_base/declare",
-     "dojo/dom-attr",
+     "dojo/dom",
      "dojo/_base/lang",
      "dojo/topic",
      "dojo/query",
      "dojo/cookie",
-     "epi/Url",
-     "epi/i18n!epi/shell/ui/nls/EPiServer.Shell.UI.Resources.GlobalMenu"],
+     "dojo/dom-class",
+     "dojo/dom-style",
+     "dojo/aspect",
+     "dojo/on",
+     "dijit/registry"],
     function (
         declare,
-        domAttr,
+        dom,
         lang,
         topic,
         query,
         cookie,
-        Url,
-        resources) {
+        domClass,
+        domStyle,
+        aspect,
+        on,
+        registry) {
+
         return declare([], {
 
-            res: resources,
-            _siteUrl: null,
-            _handle: null,
+            globalMenu: null,
+            cookieName: "menupinV2.2",
+            menuPinButton: null,
+            _initHandle: null,
 
             initialize: function () {
+
                 this.inherited(arguments);
-                topic.subscribe("/epi/shell/context/changed", lang.hitch(this, "_onContextChanged"));
 
-                // Required to set up on first initialisation
-                _handle = topic.subscribe("/epi/shell/context/current", lang.hitch(this, "_onContextCurrent"));
+                // The context changes after the UI has been loaded so we can be sure that registry contains the global meny container
+                _initHandle = topic.subscribe("/epi/shell/context/current", lang.hitch(this, "_onContextCurrent"));
             },
-
 
             _onContextCurrent: function (ctx) {
-                _handle.remove();
-                this._onContextChanged(ctx);
+                _initHandle.remove();
+                this._init();
             },
 
-            //_onContextChanged: function (ctx, callerData) {
-            _onContextChanged: function (ctx) {
+            _init: function () {
+                // Set up the references for the items we are going to interact with
+                this.menuPinButton = dom.byId("menuPin");
+                this.globalMenu = registry.byId("globalMenuContainer");
 
-                //Only do this if the menu is pinned out
-                if (cookie("menupin") === "true") {
+                topic.subscribe("/menupin/pinclicked", lang.hitch(this, "_pinClicked"));
 
-                    var toViewModeElement = this._getToViewModeElement();
-                    //Only change the URL if we have one site
-                    if (!toViewModeElement) {
-                        return;
+                // Ensure the menu does not hide if the menu is pinned
+                aspect.around(this.globalMenu, "_hideMenu",
+                    function (originalMethod) {
+                        return function () {
+                            // Stop the menu from being hidden
+                            if (cookie("menupinV2.2") === "true") {
+                                return null;
+                            } else {
+                                originalMethod.apply(this);
+                            }
+                        }
                     }
+                );
 
-                    var url = this._buildPublicUrl(ctx, toViewModeElement);
-                    var title = lang.replace(this.res.toviewmode, [url.toString()]);
+                // Pin out the menu if needed
+                if (this._isMenuPinned()) {
+                    this._pinMenu();
+                }
 
-                    domAttr.set(toViewModeElement, { href: url.path, title: title });
+                on(this.menuPinButton.parentNode, "click", function (e) {
+                    topic.publish("/menupin/pinclicked");
+                });
+
+            },
+            _pinClicked: function () {
+                if (this._isMenuPinned()) {
+                    this._unpinMenu();
+                } else {
+                    this._pinMenu();
                 }
             },
 
-            _getToViewModeElement: function () {
+            _unpinMenu: function () {
 
-                var utilItemsContainer = query(".epi-navigation-container-utils", this.element)[0];
-                return query(".epi-navigation-global_sites.epi-navigation-currentSite.epi-navigation-iconic", utilItemsContainer)[0];
+                // Make sure the main content container is a height of 100%
+                var root = registry.byId("rootContainer");
+                var newHeight = "100%";
+                domStyle.set(root.domNode, "height", newHeight);
+                root.resize();
+
+                this.globalMenu.shadowClass = "epi-globalNavigation--shadow";
+
+                // Toggle the cookie to be set or unset
+                this._toggleCookie(false);
+
+                // Mark the menu pin as un-selected
+                domClass.remove(this.menuPinButton.parentNode.parentNode, "epi-navigation-selected");
+
+                // Make the menu float again
+                this.globalMenu.setAttribute("style", "position: absolute; ");
+
+                // Hide the menu
+                this.globalMenu._hideMenu();
+
+                // Show the hint button
+                domStyle.set(this._getHintButton(), "display", "block");
+
             },
 
-            _buildPublicUrl: function (ctx, viewModeElement) {
+            _pinMenu: function () {
 
-                if (this._siteUrl === null) {
-                    this._siteUrl = viewModeElement.href;
+                // Toggle the cookie to be set or unset
+                this._toggleCookie(true);
+
+                // Mark the menu pin as selected
+                domClass.add(this.menuPinButton.parentNode.parentNode, "epi-navigation-selected");
+
+                // Open the menu
+                this.globalMenu._showMenu();
+
+                // Make sure the menu doesn't float
+                this.globalMenu.setAttribute("style", "position: relative; ");
+
+                // Remove the shadow effect
+                domClass.remove(this.globalMenu.domNode, this.globalMenu.shadowClass);
+
+                // Stop the shadow getting re-added
+                this.globalMenu.shadowClass = "menupin--noshadow";
+
+                //Hide the hint button
+                domStyle.set(this._getHintButton(), "display", "none");
+
+                // Make sure the main content container is 100% high minus the height of the menu
+                var root = registry.byId("rootContainer");
+                var newHeight = "calc(100% - " + this.globalMenu._getContentHeight() + "px)";
+                domStyle.set(root.domNode, "height", newHeight);
+                root.resize();
+            },
+
+            _getHintButton: function () {
+                var hintButton = query(".epi-navigation-expandcollapseBtn")[0];
+                return hintButton;
+            },
+
+            _isMenuPinned: function () {
+                return cookie(this.cookieName) === "true";
+            },
+
+            _toggleCookie: function (pinned) {
+                if (pinned === false) {
+                    cookie(this.cookieName, "false", { path: "/" });
+                } else {
+                    cookie(this.cookieName, "true", { expires: 365, path: "/" });
                 }
-
-                var siteUrl = new Url(this._siteUrl);
-                var location = window.location;
-                var params = {
-                    scheme: location.protocol,
-                    authority: location.host,
-                    path: ctx.publicUrl === "" ? siteUrl.path : ctx.publicUrl
-                };
-                var url = new Url(null, params, true);
-
-                return url;
             }
 
         });

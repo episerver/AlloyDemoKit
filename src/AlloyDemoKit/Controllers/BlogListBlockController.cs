@@ -75,10 +75,11 @@ namespace AlloyDemoKit.Models.Pages.Controllers
         public IEnumerable<BlogItemPageModel.TagItem> GetTags(BlogItemPage currentPage)
         {
             List<BlogItemPageModel.TagItem> tags = new List<BlogItemPageModel.TagItem>();
+            var categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
 
             foreach (var item in currentPage.Category)
             {
-                Category cat = Category.Find(item);
+                Category cat = categoryRepository.Get(item);
 
                 tags.Add(new BlogItemPageModel.TagItem() { Title = cat.Name, Url = TagFactory.Instance.GetTagUrl(currentPage, cat) });
             }

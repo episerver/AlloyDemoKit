@@ -58,6 +58,10 @@
             The host name to access the sitemap
         </div>
         <div>
+            <span class="nb-text">Include alternate languages:</span>
+            If your site targets users in many languages and you can provide Google with rel="alternate" hreflang="x". These attributes help Google serve the correct language or regional URL to searchers.
+        </div>
+        <div>
             <span class="nb-text">Path to include:</span>
             Sitemap will contain only pages from this virtual directory url. Separate multiple with ";".
         </div>
@@ -75,17 +79,19 @@
         </div>
         <div>
             <span class="nb-text">Format:</span>
-            Standard/Mobile
+            Standard/Mobile/Commerce/Standard and commere
         </div>
     </div>
     
     <div class="toolbar">
         <asp:PlaceHolder runat="server" ID="phNewButton">
-            <span class="epi-cmsButton">
-                <asp:Button ID="btnNew" runat="server" Text="New sitemap" OnClick="btnNew_Click" 
-                                CssClass="add-button epi-cmsButton-text epi-cmsButton-tools">
-                </asp:Button>
-            </span>
+            <div class="epi-buttonDefault">
+                <span class="epi-cmsButton">
+                    <asp:Button ID="btnNew" runat="server" Text="New sitemap" OnClick="btnNew_Click" 
+                                    CssClass="add-button epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-Add">
+                    </asp:Button>
+                </span>
+            </div>
         </asp:PlaceHolder>
     </div>
 
@@ -116,12 +122,14 @@
         </LayoutTemplate>
         <ItemTemplate>
             <tr>
-                <td><%# GetSiteUrl(Eval("SiteUrl")) %><%# Eval("Host") %></td>
-                <td><%# GetDirectoriesString(Eval("PathsToInclude")) %></td>
-                <td><%# GetDirectoriesString(Eval("PathsToAvoid")) %></td>
-                <td><%# Eval("RootPageId")%></td>
-                <td><%# Eval("IncludeDebugInfo")%></td>
-                <td><%# Eval("SitemapFormat")%></td>
+                <td>
+                    <%# GetSiteUrl(CurrentSitemapData.SiteUrl) %><%# GetLanguage(CurrentSitemapData.Language) %><%# CurrentSitemapData.Host %>
+                </td>
+                <td><%# GetDirectoriesString(CurrentSitemapData.PathsToInclude) %></td>
+                <td><%# GetDirectoriesString(CurrentSitemapData.PathsToAvoid) %></td>
+                <td><%# CurrentSitemapData.RootPageId %></td>
+                <td><%# CurrentSitemapData.IncludeDebugInfo %></td>
+                <td><%# CurrentSitemapData.SitemapFormat %></td>
                 
                 <td>
                     <asp:LinkButton ID="btnEdit" CommandName="Edit" runat="server" Text="Edit" OnClientClick="aspnetForm.target ='_self';" />
@@ -137,30 +145,45 @@
                     <asp:Label runat="server" ID="lblHostUrl" Visible="False" />
                     <asp:DropDownList runat="server" ID="ddlHostUrls" Visible="False" />
 
-                    <asp:TextBox runat="server" ID="txtHost" Text='<%# GetHostNameEditPart(Eval("Host").ToString()) %>' /><%= SitemapHostPostfix %>
+                    <asp:TextBox runat="server" ID="txtHost" Text='<%# GetHostNameEditPart(CurrentSitemapData.Host) %>' /><%= SitemapHostPostfix %>
+                    <asp:PlaceHolder runat="server" Visible="<%# ShowLanguageDropDown %>">
+                        <br/>
+                        Language: 
+                        <asp:DropDownList ID="ddlLanguage" DataSource="<%# LanguageBranches %>" DataTextField="DisplayName" DataValueField="Language" runat="server" /><br/><br/>
+                        Language fallback: <asp:CheckBox ID="cbEnableLanguageFallback" runat="server" Checked="<%# CurrentSitemapData.EnableLanguageFallback %>"/>
+                    </asp:PlaceHolder>
+                    <br/><br/>
+                    Include alternate language pages:
+                    <asp:CheckBox runat="server" ID="cbIncludeAlternateLanguagePages" Checked='<%# CurrentSitemapData.IncludeAlternateLanguagePages %>'/>
                 </td>
                 <td>
-                    <asp:TextBox runat="server" ID="txtDirectoriesToInclude" Text='<%# GetDirectoriesString(Eval("PathsToInclude")) %>' />
+                    <asp:TextBox runat="server" ID="txtDirectoriesToInclude" Text='<%# GetDirectoriesString(CurrentSitemapData.PathsToInclude) %>' />
                 </td>
                 <td>
-                    <asp:TextBox runat="server" ID="txtDirectoriesToAvoid" Text='<%# GetDirectoriesString(Eval("PathsToAvoid")) %>' />
+                    <asp:TextBox runat="server" ID="txtDirectoriesToAvoid" Text='<%# GetDirectoriesString(CurrentSitemapData.PathsToAvoid) %>' />
                 </td>
                 <td>
-                    <asp:TextBox runat="server" ID="txtRootPageId" Text='<%# Eval("RootPageId") %>' />
+                    <asp:TextBox runat="server" ID="txtRootPageId" Text='<%# CurrentSitemapData.RootPageId %>' />
                 </td>
                 <td>
-                    <asp:CheckBox runat="server" ID="cbIncludeDebugInfo" Checked='<%# (bool) Eval("IncludeDebugInfo") %>' />
+                    <asp:CheckBox runat="server" ID="cbIncludeDebugInfo" Checked='<%# CurrentSitemapData.IncludeDebugInfo %>' />
                 </td>
                 <td>
                     <div>
-                        <asp:RadioButton runat="server" ID="rbStandard" GroupName="grSitemapFormat" Text="Standard" Checked='<%# ((SitemapFormat) Eval("SitemapFormat")) == SitemapFormat.Standard %>' />
+                        <asp:RadioButton runat="server" ID="rbStandard" GroupName="grSitemapFormat" Text="Standard" Checked='<%# CurrentSitemapData.SitemapFormat == SitemapFormat.Standard %>' />
                     </div>
                     <div>
-                        <asp:RadioButton runat="server" ID="rbMobile" GroupName="grSitemapFormat" Text="Mobile" Checked='<%# ((SitemapFormat) Eval("SitemapFormat")) == SitemapFormat.Mobile %>' />
+                        <asp:RadioButton runat="server" ID="rbMobile" GroupName="grSitemapFormat" Text="Mobile" Checked='<%# CurrentSitemapData.SitemapFormat == SitemapFormat.Mobile %>' />
+                    </div>
+                    <div>
+                        <asp:RadioButton runat="server" ID="rbCommerce" GroupName="grSitemapFormat" Text="Commerce" Checked='<%# CurrentSitemapData.SitemapFormat == SitemapFormat.Commerce %>' />
+                    </div>
+                    <div>
+                        <asp:RadioButton runat="server" ID="rbStandardAndCommerce" GroupName="grSitemapFormat" Text="Standard and commerce" Checked='<%# CurrentSitemapData.SitemapFormat == SitemapFormat.StandardAndCommerce %>' />
                     </div>
                 </td>
                 <td>
-                    <asp:LinkButton ID="btnUpdate" CommandName="Update" CommandArgument='<%# Eval("Id") %>' runat="server" Text="Update"></asp:LinkButton>
+                    <asp:LinkButton ID="btnUpdate" CommandName="Update" CommandArgument='<%# CurrentSitemapData.Id %>' runat="server" Text="Update"></asp:LinkButton>
                     <asp:LinkButton ID="btnCancel" CommandName="Cancel" runat="server" Text="Cancel"></asp:LinkButton>
                 </td>
             </tr>
@@ -172,6 +195,16 @@
                     <asp:DropDownList runat="server" ID="ddlHostUrls" Visible="False" />
 
                     <asp:TextBox runat="server" ID="txtHost" /><%# SitemapHostPostfix %>
+                    
+                    <asp:PlaceHolder runat="server" Visible="<%# ShowLanguageDropDown %>">
+                        <br/>
+                        Language: 
+                        <asp:DropDownList ID="ddlLanguage" DataSource="<%# LanguageBranches %>" DataTextField="DisplayName" DataValueField="Language" runat="server" /><br/><br/>
+                        Language fallback: <asp:CheckBox ID="cbEnableLanguageFallback" runat="server" />
+                    </asp:PlaceHolder>
+                    <br/><br/>
+                    Include alternate language pages:
+                    <asp:CheckBox runat="server" ID="cbIncludeAlternateLanguagePages" Checked="false"/>
                 </td>
                 <td>
                     <asp:TextBox runat="server" ID="txtDirectoriesToInclude" />
@@ -191,6 +224,12 @@
                     </div>
                     <div>
                         <asp:RadioButton runat="server" ID="rbMobile" GroupName="grSitemapFormat" Text="Mobile" />
+                    </div>
+                    <div>
+                        <asp:RadioButton runat="server" ID="rbCommerce" GroupName="grSitemapFormat" Text="Commerce" />
+                    </div>
+                    <div>
+                        <asp:RadioButton runat="server" ID="rbStandardAndCommerce" GroupName="grSitemapFormat" Text="Standard and commerce" />
                     </div>
                 </td>
                 <td>
