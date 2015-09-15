@@ -174,14 +174,6 @@
     <Reference Include="EPiServer.Logging.Log4Net">
       <HintPath>..\packages\EPiServer.Logging.Log4Net.1.0.0\lib\net45\EPiServer.Logging.Log4Net.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.MarketingAutomationIntegration, Version=2.0.0.8001, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EPiServer.ConnectForMarketingAutomation.2.0.2.8000\lib\EPiServer.MarketingAutomationIntegration.dll</HintPath>
-    </Reference>
-    <Reference Include="EPiServer.MarketingAutomationIntegration.Silverpop, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EPiServer.MarketingAutomationIntegration.Silverpop.1.0.8.8000\lib\EPiServer.MarketingAutomationIntegration.Silverpop.dll</HintPath>
-    </Reference>
     <Reference Include="EPiServer.Packaging, Version=3.2.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EPiServer.Packaging.3.2.2\lib\net45\EPiServer.Packaging.dll</HintPath>
@@ -605,7 +597,6 @@
     <Content Include="modules\_protected\Shell\EPiServer.Shell.UI.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\EPiServer.Cms.Shell.UI.zip" />
-    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Silverpop\EPiServer.ConnectForMarketingAutomation.Silverpop.zip" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
