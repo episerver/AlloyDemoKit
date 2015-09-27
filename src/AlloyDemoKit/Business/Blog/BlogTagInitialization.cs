@@ -46,7 +46,7 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
         public bool IsImport()
         {
 
-            return Context.Current["CurrentITransferContext"] != null;
+            return false; // Context.Current["CurrentITransferContext"] != null;
         }
 
         /*

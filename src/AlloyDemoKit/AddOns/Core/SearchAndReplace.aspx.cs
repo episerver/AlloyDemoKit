@@ -8,7 +8,7 @@ using EPiServer.Shell.ViewComposition;
 using EPiServer.UI;
 using EPiServer.Core;
 using EPiServer.XForms.WebControls;
-using EPiServer.Templates.Alloy.Models.Pages;
+using EPiServer.Templates.Alloy.Models;
 using EPiServer.Shell.WebForms;
 using AlloyDemoKit.Models.Pages;
 
