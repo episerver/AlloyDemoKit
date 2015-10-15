@@ -7,6 +7,7 @@ using AlloyDemoKit.Helpers;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
 using StructureMap;
+using AlloyDemoKit.Business.Data;
 
 namespace AlloyDemoKit.Business.Initialization
 {
@@ -28,6 +29,7 @@ namespace AlloyDemoKit.Business.Initialization
             container.For<ContentAreaRenderer>().Use<AlloyContentAreaRenderer>();
 
             //Implementations for custom interfaces can be registered here.
+            container.For<IFileDataImporter>().Use<FileDataImporter>();
         }
 
         public void Initialize(InitializationEngine context)

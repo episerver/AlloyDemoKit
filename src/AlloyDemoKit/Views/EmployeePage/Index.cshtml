@@ -1,0 +1,45 @@
+@using AlloyDemoKit
+@model PageViewModel<EmployeePage>
+@{ Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+
+
+@*<h1 @Html.EditAttributes(x => x.CurrentPage.FirstName)>@Model.CurrentPage.FirstName</h1>
+    <h1 @Html.EditAttributes(x => x.CurrentPage.LastName)>@Model.CurrentPage.LastName</h1>*@
+@*<p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>*@
+
+
+    
+
+
+<div class="row">
+    <div class="span8 clearfix person">
+        <img src="@Model.CurrentPage.ImageUrl" />
+        <p> </p>
+        <p>Location: <span @Html.EditAttributes(x => x.CurrentPage.EmployeeLocation)>@Model.CurrentPage.EmployeeLocation</span> </p>
+        <p>T: @Html.PropertyFor(x => x.CurrentPage.Phone, new { CustomTag = "span" })</p>
+        <p>E: @Html.PropertyFor(x => x.CurrentPage.Email, new { CustomTag = "span" })</p>
+        
+    </div>
+</div>
+
+<h1>
+    @Html.PropertyFor(x => x.CurrentPage.FirstName, new { CustomTag = "span" })
+    @Html.PropertyFor(x => x.CurrentPage.LastName, new { CustomTag = "span" })
+</h1>
+
+<div class="row">
+    <div class="span8 clearfix">
+        <p>
+            <strong>
+                @Html.PropertyFor(x => x.CurrentPage.JobTitle)
+            </strong>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span8 clearfix">
+        @Html.PropertyFor(m => m.CurrentPage.Description)
+
+    </div>
+</div>

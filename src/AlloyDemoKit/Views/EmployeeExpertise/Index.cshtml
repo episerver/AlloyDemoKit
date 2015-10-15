@@ -1,0 +1,100 @@
+@using EPiServer.Editor
+@using EPiServer.Find
+@using EPiServer.Security
+@using EPiServer.Find.Api.Facets
+@using EPiServer.Framework.Web.Resources
+@using System
+@model EmployeeExpertiseContentModel
+@{ Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+
+
+
+<div class="row">
+    @*Main area*@
+    <div class="span8">
+        <p>
+            <h2>Employees with expertise in @Html.PropertyFor(m => m.CurrentPage.Name)</h2>
+            <br />
+        </p>
+        </div>
+    </div>
+
+
+
+@if (Model.FindResult != null && Model.FindResult.Count() > 0)
+{
+
+    <div class="row">
+        <div class="span8 SearchResults">
+
+
+            @foreach (var employee in Model.FindResult)
+            {
+                <div class="listResult">
+                    <p>
+                        <table cellspacing="0" cellpadding="5" width="100%">
+                            <tr>
+                                <td width="10%" valign="top"><img src="@employee.ImageUrl" width="37" alt="Barton-Tiffany-4362.jpg"></td>
+                                <td width="30%" valign="top">
+                    <p>
+                        <a href="@employee.LinkURL">@employee.LastName, @employee.FirstName</a>
+                        <br>@employee.JobTitle
+                        <br>Tel: @employee.Phone
+                        <br>Email: @employee.Email
+                    </p>
+                    </td>
+                    <td width="30%" valign="top">
+                        <p>&gt; <a href="@Url.EmployeeLocationUrl(employee.EmployeeLocation)">@employee.EmployeeLocation</a></p>
+                    </td>
+                    <td width="30%" valign="top">
+                        <p>
+                            @if (!string.IsNullOrWhiteSpace(employee.EmployeeExpertise))
+                            {
+                                foreach (var specialism in employee.EmployeeExpertise.Split(",".ToCharArray()))
+                                {
+                                    @Html.Raw("&gt;") <a href="@Url.EmployeeExpertiseUrl(specialism)">@specialism</a><br />
+                                }
+                            }
+                        </p>
+                    </td>
+                    </tr>
+                    </table>
+                    </p>
+                    <hr />
+                </div>
+
+            }
+
+        </div>
+    </div>
+
+}
+
+
+@section RelatedContent
+        {
+
+<div class="accordion">
+    <div class="accordion-group">
+        <div class="accordion-heading" style="padding: 15px">
+            <strong>Refine by location</strong><br /><br />
+            @if (Request.QueryString["location"] != null)
+            {
+                <a href="@Url.EmployeeExpertiseRootUrl()@Model.CurrentPage.URLSegment/">
+                    [X] Clear
+                </a>
+                <br />
+            }
+
+            @foreach (var facet in Model.FindResult.TermsFacetFor(x => x.EmployeeLocation))
+            {
+                <a href="@Url.EmployeeExpertiseRootUrl()@Model.CurrentPage.URLSegment/?location=@facet.Term">
+                    @Html.RadioButton(@facet.Term, @facet.Term, (Request.QueryString["location"] != null && Request.QueryString["location"].ToString() == facet.Term) ? true : false)
+                    @facet.Term
+                </a> @Html.Raw(" (")@facet.Count.ToString()@Html.Raw(")")
+                <br />
+            }
+        </div>
+    </div>
+</div>
+}

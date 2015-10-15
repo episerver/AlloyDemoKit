@@ -6,6 +6,7 @@ using EPiServer.Globalization;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using EPiServer;
+using AlloyDemoKit.Models.Pages;
 
 namespace AlloyDemoKit.Helpers
 {
@@ -63,6 +64,83 @@ namespace AlloyDemoKit.Helpers
             values[RoutingConstants.NodeKey] = contentLink;
             values[RoutingConstants.LanguageKey] = ContentLanguage.PreferredCulture.Name;
             return values;
+        }
+
+        /// <summary>
+        /// Returns the target URL for an Employee location. 
+        /// </summary>
+        public static IHtmlString EmployeeLocationUrl(this UrlHelper urlHelper, string location)
+        {
+            return WriteShortenedUrl(EmployeeLocationRootUrl(urlHelper).ToString(), location);
+        }
+
+        /// <summary>
+        /// Returns the Root Page Link Url for the Employee Location Page
+        /// </summary>
+        /// <param name="urlHelper"></param>
+        /// <returns></returns>
+        public static IHtmlString EmployeeLocationRootUrl(this UrlHelper urlHelper)
+        {
+            if (string.IsNullOrEmpty(_locationRootUrl))
+            {
+                lock (_syncObject)
+                {
+                    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                    var urlResolver = ServiceLocator.Current.GetInstance<UrlResolver>();
+
+                    ContentReference locationRoot = contentLoader.Get<StartPage>(ContentReference.StartPage).EmployeeLocationPageLink;
+                    if (locationRoot != null)
+                    {
+                        _locationRootUrl = urlResolver.GetUrl(locationRoot);
+                    }
+                }
+            }
+
+            return new MvcHtmlString(_locationRootUrl);
+        }
+
+        /// <summary>
+        /// Returns the target URL for an Employee expertise. 
+        /// </summary>
+        public static IHtmlString EmployeeExpertiseUrl(this UrlHelper urlHelper, string expertise)
+        {
+            return WriteShortenedUrl(EmployeeExpertiseRootUrl(urlHelper).ToString(), expertise);
+        }
+
+        /// <summary>
+        /// Returns the Root Page Link Url for the Employee Expertise Page
+        /// </summary>
+        /// <param name="urlHelper"></param>
+        /// <returns></returns>
+        public static IHtmlString EmployeeExpertiseRootUrl(this UrlHelper urlHelper)
+        {
+            if (string.IsNullOrEmpty(_expertiseRootUrl))
+            {
+                lock (_syncObject)
+                {
+                    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                    var urlResolver = ServiceLocator.Current.GetInstance<UrlResolver>();
+
+                    ContentReference expertiseRoot = contentLoader.Get<StartPage>(ContentReference.StartPage).EmployeeExpertiseLink;
+                    if (expertiseRoot != null)
+                    {
+                        _expertiseRootUrl = urlResolver.GetUrl(expertiseRoot);
+                    }
+                }
+            }
+
+            return new MvcHtmlString(_expertiseRootUrl);
+        }
+
+        private static volatile object _syncObject = new object();
+        private static string _expertiseRootUrl = string.Empty;
+        private static string _locationRootUrl = string.Empty;
+
+        private static IHtmlString WriteShortenedUrl(string root, string segment)
+        {
+            string fullUrlPath = string.Format("{0}{1}/", root, segment.ToLower().Replace(" ", "-"));
+
+            return new MvcHtmlString(fullUrlPath);
         }
     }
 }

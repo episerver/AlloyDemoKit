@@ -25,6 +25,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -384,6 +385,13 @@
     <Compile Include="AddOns\Core\TimeMachine.aspx.designer.cs">
       <DependentUpon>TimeMachine.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminTools\EmployeeSettings.aspx.cs">
+      <DependentUpon>EmployeeSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminTools\EmployeeSettings.aspx.designer.cs">
+      <DependentUpon>EmployeeSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Business\Blog\BlogPartialRouter.cs" />
     <Compile Include="Business\Blog\BlogTagInitialization.cs" />
     <Compile Include="Business\Blog\TagFactory.cs" />
@@ -397,10 +405,20 @@
     <Compile Include="Business\ContentExtensions.cs" />
     <Compile Include="Business\ContentLocator.cs" />
     <Compile Include="Business\ContentProviders\ClonedContentProvider.cs" />
+    <Compile Include="Business\Data\FileDataImporter.cs" />
+    <Compile Include="Business\Data\IFileDataImporter.cs" />
+    <Compile Include="Business\DDS\EmployeeSettingsHandler.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelectionFactory.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelector.cs" />
     <Compile Include="Business\EditorDescriptors\StringListEditorDescriptor.cs" />
     <Compile Include="Business\EmailAddressAttribute.cs" />
+    <Compile Include="Business\Employee\DataGenerator.cs" />
+    <Compile Include="Business\Employee\EmployeeContainerLookup.cs" />
+    <Compile Include="Business\Employee\EmployeeDataImportJob.cs" />
+    <Compile Include="Business\Employee\EmployeeExpertiseSelectionFactory.cs" />
+    <Compile Include="Business\Employee\EmployeeLocationSelectionFactory.cs" />
+    <Compile Include="Business\Employee\EmployeeLocationSelector.cs" />
+    <Compile Include="Business\Employee\EmployeeSettingsModel.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
@@ -434,6 +452,9 @@
     <Compile Include="Controllers\BlogStartPageController.cs" />
     <Compile Include="Controllers\ContactBlockController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\EmployeeExpertiseController.cs" />
+    <Compile Include="Controllers\EmployeeLocationPageController.cs" />
+    <Compile Include="Controllers\EmployeeSearchPageController.cs" />
     <Compile Include="Controllers\FindPageController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\PageControllerBase.cs" />
@@ -480,6 +501,10 @@
     <Compile Include="Models\Pages\Blog\BlogStartPage.cs" />
     <Compile Include="Models\Pages\ContactPage.cs" />
     <Compile Include="Models\Pages\ContainerPage.cs" />
+    <Compile Include="Models\Pages\EmployeeExpertise.cs" />
+    <Compile Include="Models\Pages\EmployeeLocationPage.cs" />
+    <Compile Include="Models\Pages\EmployeePage.cs" />
+    <Compile Include="Models\Pages\EmployeeSearchPage.cs" />
     <Compile Include="Models\Pages\FindPage.cs" />
     <Compile Include="Models\Pages\IHasRelatedContent.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
@@ -497,6 +522,7 @@
     <Compile Include="Models\ViewModels\CarouselViewModel.cs" />
     <Compile Include="Models\ViewModels\ContactBlockModel.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
+    <Compile Include="Models\ViewModels\EmployeeSearchContentModel.cs" />
     <Compile Include="Models\ViewModels\ImageViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
@@ -515,6 +541,7 @@
   <ItemGroup>
     <Content Include="AddOns\Core\SearchAndReplace.aspx" />
     <Content Include="AddOns\Core\TimeMachine.aspx" />
+    <Content Include="AdminTools\EmployeeSettings.aspx" />
     <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
     <Content Include="ClientResources\Scripts\Editors\StringList.js" />
     <Content Include="ClientResources\Scripts\MenuPin\MenuPinInit.js" />
@@ -757,6 +784,10 @@
     <Content Include="Views\Shared\Blocks\TwitterBlockNarrow.cshtml" />
     <Content Include="Views\Shared\Blocks\LinkedInCompanyBlockNarrow.cshtml" />
     <Content Include="Views\Shared\Blocks\FacebookBlockNarrow.cshtml" />
+    <Content Include="Views\EmployeeExpertise\Index.cshtml" />
+    <Content Include="Views\EmployeeLocationPage\Index.cshtml" />
+    <Content Include="Views\EmployeePage\Index.cshtml" />
+    <Content Include="Views\EmployeeSearchPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

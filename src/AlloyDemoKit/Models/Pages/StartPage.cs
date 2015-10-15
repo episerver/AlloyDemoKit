@@ -53,6 +53,15 @@ namespace AlloyDemoKit.Models.Pages
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual PageReference BlogPageLink { get; set; }
 
+        [Display(GroupName = Global.GroupNames.SiteSettings, Name = "Employees Root Page", Order = 600)]
+        public virtual ContentReference EmployeeContainerPageLink { get; set; }
+
+        [Display(GroupName = Global.GroupNames.SiteSettings, Name = "Location Root Page", Order = 610)]
+        public virtual PageReference EmployeeLocationPageLink { get; set; }
+
+        [Display(GroupName = Global.GroupNames.SiteSettings, Name = "Expertise Root Page", Order = 620)]
+        public virtual ContentReference EmployeeExpertiseLink { get; set; }
+
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual SiteLogotypeBlock SiteLogotype { get; set; }
 
