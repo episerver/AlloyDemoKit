@@ -1,0 +1,19 @@
+﻿@using EPiServer.Core
+@using AlloyDemoKit.Controllers
+@model ClosestLocationViewModel
+<div class="border">
+    @*Link the teaser block only if a link has been set and not displayed in preview*@
+    @using (Html.BeginConditionalLink(
+                !ContentReference.IsNullOrEmpty(Model.Link) && !(ViewContext.Controller is PreviewController),
+                Url.PageLinkUrl(Model.Link),
+                Model.Heading))
+    {
+        <h2>@Model.Heading</h2>
+        <p>
+            @Model.Name<br />
+        @Model.Description
+    </p>
+        <div><img src="@Url.ContentUrl(Model.Image)" /></div>
+    }
+
+</div>

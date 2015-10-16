@@ -33,6 +33,9 @@ namespace AlloyDemoKit
 
             [Display(Name = "Specialized", Order = 7)]
             public const string Specialized = "Specialized";
+
+            [Display(Name = "Location", Order = 8)]
+            public const string Location = "Location";
         }
 
         /// <summary>

@@ -450,6 +450,7 @@
     <Compile Include="Controllers\BlogItemController.cs" />
     <Compile Include="Controllers\BlogListBlockController.cs" />
     <Compile Include="Controllers\BlogStartPageController.cs" />
+    <Compile Include="Controllers\ClosestLocationBlockController.cs" />
     <Compile Include="Controllers\ContactBlockController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\EmployeeExpertiseController.cs" />
@@ -471,6 +472,7 @@
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Helpers\CategorizableExtensions.cs" />
+    <Compile Include="Helpers\GeoPosition.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Models\Blocks\BlogArchiveBlock.cs" />
@@ -478,6 +480,7 @@
     <Compile Include="Models\Blocks\ButtonBlock.cs" />
     <Compile Include="Models\Blocks\CarouselBlock.cs" />
     <Compile Include="Models\Blocks\CarouselItemBlock.cs" />
+    <Compile Include="Models\Blocks\ClosestLocationBlock.cs" />
     <Compile Include="Models\Blocks\ContactBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
     <Compile Include="Models\Blocks\FacebookBlock.cs" />
@@ -508,6 +511,7 @@
     <Compile Include="Models\Pages\FindPage.cs" />
     <Compile Include="Models\Pages\IHasRelatedContent.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
+    <Compile Include="Models\Pages\LocationPage.cs" />
     <Compile Include="Models\Pages\NewsPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
     <Compile Include="Models\Pages\SearchPage.cs" />
@@ -520,6 +524,7 @@
     <Compile Include="Models\ViewModels\BlogItemPageModel.cs" />
     <Compile Include="Models\ViewModels\BlogListModel.cs" />
     <Compile Include="Models\ViewModels\CarouselViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClosestLocationViewModel.cs" />
     <Compile Include="Models\ViewModels\ContactBlockModel.cs" />
     <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="Models\ViewModels\EmployeeSearchContentModel.cs" />
@@ -788,6 +793,8 @@
     <Content Include="Views\EmployeeLocationPage\Index.cshtml" />
     <Content Include="Views\EmployeePage\Index.cshtml" />
     <Content Include="Views\EmployeeSearchPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\ClosestLocation.cshtml" />
+    <Content Include="Views\LocationPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
