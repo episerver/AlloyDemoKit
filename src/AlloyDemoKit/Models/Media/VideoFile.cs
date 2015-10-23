@@ -8,7 +8,7 @@ namespace AlloyDemoKit.Models.Media
 {
     [ContentType(GUID = "85468104-E06F-47E5-A317-FC9B83D3CBA6")]
     [MediaDescriptor(ExtensionString = "flv,mp4,webm")]
-    public class VideoFile : VideoData
+    public class VideoFile : VideoData, IFileProperties
     {
         /// <summary>
         /// Gets or sets the copyright.
@@ -20,5 +20,8 @@ namespace AlloyDemoKit.Models.Media
         /// </summary>
         [UIHint(UIHint.Image)]
         public virtual ContentReference PreviewImage { get; set; }
-   }
+
+        [Editable(false)]
+        public virtual string FileSize { get; set; }
+    }
 }

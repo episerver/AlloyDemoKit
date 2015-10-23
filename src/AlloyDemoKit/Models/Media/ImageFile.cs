@@ -7,7 +7,7 @@ namespace AlloyDemoKit.Models.Media
 {
     [ContentType(GUID = "0A89E464-56D4-449F-AEA8-2BF774AB8730")]
     [MediaDescriptor(ExtensionString = "jpg,jpeg,jpe,ico,gif,bmp,png")]
-    public class ImageFile : ImageData 
+    public class ImageFile : ImageData, IFileProperties
     {
         /// <summary>
         /// Gets or sets the copyright.
@@ -16,5 +16,8 @@ namespace AlloyDemoKit.Models.Media
         /// The copyright.
         /// </value>
         public virtual string Copyright { get; set; }
+
+        [Editable(false)]
+        public virtual string FileSize { get; set; }
     }
 }

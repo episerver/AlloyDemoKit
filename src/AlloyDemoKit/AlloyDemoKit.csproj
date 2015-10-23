@@ -406,6 +406,7 @@
     <Compile Include="Business\ContentLocator.cs" />
     <Compile Include="Business\ContentProviders\ClonedContentProvider.cs" />
     <Compile Include="Business\Data\FileDataImporter.cs" />
+    <Compile Include="Business\Data\FileReader.cs" />
     <Compile Include="Business\Data\IFileDataImporter.cs" />
     <Compile Include="Business\DDS\EmployeeSettingsHandler.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelectionFactory.cs" />
@@ -425,6 +426,7 @@
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initialization\DisplayModesInitialization.cs" />
     <Compile Include="Business\Initialization\DisplayRegistryInitialization.cs" />
+    <Compile Include="Business\Initialization\FileBasedEventsInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
     <Compile Include="Business\Initialization\GlobalNewsContentProviderInitialization.cs" />
     <Compile Include="Business\PageContextActionFilter.cs" />
@@ -496,6 +498,7 @@
     <Compile Include="Models\Blocks\TwitterBlock.cs" />
     <Compile Include="Models\Blocks\YouTubeBlock.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
+    <Compile Include="Models\Media\IFileProperties.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
