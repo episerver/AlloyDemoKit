@@ -8,6 +8,7 @@ using EPiServer.Web;
 using EPiServer.Shell.ObjectEditing;
 using System.Collections.Generic;
 using DisableIndexingJob.Models.Interfaces;
+using EPiServer.SpecializedProperties;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -70,7 +71,7 @@ namespace AlloyDemoKit.Models.Pages
             get
             {
                 var teaserText = this.GetPropertyValue(p => p.TeaserText);
-
+              
                 // Use explicitly set teaser text, otherwise fall back to description
                 return !string.IsNullOrWhiteSpace(teaserText)
                        ? teaserText
@@ -95,24 +96,39 @@ namespace AlloyDemoKit.Models.Pages
         {
             get { return "teaserblock"; } //Page partials should be style like teasers
         }
+
         [Display(
-            GroupName = "Styles",
-            Order = 100)]
+        Name = "CSS Files",
+        GroupName = Global.GroupNames.Styles,
+        Order = 100)]
+        public virtual LinkItemCollection CSSFiles { get; set; }
+
+        [Display(
+            GroupName = Global.GroupNames.Styles,
+            Order = 110)]
         [UIHint(UIHint.LongString)]
         public virtual string CSS { get; set; }
 
-        [Display(
-        GroupName = "Styles",
-        Order = 104)]
-        public virtual ContentArea Files { get; set; }
 
         [Display(
-          GroupName = "Review", Name = "Review In",
+        Name = "Script Files",
+        GroupName = Global.GroupNames.Scripts,
+        Order = 100)]
+        public virtual LinkItemCollection ScriptFiles { get; set; }
+
+        [Display(
+            GroupName = Global.GroupNames.Scripts,
+            Order = 110)]
+        [UIHint(UIHint.LongString)]
+        public virtual string Scripts { get; set; }
+
+        [Display(
+          GroupName = Global.GroupNames.Review, Name = "Review In",
           Order = 110)]
         public virtual string ReviewIn { get; set; }
 
         [Display(
-          GroupName = "Review", Name = "Amount of time",
+          GroupName = Global.GroupNames.Review, Name = "Amount of time",
           Order = 120)]
         [SelectOne(SelectionFactoryType = typeof(DaysSelectionFactory))]
         public virtual string AmountOfTime { get; set; }

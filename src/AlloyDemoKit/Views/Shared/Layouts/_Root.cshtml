@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using EPiServer.Framework.Web.Mvc.Html
+@using AlloyDemoKit.Helpers
 @model IPageViewModel<SitePageData>
 <!DOCTYPE html>
 <html lang="@Model.CurrentPage.LanguageBranch">
@@ -14,9 +15,12 @@
         {
         <meta name="robots" content="NOINDEX, NOFOLLOW">
         }
+        
         @Html.CanonicalLink()
         @Styles.Render("~/bundles/css")
+        @Html.RenderExtendedCSS(Model.CurrentPage.CSS, Model.CurrentPage.CSSFiles)
         @Scripts.Render("~/bundles/js")
+        @Html.RenderExtendedScriptFiles(Model.CurrentPage.ScriptFiles)
         @Html.RequiredClientResources("Header") @*Enable components to require resources. For an example, see the view for VideoBlock.*@
     </head>
 
@@ -35,5 +39,6 @@
             }
         </div>
         @Html.RequiredClientResources("Footer")
+        @Html.RenderExtendedScripts(Model.CurrentPage.Scripts)
     </body>
 </html>

@@ -12,6 +12,8 @@ using AlloyDemoKit.Business;
 using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
 using EPiServer;
+using AlloyDemoKit.Models.Media;
+using EPiServer.SpecializedProperties;
 
 namespace AlloyDemoKit.Helpers
 {
@@ -96,6 +98,63 @@ namespace AlloyDemoKit.Helpers
             public PageData Page { get; set; }
             public bool Selected { get; set; }
             public Lazy<bool> HasChildren { get; set; }
+        }
+
+        const string CssFormat = "<link href=\"{0}\" rel=\"stylesheet\" />";
+        const string ScriptFormat = "<script src=\"{0}\"></script>";
+
+        public static MvcHtmlString RenderExtendedCSS(this HtmlHelper helper, string inline, LinkItemCollection cssFiles)
+        {
+            StringBuilder outputCSS = new StringBuilder(string.Empty);
+
+            AppendFiles(cssFiles, outputCSS, CssFormat);
+
+            if (!string.IsNullOrWhiteSpace(inline))
+            {
+                outputCSS.AppendLine("<style>");
+                outputCSS.AppendLine(inline);
+                outputCSS.AppendLine("</style>");
+            }
+
+            return new MvcHtmlString(outputCSS.ToString());
+        }
+
+        public static MvcHtmlString RenderExtendedScripts(this HtmlHelper helper, string inline)
+        {
+            StringBuilder outputCSS = new StringBuilder(string.Empty);
+
+            if (!string.IsNullOrWhiteSpace(inline))
+            {
+                outputCSS.AppendLine("<script type=\"text/javascript\">");
+                outputCSS.AppendLine(inline);
+                outputCSS.AppendLine("</script>");
+            }
+
+            return new MvcHtmlString(outputCSS.ToString());
+        }
+
+        public static MvcHtmlString RenderExtendedScriptFiles(this HtmlHelper helper, LinkItemCollection scriptFiles)
+        {
+            StringBuilder outputCSS = new StringBuilder(string.Empty);
+
+            AppendFiles(scriptFiles, outputCSS, ScriptFormat);          
+
+            return new MvcHtmlString(outputCSS.ToString());
+        }
+
+        private static void AppendFiles(LinkItemCollection files, StringBuilder outputString, string formatString)
+        {
+            if (files != null && files.Count > 0)
+            {
+                foreach (var item in files)
+                {
+                   
+                    if (!string.IsNullOrEmpty(item.Href))
+                    {
+                        outputString.AppendLine(string.Format(formatString, item.Href));
+                    }
+                }
+            }
         }
 
         /// <summary>
