@@ -1,0 +1,56 @@
+﻿@using EPiServer.Shell.Web.Mvc.Html
+@model VisitorGroupUsage.Models.VisitorGroupSet
+
+@if (Model != null && Model.UsedVisitorGroups.Any())
+{
+    <div style="height: auto;" id="plainGrid" class="dgrid dgrid-grid ui-widget epi-plain-grid" role="grid">
+
+        <div class="dgrid-header dgrid-header-row ui-widget-header" role="row">
+            <table class="dgrid-row-table" role="presentation" id="plainGrid-header">
+                <tr>
+                    <th style="cursor: default" class="dgrid-cell dgrid-cell-padding dgrid-column-visitorgroup field-first dgrid-sortable" role="columnheader">
+                        <span class="dijitReset dijitInline dijitIcon epi-iconUsers"></span> <span>@Html.Translate(Model.LanguageKey)</span>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+        <div style="margin-top: 40px; margin-bottom: 0px;">
+            <div class="dgrid-content ui-widget-content" style="width: 100%;">
+
+                @{ var oddEven = "even"; }
+                @foreach (var group in Model.UsedVisitorGroups)
+                {
+                    <div role="row" class="dgrid-row dgrid-row-@oddEven ui-state-default" id="plainGrid-row-0">
+                        <table class="dgrid-row-table" role="presentation">
+                            <tr>
+                                <td data-visitorgroup="@group.Key" style="cursor: default" class="dgrid-cell dgrid-cell-padding dgrid-column-visitorgroup field-first selected-VG" role="gridcell">
+                                    <span class="@if (Model.SelectedVisitorGroup != null)
+                                                 {
+                                                     if (group.Key == Model.SelectedVisitorGroup)
+                                                     {
+                                                         @Html.Raw("dijitReset dijitInline dijitIcon epi-iconCheckmark")
+                                                         ;
+                                                     }
+                                                 }"></span>
+                                    <span>@group.Value</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    if (oddEven == "even")
+                    {
+                        oddEven = "odd";
+                    }
+                    else
+                    {
+                        oddEven = "even";
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+}

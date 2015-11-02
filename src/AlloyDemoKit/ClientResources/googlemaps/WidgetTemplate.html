@@ -1,0 +1,15 @@
+﻿<div class="dijitInline google-maps-editor">
+
+    <input class="editor-map-search" type="text" data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="searchTextbox" placeholder="${localized.search}" />
+
+    <a title="${localized.help.tooltip}" class="editor-map-help epi-iconHelp epi-icon--medium" href="#" data-dojo-attach-point="helpIcon"></a>
+
+    <div class="editor-map-canvas" id="map-canvas" data-dojo-attach-point="canvas"></div>
+
+    <div class="dijitInputContainer editor-map-coordinates">
+        <input type="text" disabled placeholder="${localized.latitude}" title="${localized.latitude}" data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="latitudeTextbox" />
+        <input type="text" disabled placeholder="${localized.longitude}" title="${localized.longitude}" data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="longitudeTextbox" />
+        <button class="editor-map-clear" data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearButton" data-dojo-attach-event="onClick:clearCoordinates" data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCancel', showLabel: false">${localized.clear}</button>
+    </div>
+
+</div>

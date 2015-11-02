@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <widgets>
+      <visitorgroupusageviewer>
+        <title>Visitor group usage</title>
+        <description>Used to view visitor groups used on the current content and on any content that the current links to</description>
+        <usedonthiscontent>On this content</usedonthiscontent>
+        <usedonreferencedcontent>On content that's referenced</usedonreferencedcontent>
+        <novisitorgroupsused>No visitor groups used on this content</novisitorgroupsused>
+      </visitorgroupusageviewer>
+    </widgets>
+  </language>
+</languages>

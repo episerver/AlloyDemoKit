@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using EPiServer.Shell.ViewComposition;
-using EPiServer.UI;
 using EPiServer.Core;
-using EPiServer.XForms.WebControls;
-using EPiServer.Templates.Alloy.Models.Pages;
 using EPiServer.Shell.WebForms;
 using AlloyDemoKit.Models.Pages;
 
 namespace EPiServer.Templates.Alloy.AddOns.Core
 {
-      [IFrameComponent(Url = "~/AddOns/Core/SearchAndReplace.aspx",
+    [IFrameComponent(Url = "~/AddOns/Core/SearchAndReplace.aspx",
         ReloadOnContextChange = false,
         PlugInAreas = "Assets",
         Title = "Search and Replace",

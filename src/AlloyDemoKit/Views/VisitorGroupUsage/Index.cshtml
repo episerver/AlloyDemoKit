@@ -1,0 +1,24 @@
+﻿@using System.Web.Mvc.Html
+@using EPiServer.Shell.Web.Mvc.Html
+@model VisitorGroupUsage.Models.VisitorGroupUsageModel
+
+<div data-dojo-attach-point="xmlContent">
+
+    @if (Model != null && Model.UsedOnThisContent != null)
+    {
+        @Html.Partial("VisitorGroupListing", Model.UsedOnThisContent)
+    }
+
+    @if (Model != null && Model.UsedOnReferencedContent != null)
+    {
+        @Html.Partial("VisitorGroupListing", Model.UsedOnReferencedContent)
+    }
+
+    @if (Model == null ||
+        (Model.UsedOnThisContent == null && Model.UsedOnReferencedContent == null) ||
+        (Model.UsedOnThisContent != null && Model.UsedOnThisContent.UsedVisitorGroups.Count == 0 && Model.UsedOnReferencedContent != null && Model.UsedOnReferencedContent.UsedVisitorGroups.Count == 0))
+    {
+        <span>@Html.TranslateFallback("widgets/VisitorGroupUsageViewer/novisitorgroupsused", "No visitor groups used on this content")</span>
+    }
+
+</div>

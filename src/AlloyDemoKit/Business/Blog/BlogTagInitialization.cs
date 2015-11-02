@@ -45,8 +45,8 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
         //Returns if we are doing an import or mirroring
         public bool IsImport()
         {
-
-            return Context.Current["CurrentITransferContext"] != null;
+            return false;
+            // TODO implementation return Context.Current["CurrentITransferContext"] != null;
         }
 
         /*
