@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Find;
+using EPiServer.Shell.ObjectEditing;
+using AlloyDemoKit.Business.EditorDescriptors;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -24,31 +26,39 @@ namespace AlloyDemoKit.Models.Pages
             Order = 3)]
         public virtual string PostCode { get; set; }
 
+
+        [Display(   Name = "Select Location",
+                    GroupName = Global.GroupNames.Location,
+                    Order = 5)]
+        [EditorDescriptor(EditorDescriptorType = typeof(CoordinatesEditorDescriptor))]
+        public virtual string GoogleLocation { get; set; }
+
         [Display(
             GroupName = Global.GroupNames.Location,
             Order = 4)]
         public virtual string Country { get; set; }
 
-        [Display(
-                    GroupName = Global.GroupNames.Location,
-                    Order = 5)]
-        public virtual double Latitude { get; set; }
-
-        [Display(
-                    GroupName = Global.GroupNames.Location,
-                    Order = 6)]
-        public virtual double Longitude { get; set; }
-
+        
         [Ignore]
         public GeoLocation Coordinates
         {
             get
             {
-                if (Latitude == 0 && Longitude == 0)
+                if (string.IsNullOrWhiteSpace(GoogleLocation))
                 {
                     return null;
                 }
-                return new GeoLocation(Latitude, Longitude);
+                int splitter = GoogleLocation.IndexOf(',');
+                if (splitter <= 0)
+                {
+                    return null;
+                }
+
+                double latitude = 0, longitude = 0;
+                latitude = Convert.ToDouble(GoogleLocation.Substring(0, splitter));
+                longitude = Convert.ToDouble(GoogleLocation.Substring(splitter+1));
+
+                return new GeoLocation(latitude, longitude);
             }
         }
     }

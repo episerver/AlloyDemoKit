@@ -404,6 +404,7 @@
     <Compile Include="Business\DDS\EmployeeSettingsHandler.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelectionFactory.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelector.cs" />
+    <Compile Include="Business\EditorDescriptors\CoordinatesEditorDescriptor.cs" />
     <Compile Include="Business\EditorDescriptors\StringListEditorDescriptor.cs" />
     <Compile Include="Business\EmailAddressAttribute.cs" />
     <Compile Include="Business\Employee\DataGenerator.cs" />
