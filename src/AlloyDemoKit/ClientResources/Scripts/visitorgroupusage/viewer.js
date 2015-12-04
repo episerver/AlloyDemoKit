@@ -6,8 +6,7 @@
     "dijit/layout/_LayoutWidget",
     "dijit/_TemplatedMixin",
     "epi-cms/_ContentContextMixin",
-    "epi/dependency",
-    "epi-cms/widget/VisitorGroupButton"
+    "epi/dependency"
 ], function (
     declare,
     parser,
@@ -16,8 +15,7 @@
     layoutWidget,
     templatedMixin,
     contentContextMixin,
-    locator,
-    vgButton
+    locator
 ) {
     return declare("visitorgroupusage",
         [layoutWidget, templatedMixin, contentContextMixin],
@@ -29,8 +27,6 @@
                 this.inherited(arguments);
                 var ctx = this.getCurrentContext();
                 this._getVisitorGroups(ctx.id);
-
-                this._visitorGroupsSelector = new vgButton();
             },
 
             contextChanged: function (context, callerData) {

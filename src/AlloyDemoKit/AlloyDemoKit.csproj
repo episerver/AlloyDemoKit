@@ -66,80 +66,88 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.dll</HintPath>
+    <Reference Include="EPiServer, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.ApplicationModules, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
+    <Reference Include="EPiServer.ApplicationModules, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Cms.AddOns.Blocks, Version=2.2.0.9000, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Cms.AddOns.Blocks.2.2.0.9000\lib\EPiServer.Cms.AddOns.Blocks.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
+    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.3.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.3.4\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Configuration, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.Configuration.dll</HintPath>
+    <Reference Include="EPiServer.Configuration, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Data, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.Data.dll</HintPath>
+    <Reference Include="EPiServer.ContentCollaboration, Version=1.2.0.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.ContentCollaboration.1.2.0.9000\lib\EPiServer.ContentCollaboration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Data.Cache, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.Data.Cache.dll</HintPath>
+    <Reference Include="EPiServer.Data, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Enterprise, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.Enterprise.dll</HintPath>
+    <Reference Include="EPiServer.Data.Cache, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.Data.Cache.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Events, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.Events.dll</HintPath>
+    <Reference Include="EPiServer.Enterprise, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.Enterprise.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Find, Version=10.1.0.3493, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.10.1.0.3493\lib\net45\EPiServer.Find.dll</HintPath>
+    <Reference Include="EPiServer.Events, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Find, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Find.11.0.0.3701\lib\net45\EPiServer.Find.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Find.Blocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.Cms.10.1.0.3493\lib\net45\EPiServer.Find.Blocks.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Blocks.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Find.Cms, Version=10.1.0.3493, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.Cms.10.1.0.3493\lib\net45\EPiServer.Find.Cms.dll</HintPath>
+    <Reference Include="EPiServer.Find.Cms, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Cms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Find.Framework, Version=10.1.0.3493, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.Framework.10.1.0.3493\lib\net45\EPiServer.Find.Framework.dll</HintPath>
+    <Reference Include="EPiServer.Find.Framework, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Find.Framework.11.0.0.3701\lib\net45\EPiServer.Find.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Find.Optimizations, Version=10.1.0.3493, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.Cms.10.1.0.3493\lib\net45\EPiServer.Find.Optimizations.dll</HintPath>
+    <Reference Include="EPiServer.Find.Optimizations, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Optimizations.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Find.Statistics, Version=10.1.0.3493, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.Cms.10.1.0.3493\lib\net45\EPiServer.Find.Statistics.dll</HintPath>
+    <Reference Include="EPiServer.Find.Statistics, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.Statistics.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Find.UI, Version=10.1.0.3493, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Find.Cms.10.1.0.3493\lib\net45\EPiServer.Find.UI.dll</HintPath>
+    <Reference Include="EPiServer.Find.UI, Version=11.0.0.3701, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Find.Cms.11.0.0.3701\lib\net45\EPiServer.Find.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Framework, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.Framework.dll</HintPath>
+    <Reference Include="EPiServer.Forms, Version=0.21.1.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.0.21.1.9000\Lib\EPiServer.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.GoogleAnalytics, Version=1.8.3.9000, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.GoogleAnalytics.1.8.3.9000\lib\EPiServer.GoogleAnalytics.dll</HintPath>
+    <Reference Include="EPiServer.Framework, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.ImageLibrary, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
+    <Reference Include="EPiServer.GoogleAnalytics, Version=1.9.2.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.GoogleAnalytics.1.9.2.9000\lib\EPiServer.GoogleAnalytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ImageLibrary, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.InstantTemplates, Version=0.0.16.0, Culture=neutral, processorArchitecture=MSIL">
@@ -150,12 +158,12 @@
       <HintPath>..\packages\EPiServer.Labs.LanguageManager.1.4.3.9000\lib\EPiServer.Labs.LanguageManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Licensing, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.Licensing.dll</HintPath>
+    <Reference Include="EPiServer.Licensing, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.Licensing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.LinkAnalyzer, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
+    <Reference Include="EPiServer.LinkAnalyzer, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.LiveMonitor, Version=8.3.0.9000, Culture=neutral, processorArchitecture=MSIL">
@@ -174,12 +182,12 @@
       <HintPath>..\packages\EPiServer.Packaging.UI.3.2.3\lib\net45\EPiServer.Packaging.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Shell, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Framework.9.2.1\lib\net45\EPiServer.Shell.dll</HintPath>
+    <Reference Include="EPiServer.Shell, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.4.0\lib\net45\EPiServer.Shell.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Shell.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.Shell.UI.dll</HintPath>
+    <Reference Include="EPiServer.Shell.UI, Version=9.3.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.3.4\lib\net45\EPiServer.Shell.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Social, Version=2.1.4.9000, Culture=neutral, processorArchitecture=MSIL">
@@ -202,20 +210,20 @@
       <HintPath>..\packages\EPiServer.TinyMCESpellChecker.1.1.1.9000\lib\EPiServer.TinyMCESpellChecker.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.UI, Version=9.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.2.0\lib\net45\EPiServer.UI.dll</HintPath>
+    <Reference Include="EPiServer.UI, Version=9.3.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.3.4\lib\net45\EPiServer.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.VisitorGroupsCriteriaPack, Version=1.2.0.9000, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.VisitorGroupsCriteriaPack.1.2.0.9000\lib\EPiServer.VisitorGroupsCriteriaPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Web.WebControls, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.XForms, Version=9.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.CMS.Core.9.2.1\lib\net45\EPiServer.XForms.dll</HintPath>
+    <Reference Include="EPiServer.XForms, Version=9.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.4.0\lib\net45\EPiServer.XForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Geta.SEO.Sitemaps, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -271,8 +279,12 @@
       <HintPath>..\packages\POSSIBLE.RobotsTxtHandler.2.0.2.0\lib\net45\POSSIBLE.RobotsTxtHandler.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="PowerSlice, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PowerSlice.2.1.2.0\lib\net40\PowerSlice.dll</HintPath>
+    <Reference Include="PowerSlice, Version=2.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PowerSlice.2.1.3.0\lib\net40\PowerSlice.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SiteAttentionModule, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SiteAttentionModule.2.4.1.0\lib\SiteAttentionModule.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="StructureMap, Version=3.1.6.186, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
@@ -349,7 +361,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="VisitorGroupUsage, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VisitorGroupUsage.1.0.2\lib\net45\VisitorGroupUsage.dll</HintPath>
+      <HintPath>..\packages\VisitorGroupUsage.1.0.3\lib\net45\VisitorGroupUsage.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
@@ -572,6 +584,559 @@
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatchPageTemplate.aspx" />
     <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FormsContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.4.9000\ClientResources\ViewMode\jquery-1.7.2.min.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FormsContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.5.9000\ClientResources\ViewMode\jquery-1.7.2.min.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FormsContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.19.6.9000\ClientResources\ViewMode\jquery-1.7.2.min.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FormsContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.20.0.9000\ClientResources\ViewMode\jquery-1.7.2.min.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.0.9000\ClientResources\ViewMode\jquery-1.7.2.min.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\command\EditImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\command\ImageChoiceCommands.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\command\NewForm.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\command\NewImageChoice.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\command\ViewFormData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\Forms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\FormsContentTypes.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\FormsContentTypesViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\FormsViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\component\templates\FormsContentTypes.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\CreateContent.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\CreateContentViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\ChoiceEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\ChoiceWithEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\CollectionEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\ContentAreaEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\DefaultGridAssembler.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\DependAllowMultiSelectAndFeedEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\EmailTemplateActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\ImageChoiceItemsEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\OptionListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\CollectionEditorModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\ExternalFeedSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\viewmodels\VisitorDataSourceSelectionViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\WebhookActorEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\_EditorMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\contentediting\editors\_WidgetListEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\dgrid\Formatters.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\FormsModule.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\ModuleSettings.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\Forms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\CaptchaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FeedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FileUploadElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormContainerBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\FormStepBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ImageChoiceElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\NumberElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\PredefinedHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\ResetButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SelectionElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\SubmitButtonElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextareaElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\TextboxElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\contenttypes\VisitorDataHiddenElementBlock.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\themes\sleek\images\formIcons16x16.png" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ChoiceItem.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ChoiceItemWithPreviewableText.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ChoiceItemWithSelection.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\command\CreateContentFromSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ContentTypeService.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\Downloader.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\DropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ExportDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ExportSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ExternalSystemDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ExternalSystemSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FieldSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FieldSelectorDialog.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FormContainer.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FormsContentType.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FormsContentTypeGroup.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FormsContentTypeList.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\FormsData.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\ImageChoiceSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\overlay\ContentArea.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\PlaceHolderDropDownButton.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\PlaceHolderSelectorMenu.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\SelectorMenuBase.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\TargetPageEditor.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\TargetPageSelector.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\templates\ChoiceItem.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\templates\FieldSelector.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\templates\FieldSelectorDialog.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\templates\FormsContentType.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\templates\FormsContentTypeGroup.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\templates\FormsData.html" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\viewmodels\FieldMappingTokenListViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\viewmodels\FormsDataViewModel.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\_ChoiceItemWith.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\_ContentAreaMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\widget\_SelectionMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\epi-forms\_UtilityMixin.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\ViewMode\EPiServerForms.css" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\ViewMode\EPiServerForms.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\0.21.1.9000\ClientResources\ViewMode\jquery-1.7.2.min.js" />
+    <Content Include="modules\_protected\EPiServer.Forms\EmbeddedLangFiles\EPiServer.Forms_EN.xml" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\CaptchaElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\ChoiceElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\FileUploadElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\FormContainerBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\FormStepBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\ImageChoiceElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\NumberElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\PredefinedHiddenElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\ResetButtonElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\SelectionElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\SubmitButtonElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\TextareaElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\TextboxElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\Blocks\VisitorDataHiddenElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\FormContainerInitScript.ascx" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\CommandProviders\SiteAttentionCommandProvider.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Components\SiteAttentionWidget.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Content.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\DefaultModule.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattention.css" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattentioninfo.css" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\SpriteTools.png" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\ToolButtonBg.gif" />
+    <Content Include="modules\_protected\SiteAttentionModule\SiteAttentionPlugIn.aspx" />
     <Content Include="Resources\LanguageFiles\ContentTypeNames.xml" />
     <Content Include="Resources\LanguageFiles\Display.xml" />
     <Content Include="Resources\LanguageFiles\EditorHints.xml" />
@@ -588,10 +1153,6 @@
     <Content Include="modules\AppleWatchChannel\Views\web.config" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatch.cshtml" />
     <Content Include="modules\AppleWatchChannel\module.config" />
-    <Content Include="modules\_protected\Shell\web.config" />
-    <Content Include="modules\_protected\Shell\Shell.zip" />
-    <Content Include="modules\_protected\CMS\web.config" />
-    <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\EPiServer.Packaging.UI\web.config" />
     <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\web.config" />
@@ -601,11 +1162,6 @@
     <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\module.config" />
     <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
     <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
     <Content Include="modules\_protected\EPiServer.Social\web.config" />
     <Content Include="modules\_protected\EPiServer.Social\Views\Web.config" />
     <Content Include="modules\_protected\EPiServer.Social\module.config" />
@@ -622,6 +1178,22 @@
     <Content Include="modules\_protected\EPiServer.LiveMonitor\LiveMonitor.config" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <Content Include="modules\_protected\InstantTemplates\InstantTemplates.zip" />
+    <Content Include="modules\_protected\Shell\web.config" />
+    <Content Include="modules\_protected\Shell\Shell.zip" />
+    <Content Include="modules\_protected\CMS\web.config" />
+    <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms\module.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
+    <Content Include="modules\_protected\EPiServer.ContentCollaboration\web.config" />
+    <Content Include="modules\_protected\EPiServer.ContentCollaboration\module.config" />
+    <Content Include="modules\_protected\EPiServer.ContentCollaboration\EPiServer.ContentCollaboration.zip" />
+    <Content Include="modules\_protected\EPiServer.ContentCollaboration\ContentCollaboration.config" />
+    <Content Include="modules\_protected\SiteAttentionModule\module.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
