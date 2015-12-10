@@ -453,6 +453,7 @@
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\BlogPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ArticlePageUIDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\WeatherBlockUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FindPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
     <Compile Include="Controllers\BlogItemController.cs" />
@@ -475,6 +476,7 @@
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\TagCloudBlockController.cs" />
     <Compile Include="Controllers\VideoFileController.cs" />
+    <Compile Include="Controllers\WeatherBlockController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -502,6 +504,7 @@
     <Compile Include="Models\Blocks\TagCloudBlock.cs" />
     <Compile Include="Models\Blocks\TeaserBlock.cs" />
     <Compile Include="Models\Blocks\TwitterBlock.cs" />
+    <Compile Include="Models\Blocks\WeatherBlock.cs" />
     <Compile Include="Models\Blocks\YouTubeBlock.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\IFileProperties.cs" />
@@ -549,9 +552,15 @@
     <Compile Include="Models\ViewModels\SearchHit.cs" />
     <Compile Include="Models\ViewModels\TagCloudModel.cs" />
     <Compile Include="Models\ViewModels\VideoViewModel.cs" />
+    <Compile Include="Models\ViewModels\WeatherBlockViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherService\WeatherService.csproj">
+      <Project>{847fda30-8ec3-48cd-b82b-d7fc4bd54621}</Project>
+      <Name>WeatherService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="AddOns\Core\SearchAndReplace.aspx" />
     <Content Include="AddOns\Core\TimeMachine.aspx" />
@@ -1361,6 +1370,7 @@
     <Content Include="Views\LocationPage\Index.cshtml" />
     <Content Include="Views\VisitorGroupUsage\VisitorGroupListing.cshtml" />
     <Content Include="Views\VisitorGroupUsage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\WeatherDisplay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

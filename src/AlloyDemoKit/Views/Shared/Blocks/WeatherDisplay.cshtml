@@ -1,0 +1,27 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model WeatherBlockViewModel
+
+<div class="border"> 
+        <h2>@Model.Heading</h2>
+        <p>
+            @Model.Location<br />
+            @Model.Conditions
+        </p>
+        <div>
+            @if(Model.ShowCelsius && Model.ShowFahrenheit)
+            {
+                @: @Model.Celsius &deg;C (@Model.Fahrenheit &deg;F)
+            }
+            else if (Model.ShowFahrenheit)
+            {
+                @: @Model.Fahrenheit &deg;F
+            }
+            else
+            {
+                @: @Model.Celsius &deg;C
+            }
+        </div>
+
+</div>
