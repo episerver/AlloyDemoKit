@@ -1371,6 +1371,7 @@
     <Content Include="Views\VisitorGroupUsage\VisitorGroupListing.cshtml" />
     <Content Include="Views\VisitorGroupUsage\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\WeatherDisplay.cshtml" />
+    <Content Include="Views\Shared\LanguageSelector.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -641,3 +641,12 @@ form.search-form {
     min-height: 1.1em;
     min-width: 1.6em;    
 }
+
+/* Language Selector */
+a.current-lang {
+    color: grey;
+}
+
+a.alt-lang {
+    font-style: italic;
+}
