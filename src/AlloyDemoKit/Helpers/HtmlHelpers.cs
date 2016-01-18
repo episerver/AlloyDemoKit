@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.WebPages;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using AlloyDemoKit.Business;
@@ -14,6 +13,7 @@ using EPiServer.Web.Routing;
 using EPiServer;
 using AlloyDemoKit.Models.Media;
 using EPiServer.SpecializedProperties;
+using AlloyDemoKit.Models.Pages;
 
 namespace AlloyDemoKit.Helpers
 {
@@ -34,7 +34,7 @@ namespace AlloyDemoKit.Helpers
         public static IHtmlString MenuList(
             this HtmlHelper helper, 
             ContentReference rootLink, 
-            Func<MenuItem, HelperResult> itemTemplate = null, 
+            Func<MenuItem, System.Web.WebPages.HelperResult> itemTemplate = null, 
             bool includeRoot = false, 
             bool requireVisibleInMenu = true, 
             bool requirePageTemplate = true)
@@ -84,9 +84,9 @@ namespace AlloyDemoKit.Helpers
             return menuItem;
         }
 
-        private static Func<MenuItem, HelperResult> GetDefaultItemTemplate(HtmlHelper helper)
+        private static Func<MenuItem, System.Web.WebPages.HelperResult> GetDefaultItemTemplate(HtmlHelper helper)
         {
-            return x => new HelperResult(writer => writer.Write(helper.PageLink(x.Page)));
+            return x => new System.Web.WebPages.HelperResult(writer => writer.Write(helper.PageLink(x.Page)));
         }
 
         public class MenuItem
@@ -106,13 +106,27 @@ namespace AlloyDemoKit.Helpers
         public static MvcHtmlString RenderExtendedCSS(this HtmlHelper helper, string inline, LinkItemCollection cssFiles)
         {
             StringBuilder outputCSS = new StringBuilder(string.Empty);
+            StartPage start = ServiceLocator.Current.GetInstance<IContentLoader>().Get<StartPage>(ContentReference.StartPage);
 
-            AppendFiles(cssFiles, outputCSS, CssFormat);
+            if ((cssFiles == null || cssFiles.Count == 0) && start.CSSFiles != null)
+            {
+                AppendFiles(start.CSSFiles, outputCSS, CssFormat);
+            }           
+            AppendFiles(cssFiles, outputCSS, CssFormat);            
 
             if (!string.IsNullOrWhiteSpace(inline))
             {
                 outputCSS.AppendLine("<style>");
                 outputCSS.AppendLine(inline);
+                outputCSS.AppendLine("</style>");
+            }
+            else
+            {
+                string startCSS;
+                
+                startCSS = start.CSS;
+                outputCSS.AppendLine("<style>");
+                outputCSS.AppendLine(startCSS);
                 outputCSS.AppendLine("</style>");
             }
 
