@@ -15,7 +15,11 @@
 @section RelatedContent
 {
     <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
-        <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)"/>
+        <div id="gallery">
+            <a href="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=800&height=600&scale=canvas" title="@Model.CurrentPage.PageName"><img src="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=370&scale=canvas" /></a>
+            <a href="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=400&height=300&scale=canvas" title="@Model.CurrentPage.PageName"></a>
+            <a href="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=150&height=75&scale=canvas" title="@Model.CurrentPage.PageName"></a>
+        </div>
     </div>
 
     <div class="block colorBox @string.Join(" ", @Model.CurrentPage.GetThemeCssClassNames())">
@@ -25,3 +29,9 @@
 
     @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
 }
+<script type="text/javascript">
+    $(function () {
+        $('#gallery a').lightBox();
+    });
+</script>
+

@@ -10,7 +10,7 @@
         }
     </style>
 
-    <img @Html.EditAttributes(x => x.Image) class="img_carousel" src="@Url.ContentUrl(Model.Image)" />
+    <img @Html.EditAttributes(x => x.Image) class="img_carousel" src="@Url.ContentUrl(Model.Image)?width=1168&height=400&crop=0,0,1168,400" />
     <div style="position: relative">
 
         <div class="carousel-caption">
