@@ -1194,13 +1194,10 @@
     <Content Include="modules\_protected\EPiServer.LiveMonitor\module.config" />
     <Content Include="modules\_protected\EPiServer.LiveMonitor\LiveMonitor.config" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
-    <Content Include="modules\_protected\InstantTemplates\InstantTemplates.zip" />
     <Content Include="modules\_protected\Shell\web.config" />
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
-    <Content Include="modules\_protected\EPiServer.Forms\module.config" />
-    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
@@ -1211,6 +1208,9 @@
     <Content Include="modules\_protected\EPiServer.ContentCollaboration\EPiServer.ContentCollaboration.zip" />
     <Content Include="modules\_protected\EPiServer.ContentCollaboration\ContentCollaboration.config" />
     <Content Include="modules\_protected\SiteAttentionModule\module.config" />
+    <Content Include="modules\_protected\InstantTemplates\InstantTemplates.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms\module.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -1387,6 +1387,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
