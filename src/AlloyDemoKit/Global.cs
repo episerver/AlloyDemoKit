@@ -85,6 +85,7 @@ namespace AlloyDemoKit
         {
             public const string Contact = "contact";
             public const string Strings = "StringList";
+            public const string Parking = "parking";
         }
 
         /// <summary>

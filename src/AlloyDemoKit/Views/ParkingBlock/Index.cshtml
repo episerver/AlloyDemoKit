@@ -1,0 +1,14 @@
+@model ParkingViewModel
+
+<h3 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h3>
+<div class="contact">   
+    <strong>@Model.Location</strong> @Model.OpenMessage
+    <br />
+    @Model.Address
+    <p>
+        Available spaces - @Model.AvailableCapacity (@Model.TotalCapacity total) 
+    </p>
+    <p>
+        Last updated: @Model.LastUpdated
+    </p>
+</div>

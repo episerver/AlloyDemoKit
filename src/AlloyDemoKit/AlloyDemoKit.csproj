@@ -422,7 +422,9 @@
     <Compile Include="Business\Data\FileReader.cs" />
     <Compile Include="Business\Data\IFileDataImporter.cs" />
     <Compile Include="Business\DDS\EmployeeSettingsHandler.cs" />
+    <Compile Include="Business\EditorDescriptors\ParkingSelectionFactory.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelectionFactory.cs" />
+    <Compile Include="Business\EditorDescriptors\ParkingGarageSelector.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelector.cs" />
     <Compile Include="Business\EditorDescriptors\CoordinatesEditorDescriptor.cs" />
     <Compile Include="Business\EditorDescriptors\StringListEditorDescriptor.cs" />
@@ -446,6 +448,12 @@
     <Compile Include="Business\PageContextActionFilter.cs" />
     <Compile Include="Business\PageTypeExtensions.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
+    <Compile Include="Business\Parking\City.cs" />
+    <Compile Include="Business\Parking\OpeningTime.cs" />
+    <Compile Include="Business\Parking\ParkingGarage.cs" />
+    <Compile Include="Business\Parking\ParkingGateway.cs" />
+    <Compile Include="Business\Parking\ParkingServer.cs" />
+    <Compile Include="Business\Parking\ParkingStatus.cs" />
     <Compile Include="Business\PowerSlice\ArticleSlice.cs" />
     <Compile Include="Business\PowerSlice\BlockSlice.cs" />
     <Compile Include="Business\PowerSlice\BlogSlice.cs" />
@@ -478,6 +486,7 @@
     <Compile Include="Controllers\PageControllerBase.cs" />
     <Compile Include="Controllers\CarouselBlockController.cs" />
     <Compile Include="Controllers\PageListBlockController.cs" />
+    <Compile Include="Controllers\ParkingBlockController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
     <Compile Include="Controllers\RssReaderBlockController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
@@ -500,6 +509,7 @@
     <Compile Include="Models\Blocks\CarouselItemBlock.cs" />
     <Compile Include="Models\Blocks\ClosestLocationBlock.cs" />
     <Compile Include="Models\Blocks\ContactBlock.cs" />
+    <Compile Include="Models\Blocks\ParkingBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
     <Compile Include="Models\Blocks\FacebookBlock.cs" />
     <Compile Include="Models\Blocks\FormBlock.cs" />
@@ -553,6 +563,7 @@
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
     <Compile Include="Models\ViewModels\PageListModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\ParkingViewModel.cs" />
     <Compile Include="Models\ViewModels\PreviewModel.cs" />
     <Compile Include="Models\ViewModels\RssReaderBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\FindSearchContentModel.cs" />
@@ -1380,6 +1391,7 @@
     <Content Include="Views\VisitorGroupUsage\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\WeatherDisplay.cshtml" />
     <Content Include="Views\Shared\LanguageSelector.cshtml" />
+    <Content Include="Views\ParkingBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
