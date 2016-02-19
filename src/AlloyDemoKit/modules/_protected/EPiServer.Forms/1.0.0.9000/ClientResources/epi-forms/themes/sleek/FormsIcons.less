@@ -1,0 +1,93 @@
+﻿@iconSizeSmall: 16;
+
+.commonIcons(@iconSize, @y: 1, @x: 0) {
+    @posY: (@iconSize * @y);
+    @posX: (@iconSize * @x);
+
+    background: url(images/formIcons16x16.png) -@posX + 0px -@posY + 0px no-repeat;
+}
+
+.iconsList(@modifier, @iconSize, @x) {
+    &@{modifier} {
+        height: @iconSize + 0px;
+        width: @iconSize + 0px;
+
+        &.epi-forms-textboxelementblock__icon {
+            .commonIcons(@iconSize, 1, @x);
+        }
+
+        &.epi-forms-textareaelementblock__icon {
+            .commonIcons(@iconSize, 2, @x);
+        }
+
+        &.epi-forms-numberelementblock__icon {
+            .commonIcons(@iconSize, 3, @x);
+        }
+
+        &.epi-forms-selectionelementblock__icon {
+            .commonIcons(@iconSize, 4, @x);
+        }
+
+        &.epi-forms-choiceelementblock__icon {
+            .commonIcons(@iconSize, 5, @x);
+        }
+
+        &.epi-forms-fileuploadelementblock__icon {
+            .commonIcons(@iconSize, 6, @x);
+        }
+
+        &.epi-forms-imagechoiceelementblock__icon {
+            .commonIcons(@iconSize, 7, @x);
+        }
+
+        &.epi-forms-predefinedhiddenelementblock__icon {
+            .commonIcons(@iconSize, 8, @x);
+        }
+
+        &.epi-forms-visitordatahiddenelementblock__icon {
+            .commonIcons(@iconSize, 9, @x);
+        }
+
+        &.epi-forms-feedhiddenelementblock__icon {
+            .commonIcons(@iconSize, 10, @x);
+        }
+
+        &.epi-forms-captchaelementblock__icon {
+            .commonIcons(@iconSize, 11, @x);
+        }
+
+        &.epi-forms-formstepblock__icon {
+            .commonIcons(@iconSize, 12, @x);
+        }
+
+        &.epi-forms-submitbuttonelementblock__icon {
+            .commonIcons(@iconSize, 13, @x);
+        }
+
+        &.epi-forms-resetbuttonelementblock__icon {
+            .commonIcons(@iconSize, 14, @x);
+        }
+
+        &.epi-forms-formcontainerblock__icon {
+            .commonIcons(@iconSize, 15, @x);
+        }
+        
+        // datetime element css class will be defined in Samples package
+        /*
+        &.epi-forms-datetimeelementblock__icon {
+            .commonIcons(@iconSize, 16, @x);
+        }
+        */
+
+        &.epi-forms-urlelementblock__icon {
+            .commonIcons(@iconSize, 17, @x);
+        }
+
+        &.epi-forms-rangeelementblock__icon {
+            .commonIcons(@iconSize, 18, @x);
+        }
+        &.epi-forms-paragraphtextelementblock__icon {
+            .commonIcons(@iconSize, 19, @x);
+        }
+    }
+}

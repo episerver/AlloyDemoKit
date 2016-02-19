@@ -16,7 +16,7 @@ TECHNOTE: all serverside (paths, dynamic values) of EPiServerForms will be trans
         // whether this Form can be submitted which relates to the visitor's data (cookie, identity) and Form's settings (AllowAnonymous, AllowXXX)
         SubmittableStatus : <%: @Html.Raw(Model.Form.GetSubmittableStatus(new HttpContextWrapper(HttpContext.Current)).ToJson()) %>,
         ConfirmMessage : "<%: FormsExtensions.Replace(Model.ConfirmationMessage, "[\n\r]", " ") %>",
-        ShowProgressBar : <%: Model.ShowProgressBar.ToString().ToLower() %>,
+        ShowNavigationBar : <%: Model.ShowNavigationBar.ToString().ToLower() %>,
         ShowSummarizedData : <%: Model.ShowSummarizedData.ToString().ToLower() %>,
             
         // Validation info, for executing validating on client side
@@ -25,35 +25,12 @@ TECHNOTE: all serverside (paths, dynamic values) of EPiServerForms will be trans
         StepsInfo : {
             Steps: <%: @Html.Raw(Model.GetStepsDescriptor().ToJson()) %>
         },
-
-        FieldsFriendlyName : {
-            <% foreach (var element in Model.Form.Steps.SelectMany(step => step.Elements)) { 
-                var fe = element as FormElement;
-                // this flag will be true if Element is kind of IViewModeInvisibleElement
-                var ignore = fe.SourceContent as IViewModeInvisibleElement != null;
-                %>
-
-                 "<%: (element as FormElement).Code%>" : "<%: ignore ? "" : (element as FormElement).SourceContent.Name %>",    <%--// <%: Ajax.JavaScriptStringEncode((element as FormElement).SourceContent.Name) %>--%>
-            <% }  %>
-        }
+        FieldsExcludedInSubmissionSummary: <%: Html.Raw(Model.Form.GetFieldsExcludedInSubmissionSummary().ToJson()) %>,
+        ElementsInfo: <%: Html.Raw(Model.GetElementsDescriptor().ToJson()) %>
     };
     
     /// TECHNOTE: Calculation at FormInfo level, and these values will be static input for later processing.
-    // -- this FLAG will be true, if Editor does not put any FormStep. Engine will create a virtual step, with empty GUID
-    var firstStep = workingFormInfo.StepsInfo.Steps[0];
-    if(firstStep){
-        workingFormInfo.StepsInfo.FormHasNoStep_VirtualStepCreated = firstStep.guid === "00000000-0000-0000-0000-000000000000";
-    }
-    else{
-        workingFormInfo.StepsInfo.FormHasNothing = true; // no element, no step at all.
-    }
-
-    
-    // -- this FLAG will be true, if all steps all have contentLink=="" (emptyString)
-    workingFormInfo.StepsInfo.AllStepsAreNotLinked = true;   
-    for(var i=0; i < workingFormInfo.StepsInfo.Steps.length; i++){
-        var step = workingFormInfo.StepsInfo.Steps[i];
-        workingFormInfo.StepsInfo.AllStepsAreNotLinked = workingFormInfo.StepsInfo.AllStepsAreNotLinked && !(step.attachedContentLink);
-    }
-
+    workingFormInfo.StepsInfo.FormHasNoStep_VirtualStepCreated = <%: ViewBag.FormHasNoStep_VirtualStepCreated.ToString().ToLower() %>;  // this FLAG will be true, if Editor does not put any FormStep. Engine will create a virtual step, with empty GUID
+    workingFormInfo.StepsInfo.FormHasNothing = <%: ViewBag.FormHasNothing.ToString().ToLower() %>;  // this FLAG will be true if FormContainer has no element at all
+    workingFormInfo.StepsInfo.AllStepsAreNotLinked = <%: ViewBag.AllStepsAreNotLinked.ToString().ToLower() %>;  // this FLAG will be true, if all steps all have contentLink=="" (emptyString)
 })();

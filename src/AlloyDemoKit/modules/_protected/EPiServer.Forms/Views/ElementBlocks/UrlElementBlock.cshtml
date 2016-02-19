@@ -1,0 +1,22 @@
+﻿@using System.Web.Mvc
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Forms.Core
+@using EPiServer.Forms.Core.Models
+@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Elements
+
+@model UrlElementBlock
+
+@{  
+    var formElement = Model.FormElement;
+    var labelText = Model.Label;
+}
+
+<div class="Form__Element FormTextbox FormTextbox--Url @Model.GetValidationCssClasses()" data-epiforms-element-name="@formElement.Code">
+    <label for="@formElement.Guid" class="Form__Element__Caption">@labelText</label>
+    <input name="@formElement.Code" id="@formElement.Guid" type="url" class="FormTextbox__Input FormUrl__Input"
+           placeholder="@Model.PlaceHolder" value="@Model.PredefinedValue" @Html.Raw(formElement.AttributesString) />
+
+    <span data-epiforms-linked-name="@formElement.Code" class="Form__Element__ValidationError" style="display: none;">*</span>
+</div>

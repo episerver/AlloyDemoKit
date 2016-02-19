@@ -95,9 +95,11 @@ namespace AlloyDemoKit.Business.Parking
 
 
                     foreach (var item in results)
-                    {
-                        ParkingGarage garage = JsonConvert.DeserializeObject<ParkingGarage>(item);
+                    {                        
+                        string jsonItem = item.ToString().Replace("\r\n", "");
+                        ParkingGarage garage = JsonConvert.DeserializeObject<ParkingGarage>(jsonItem);
                         allGarages.Add(garage);
+                        
                     }
                 }
 

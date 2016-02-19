@@ -58,7 +58,7 @@ function (
     return declare([_Widget, _TemplatedMixin, _WidgetsInTemplateMixin, _ValueRequiredMixin], {
        
         // The Google Maps object of this widget instance
-        map: this.canvas,
+        map: null,
 
         // The map marker of this widget instance
         marker: null,
@@ -66,17 +66,12 @@ function (
         // Load HTML template from the same location as the widget
         templateString: dojo.cache("tedgustaf.googlemaps", "WidgetTemplate.html"),
 
+        // Localizations able to be accessed from the template
+        localized: localized,
+
         // Event used to notify EPiServer that the property value has changed
         onChange: function (value) {
             console.log('onchange');
-            this.parent.save(value); // HACK Otherwise value won't be saved when Google Places search result item is clicked (instead of using Enter to select it)
-        },
-
-        // Dojo function invoked before rendering
-        postMixInProperties: function () {
-            this.inherited(arguments);
-
-            this.localized = localized; // To be able to access translations from template
         },
 
         // Dojo event fired after all properties of a widget are defined, but before the fragment itself is added to the main HTML document
@@ -84,21 +79,6 @@ function (
 
             // Call base implementation of postCreate, passing on any parameters
             this.inherited(arguments);
-
-            // Use internal value setter with the value passed in by EPiServer through the widget constructor
-            this._setValue(this.value);
-
-            // Set coordinate textboxes to current property value
-            if (this.hasCoordinates()) {
-                if (typeof this.value === "string") {
-                    var coordinates = this.value.split(',');
-                    this.longitudeTextbox.set('value', coordinates[0]);
-                    this.latitudeTextbox.set('value', coordinates[1]);
-                } else if (typeof this.value === "object") {
-                    this.longitudeTextbox.set('value', this.value.longitude);
-                    this.latitudeTextbox.set('value', this.value.latitude);
-                }
-            }
 
             // When the editor switches tabs in the UI we trigger a map resize to ensure it aligns properly
             var that = this;
@@ -221,16 +201,41 @@ function (
 
         // Setter for value property (invoked by EPiServer on load)
         _setValueAttr: function (value) {
-            this._setValue(value, true);
-        },
 
-        // Set whether the property is readonly (invoked by EPiServer on load)
-        _setReadOnlyAttr: function (value) {
-            this._set("readOnly", value);
+            // Skip if the new property value is identical to the current one
+            if (value === this.value) {
+                return;
+            }
+
+            // Update the widget (i.e. property) value
+            this._set("value", value);
+
+            // If the value set is empty then clear the coordinates
+            if (!value) {
+                this.clearCoordinates();
+                return;
+            }
+
+            // Determine if the property is complex type, such as a local block
+            this._isComplexType = typeof value === "object";
+
+            var location;
+            if (this._isComplexType) {
+                location = new google.maps.LatLng(value.latitude, value.longitude);
+            } else {
+                var coordinates = value.split(",");
+                location = new google.maps.LatLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
+            }
+
+            this.setMapLocation(location, null, true);
         },
 
         // Update widget value when a coordinate is changed
         _onCoordinateChanged: function () {
+
+            if (!this._started) {
+                return;
+            }
 
             var longitude = this.longitudeTextbox.get('value');
             var latitude = this.latitudeTextbox.get('value');
@@ -239,38 +244,24 @@ function (
                 return;
             }
 
-            // Update the widget (i.e. property) value
-            if (this.value != null && typeof this.value === "object") { // Property is complex type, such as a local block
-                var coordinatesObject = { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
-                this._setValue(coordinatesObject);
-            } else { // Assume string value type
-                var coordinatesAsString = latitude + "," + longitude;
-                this._setValue(coordinatesAsString);
-            }
-        },
-
-        // Used to set the widget (property) value
-        _setValue: function (value) {
-
-            // Skip if the new property value is identical to the current one
-            if (this._started && epi.areEqual(this.value, value)) {
-                return;
+            // Get the new value in the correct format
+            var value;
+            if (this._isComplexType) {
+                value = { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
+            } else {
+                value = latitude + "," + longitude;
             }
 
-            // Update the widget (i.e. property) value
+            // Set the widget (i.e. property) value and trigger change event to notify EPiServer (and possibly others) that the value has changed
             this._set("value", value);
-
-            if (this._started && this.validate()) {
-                // Trigger change event to notify EPiServer (and possibly others) that the value has changed
-                this.onChange(value);
-            }
+            this.onChange(value);
         },
 
         // Clears the coordinates, i.e. the property value (the clear button's click event is wired up through a 'data-dojo-attach-event' attribute in the HTML template)
         clearCoordinates: function () {
             
             // Clear coordinate checkboxes
-            this.longitudeTextbox.set('value', '', false); // Change value without triggering onChange event as we will explicitly null the property value
+            this.longitudeTextbox.set('value', '');
             this.latitudeTextbox.set('value', '');
 
             // Clear search box
@@ -282,8 +273,9 @@ function (
                 this.marker = null;
             }
 
-            // Null the widget (i.e. property) value
-            this._setValue(null);
+            // Null the widget (i.e. property) value and trigger change event to notify EPiServer (and possibly others) that the value has changed
+            this._set("value", null);
+            this.onChange(null);
         },
 
         // Setup the Google Maps canvas
@@ -361,7 +353,8 @@ function (
                     if (places.length == 0) {
                         return;
                     }
-
+                    // Return focus to the textbox to ensure autosave works correctly and to also give a nice editor experience
+                    that.searchTextbox.focus();
                     that.setMapLocation(places[0].geometry.location, 15, true);
                 });
             } else {

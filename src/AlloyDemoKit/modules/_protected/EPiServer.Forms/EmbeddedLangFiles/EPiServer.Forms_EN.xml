@@ -47,6 +47,7 @@
                     <submittime>Time</submittime>
                     <submituser>By user</submituser>
                     <hostedpage>Submitted from</hostedpage>
+                    <finalizedsubmission>Finalized</finalizedsubmission>
                 </formdataview>
                 <formscontentarea>
                     <emptyactions>
@@ -75,7 +76,7 @@
                     </episerver.forms.implementation.validation.requiredvalidator>
                     <episerver.forms.implementation.validation.regularexpressionvalidator>
                         <displayname>Regular expression</displayname>
-                        <message>This field should be in "{0}" format. {1}</message>
+                        <message>This field should be in "{0}" format.</message>
                     </episerver.forms.implementation.validation.regularexpressionvalidator>
                     <episerver.forms.implementation.validation.captchavalidator>
                         <displayname>Captcha</displayname>
@@ -88,12 +89,16 @@
                     </episerver.forms.implementation.validation.allowedextensionsvalidator>
                     <episerver.forms.implementation.validation.maxfilesizevalidator>
                         <displayname>Max file size</displayname>
-                        <message>The upload file size should be less than {0} MB.</message>
+                        <message see="/episerver/forms/messages/fileupload/overfilesize" />
                     </episerver.forms.implementation.validation.maxfilesizevalidator>
                     <episerver.forms.implementation.validation.emailvalidator>
                         <displayname>Email</displayname>
                         <message>Enter a valid email address.</message>
                     </episerver.forms.implementation.validation.emailvalidator>
+                    <episerver.forms.implementation.validation.urlvalidator>
+                        <displayname>Url</displayname>
+                        <message>Enter a valid URL.</message>
+                    </episerver.forms.implementation.validation.urlvalidator>
 
                     <episerver.forms.implementation.validation.dateddmmyyyyvalidator>
                         <displayname>Date (DD/MM/YYYY)</displayname>
@@ -118,9 +123,7 @@
                     </episerver.forms.implementation.validation.positiveintegervalidator>
 
                     <elementselfvalidator>
-                        <selectionelementblockbase>
-                          <unexpectedvalueisnotaccepted>Unexpected value is not accepted.</unexpectedvalueisnotaccepted>
-                        </selectionelementblockbase>
+                        <unexpectedvalueisnotaccepted>Unexpected value is not accepted.</unexpectedvalueisnotaccepted>
                     </elementselfvalidator>
 
                 </validators>
@@ -186,6 +189,7 @@
                         <requirelogin>You must be logged in to submit the form.</requirelogin>
                         <denymultisubmit>You already submitted this form.</denymultisubmit>
                         <submitsuccess>Submit successful.</submitsuccess>
+                        <validationfailformat>Validation failed on "{0}" field: {1}</validationfailformat>
                     </formsubmission>
                 </messages>
                 <dependcondition>
@@ -204,7 +208,6 @@
                         <template>Drop image content here.&lt;br/&gt;You also can {createnewitem}.</template>
                     </emptyactions>
                     <menutooltip>Display menu</menutooltip>
-                    <containsinvalidcharacter>The item text contains unacceptable "," character(s).</containsinvalidcharacter>
                 </imagechoiceitems>
                 <editview>
                     <notconfigured>Not configured yet</notconfigured>
@@ -219,6 +222,7 @@
                     <selectpage>Select page</selectpage>
                     <usemanualinput>Use manual input</usemanualinput>
                     <errorconditionalstepcannotcontainrequiredelement>This Form step should not depend on other Element because it contains mandatory Element [{0}].</errorconditionalstepcannotcontainrequiredelement>
+                    <cannotbuildformmodel>Cannot build the Form model for rendering. Note that FormContainerBlock cannot be used as a property.</cannotbuildformmodel>
                 </editview>
 
                 <viewmode>
@@ -244,6 +248,7 @@
                         <caption>Choice</caption>
                         <value>Value</value>
                         <checked>Checked by default</checked>
+                        <containsinvalidcharacter>Comma (,) character is not allowed.</containsinvalidcharacter>
                     </optionitem>
                     <emailtemplateactor>
                         <fromemail>From</fromemail>
@@ -259,6 +264,12 @@
                         <url>Webhook URL</url>
                         <urldescription>Webhook URL to send data payload to; should be http or https protocol.</urldescription>
                     </webhookactor>
+                    <validation>
+                        <greaterthanequaltoerrorformat>The {0} must be &gt;= {1}'s value.</greaterthanequaltoerrorformat>
+                        <lessthanequaltoerrorformat>The {0} must be &lt;= {1}'s value.</lessthanequaltoerrorformat>
+                        <inrangeerrorformat>The {0} must be in range of [{1}-{2}]'s value.</inrangeerrorformat>
+                        <stepinrangeerrorformat>The {0} must be &gt;= 1 and &lt;= {2} - {1} value.</stepinrangeerrorformat>
+                    </validation>
                 </contentediting>
             </forms>
         </episerver>
@@ -330,8 +341,8 @@
                         <caption>Form title</caption>
                     </title>
                     <description>
-                      <caption>Description</caption>
-                      <help>Displays as a description under form title.</help>
+                        <caption>Description</caption>
+                        <help>Displays as a description under form title.</help>
                     </description>
                     <elementsarea>
                         <caption>Form elements</caption>
@@ -348,10 +359,10 @@
                         <caption>Allow access to form data through the service API</caption>
                         <help>Enable to let a developer (or other app) get form submission data by using the Forms Service API.</help>
                     </allowexposingdatafeeds>
-                    <showprogressbar>
-                        <caption>Show the progress bar if the form has multiple steps</caption>
-                        <help>Show the progress bar in each form step.</help>
-                    </showprogressbar>
+                    <shownavigationbar>
+                        <caption>Show navigation bar if the form has multiple steps</caption>
+                        <help>Show the navigation bar in each form step.</help>
+                    </shownavigationbar>
                     <showsummarizeddata>
                         <caption>Show a summary confirmation message after submission</caption>
                         <help>Confirm summarized data before sending the data to storage.</help>
@@ -489,16 +500,16 @@
                 <newitemdefaultname>New form step</newitemdefaultname>
                 <properties>
 
-                  <label>
-                    <caption>Step title</caption>
-                    <help>The heading title of this form step.</help>
-                  </label>
-                  <description>
-                    <caption>Description</caption>
-                    <help>Displays as a description under step title.</help>
-                  </description>
+                    <label>
+                        <caption>Step title</caption>
+                        <help>The heading title of this form step.</help>
+                    </label>
+                    <description>
+                        <caption>Description</caption>
+                        <help>Displays as a description under step title.</help>
+                    </description>
 
-                  <attachedcontentlink>
+                    <attachedcontentlink>
                         <caption>Display step in other content</caption>
                         <help>The content in which you display this step must contain the form.</help>
                     </attachedcontentlink>
@@ -516,6 +527,32 @@
                     </dependvalue>
                 </properties>
             </formstepblock>
+            <paragraphtextelementblock>
+                <name>Rich text (with placeholders)</name>
+                <description></description>
+                <newitemdefaultname>New Rich text (with placeholders)</newitemdefaultname>
+                <properties>
+                    <paragraphtext>
+                        <caption>Text</caption>
+                        <help>Show text with selected placeholders</help>
+                    </paragraphtext>
+                </properties>
+            </paragraphtextelementblock>
+            <urlelementblock>
+                <name>Url</name>
+                <description></description>
+                <newitemdefaultname>New Url</newitemdefaultname>
+            </urlelementblock>
+            <rangeelementblock>
+                <name>Range</name>
+                <description></description>
+                <newitemdefaultname>New Range</newitemdefaultname>
+                <properties>
+                    <predefinedvalue>
+                        <help>A value (between Min and Max values) for placing the slider button at initial.</help>
+                    </predefinedvalue>
+                </properties>
+            </rangeelementblock>
         </contenttypes>
     </language>
 </languages>
