@@ -2,6 +2,14 @@
 @model PageViewModel<LocationPage>
 @{ Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
 
+<style>
+    #map_canvas {
+        width: 500px;
+        height: 400px;
+    }
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
 <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
 <p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>
 <div class="row">
@@ -17,4 +25,23 @@
         @Html.DisplayFor(m => m.CurrentPage.MainBody)
     </div>
 </div>
+<div class="row">    
+ <div id="map_canvas" class="span8 clearfix"></div>
+</div>
 @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.TwoThirdsWidth })
+
+@if (!string.IsNullOrWhiteSpace(Model.CurrentPage.GoogleLocation))
+{
+<script>
+    function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var map_options = {
+            center: new google.maps.LatLng(@Model.CurrentPage.GoogleLocation),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(map_canvas, map_options)
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+}

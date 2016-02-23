@@ -39,7 +39,7 @@ namespace AlloyDemoKit.Models.Pages
         public virtual string Country { get; set; }
 
         
-        [Ignore]
+        [ScaffoldColumn(false)]
         public GeoLocation Coordinates
         {
             get
