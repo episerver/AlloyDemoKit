@@ -584,6 +584,7 @@
     <Content Include="AddOns\Core\SearchAndReplace.aspx" />
     <Content Include="AddOns\Core\TimeMachine.aspx" />
     <Content Include="AdminTools\EmployeeSettings.aspx" />
+    <Content Include="ClientResources\Styles\ContentColabFix.css" />
     <Content Include="ClientResources\googlemaps\async.js" />
     <Content Include="ClientResources\googlemaps\Editor.js" />
     <Content Include="ClientResources\googlemaps\nls\Labels.js" />
