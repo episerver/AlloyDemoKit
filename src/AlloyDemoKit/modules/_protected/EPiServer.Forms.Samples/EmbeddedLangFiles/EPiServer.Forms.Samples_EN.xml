@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+    <language name="English" id="en">
+        <enums>
+            <episerver>
+                <forms>
+                    <samples>
+                        <criteria>
+                            <submissionstatus>
+                                <hassubmitted>Has submitted</hassubmitted>
+                                <hasnotsubmitted>Has not submitted</hasnotsubmitted>
+                            </submissionstatus>
+                        </criteria>
+                    </samples>
+                </forms>
+            </episerver>
+        </enums>
+
+        <episerver>
+            <forms>
+                <samples>
+                    <criteria>
+                        <formcriterion>
+                            <category>EPiServer forms</category>
+                            <displayname>Submitted form</displayname>
+                            <description>Checks for form submission by the visitor.</description>
+                            <submissionstatus>Submission status</submissionstatus>
+                            <selectedform>Selected form</selectedform>
+                        </formcriterion>
+                    </criteria>
+
+                    <datetimepickertype>
+                        <datepicker>Date picker</datepicker>
+                        <timepicker>Time picker</timepicker>
+                        <datetimepicker>Date time picker</datetimepicker>
+                    </datetimepickertype>
+
+                    <confirmationdialog>
+                        <title>Summary</title>
+                        <buttons>
+                            <ok>OK</ok>
+                            <cancel>Cancel</cancel>
+                        </buttons>
+                    </confirmationdialog>
+                </samples>
+                <validators>
+                    <episerver.forms.samples.implementation.validation.datetimevalidator>
+                        <displayname>Datetime validator</displayname>
+                        <message>Enter a valid date time in {0} hh:mm format.</message>
+                    </episerver.forms.samples.implementation.validation.datetimevalidator>
+                    <episerver.forms.samples.implementation.validation.datevalidator>
+                        <displayname>Date validator</displayname>
+                        <message>Enter a valid date in {0} format.</message>
+                    </episerver.forms.samples.implementation.validation.datevalidator>
+                    <episerver.forms.samples.implementation.validation.timevalidator>
+                        <displayname>Time validator</displayname>
+                        <message>Enter a valid time, e.g. 10:20 AM.</message>
+                    </episerver.forms.samples.implementation.validation.timevalidator>
+                </validators>
+            </forms>
+        </episerver>
+        <contenttypes>
+            <datetimeelementblock>
+                <name>Date time</name>
+                <description></description>
+                <newitemdefaultname>New date time</newitemdefaultname>
+                <properties>
+                    <pickertype>
+                        <caption>Picker type</caption>
+                        <help>Select picker type for the property.</help>
+                    </pickertype>
+                </properties>
+            </datetimeelementblock>
+        </contenttypes>
+  </language>
+</languages>

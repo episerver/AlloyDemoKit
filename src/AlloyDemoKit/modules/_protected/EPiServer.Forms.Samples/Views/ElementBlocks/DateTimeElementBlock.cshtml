@@ -1,0 +1,43 @@
+﻿@using System.Web.Mvc
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Forms.Core
+@using EPiServer.Forms.Core.Models
+@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Samples.Implementation.Elements
+@using EPiServer.Forms.Samples.EditView
+
+@model DateTimeElementBlock
+
+@{  
+    var formElement = Model.FormElement;
+    var labelText = Model.Label;
+}
+
+<div class="Form__Element Form__CustomElement FormDateTime @Model.GetValidationCssClasses()" data-epiforms-element-name="@formElement.Code">
+    <label for="@formElement.Guid" class="Form__Element__Caption">@labelText</label>
+    <input name="@formElement.Code" id="@formElement.Guid" type="text" class="Form__CustomInput FormDateTime__Input"
+           placeholder="@Model.PlaceHolder" value="@Model.PredefinedValue" @Html.Raw(formElement.AttributesString) />
+
+    <span data-epiforms-linked-name="@formElement.Code" class="Form__Element__ValidationError" style="display: none;">*</span>
+
+    @if (!EPiServer.Editor.PageEditing.PageIsInEditMode)
+    {
+        var pickerType = ((DateTimePickerType)Model.PickerType).ToString().ToLower();
+        <script type="text/javascript">
+
+            if (typeof $$epiforms !== 'undefined') {
+                $$epiforms(".EPiServerForms").on("formsLoadExternalScripts", function (event) {
+                    var language = navigator.language || navigator.userLanguage,
+                        dateFormatSettings = epi.EPiServer.Forms.dateFormats[language],
+                        dateFormat = dateFormatSettings ? dateFormatSettings.pickerFormat : $$epiforms.datetimepicker._defaults.dateFormat;
+                    $$epiforms("#@formElement.Guid").datetimepicker({
+                        type: '@pickerType',
+                        constrainInput: false,
+                        dateFormat: dateFormat
+                    });
+                });
+            }
+        </script>
+    }
+</div>
