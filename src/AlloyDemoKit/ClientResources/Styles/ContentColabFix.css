@@ -1,0 +1,2 @@
+﻿/*Fix the content collaboration UI bug*/
+div.epi-comment-container span[title*="Comment on"] { display: none !important; }
