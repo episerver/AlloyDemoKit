@@ -13,7 +13,7 @@
     var warningMessage = Model.WarningMessage;
 
     if (EPiServer.Editor.PageEditing.PageIsInEditMode) { %>
-        <section class="Form__Element FormStep <%:extraCSSClass %>">
+        <section class="Form__Element FormStep Form__Element--NonData <%:extraCSSClass %>">
             <h3 class="FormStep__Title  "><%: Model.EditViewFriendlyTitle %></h3>
             <aside class="FormStep__Description"><%: Model.Description %></aside>
             <% if(!string.IsNullOrEmpty(warningMessage)) { %>

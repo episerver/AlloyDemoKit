@@ -26,7 +26,8 @@ TECHNOTE: all serverside (paths, dynamic values) of EPiServerForms will be trans
             Steps: <%: @Html.Raw(Model.GetStepsDescriptor().ToJson()) %>
         },
         FieldsExcludedInSubmissionSummary: <%: Html.Raw(Model.Form.GetFieldsExcludedInSubmissionSummary().ToJson()) %>,
-        ElementsInfo: <%: Html.Raw(Model.GetElementsDescriptor().ToJson()) %>
+        ElementsInfo: <%: Html.Raw(Model.GetElementsDescriptor().ToJson()) %>,
+        DataSubmitController: "<%: EPiServer.Forms.Configuration.EPiServerFormsSection.Instance.CoreController %>"
     };
     
     /// TECHNOTE: Calculation at FormInfo level, and these values will be static input for later processing.

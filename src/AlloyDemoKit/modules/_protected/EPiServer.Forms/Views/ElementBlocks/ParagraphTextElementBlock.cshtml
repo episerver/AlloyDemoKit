@@ -14,7 +14,7 @@
     var originalParagraphText = Model.OriginalParagraphText;
 }
 
-<div class="Form__Element FormParagraphText" data-epiforms-element-name="@formElement.Code">
+<div class="Form__Element FormParagraphText Form__Element--NonData" data-epiforms-element-name="@formElement.Code">
     @if (EPiServer.Editor.PageEditing.PageIsInEditMode)
     {
         <div name="@formElement.Code" id="@formElement.Guid" @Html.Raw(formElement.AttributesString)>@Html.Raw(Model.EditViewFriendlyTitle)</div>
@@ -46,7 +46,7 @@
                                 }
                                 var elementInfo = workingFormInfo.ElementsInfo[fieldName],
                                     friendlyName = elementInfo.friendlyName;
-                                
+
                                 if (!friendlyName) {
                                     continue;
                                 }

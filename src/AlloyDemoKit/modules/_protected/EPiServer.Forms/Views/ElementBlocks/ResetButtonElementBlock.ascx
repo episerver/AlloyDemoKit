@@ -10,5 +10,5 @@
 <input  
     <%--name="<%: formElement.Code %>" id="<%: formElement.Guid %>" --%>
     type="reset" form="<%: Model.FormElement.Form.FormGuid %>"
-    class="Form__Element FormResetButton" <%: Html.Raw(formElement.AttributesString) %> 
+    class="Form__Element FormResetButton Form__Element--NonData" <%: Html.Raw(formElement.AttributesString) %> 
     value="<%: buttonText %>" >

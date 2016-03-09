@@ -1,5 +1,6 @@
 ﻿<%@ import namespace="System.Web.Mvc" %>
 <%@ import namespace="EPiServer.Web.Mvc.Html" %>
+<%@ Import Namespace="EPiServer.Forms" %>
 <%@ import namespace="EPiServer.Forms.Core.Models" %>
 <%@ import namespace="EPiServer.Forms.Implementation.Elements" %>
 <%@ control language="C#" inherits="ViewUserControl<CaptchaElementBlock>" %>
@@ -10,7 +11,11 @@
 <div class="Form__Element FormCaptcha" data-epiforms-element-name="<%: formElement.Code %>" >
     <label class="Form__Element__Caption" for="<%: formElement.Guid %>">
         <%: labelText %>
-        <a data-epiforms-captcha-image-handler="<%: formElement.Guid %>" class="FormCaptcha__Refresh" href=""><%: Html.Translate("/episerver/forms/viewmode/refreshcaptcha")%></a>
+        <button name="submit" type="submit" data-epiforms-captcha-image-handler="<%: formElement.Guid %>" value="<%: SubmitButtonType.RefreshCaptcha.ToString() %>"
+            class="FormCaptcha__Refresh">
+            <%: Html.Translate("/episerver/forms/viewmode/refreshcaptcha")%>
+        </button>
+
     </label>
     <img src="<%: Model.CaptchaImageHandler %>" class="FormCaptcha__Image" />
     <input id="<%: formElement.Guid %>" name="<%: formElement.Code %>" type="text" class="FormTextbox__Input FormCaptcha__Input FormHideInSummarized" />
