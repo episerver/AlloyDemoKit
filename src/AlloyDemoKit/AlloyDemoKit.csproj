@@ -498,6 +498,7 @@
     <Compile Include="Controllers\ParkingBlockController.cs" />
     <Compile Include="Controllers\PollResultsBlockController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
+    <Compile Include="Controllers\ProfilePageController.cs" />
     <Compile Include="Controllers\RssReaderBlockController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
@@ -555,6 +556,7 @@
     <Compile Include="Models\Pages\LocationPage.cs" />
     <Compile Include="Models\Pages\NewsPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
+    <Compile Include="Models\Pages\ProfilePage.cs" />
     <Compile Include="Models\Pages\SearchPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
@@ -577,6 +579,7 @@
     <Compile Include="Models\ViewModels\ParkingViewModel.cs" />
     <Compile Include="Models\ViewModels\PollResultsBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\PreviewModel.cs" />
+    <Compile Include="Models\ViewModels\ProfilePageViewModel.cs" />
     <Compile Include="Models\ViewModels\RssReaderBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\FindSearchContentModel.cs" />
     <Compile Include="Models\ViewModels\SearchContentModel.cs" />
@@ -1068,6 +1071,7 @@
     <Content Include="Views\Shared\LanguageSelector.cshtml" />
     <Content Include="Views\ParkingBlock\Index.cshtml" />
     <Content Include="Views\PollResultsBlock\Index.cshtml" />
+    <Content Include="Views\ProfilePage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

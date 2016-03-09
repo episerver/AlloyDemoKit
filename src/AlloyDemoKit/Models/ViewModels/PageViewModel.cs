@@ -6,6 +6,10 @@ namespace AlloyDemoKit.Models.ViewModels
 {
     public class PageViewModel<T> : IPageViewModel<T> where T : SitePageData
     {
+        public PageViewModel()
+        {
+        }
+
         public PageViewModel(T currentPage)
         {
             CurrentPage = currentPage;
