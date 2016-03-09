@@ -444,6 +444,7 @@
     <Compile Include="Business\Employee\EmployeeLocationSelectionFactory.cs" />
     <Compile Include="Business\Employee\EmployeeLocationSelector.cs" />
     <Compile Include="Business\Employee\EmployeeSettingsModel.cs" />
+    <Compile Include="Business\Forms\FormFieldSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
@@ -495,6 +496,7 @@
     <Compile Include="Controllers\CarouselBlockController.cs" />
     <Compile Include="Controllers\PageListBlockController.cs" />
     <Compile Include="Controllers\ParkingBlockController.cs" />
+    <Compile Include="Controllers\PollResultsBlockController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
     <Compile Include="Controllers\RssReaderBlockController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
@@ -524,6 +526,7 @@
     <Compile Include="Models\Blocks\JumbotronBlock.cs" />
     <Compile Include="Models\Blocks\LinkedInCompanyBlock.cs" />
     <Compile Include="Models\Blocks\PageListBlock.cs" />
+    <Compile Include="Models\Blocks\PollResultsBlock.cs" />
     <Compile Include="Models\Blocks\RssReaderBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Blocks\SiteLogotypeBlock.cs" />
@@ -572,6 +575,7 @@
     <Compile Include="Models\ViewModels\PageListModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingViewModel.cs" />
+    <Compile Include="Models\ViewModels\PollResultsBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\PreviewModel.cs" />
     <Compile Include="Models\ViewModels\RssReaderBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\FindSearchContentModel.cs" />
@@ -1063,6 +1067,7 @@
     <Content Include="Views\Shared\Blocks\WeatherDisplay.cshtml" />
     <Content Include="Views\Shared\LanguageSelector.cshtml" />
     <Content Include="Views\ParkingBlock\Index.cshtml" />
+    <Content Include="Views\PollResultsBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1070,7 +1075,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
