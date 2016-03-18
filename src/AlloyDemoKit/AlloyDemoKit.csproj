@@ -444,6 +444,7 @@
     <Compile Include="Business\Employee\EmployeeLocationSelectionFactory.cs" />
     <Compile Include="Business\Employee\EmployeeLocationSelector.cs" />
     <Compile Include="Business\Employee\EmployeeSettingsModel.cs" />
+    <Compile Include="Business\Forms\FormEventsInitialization.cs" />
     <Compile Include="Business\Forms\FormFieldSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
@@ -520,6 +521,7 @@
     <Compile Include="Models\Blocks\CarouselItemBlock.cs" />
     <Compile Include="Models\Blocks\ClosestLocationBlock.cs" />
     <Compile Include="Models\Blocks\ContactBlock.cs" />
+    <Compile Include="Models\Blocks\FormElements\StyledTextBoxElementBlock.cs" />
     <Compile Include="Models\Blocks\ParkingBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
     <Compile Include="Models\Blocks\FacebookBlock.cs" />
@@ -751,21 +753,29 @@
     <Content Include="modules\_protected\EPiServer.Forms\1.1.2.9000\ClientResources\ViewMode\EPiServerForms.js" />
     <Content Include="modules\_protected\EPiServer.Forms\1.1.2.9000\ClientResources\ViewMode\EPiServerForms.min.js" />
     <Content Include="modules\_protected\EPiServer.Forms\1.1.2.9000\ClientResources\ViewMode\EPiServerForms_prerequisite.js" />
-    <Content Include="modules\_protected\EPiServer.Forms\EmbeddedLangFiles\EPiServer.Forms_EN.xml" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\CaptchaElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ChoiceElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\FileUploadElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\FormContainerBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\FormStepBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ImageChoiceElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\NumberElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\PredefinedHiddenElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ResetButtonElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\SelectionElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\SubmitButtonElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\TextareaElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\TextboxElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\VisitorDataHiddenElementBlock.ascx" />
+    <Content Include="modules\_protected\EPiServer.Forms\EmbeddedLangFiles\EPiServer.Forms_EN.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Forms\CaptchaElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\FileUploadElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\FormContainerBlock.ascx" />
+    <Content Include="Views\Shared\Forms\FormStepBlock.ascx" />
+    <Content Include="Views\Shared\Forms\ImageChoiceElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\NumberElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\PredefinedHiddenElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\ResetButtonElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\TextareaElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\VisitorDataHiddenElementBlock.ascx" />
+    <Content Include="Static\css\icons\alert.png" />
+    <Content Include="Static\css\icons\arrow-left.png" />
+    <Content Include="Static\css\icons\arrow-right.png" />
+    <Content Include="Static\css\icons\email.png" />
+    <Content Include="Static\css\icons\message.png" />
+    <Content Include="Static\css\icons\name.png" />
+    <Content Include="Static\css\icons\postbox.png" />
+    <Content Include="Static\css\icons\submit.png" />
+    <Content Include="Views\Shared\Forms\ChoiceElementBlock.ascx" />
+    <Content Include="Views\Shared\Forms\SelectionElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms\Views\FormContainerInitScript.ascx" />
     <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\CommandProviders\SiteAttentionCommandProvider.js" />
     <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Components\SiteAttentionWidget.js" />
@@ -837,10 +847,12 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\UrlElementBlock.cshtml" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\RangeElementBlock.cshtml" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\ParagraphTextElementBlock.cshtml" />
+    <Content Include="Views\Shared\Forms\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Forms\UrlElementBlock.cshtml" />
+    <Content Include="Views\Shared\Forms\RangeElementBlock.cshtml" />
+    <Content Include="Views\Shared\Forms\ParagraphTextElementBlock.cshtml" />
     <Content Include="modules\_protected\EPiServer.Forms\module.config" />
     <Content Include="modules\_protected\EPiServer.Forms\1.1.2.9000\ClientResources\ViewMode\EPiServerForms.less" />
     <Content Include="modules\_protected\EPiServer.Forms\1.1.2.9000\ClientResources\epi-forms\themes\sleek\FormsIcons.less" />
@@ -999,7 +1011,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\DefaultSiteContent.episerverdata" />
-    <None Include="EPiServerLog.config" />
+    <None Include="EPiServerLog.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1073,6 +1087,9 @@
     <Content Include="Views\ParkingBlock\Index.cshtml" />
     <Content Include="Views\PollResultsBlock\Index.cshtml" />
     <Content Include="Views\ProfilePage\Index.cshtml" />
+    <Content Include="Views\Shared\Forms\TextboxElementBlock.cshtml" />
+    <Content Include="Views\Shared\Forms\SubmitButtonElementBlock.cshtml" />
+    <Content Include="Views\Shared\Forms\StyledTextBoxElementBlock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1082,6 +1099,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

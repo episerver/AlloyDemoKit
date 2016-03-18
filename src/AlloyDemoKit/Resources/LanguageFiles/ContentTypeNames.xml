@@ -86,6 +86,17 @@
         <name>Generic File</name>
         <description>Used for media which doesn't have a specific content type</description>
       </genericmedia>
+      <StyledTextBoxElementBlock>
+        <name>Styled Text</name>
+        <description></description>
+        <newitemdefaultname>New styled text</newitemdefaultname>
+        <properties>
+          <description>
+            <caption see="/contenttypes/blockbase/properties/description/caption" />
+            <help see="/contenttypes/blockbase/properties/description/help" />
+          </description>
+        </properties>
+      </StyledTextBoxElementBlock>
     </contenttypes>
   </language>
 </languages>

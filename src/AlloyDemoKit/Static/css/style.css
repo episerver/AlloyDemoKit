@@ -650,3 +650,16 @@ a.current-lang {
 a.alt-lang {
     font-style: italic;
 }
+
+
+/* Style up forms */
+.EPiServerForms input.shaded { padding: 5px 40px 5px 5px; width: calc(100% - 50px); background: #eee none right center no-repeat; margin-top: 5px; margin-bottom: 0; }
+.EPiServerForms input[placeholder="Enter your full name"] { background: #eee none right center no-repeat; margin-top: 5px; margin-bottom: 0;background-image: url(icons/name.png); }
+.EPiServerForms input[placeholder="yourname@address.com"] { background: #eee none right center no-repeat; margin-top: 5px; margin-bottom: 0;background-image: url(icons/email.png); }
+.EPiServerForms input[placeholder="Zip code / Post code"] { background: #eee none right center no-repeat; margin-top: 5px; margin-bottom: 0;background-image: url(icons/postbox.png); }
+
+/* Mobile */
+@media (max-width: 650px) {
+	.EPiServerForms label, .EPiServerForms .FormChoice, .EPiServerForms .Form__NavigationBar  { width: 100%; }
+	.EPiServerForms .Form__Element__ValidationError { margin: 0; width: calc(100% - 40px); }
+}

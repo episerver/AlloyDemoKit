@@ -23,8 +23,8 @@ namespace newforms.Controllers
         {
             var formData =_formDataRepository.GetSubmissionData(
                 new FormIdentity(GetFormId(currentBlock.FormField), "en"), 
-                DateTime.Now.AddYears(-5),
-                DateTime.Now.AddYears(5));
+                DateTime.Now.AddYears(-1),
+                DateTime.Now.AddYears(1));
 
             var model = new PollResultsBlockViewModel();
             foreach (var submission in formData)

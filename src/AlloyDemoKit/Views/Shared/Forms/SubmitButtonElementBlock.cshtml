@@ -1,0 +1,16 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using EPiServer.Forms
+@using EPiServer.Forms.Core.Models
+@using EPiServer.Forms.Helpers
+@using EPiServer.Forms.Implementation.Elements
+@model SubmitButtonElementBlock
+@{ 
+        var buttonDisableState = Model.GetElementDisableState(ViewContext.Controller.ControllerContext.HttpContext);
+ }
+
+
+    <button id="@Model.FormElement.Guid" name="submit" type="submit" value="@SubmitButtonType.Submit.ToString()"
+            class="Form__Element btn-blue btn-primary" @Model.FormElement.AttributesString @buttonDisableState>
+    @Model.Label
+</button>
+
