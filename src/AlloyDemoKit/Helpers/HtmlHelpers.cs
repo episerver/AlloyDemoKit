@@ -14,6 +14,7 @@ using EPiServer;
 using AlloyDemoKit.Models.Media;
 using EPiServer.SpecializedProperties;
 using AlloyDemoKit.Models.Pages;
+using EPiServer.Web;
 
 namespace AlloyDemoKit.Helpers
 {
@@ -158,16 +159,14 @@ namespace AlloyDemoKit.Helpers
 
         private static void AppendFiles(LinkItemCollection files, StringBuilder outputString, string formatString)
         {
-            if (files != null && files.Count > 0)
+            if (files == null || files.Count <= 0) return;
+
+            foreach (var item in files.Where(item => !string.IsNullOrEmpty(item.Href)))
             {
-                foreach (var item in files)
-                {
-                   
-                    if (!string.IsNullOrEmpty(item.Href))
-                    {
-                        outputString.AppendLine(string.Format(formatString, item.Href));
-                    }
-                }
+                var map = PermanentLinkMapStore.Find(new UrlBuilder(item.Href)) as PermanentContentLinkMap;
+                outputString.AppendLine(map == null
+                    ? string.Format(formatString, item.GetMappedHref())
+                    : string.Format(formatString, UrlResolver.Current.GetUrl(map.ContentReference)));
             }
         }
 
