@@ -147,9 +147,9 @@
                             @*<%-- If an image exists and the editor has specified that images should be shown --%>
                                 <%-- by specifying a height for them we show it and let the browser scale the width --%>
                                 <%-- relative to the height. In a real scenario we should use an image scaling library. --%>*@
-                            @if (hit.ImageUri != null)
+                            @if (hit.ImageUri != null && Model.CurrentPage.HitImagesHeight > 0)
                             {
-                                <img src="@hit.ImageUri.ToString()" height="20" />
+                                <img src="@hit.ImageUri.ToString()" height="@Model.CurrentPage.HitImagesHeight" />
                             }
                             @*                    <%-- Show the excerpt text. As it may contain HTML tags for highlighting we --%>
                                 <%-- don't HTML encode it. --%>*@
