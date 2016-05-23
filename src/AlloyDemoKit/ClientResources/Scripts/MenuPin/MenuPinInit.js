@@ -34,8 +34,8 @@
         return declare([], {
 
             globalMenu: null,
-            keyName: "menupinV3.1",
-            menuPinButton: null,
+            keyName: "menupinV3.3",
+            menuPinButtons: null,
             _initHandle: null,
 
             initialize: function () {
@@ -47,13 +47,14 @@
             },
 
             _onContextCurrent: function (ctx) {
-                _initHandle.remove();
+                -_initHandle.remove();
                 this._init();
             },
 
             _init: function () {
                 // Set up the references for the items we are going to interact with
-                this.menuPinButton = dom.byId("menuPin");
+                this.menuPinButtons = query(".menuPinButton");
+
                 this.globalMenu = registry.byId("globalMenuContainer");
 
                 topic.subscribe("/menupin/pinclicked", lang.hitch(this, "_pinClicked"));
@@ -65,7 +66,7 @@
                         return function () {
                             // Stop the menu from being hidden
                             var profile = epi.dependency.resolve("epi.shell.Profile");
-                            if (profile && profile.get("menupinV3.1") && profile.get("menupinV3.1") === true) {
+                            if (profile && profile.get("menupinV3.3") && profile.get("menupinV3.3") === true) {
                                 return null;
                             } else {
                                 originalMethod.apply(this);
@@ -81,15 +82,19 @@
                     this._pinMenu();
                 }
 
-                on(this.menuPinButton.parentNode, "click", function (e) {
-                    topic.publish("/menupin/pinclicked");
-                    event.stop(e);
-                });
+                for (var i = 0; i < this.menuPinButtons.length; i++) {
+                    var button = this.menuPinButtons[i];
 
-                on(this.menuPinButton.parentNode, tap.hold, function (e) {
-                    topic.publish("/menupin/pinheld");
-                    event.stop(e);
-                });
+                    on(button.parentNode, "click", function (e) {
+                        topic.publish("/menupin/pinclicked");
+                        event.stop(e);
+                    });
+
+                    on(button.parentNode, tap.hold, function (e) {
+                        topic.publish("/menupin/pinheld");
+                        event.stop(e);
+                    });
+                }
             },
 
             _pinHeld: function () {
@@ -120,11 +125,14 @@
 
                 this.globalMenu.shadowClass = "epi-globalNavigation--shadow";
 
-                // Toggle the cookie to be set or unset
-                this._toggleCookie(false);
+                // Toggle the state to be set or unset
+                this._toggleState(false);
 
                 // Mark the menu pin as un-selected
-                domClass.remove(this.menuPinButton.parentNode.parentNode, "epi-navigation-selected");
+                for (var i = 0; i < this.menuPinButtons.length; i++) {
+                    var button = this.menuPinButtons[i];
+                    domClass.remove(button.parentNode.parentNode, "epi-navigation-selected");
+                }
 
                 // Make the menu float again
                 this.globalMenu.setAttribute("style", "position: absolute; ");
@@ -140,10 +148,13 @@
             _pinMenu: function () {
 
                 // Toggle the cookie to be set or unset
-                this._toggleCookie(true);
+                this._toggleState(true);
 
                 // Mark the menu pin as selected
-                domClass.add(this.menuPinButton.parentNode.parentNode, "epi-navigation-selected");
+                for (var i = 0; i < this.menuPinButtons.length; i++) {
+                    var button = this.menuPinButtons[i];
+                    domClass.add(button.parentNode.parentNode, "epi-navigation-selected");
+                }
 
                 // Open the menu
                 this.globalMenu._showMenu();
@@ -181,7 +192,7 @@
                 }
             },
 
-            _toggleCookie: function (pinned) {
+            _toggleState: function (pinned) {
                 if (pinned === false) {
                     this._profile.set(this.keyName, false);
                 } else {

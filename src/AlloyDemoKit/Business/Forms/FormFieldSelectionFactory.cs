@@ -16,15 +16,15 @@ namespace AlloyDemoKit.Business.Forms
 
             foreach (var form in _formRepository.Service.GetFormsInfo(null))
             {
-                var mappings = _formRepository.Service.GetFieldMappings(new FormIdentity(form.FormGuid, "en"));
+                var mappings = _formRepository.Service.GetFriendlyNameInfos(new FormIdentity(form.FormGuid, "en"));
                 foreach (var fieldMapping in mappings)
                 {
-                    if (!fieldMapping.Name.StartsWith("SYS"))
+                    if (!fieldMapping.FriendlyName.StartsWith("SYS"))
                     {
                         items.Add(new SelectItem
                         {
                             Text = form.Name + " > " + fieldMapping.FriendlyName,
-                            Value = form.FormGuid.ToString() + " > " + fieldMapping.Name
+                            Value = form.FormGuid.ToString() + " > " + fieldMapping.FriendlyName
                         });
                     }
                 }

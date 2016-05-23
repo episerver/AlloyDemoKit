@@ -39,9 +39,13 @@
           <exportascsvdesc>Export form data in CSV format</exportascsvdesc>
           <exportasjson>JSON</exportasjson>
           <exportasjsondesc>Export form data in JSON format</exportasjsondesc>
+          <finalizedonly>Finalized Only</finalizedonly>
           <deleteselecteditems>Delete</deleteselecteditems>
           <deleteconfirmation>Do you want to delete the selected items?</deleteconfirmation>
-
+          <nopostid>No post Id for deleting.</nopostid>
+          <couldnotgetassociateform>Could not get associate Form.</couldnotgetassociateform>
+          <deletesuccessful>Post data deleting successful.</deletesuccessful>
+          
           <accessdenied>You do not have permission to view this data.</accessdenied>
 
           <submittime>Time</submittime>
@@ -190,6 +194,9 @@
             <denymultisubmit>You already submitted this form.</denymultisubmit>
             <submitsuccess>Submit successful.</submitsuccess>
             <validationfailformat>Validation failed on "{0}" field: {1}</validationfailformat>
+            <thereisnoformguid>Submit data FAILED: there is no Form's Guid.</thereisnoformguid>
+            <couldnotgetform>Submit data FAILED: could not get Form with Id = {0}.</couldnotgetform>
+            <submitcancelled>TECHNICAL INFO: Submitting process is cancelled. Reason: </submitcancelled>
           </formsubmission>
         </messages>
         <dependcondition>
@@ -214,14 +221,18 @@
 
           <insertplaceholder>Insert placeholder</insertplaceholder>
           <selectanitem>Select an item</selectanitem>
+          
           <externalsystems>External system field mapping</externalsystems>
+          <connecteddatasource>Connect to Datasource</connecteddatasource>
+
+
+
           <createemailtemplate>Create email template</createemailtemplate>
           <editemailtemplate>Edit email template</editemailtemplate>
           <addwebhook>Add webhook</addwebhook>
           <editwebhook>Edit webhook</editwebhook>
           <selectpage>Select page</selectpage>
           <usemanualinput>Use manual input</usemanualinput>
-          <errorconditionalstepcannotcontainrequiredelement>This Form step should not depend on other Element because it contains mandatory Element [{0}].</errorconditionalstepcannotcontainrequiredelement>
           <cannotbuildformmodel>Cannot build the Form model for rendering. Note that FormContainerBlock cannot be used as a property.</cannotbuildformmodel>
         </editview>
 
@@ -242,6 +253,7 @@
           <captchalabel>Word verification</captchalabel>
           <malformstepconfigruation>Malformed FormStep configuration. Some steps are attached to pages, while some are not attached or attached to content with no public URL.</malformstepconfigruation>
           <commonvalidationfail>This element value is not valid.</commonvalidationfail>
+          <readonlymode>We are maintaining our database. You can still try our system, however, your submitted data will not be saved.</readonlymode>
         </viewmode>
         <contentediting>
           <optionitem>
@@ -551,6 +563,18 @@
             <caption see="/contenttypes/blockbase/properties/description/caption" />
             <help see="/contenttypes/blockbase/properties/description/help" />
           </description>
+          <finalizeform>
+            <caption>Finalize form</caption>
+            <help>Finalize the form</help>
+          </finalizeform>
+          <redirecttopage>
+            <caption>Display page after submission</caption>
+            <help>Select a page to show after form submission.</help>
+          </redirecttopage>
+          <image>
+            <caption>Image</caption>
+            <help>Choose image to display for the button.</help>
+          </image>
         </properties>
       </submitbuttonelementblock>
       <formstepblock>
