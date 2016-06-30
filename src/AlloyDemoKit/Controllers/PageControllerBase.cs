@@ -4,6 +4,7 @@ using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Pages;
 using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Web.Mvc;
+using System;
 
 namespace AlloyDemoKit.Controllers
 {
@@ -27,6 +28,21 @@ namespace AlloyDemoKit.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index");
+        }
+
+        protected override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            // don't throw 404 in edit mode
+            if (!EPiServer.Editor.PageEditing.PageIsInEditMode)
+            {
+                if (PageContext?.Page != null && PageContext.Page.StopPublish <= DateTime.Now)
+                {
+                    filterContext.Result = new HttpStatusCodeResult(404, "Not found");
+                    return;
+                }
+            }
+
+            base.OnAuthorization(filterContext);
         }
 
         public virtual void ModifyLayout(LayoutModel layoutModel)
