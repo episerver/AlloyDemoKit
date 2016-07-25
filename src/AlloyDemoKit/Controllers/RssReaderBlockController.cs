@@ -50,7 +50,7 @@ namespace MyProject.Tekna.Controllers
             }
 
 
-            return View("~/Views/RssReaderBlock/Index.cshtml", viewModel);
+            return PartialView("~/Views/RssReaderBlock/Index.cshtml", viewModel);
         }
 
         private bool HasHeadingText(RssReaderBlock currentBlock)
