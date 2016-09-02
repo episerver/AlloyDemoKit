@@ -4,6 +4,7 @@ using EPiServer;
 using EPiServer.Framework.DataAnnotations;
 using AlloyDemoKit.Models.Pages;
 using AlloyDemoKit.Models.ViewModels;
+using EPiServer.Web.Mvc;
 
 namespace AlloyDemoKit.Controllers
 {
@@ -21,6 +22,10 @@ namespace AlloyDemoKit.Controllers
     {
         public ViewResult Index(SitePageData currentPage)
         {
+            // Ensure there is a full referesh when the PageIsNavigationRoot is checked on the breadcrumb
+            var editHints = ViewData.GetEditHints<PageViewModel<SitePageData>, SitePageData>();
+            editHints.AddFullRefreshFor(m => m.PageIsNavigationRoot);
+
             var model = CreateModel(currentPage);
             return View(string.Format("~/Views/{0}/Index.cshtml", currentPage.GetOriginalType().Name), model);
         }

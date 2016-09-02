@@ -23,10 +23,10 @@
                             <div class="nav-collapse">
                                 <ul class="nav">
                                     <li class="@(Model.CurrentPage.ContentLink.CompareToIgnoreWorkID(SiteDefinition.Current.StartPage) ? "active" : null)">@Html.ContentLink(SiteDefinition.Current.StartPage)</li>
-                                    @Html.MenuList(SiteDefinition.Current.StartPage, 
-                                                   @<li class="@(item.Selected ? "active" : null)">
-                                                        @Html.PageLink(item.Page, null, new { @class = string.Join(" ", item.Page.GetThemeCssClassNames())})
-                                                    </li>) 
+                                    @Html.MenuList(Model.CurrentPage.NavigationRoot,
+                                                @<li class="@(item.Selected ? "active" : null)">
+                                                    @Html.PageLink(item.Page, null, new { @class = string.Join(" ", item.Page.GetThemeCssClassNames()) })
+                                                </li>) 
                                 </ul>
                                 <div class="navbar-search pull-right">
                                     @{Html.RenderPartial("LanguageSelector", Model.CurrentPage);}

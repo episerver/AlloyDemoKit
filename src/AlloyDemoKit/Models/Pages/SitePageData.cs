@@ -7,6 +7,8 @@ using AlloyDemoKit.Models.Properties;
 using EPiServer.Web;
 using EPiServer.Shell.ObjectEditing;
 using System.Collections.Generic;
+using EPiServer;
+using EPiServer.ServiceLocation;
 using EPiServer.SpecializedProperties;
 
 namespace AlloyDemoKit.Models.Pages
@@ -90,6 +92,51 @@ namespace AlloyDemoKit.Models.Pages
             Order = 300)]
         [CultureSpecific]
         public virtual bool HideSiteFooter { get; set; }
+
+        [Display(
+            Name = "Page is navigation root",
+            Description = "When checked this page becomes the root for the navigation elements",
+            GroupName = SystemTabNames.Settings,
+            Order = 500)]
+        [CultureSpecific]
+        public virtual bool PageIsNavigationRoot { get; set; }
+
+        public ContentReference NavigationRoot
+        {
+            get
+            {
+                var loader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                return FindEffectiveStartPage(this.ContentLink, loader);
+            }
+        }
+
+        private ContentReference FindEffectiveStartPage(ContentReference currentPageRef, IContentLoader loader)
+        {
+            if (SiteDefinition.Current.StartPage == currentPageRef)
+            {
+                return currentPageRef;
+            }
+            else
+            {
+                var currentPage = loader.Get<IContent>(currentPageRef) as SitePageData;
+                if (currentPage != null && currentPage.PageIsNavigationRoot)
+                {
+                    return currentPageRef;
+                }
+                else
+                {
+                    if (currentPage == null)
+                    {
+                        return SiteDefinition.Current.StartPage;
+                    }
+                    else
+                    {
+                        var parentPage = loader.Get<IContent>(currentPage.ParentLink);
+                        return FindEffectiveStartPage(parentPage.ContentLink, loader);
+                    }
+                }
+            }
+        }
 
         public string ContentAreaCssClass
         {
