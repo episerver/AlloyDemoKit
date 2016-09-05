@@ -612,6 +612,7 @@
     <Content Include="AddOns\Core\SearchAndReplace.aspx" />
     <Content Include="AddOns\Core\TimeMachine.aspx" />
     <Content Include="AdminTools\EmployeeSettings.aspx" />
+    <Content Include="ClientResources\Scripts\Initializer.js" />
     <Content Include="ClientResources\Scripts\MenuPin\MenuPinInit.js" />
     <Content Include="ClientResources\Styles\ContentColabFix.css" />
     <Content Include="ClientResources\googlemaps\async.js" />
@@ -639,6 +640,9 @@
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatchPageTemplate.aspx" />
+    <Content Include="ClientResources\Scripts\samples\commandsInitializer.js" />
+    <Content Include="ClientResources\Scripts\samples\relatedPagesCommandProvider.js" />
+    <Content Include="ClientResources\Scripts\samples\showRelatedPagesCommand.js" />
     <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\2.1.0.2\ClientResources\Criteria\SubmittedValue.js" />
@@ -1145,7 +1149,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="modules\commands\Scripts\" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
