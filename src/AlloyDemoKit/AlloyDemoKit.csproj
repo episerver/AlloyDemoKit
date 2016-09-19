@@ -52,6 +52,10 @@
     <Reference Include="AppleWatchChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AppleWatchChannel.1.1.12\lib\net40\AppleWatchChannel.dll</HintPath>
     </Reference>
+    <Reference Include="BVNetwork.EPi404, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BVN.404Handler.4.2.1\lib\net45\BVNetwork.EPi404.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
@@ -804,6 +808,7 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\UrlElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\VisitorDataHiddenElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms\Views\FormContainerInitScript.ascx" />
+    <Content Include="NotFound.aspx" />
     <Content Include="Views\Shared\Forms\CaptchaElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\FileUploadElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\FormContainerBlock.ascx" />
@@ -906,6 +911,7 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
+    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
