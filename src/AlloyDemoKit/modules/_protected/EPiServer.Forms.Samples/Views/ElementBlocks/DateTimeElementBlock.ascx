@@ -3,7 +3,7 @@
 <%@ import namespace="EPiServer.Web.Mvc.Html" %>
 <%@ import namespace="EPiServer.Forms.Core" %>
 <%@ import namespace="EPiServer.Forms.Core.Models" %>
-<%@ import namespace="EPiServer.Forms.Helpers" %>
+<%@ import namespace="EPiServer.Forms.Helpers.Internal" %>
 <%@ import namespace="EPiServer.Forms.Samples.Implementation.Elements" %>
 <%@ import namespace="EPiServer.Forms.Samples.EditView" %>
 

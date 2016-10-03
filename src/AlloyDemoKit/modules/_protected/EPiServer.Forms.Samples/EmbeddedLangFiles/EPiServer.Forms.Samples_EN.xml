@@ -35,18 +35,17 @@
         <samples>
           <criteria>
             <formcriterion>
-              <category>EPiServer forms</category>
-              <displayname>Submitted form</displayname>
+              <category>Episerver Forms</category>
+              <displayname>Submitted Form</displayname>
               <description>Checks for form submission by the visitor.</description>
               <submissionstatus>Submission status</submissionstatus>
               <selectedform>Selected form</selectedform>
             </formcriterion>
 
             <submittedvaluecriterion>
-              <category>EPiServer forms</category>
-              <displayname>Submitted form value</displayname>
+              <category>Episerver Forms</category>
+              <displayname>Submitted Form Value</displayname>
               <description>Checks for form submission value by the visitor.</description>
-
               <selectedform>Selected form</selectedform>
               <selectedfield>Selected field</selectedfield>
               <condition>Condition</condition>
@@ -69,7 +68,7 @@
           </confirmationdialog>
 
           <editview>
-            <requirejs>Require to run in JS mode</requirejs>
+            <requirejs>JavaScript is required to display reCAPTCHA.</requirejs>
           </editview>
           <messages>
             <imagesubmitbutton>
@@ -95,6 +94,15 @@
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
         </validators>
+        <visitordatasources>
+          <EPiServer.Forms.Samples.Implementation.VisitorData.DemoVisitorDataSource>
+            <displayname>Demo Visitor Data Source</displayname>
+            <properties>
+              <demo_visitor_data_item_1>Demo Visitor Data - Item #1</demo_visitor_data_item_1>
+              <demo_visitor_data_item_2>Demo Visitor Data - Item #2</demo_visitor_data_item_2>
+            </properties>
+          </EPiServer.Forms.Samples.Implementation.VisitorData.DemoVisitorDataSource>
+        </visitordatasources>
       </forms>
     </episerver>
     <contenttypes>
