@@ -21,7 +21,7 @@ namespace AlloyDemoKit.Business.Forms
         public void Initialize(InitializationEngine context)
         {
             var formsEvents = ServiceLocator.Current.GetInstance<FormsEvents>();
-            formsEvents.FormsSubmissionFinalized += FormsEvents_FormsSubmissionFinalized; 
+            formsEvents.FormsSubmissionFinalized += FormsEvents_FormsSubmissionFinalized;
         }
 
         private void FormsEvents_FormsSubmissionFinalized(object sender, FormsEventArgs e)
@@ -48,18 +48,21 @@ namespace AlloyDemoKit.Business.Forms
                     {
                         int id = Convert.ToInt32(item.Key.Substring(item.Key.LastIndexOf("_") + 1));
                         var elementId = formElements.Items.Where(i => i.ContentLink.ID == id).FirstOrDefault();
-                        ElementBlockBase element = loader.Get<ElementBlockBase>(elementId.ContentLink) as ElementBlockBase;
-                        string friendlyName = element != null ? element.GetElementInfo().FriendlyName : item.Key;
-                        _logger.Information(friendlyName + ": " + item.Value);
+                        if (elementId != null)
+                        {
+                            ElementBlockBase element = loader.Get<ElementBlockBase>(elementId.ContentLink) as ElementBlockBase;
+                            string friendlyName = element != null ? element.GetElementInfo().FriendlyName : item.Key;
+                            _logger.Information(friendlyName + ": " + item.Value);
+                        }
                     }
                 }
 
-                
+
 
 
             }
         }
-            
+
 
         public void Preload(string[] parameters) { }
 
