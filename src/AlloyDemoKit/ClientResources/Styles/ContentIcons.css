@@ -18,3 +18,23 @@
   height: 16px;
   width: 16px;
 }
+
+.pdfIcon { 
+  background-image: url('/ClientResources/Images/icons/pdf-icon32x32.png'); 
+  width: 32px; 
+  height: 32px;
+  margin: 5px !important; 
+}
+
+/* ContentArea + LinkItemCollection */
+.epi-content-area-editor .pdfIcon { 
+  background-image: url('/ClientResources/Images/icons/pdf-icon16x16.png'); 
+  width: 16px; 
+  height: 16px; 
+  margin: 0 2px 0 0 !important;
+}
+  
+/* ContentArea needs more margin */
+.dijitTreeRow .pdfIcon { 
+  margin-top: 6px !important; 
+}

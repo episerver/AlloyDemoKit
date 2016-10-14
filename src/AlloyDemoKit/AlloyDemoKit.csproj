@@ -506,6 +506,7 @@
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\BlogPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ArticlePageUIDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\FileIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\WeatherBlockUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FindPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
@@ -568,6 +569,7 @@
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\IFileProperties.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
+    <Compile Include="Models\Media\PDFFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
     <Compile Include="Models\Pages\Blog\BlogItemPage.cs" />
@@ -628,6 +630,8 @@
     <Content Include="AddOns\Core\SearchAndReplace.aspx" />
     <Content Include="AddOns\Core\TimeMachine.aspx" />
     <Content Include="AdminTools\EmployeeSettings.aspx" />
+    <Content Include="ClientResources\Images\icons\pdf-icon16x16.png" />
+    <Content Include="ClientResources\Images\icons\pdf-icon32x32.png" />
     <Content Include="ClientResources\Scripts\Initializer.js" />
     <Content Include="ClientResources\Scripts\MenuPin\MenuPinInit.js" />
     <Content Include="ClientResources\Styles\ContentColabFix.css" />
@@ -1036,6 +1040,7 @@
     <Content Include="Views\Shared\Forms\TextboxElementBlock.cshtml" />
     <Content Include="Views\Shared\Forms\SubmitButtonElementBlock.cshtml" />
     <Content Include="Views\Shared\Forms\StyledTextBoxElementBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\PDFFile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

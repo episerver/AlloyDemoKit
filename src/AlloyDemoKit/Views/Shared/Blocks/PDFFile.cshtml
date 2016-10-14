@@ -1,0 +1,8 @@
+@model AlloyDemoKit.Models.Media.PDFFile
+
+<div style="background-image: url('/ClientResources/Images/icons/pdf-icon32x32.png'); min-height: 32px;  background-repeat:no-repeat; padding-left: 40px; vertical-align: middle;
+line-height: 32px;" >
+    <a href="@Url.ContentUrl(Model.ContentLink)">@Model.Name</a> (@Model.FileSize)
+</div>
+
+
