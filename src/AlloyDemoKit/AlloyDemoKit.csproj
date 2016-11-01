@@ -52,8 +52,8 @@
     <Reference Include="AppleWatchChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AppleWatchChannel.1.1.12\lib\net40\AppleWatchChannel.dll</HintPath>
     </Reference>
-    <Reference Include="BVNetwork.EPi404, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BVN.404Handler.4.2.1\lib\net45\BVNetwork.EPi404.dll</HintPath>
+    <Reference Include="BVNetwork.EPi404, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BVN.404Handler.9.0.0\lib\net45\BVNetwork.EPi404.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -88,8 +88,8 @@
       <HintPath>..\packages\EPiServer.CMS.Core.9.12.3\lib\net45\EPiServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.AddOns.Helpers, Version=0.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.AddOns.Helpers.0.1.0.0\lib\EPiServer.AddOns.Helpers.dll</HintPath>
+    <Reference Include="EPiServer.AddOns.Helpers, Version=0.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.AddOns.Helpers.0.2.0.0\lib\EPiServer.AddOns.Helpers.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.ApplicationModules, Version=9.12.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -209,23 +209,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.KPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.KPI.1.0.0\lib\EPiServer.Marketing.KPI.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.KPI.1.0.3-beta\lib\EPiServer.Marketing.KPI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPIServer.Marketing.Messaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Messaging.1.0.0\lib\EPIServer.Marketing.Messaging.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Messaging.1.0.3-beta\lib\EPIServer.Marketing.Messaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.1-beta\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.3-beta\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Dal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.1-beta\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.3-beta\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.1-beta\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.3-beta\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Packaging, Version=3.2.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -813,7 +813,6 @@
     <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
-    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
@@ -831,6 +830,7 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
     <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
@@ -980,7 +980,9 @@
     <Content Include="Static\lightbox\photos\thumb_image3.jpg" />
     <Content Include="Static\lightbox\photos\thumb_image4.jpg" />
     <Content Include="Static\lightbox\photos\thumb_image5.jpg" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1068,9 +1070,11 @@
     <Content Include="Views\Shared\Blocks\PDFFile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
