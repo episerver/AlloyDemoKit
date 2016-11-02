@@ -1,0 +1,16 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model CallToActionBlock
+
+@Html.FullRefreshPropertiesMetaData(new[] { "BackgroundImage", "TextColor"})
+
+@{ 
+    string backgroundSetting = ContentReference.IsNullOrEmpty(Model.BackgroundImage) ? "none" : "url(" + Url.ContentUrl(Model.BackgroundImage) +  ")";
+}
+
+<div class="cta" style="background-image: @backgroundSetting; color: @Model.TextColor!important;">
+    <h2>@Html.PropertyFor(m => m.Title)</h2>
+    <p>@Html.PropertyFor(m => m.Subtext)</p>
+    @Html.PropertyFor(m => m.Button)
+</div>

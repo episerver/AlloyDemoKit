@@ -11,10 +11,24 @@ namespace AlloyDemoKit.Models.Blocks
     [SiteImageUrl]
     public class ButtonBlock : SiteBlockData
     {
-        [Display(Order = 1, GroupName = SystemTabNames.Content)]
+        [Display(Order = 1, Name = "Text", GroupName = SystemTabNames.Content)]
         public virtual string ButtonText { get; set; }
 
-        [Display(Order = 2, GroupName = SystemTabNames.Content)]
+        [Display(Order = 2, Name = "Link", GroupName = SystemTabNames.Content)]
         public virtual Url ButtonLink { get; set; }
+
+        [Display(Order = 3, Name = "CSS Style", GroupName = SystemTabNames.Content)]
+        public virtual string ButtonStyle { get; set; }
+
+        [Display(Order = 4, Name = "Reassuring caption ", GroupName = SystemTabNames.Content, Prompt = "cancel anytime...")]
+        public virtual string ButtonCaption { get; set; }
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+
+            ButtonStyle = "btn-blue";
+        }
+
     }
 }

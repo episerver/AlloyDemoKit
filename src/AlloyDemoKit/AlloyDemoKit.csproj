@@ -569,6 +569,7 @@
     <Compile Include="Models\Blocks\BlogArchiveBlock.cs" />
     <Compile Include="Models\Blocks\BlogListBlock.cs" />
     <Compile Include="Models\Blocks\ButtonBlock.cs" />
+    <Compile Include="Models\Blocks\CallToActionBlock.cs" />
     <Compile Include="Models\Blocks\CarouselBlock.cs" />
     <Compile Include="Models\Blocks\CarouselItemBlock.cs" />
     <Compile Include="Models\Blocks\ClosestLocationBlock.cs" />
@@ -1068,6 +1069,7 @@
     <Content Include="Views\Shared\Forms\SubmitButtonElementBlock.cshtml" />
     <Content Include="Views\Shared\Forms\StyledTextBoxElementBlock.cshtml" />
     <Content Include="Views\Shared\Blocks\PDFFile.cshtml" />
+    <Content Include="Views\Shared\Blocks\CallToActionBlock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
