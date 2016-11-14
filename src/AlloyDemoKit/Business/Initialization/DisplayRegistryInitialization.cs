@@ -20,6 +20,7 @@ namespace AlloyDemoKit.Business.Initialization
                 options
                     .Add("full", "/displayoptions/full", Global.ContentAreaTags.FullWidth, "", "epi-icon__layout--full")
                     .Add("wide", "/displayoptions/wide", Global.ContentAreaTags.TwoThirdsWidth, "", "epi-icon__layout--two-thirds")
+                    .Add("half", "/displayoptions/half", Global.ContentAreaTags.HalfWidth, "", "epi-icon__layout--half")
                     .Add("narrow", "/displayoptions/narrow", Global.ContentAreaTags.OneThirdWidth, "", "epi-icon__layout--one-third");
 
                 AreaRegistration.RegisterAllAreas();
