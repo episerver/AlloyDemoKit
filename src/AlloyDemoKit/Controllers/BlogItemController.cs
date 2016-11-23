@@ -21,6 +21,7 @@ using AlloyDemoKit.Models.Pages.Business.Tags;
 using EPiServer.Web.Mvc;
 using EPiServer.Templates.Blog.Mvc.Models.ViewModels;
 using AlloyDemoKit.Models.ViewModels;
+using EPiServer.DynamicContent.Internal;
 
 namespace AlloyDemoKit.Models.Pages.Controllers
 {
@@ -54,7 +55,7 @@ namespace AlloyDemoKit.Models.Pages.Controllers
                 Tags = GetTags(currentPage),
                 PreviewText = GetPreviewText(currentPage),
                 MainBody = currentPage.MainBody,
-                StartPublish = currentPage.StartPublish
+                StartPublish = currentPage.StartPublish.Value
             };
 
             var editHints = ViewData.GetEditHints<BlogItemPageModel, BlogItemPage>();

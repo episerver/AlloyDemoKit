@@ -17,7 +17,7 @@ namespace AlloyDemoKit.Models.Pages.Business.Initialization
 
         public PartialRouteData GetPartialVirtualPath(Category cat, string language, RouteValueDictionary routeValues, RequestContext requestContext)
         {
-            var contentLink = ContentRoute.GetValue("node", requestContext, routeValues) as ContentReference;
+            var contentLink = requestContext.GetRouteValue("node", routeValues) as ContentReference;
          
             if (PageEditing.PageIsInEditMode)
             {

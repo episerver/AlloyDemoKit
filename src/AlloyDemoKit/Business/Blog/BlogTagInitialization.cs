@@ -24,12 +24,41 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
     {
         public void Initialize(InitializationEngine context)
         {
-            DataFactory.Instance.CreatingPage +=Instance_CreatingPage;
+            IContentEvents events = ServiceLocator.Current.GetInstance<IContentEvents>();
 
+            events.CreatingContent += CreatingContent;
+            
             var partialRouter = new BlogPartialRouter();
 
             RouteTable.Routes.RegisterPartialRouter<BlogStartPage, Category>(partialRouter);
 
+        }
+
+        /*
+         * When a page gets created lets see if it is a blog post and if so lets create the date page information for it
+         */
+        private void CreatingContent(object sender, ContentEventArgs e)
+        {
+            if (this.IsImport() || e.Content == null || !(e.Content is PageData))
+            {
+                return;
+            }
+
+            var page = e.Content as PageData;
+
+            if (string.Equals(page.PageTypeName, typeof(BlogItemPage).GetPageType().Name, StringComparison.OrdinalIgnoreCase))
+            {
+                DateTime startPublish = page.StartPublish.Value;
+
+                var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+
+                PageData parentPage = contentRepository.Get<PageData>(page.ParentLink);
+
+                if (parentPage is BlogStartPage)
+                {
+                    page.ParentLink = GetDatePageRef(page, startPublish, contentRepository);
+                }
+            }
         }
 
         void Instance_PublishingPage(object sender, PageEventArgs e)
@@ -47,30 +76,6 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
         {
             return false;
             // TODO implementation return Context.Current["CurrentITransferContext"] != null;
-        }
-
-        /*
-         * When a page gets created lets see if it is a blog post and if so lets create the date page information for it
-         */
-        void Instance_CreatingPage(object sender, PageEventArgs e)
-        {
-            if (this.IsImport() || e.Page == null)
-            {
-                return;
-            }
-            if (string.Equals(e.Page.PageTypeName, typeof(BlogItemPage).GetPageType().Name, StringComparison.OrdinalIgnoreCase))
-            {
-                DateTime startPublish = e.Page.StartPublish;
-               
-                var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
-
-                PageData page = contentRepository.Get<PageData>(e.Page.ParentLink);
-
-                if (page is BlogStartPage)
-                {
-                    e.Page.ParentLink = GetDatePageRef(page, startPublish, contentRepository);
-                }
-            }
         }
 
         // in here we know that the page is a blog start page and now we must create the date pages unless they are already created
@@ -104,8 +109,9 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
             BlogListPage defaultPageData = contentRepository.GetDefault<BlogListPage>(parent, typeof(BlogListPage).GetPageType().ID);
             defaultPageData.PageName = name;
             defaultPageData.Heading = name;
-            defaultPageData.StartPublish = startPublish;
-            defaultPageData.URLSegment = UrlSegment.CreateUrlSegment(defaultPageData);
+            defaultPageData.StartPublish = startPublish;         
+            IUrlSegmentCreator urlSegment = ServiceLocator.Current.GetInstance<IUrlSegmentCreator>();
+            defaultPageData.URLSegment = urlSegment.Create(defaultPageData);
             return contentRepository.Save(defaultPageData, SaveAction.Publish, AccessLevel.Publish).ToPageReference();
         }
 
@@ -113,8 +119,10 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
 
         public void Uninitialize(InitializationEngine context)
         {
-            DataFactory.Instance.CreatingPage -= Instance_CreatingPage;
-    
+            IContentEvents events = ServiceLocator.Current.GetInstance<IContentEvents>();
+
+            events.CreatingContent -= CreatingContent;
+
         }
     }
 }

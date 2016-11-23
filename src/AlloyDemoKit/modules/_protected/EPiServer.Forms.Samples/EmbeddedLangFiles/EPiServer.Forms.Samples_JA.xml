@@ -94,15 +94,6 @@
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
         </validators>
-        <visitordatasources>
-          <EPiServer.Forms.Samples.Implementation.VisitorData.DemoVisitorDataSource>
-            <displayname>Demo Visitor Data Source</displayname>
-            <properties>
-              <demo_visitor_data_item_1>Demo Visitor Data - Item #1</demo_visitor_data_item_1>
-              <demo_visitor_data_item_2>Demo Visitor Data - Item #2</demo_visitor_data_item_2>
-            </properties>
-          </EPiServer.Forms.Samples.Implementation.VisitorData.DemoVisitorDataSource>
-        </visitordatasources>
       </forms>
     </episerver>
     <contenttypes>

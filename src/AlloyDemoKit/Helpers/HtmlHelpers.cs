@@ -163,7 +163,8 @@ namespace AlloyDemoKit.Helpers
 
             foreach (var item in files.Where(item => !string.IsNullOrEmpty(item.Href)))
             {
-                var map = PermanentLinkMapStore.Find(new UrlBuilder(item.Href)) as PermanentContentLinkMap;
+                IPermanentLinkMapper mapper = ServiceLocator.Current.GetInstance<IPermanentLinkMapper>();
+                var map = mapper.Find(new UrlBuilder(item.Href)) as PermanentLinkMap;
                 outputString.AppendLine(map == null
                     ? string.Format(formatString, item.GetMappedHref())
                     : string.Format(formatString, UrlResolver.Current.GetUrl(map.ContentReference)));

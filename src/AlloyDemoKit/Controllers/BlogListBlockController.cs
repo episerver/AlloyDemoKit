@@ -19,6 +19,7 @@ using EPiServer.DynamicContent;
 using EPiServer;
 using AlloyDemoKit.Business;
 using EPiServer.Templates.Blog.Mvc.Models.ViewModels;
+using EPiServer.DynamicContent.Internal;
 
 namespace AlloyDemoKit.Models.Pages.Controllers
 {
@@ -120,7 +121,7 @@ namespace AlloyDemoKit.Models.Pages.Controllers
 
         private IEnumerable<PageData> FindPages(BlogListBlock currentBlock, Category category)
         {
-            var pageRouteHelper = ServiceLocator.Current.GetInstance<PageRouteHelper>();
+            var pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
             PageData currentPage = pageRouteHelper.Page ?? contentLoader.Get<PageData>(ContentReference.StartPage);
 
             var listRoot = currentBlock.Root ?? currentPage.ContentLink.ToPageReference();

@@ -15,7 +15,7 @@
 <div class="Form__Element Form__CustomElement FormDateTime <%: Model.GetValidationCssClasses() %>" data-epiforms-element-name="<%: formElement.ElementName %>">
     <label for="<%: formElement.Guid %>" class="Form__Element__Caption"><%: labelText %></label>
     <input name="<%: formElement.ElementName %>" id="<%: formElement.Guid %>" type="text" class="Form__CustomInput FormDateTime__Input"
-           placeholder="<%: Model.PlaceHolder %>" value="<%: Model.GetDefaultValue() %>" <%: Model.AttributesString %> />
+           placeholder="<%: Model.PlaceHolder %>" value="<%: Model.GetDefaultValue() %>" <%= Model.AttributesString %> />
 
     <span data-epiforms-linked-name="<%: formElement.ElementName %>" class="Form__Element__ValidationError" style="display: none;">*</span>
 
