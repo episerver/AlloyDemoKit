@@ -44,8 +44,6 @@ namespace AlloyDemoKit.Controllers
         [ValidateInput(false)]
         public ViewResult Index(EmployeeSearchPage currentPage, string q)
         {
-            int currentPagePageSize = 100; // model.CurrentPage.PageSize
-
             var model = new EmployeeSearchPageContentModel(currentPage);
 
             var query = _searchClient.Search<EmployeePage>();
