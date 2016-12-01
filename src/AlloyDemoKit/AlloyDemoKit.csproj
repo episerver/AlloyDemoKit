@@ -699,7 +699,6 @@
     <None Include="Hunspellx86.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="modulesbin\AppleWatchChannel.dll" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatchPageTemplate.aspx" />
@@ -1087,6 +1086,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="modulesbin\" />
     <Folder Include="modules\commands\Scripts\" />
   </ItemGroup>
   <ProjectExtensions>
