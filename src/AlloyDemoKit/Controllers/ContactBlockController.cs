@@ -61,7 +61,7 @@ namespace AlloyDemoKit.Controllers
 
                 //If the url maps to a page on the site we convert it from the internal (permanent, GUID-like) format
                 //to the human readable and pretty public format
-                var linkMap = _permanentLinkMapper.Find(new UrlBuilder(linkUrl)) as PermanentContentLinkMap;
+                var linkMap = _permanentLinkMapper.Find(new UrlBuilder(linkUrl));
                 if (linkMap != null && !ContentReference.IsNullOrEmpty(linkMap.ContentReference) && linkMap.ContentReference is PageReference)
                 {
                     return Url.PageLinkUrl((PageReference)linkMap.ContentReference);

@@ -34,7 +34,7 @@ namespace AlloyDemoKit.Business.Initialization
             {
                 return true;
             }
-            var displayChannelService = ServiceLocator.Current.GetInstance<DisplayChannelService>();
+            var displayChannelService = ServiceLocator.Current.GetInstance<IDisplayChannelService>();
             return displayChannelService.GetActiveChannels(httpContext).Any(x => x.ChannelName == MobileChannel.Name);
         }
 

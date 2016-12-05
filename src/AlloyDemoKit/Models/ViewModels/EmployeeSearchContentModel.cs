@@ -117,7 +117,7 @@ namespace AlloyDemoKit.Models.ViewModels
                         return 1 + (Hits.TotalMatching - 1) / 10; // CurrentPage.PageSize;
                 }
 
-                return 0;
+                //return 0;
             }
         }
 

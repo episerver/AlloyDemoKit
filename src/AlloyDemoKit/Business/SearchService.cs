@@ -59,7 +59,7 @@ namespace AlloyDemoKit.Business
             foreach (var root in searchRoots)
             {
                 var contentRootQuery = new VirtualPathQuery();
-                contentRootQuery.AddContentNodes(root, _contentLoader);
+                contentRootQuery.AddContentNodes(root);
                 typeQueries.QueryExpressions.Add(contentRootQuery);
             }
 
