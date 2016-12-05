@@ -111,7 +111,7 @@ namespace AlloyDemoKit.Helpers
 
             if (!string.IsNullOrWhiteSpace(start.GoogleFont))
             {
-                RenderGoogleFontTag(helper, start.GoogleFont);
+                outputCSS.AppendLine(GenerateGoogleFontTag(start.GoogleFont));
             }
 
             if ((cssFiles == null || cssFiles.Count == 0) && start.CSSFiles != null)
@@ -136,10 +136,10 @@ namespace AlloyDemoKit.Helpers
             return new MvcHtmlString(outputCSS.ToString());
         }
 
-        public static MvcHtmlString RenderGoogleFontTag(this HtmlHelper helper, string fontName)
+        public static string GenerateGoogleFontTag(string fontName)
         {
             string tag = string.Format("<link href = \"https://fonts.googleapis.com/css?family={0}\" rel=\"stylesheet\">", fontName);
-            return new MvcHtmlString(tag);
+            return tag;
         }
 
         public static string SetFontName(string fontName)

@@ -14,7 +14,7 @@ using AlloyDemoKit.Business.DDS;
 namespace AlloyDemoKit.Business.Employee
 {
     [ScheduledPlugIn(DisplayName = "Employee Data Import", DefaultEnabled = true, Description = "Imports employee data from tab-delimited file")]
-    public class EmployeeDataImportJob : JobBase
+    public class EmployeeDataImportJob : EPiServer.Scheduler.ScheduledJobBase
     {
         private bool _stopSignaled;
         private string _employeeDataFile;

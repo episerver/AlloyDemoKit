@@ -43,8 +43,6 @@ namespace AlloyDemoKit.Controllers
         [ValidateInput(false)]
         public ViewResult Index(EmployeeLocationPage currentPage, string q)
         {
-            int currentPagePageSize = 10; // model.CurrentPage.PageSize
-
             var model = new EmployeeSearchContentModel(currentPage)
                 {
                     PublicProxyPath = _findUIConfiguration.AbsolutePublicProxyPath()
