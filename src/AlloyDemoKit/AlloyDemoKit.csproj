@@ -631,6 +631,7 @@
     <Compile Include="Models\Pages\EmployeePage.cs" />
     <Compile Include="Models\Pages\EmployeeSearchPage.cs" />
     <Compile Include="Models\Pages\FindPage.cs" />
+    <Compile Include="Business\EditorDescriptors\FontSelectionFactory.cs" />
     <Compile Include="Models\Pages\IHasRelatedContent.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\LocationPage.cs" />

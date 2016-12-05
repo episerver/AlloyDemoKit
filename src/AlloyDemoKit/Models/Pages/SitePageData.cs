@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using EPiServer;
 using EPiServer.ServiceLocation;
 using EPiServer.SpecializedProperties;
+using AlloyDemoKit.Business.EditorDescriptors;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -142,6 +143,14 @@ namespace AlloyDemoKit.Models.Pages
         {
             get { return "teaserblock"; } //Page partials should be style like teasers
         }
+
+
+        [Display(
+           Name = "Google Font",
+           GroupName = Global.GroupNames.Styles,
+           Order = 75)]
+        [SelectOne(SelectionFactoryType = typeof(FontSelectionFactory))]
+        public virtual string GoogleFont { get; set; }
 
         [Display(
         Name = "CSS Files",

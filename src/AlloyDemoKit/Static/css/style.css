@@ -663,3 +663,11 @@ a.alt-lang {
 	.EPiServerForms label, .EPiServerForms .FormChoice, .EPiServerForms .Form__NavigationBar  { width: 100%; }
 	.EPiServerForms .Form__Element__ValidationError { margin: 0; width: calc(100% - 40px); }
 }
+
+/* General style fixes */
+hr { display: none; }
+h1, h2, h3, h4, h5  { color: #0065b7; font-weight: normal; }
+h1 { font-size: 2em; margin-bottom: 20px; }
+h2 { font-size: 1.5em; }
+a { color: #0065b7; }
+a:hover { color: #578300; }

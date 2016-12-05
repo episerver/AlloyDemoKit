@@ -109,29 +109,48 @@ namespace AlloyDemoKit.Helpers
             StringBuilder outputCSS = new StringBuilder(string.Empty);
             StartPage start = ServiceLocator.Current.GetInstance<IContentLoader>().Get<StartPage>(ContentReference.StartPage);
 
+            if (!string.IsNullOrWhiteSpace(start.GoogleFont))
+            {
+                RenderGoogleFontTag(helper, start.GoogleFont);
+            }
+
             if ((cssFiles == null || cssFiles.Count == 0) && start.CSSFiles != null)
             {
                 AppendFiles(start.CSSFiles, outputCSS, CssFormat);
             }           
             AppendFiles(cssFiles, outputCSS, CssFormat);            
 
+            // Inlined CSS & Google Font
+            outputCSS.AppendLine("<style>");
+            outputCSS.AppendLine(SetFontName(start.GoogleFont));                
             if (!string.IsNullOrWhiteSpace(inline))
             {
-                outputCSS.AppendLine("<style>");
                 outputCSS.AppendLine(inline);
-                outputCSS.AppendLine("</style>");
             }
             else
             {
-                string startCSS;
-                
-                startCSS = start.CSS;
-                outputCSS.AppendLine("<style>");
-                outputCSS.AppendLine(startCSS);
-                outputCSS.AppendLine("</style>");
+                outputCSS.AppendLine(start.CSS);
             }
+            outputCSS.AppendLine("</style>");
 
             return new MvcHtmlString(outputCSS.ToString());
+        }
+
+        public static MvcHtmlString RenderGoogleFontTag(this HtmlHelper helper, string fontName)
+        {
+            string tag = string.Format("<link href = \"https://fonts.googleapis.com/css?family={0}\" rel=\"stylesheet\">", fontName);
+            return new MvcHtmlString(tag);
+        }
+
+        public static string SetFontName(string fontName)
+        {
+            string named = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(fontName))
+            {
+                named = "'" + fontName.Replace("-", " ") + "', ";
+            }
+            return "body, h1, h1.jumbotron, h2, h3, .subHeader, .introduction, p, a, .alloyMenu  { font-family: " + named + "Arial, Helvetica, sans-serif; }";
         }
 
         public static MvcHtmlString RenderExtendedScripts(this HtmlHelper helper, string inline)
