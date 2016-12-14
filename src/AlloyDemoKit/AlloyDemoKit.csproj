@@ -54,8 +54,8 @@
     <Reference Include="AppleWatchChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AppleWatchChannel.1.1.12\lib\net40\AppleWatchChannel.dll</HintPath>
     </Reference>
-    <Reference Include="BVNetwork.EPi404, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BVN.404Handler.10.0.0\lib\net45\BVNetwork.EPi404.dll</HintPath>
+    <Reference Include="BVNetwork.EPi404, Version=10.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BVN.404Handler.10.1.0\lib\net45\BVNetwork.EPi404.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -165,20 +165,20 @@
       <HintPath>..\packages\EPiServer.Find.Cms.12.3.0\lib\net45\EPiServer.Find.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Forms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Forms.4.1.0\lib\EPiServer.Forms.dll</HintPath>
+    <Reference Include="EPiServer.Forms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.4.2.1\lib\EPiServer.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Forms.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Forms.Core.4.1.0\lib\EPiServer.Forms.Core.dll</HintPath>
+    <Reference Include="EPiServer.Forms.Core, Version=4.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.Core.4.2.1\lib\EPiServer.Forms.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Forms.Samples, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Forms.Samples.3.2.0\lib\EPiServer.Forms.Samples.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Forms.UI, Version=4.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Forms.Core.4.1.0\lib\EPiServer.Forms.UI.dll</HintPath>
+    <Reference Include="EPiServer.Forms.UI, Version=4.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.Core.4.2.1\lib\EPiServer.Forms.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Framework, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -193,8 +193,8 @@
       <HintPath>..\packages\EPiServer.CMS.Core.10.2.0\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Labs.LanguageManager, Version=2.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Labs.LanguageManager.2.1.0\lib\EPiServer.Labs.LanguageManager.dll</HintPath>
+    <Reference Include="EPiServer.Labs.LanguageManager, Version=3.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Labs.LanguageManager.3.0.0\lib\EPiServer.Labs.LanguageManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Licensing, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -214,23 +214,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.KPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.KPI.1.0.6\lib\EPiServer.Marketing.KPI.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.KPI.1.1.0\lib\EPiServer.Marketing.KPI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPIServer.Marketing.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Messaging.1.0.6\lib\EPIServer.Marketing.Messaging.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Messaging.1.1.0\lib\EPIServer.Marketing.Messaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.6\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.1.1.0\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.6\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.1.1.0\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.1.0.6\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.1.1.0\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Packaging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -297,8 +297,8 @@
       <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ImageResizer.Plugins.EPiServerBlobReader, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageResizer.Plugins.EPiServerBlobReader.5.0.0\lib\net45\ImageResizer.Plugins.EPiServerBlobReader.dll</HintPath>
+    <Reference Include="ImageResizer.Plugins.EPiServerBlobReader, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.EPiServerBlobReader.5.0.2\lib\net45\ImageResizer.Plugins.EPiServerBlobReader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -802,15 +802,6 @@
     <Content Include="Static\css\icons\submit.png" />
     <Content Include="Views\Shared\Forms\ChoiceElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\SelectionElementBlock.ascx" />
-    <Content Include="Resources\LanguageFiles\ContentTypeNames.xml" />
-    <Content Include="Resources\LanguageFiles\Display.xml" />
-    <Content Include="Resources\LanguageFiles\EditorHints.xml" />
-    <Content Include="Resources\LanguageFiles\GroupNames.xml" />
-    <Content Include="Resources\LanguageFiles\PropertyNames.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Resources\LanguageFiles\Views.xml" />
-    <Content Include="Resources\LanguageFiles\_ReadMe.txt" />
     <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation\module.config" />
     <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Silverpop\web.config" />
     <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Silverpop\module.config" />
@@ -837,22 +828,14 @@
     <Content Include="modules\_protected\EPiServer.Social\module.config" />
     <Content Include="modules\_protected\EPiServer.Social\EPiServerSocial.config" />
     <Content Include="modules\_protected\EPiServer.Social\EPiServer.Social.zip" />
-    <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
-    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
-    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
-    <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\module.config" />
     <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\module.config" />
     <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\EPiServer.Cms.AddOns.Blocks.zip" />
     <Content Include="modules\_protected\TedGustaf.Episerver.GoogleMapsEditor\TedGustaf.Episerver.GoogleMapsEditor.zip" />
-    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\module.config" />
-    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
-    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
-    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
     <Content Include="modules\_protected\EPiServer.LiveMonitor\web.config" />
     <Content Include="modules\_protected\EPiServer.LiveMonitor\module.config" />
     <Content Include="modules\_protected\EPiServer.LiveMonitor\LiveMonitor.config" />
@@ -861,7 +844,6 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
-    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\modules\_protected\Shell\web.config" />
@@ -869,6 +851,15 @@
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
     <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
+    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
+    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\module.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
