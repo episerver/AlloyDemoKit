@@ -11,7 +11,7 @@ using EPiServer.DataAbstraction;
 using System.Web;
 using AlloyDemoKit.Models.Pages.Models.Blocks;
 using AlloyDemoKit.Business;
-using AlloyDemoKit.Models.Pages.Business.Tags;
+using AlloyDemoKit.Models.Pages.Tags;
 using EPiServer.Templates.Blog.Mvc.Models.ViewModels;
 
 namespace EPiServer.Templates.Blog.Mvc.Controllers

@@ -2,7 +2,7 @@
 using EPiServer.Core;
 using EPiServer.PlugIn;
 
-namespace AlloyDemoKit.Models.Pages.Business.Tags
+namespace AlloyDemoKit.Models.Pages.Tags
 {
     [ScheduledPlugIn(DisplayName = "Calculate Blog Tags")]
     public class TagScheduledJob

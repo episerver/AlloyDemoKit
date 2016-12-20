@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AlloyDemoKit.Models.Pages.Business.Tags
+namespace AlloyDemoKit.Models.Pages.Tags
 {
     [EPiServerDataStore(AutomaticallyCreateStore = true, AutomaticallyRemapStore=true)]
     public class TagItem : IDynamicData

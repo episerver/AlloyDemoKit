@@ -24,6 +24,7 @@ namespace AlloyDemoKit.Models.Pages
         public virtual string Phone { get; set; }
         
         [Display(GroupName = Global.GroupNames.Contact)]
+        [Business.EmailAddress]
         public virtual string Email { get; set; }
     }
 }

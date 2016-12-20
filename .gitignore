@@ -195,3 +195,20 @@ FakesAssemblies/
 # Visual Studio 6 workspace options file
 *.opt
 /src/AlloyDemoKit/License.config
+/src/AlloyDemoKit/modules/Embed5.aspx.designer.cs
+/src/AlloyDemoKit/modules/Embed5.aspx.cs
+/src/AlloyDemoKit/modules/Embed5.aspx
+/src/AlloyDemoKit/modules/Embed4.aspx.designer.cs
+/src/AlloyDemoKit/modules/Embed4.aspx.cs
+/src/AlloyDemoKit/modules/Embed4.aspx
+/src/AlloyDemoKit/modules/Embed3.aspx.designer.cs
+/src/AlloyDemoKit/modules/Embed3.aspx.cs
+/src/AlloyDemoKit/modules/Embed3.aspx
+/src/AlloyDemoKit/modules/Embed2.aspx.designer.cs
+/src/AlloyDemoKit/modules/Embed2.aspx.cs
+/src/AlloyDemoKit/modules/Embed2.aspx
+/src/AlloyDemoKit/modules/Embed.aspx.designer.cs
+/src/AlloyDemoKit/modules/Embed.aspx.cs
+/src/AlloyDemoKit/modules/Embed.aspx
+/src/AlloyDemoKit/modules/_protected/PowerBI
+/src/AlloyDemoKit/modules/_protected/Peerius

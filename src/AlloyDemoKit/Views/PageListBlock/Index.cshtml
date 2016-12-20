@@ -9,7 +9,7 @@
         <h3>
             @Html.PageLink(page)
         </h3>
-        @if(Model.ShowPublishDate)
+        @if(Model.ShowPublishDate && page.StartPublish.HasValue)
         {
             <p class="date">@Html.DisplayFor(x => page.StartPublish)</p>
         }

@@ -10,14 +10,14 @@ using System.Web;
 using AlloyDemoKit.Business;
 using EPiServer;
 
-namespace AlloyDemoKit.Models.Pages.Business.Tags
+namespace AlloyDemoKit.Models.Pages.Tags
 {
     public class TagFactory
     {
         private Injected<ContentLocator> ContentLocator { get; set; }
         private static TagFactory _instance;
 
-        public TagFactory() 
+        public TagFactory()
         {
         }
 
@@ -79,7 +79,7 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
                         tagitem.Count++;
                     }
                 }
-                
+
             }
 
             //Now we have all tags and the count, lets find the highest count as well as the lowest count

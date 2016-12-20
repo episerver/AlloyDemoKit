@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using EPiServer.Core;
 using AlloyDemoKit.Models.Pages.Models.Blocks;
-using AlloyDemoKit.Models.Pages.Business.Tags;
+using AlloyDemoKit.Models.Pages.Tags;
 
 namespace EPiServer.Templates.Blog.Mvc.Models.ViewModels
 {

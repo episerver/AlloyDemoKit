@@ -1,16 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using EPiServer.Core;
-using EPiServer.Filters;
-using AlloyDemoKit.Models.Pages.Business;
-using AlloyDemoKit.Models.Pages.Models.Blocks;
-using EPiServer.Web.Mvc;
-using EPiServer.Web.Routing;
-using EPiServer.ServiceLocation;
+﻿using System.Web.Mvc;
 using AlloyDemoKit.Models.Pages.Models.Pages;
-using EPiServer.Web;
-using EPiServer.DataAbstraction;
 using AlloyDemoKit.Models.ViewModels;
 using EPiServer;
 using AlloyDemoKit.Business;

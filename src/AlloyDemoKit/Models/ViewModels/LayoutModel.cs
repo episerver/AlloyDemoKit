@@ -22,5 +22,8 @@ namespace AlloyDemoKit.Models.ViewModels
         public bool LoggedIn { get; set; }
         public MvcHtmlString LoginUrl { get; set; }
         public MvcHtmlString LogOutUrl { get; set; }
+        public MvcHtmlString SearchActionUrl { get; set; }
+
+        public bool IsInReadonlyMode {get;set;}
     }
 }

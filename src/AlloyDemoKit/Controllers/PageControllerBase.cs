@@ -5,7 +5,7 @@ using AlloyDemoKit.Models.Pages;
 using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Web.Mvc;
 using System;
-
+using EPiServer.Shell.Security;
 namespace AlloyDemoKit.Controllers
 {
     /// <summary>
@@ -15,6 +15,7 @@ namespace AlloyDemoKit.Controllers
     public abstract class PageControllerBase<T> : PageController<T>, IModifyLayout
         where T : SitePageData
     {
+        protected EPiServer.ServiceLocation.Injected<UISignInManager> UISignInManager;
         /// <summary>
         /// Signs out the current user and redirects to the Index action of the same controller.
         /// </summary>
@@ -26,7 +27,7 @@ namespace AlloyDemoKit.Controllers
         /// </remarks>
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
+            UISignInManager.Service.SignOut();
             return RedirectToAction("Index");
         }
 

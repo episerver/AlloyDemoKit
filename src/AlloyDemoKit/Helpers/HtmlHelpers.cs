@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using AlloyDemoKit.Business;
@@ -35,7 +36,7 @@ namespace AlloyDemoKit.Helpers
         public static IHtmlString MenuList(
             this HtmlHelper helper, 
             ContentReference rootLink, 
-            Func<MenuItem, System.Web.WebPages.HelperResult> itemTemplate = null, 
+            Func<MenuItem, HelperResult> itemTemplate = null, 
             bool includeRoot = false, 
             bool requireVisibleInMenu = true, 
             bool requirePageTemplate = true)
@@ -85,9 +86,9 @@ namespace AlloyDemoKit.Helpers
             return menuItem;
         }
 
-        private static Func<MenuItem, System.Web.WebPages.HelperResult> GetDefaultItemTemplate(HtmlHelper helper)
+        private static Func<MenuItem, HelperResult> GetDefaultItemTemplate(HtmlHelper helper)
         {
-            return x => new System.Web.WebPages.HelperResult(writer => writer.Write(helper.PageLink(x.Page)));
+            return x => new HelperResult(writer => writer.Write(helper.PageLink(x.Page)));
         }
 
         public class MenuItem
@@ -107,7 +108,7 @@ namespace AlloyDemoKit.Helpers
         public static MvcHtmlString RenderExtendedCSS(this HtmlHelper helper, string inline, LinkItemCollection cssFiles)
         {
             StringBuilder outputCSS = new StringBuilder(string.Empty);
-            StartPage start = ServiceLocator.Current.GetInstance<IContentLoader>().Get<StartPage>(ContentReference.StartPage);
+            Models.Pages.StartPage start = ServiceLocator.Current.GetInstance<IContentLoader>().Get<Models.Pages.StartPage>(ContentReference.StartPage);
 
             if (!string.IsNullOrWhiteSpace(start.GoogleFont))
             {

@@ -9,14 +9,14 @@ using EPiServer.ServiceLocation;
 using EPiServer.Web;
 using EPiServer.DataAccess;
 using EPiServer.Security;
-using AlloyDemoKit.Models.Pages.Business.Initialization;
+using AlloyDemoKit.Models.Pages.Initialization;
 using EPiServer.DataAbstraction;
 using System.Web.Routing;
 using EPiServer.Web.Routing;
 using EPiServer;
 using AlloyDemoKit.Business;
 
-namespace AlloyDemoKit.Models.Pages.Business.Tags
+namespace AlloyDemoKit.Models.Pages.Tags
 {
     [InitializableModule]
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
@@ -27,7 +27,7 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
             IContentEvents events = ServiceLocator.Current.GetInstance<IContentEvents>();
 
             events.CreatingContent += CreatingContent;
-            
+
             var partialRouter = new BlogPartialRouter();
 
             RouteTable.Routes.RegisterPartialRouter<BlogStartPage, Category>(partialRouter);
@@ -63,12 +63,12 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
 
         void Instance_PublishingPage(object sender, PageEventArgs e)
         {
-            
+
         }
 
         void Instance_CreatedPage(object sender, PageEventArgs e)
         {
-           
+
         }
 
         //Returns if we are doing an import or mirroring
@@ -97,11 +97,11 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
                 }
                 result = CreateDatePage(contentRepository, current.PageLink, published.Month.ToString(), new DateTime(published.Year, published.Month, 1));
                 return result;
-            
+
                 }
             }
             PageReference parent = CreateDatePage(contentRepository, blogStart.ContentLink, published.Year.ToString(), new DateTime(published.Year, 1, 1));
-            return CreateDatePage(contentRepository, parent, published.Month.ToString(), new DateTime(published.Year, published.Month, 1));     
+            return CreateDatePage(contentRepository, parent, published.Month.ToString(), new DateTime(published.Year, published.Month, 1));
         }
 
         private PageReference CreateDatePage(IContentRepository contentRepository, ContentReference parent, string name, DateTime startPublish)
@@ -109,7 +109,7 @@ namespace AlloyDemoKit.Models.Pages.Business.Tags
             BlogListPage defaultPageData = contentRepository.GetDefault<BlogListPage>(parent, typeof(BlogListPage).GetPageType().ID);
             defaultPageData.PageName = name;
             defaultPageData.Heading = name;
-            defaultPageData.StartPublish = startPublish;         
+            defaultPageData.StartPublish = startPublish;
             IUrlSegmentCreator urlSegment = ServiceLocator.Current.GetInstance<IUrlSegmentCreator>();
             defaultPageData.URLSegment = urlSegment.Create(defaultPageData);
             return contentRepository.Save(defaultPageData, SaveAction.Publish, AccessLevel.Publish).ToPageReference();

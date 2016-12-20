@@ -2,7 +2,6 @@
 using EPiServer.DataAbstraction;
 using AlloyDemoKit.Models.Pages.Models.Blocks;
 using System.ComponentModel.DataAnnotations;
-using AlloyDemoKit.Models.Pages.Business;
 using EPiServer.DataAnnotations;
 using AlloyDemoKit.Business;
 

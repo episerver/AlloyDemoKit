@@ -22,11 +22,14 @@
                     <li>
                         @if(Model.Layout.LoggedIn)
                         {
-                            @Html.ActionLink(Html.Translate("/footer/logout"), "Logout")
-                        } 
+                            @Html.ActionLink(Html.Translate("/footer/logout"), "Logout", new { language = @Model.CurrentPage.Language.Name })
+                        }
                         else
                         {
+                            if (!Model.Layout.IsInReadonlyMode)
+                            {
                             <a href="@Model.Layout.LoginUrl" title="@Html.Translate("/footer/login")">@Html.Translate("/footer/login")</a>
+                            }
                         }
                     </li>
                 </ul>
