@@ -56,7 +56,7 @@ namespace AlloyDemoKit.Models.Pages.Tags
 
                 if (parentPage is BlogStartPage)
                 {
-                    page.ParentLink = GetDatePageRef(page, startPublish, contentRepository);
+                    page.ParentLink = GetDatePageRef(parentPage, startPublish, contentRepository);
                 }
             }
         }
