@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EPiServer;
 using EPiServer.Approvals;
+using EPiServer.Approvals.ContentApprovals;
 using EPiServer.Core;
 using EPiServer.Shell.Rest;
 using EPiServer.Shell.Services.Rest;
@@ -18,12 +19,12 @@ namespace AlloyDemoKit.Business.ContentApprovalExtensions
             _approvalRepository = approvalRepository;
         }
 
-        public QueryRange<IContent> ExecuteQueryInternal(ApprovalsQuery query)
+        public QueryRange<IContent> ExecuteQueryInternal(ApprovalQuery query)
         {
             var itemsToBeApproved = _approvalRepository.ListAsync(query);
             var contentItemsToBeApproved = new List<IContent>();
             var result = itemsToBeApproved.Result;
-            foreach (var approval in result)
+            foreach (ContentApproval approval in result)
             {
                 contentItemsToBeApproved.Add(_contentRepository.Get<IContent>(approval.ContentLink));
             }
