@@ -700,6 +700,43 @@
     <Compile Include="Models\ViewModels\TagCloudModel.cs" />
     <Compile Include="Models\ViewModels\VideoViewModel.cs" />
     <Compile Include="Models\ViewModels\WeatherBlockViewModel.cs" />
+    <Compile Include="modules\Embed.aspx.cs">
+      <DependentUpon>Embed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\Embed.aspx.designer.cs">
+      <DependentUpon>Embed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modules\Embed2.aspx.cs">
+      <DependentUpon>Embed2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\Embed2.aspx.designer.cs">
+      <DependentUpon>Embed2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modules\Embed3.aspx.cs">
+      <DependentUpon>Embed3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\Embed3.aspx.designer.cs">
+      <DependentUpon>Embed3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modules\Embed4.aspx.cs">
+      <DependentUpon>Embed4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\Embed4.aspx.designer.cs">
+      <DependentUpon>Embed4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modules\Embed5.aspx.cs">
+      <DependentUpon>Embed5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\Embed5.aspx.designer.cs">
+      <DependentUpon>Embed5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modules\_protected\Peerius\Menu\MenuProvider.cs" />
+    <Compile Include="modules\_protected\PowerBI\Menu\MenuProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -737,6 +774,11 @@
     <Content Include="ClientResources\Scripts\samples\commandsInitializer.js" />
     <Content Include="ClientResources\Scripts\samples\relatedPagesCommandProvider.js" />
     <Content Include="ClientResources\Scripts\samples\showRelatedPagesCommand.js" />
+    <Content Include="modules\Embed.aspx" />
+    <Content Include="modules\Embed2.aspx" />
+    <Content Include="modules\Embed3.aspx" />
+    <Content Include="modules\Embed4.aspx" />
+    <Content Include="modules\Embed5.aspx" />
     <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.2.0\ClientResources\Criteria\SubmittedValue.js" />
@@ -862,6 +904,8 @@
     <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
     <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
     <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
+    <Content Include="modules\_protected\Peerius\web.config" />
+    <Content Include="modules\_protected\PowerBI\web.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
