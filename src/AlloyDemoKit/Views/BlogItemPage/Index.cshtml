@@ -9,9 +9,16 @@
 @Html.FullRefreshPropertiesMetaData()  
 <h1 @Html.EditAttributes(x => x.CurrentPage.Name)>@Model.CurrentPage.Name</h1>
 <p>
-   <div @Html.EditAttributes("PageStartPublish")>
-    @Html.PropertyFor(x => x.CurrentPage.StartPublish, new EPiServer.Web.Mvc.EditHint() { ContentDataPropertyName = "PageStartPublish" })
-    </div>
+    @if (Model.CurrentPage.StartPublish.HasValue)
+    {
+        <div @Html.EditAttributes("PageStartPublish")>
+            @Html.PropertyFor(x => x.CurrentPage.StartPublish, new EPiServer.Web.Mvc.EditHint()
+           {
+               ContentDataPropertyName = "PageStartPublish"
+           })
+        </div>
+    }
+    
     <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
         <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)"/>
     </div>
