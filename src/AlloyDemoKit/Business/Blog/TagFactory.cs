@@ -1,13 +1,13 @@
 ﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.ServiceLocation;
-using AlloyDemoKit.Models.Pages.Models.Pages;
 using EPiServer.Web.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AlloyDemoKit.Business;
+using AlloyDemoKit.Models.Pages.Blog;
 using EPiServer;
 
 namespace AlloyDemoKit.Models.Pages.Tags
@@ -31,7 +31,7 @@ namespace AlloyDemoKit.Models.Pages.Tags
 
             var contentLocator = ServiceLocator.Current.GetInstance<IContentRepository>();
 
-            var start = FindParentByPageType(currentPage, typeof(BlogStartPage), contentLocator);
+            var start = FindParentByPageType(currentPage, typeof(BlogUserStartPage), contentLocator);
 
             var urlResolver = ServiceLocator.Current.GetInstance<UrlResolver>();
             var pageUrl = urlResolver.GetUrl(start.ContentLink);
@@ -43,7 +43,7 @@ namespace AlloyDemoKit.Models.Pages.Tags
 
         protected PageData FindParentByPageType(PageData pd, Type pagetype, IContentRepository contentLocator)
         {
-            if (pd is BlogStartPage)
+            if (pd is BlogUserStartPage)
             {
                 return pd;
             }

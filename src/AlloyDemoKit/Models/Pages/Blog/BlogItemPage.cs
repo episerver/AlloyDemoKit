@@ -1,11 +1,9 @@
 ﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web;
-namespace AlloyDemoKit.Models.Pages.Models.Pages
+
+namespace AlloyDemoKit.Models.Pages.Blog
 {
     /// <summary>
     /// Used primarily for publishing news articles on the website
@@ -16,12 +14,9 @@ namespace AlloyDemoKit.Models.Pages.Models.Pages
     [SiteImageUrl(Global.StaticGraphicsFolderPath + "page-type-thumbnail-article.png")]
     [AvailableContentTypes(
      Availability.Specific,
-     Include = new[] { typeof(BlogListPage), typeof(BlogItemPage) })]  // Pages we can create under the start page...
+     Include = new[] { typeof(BlogUserStartPage), typeof(BlogItemPage) })]  // Pages we can create under the start page...
       public class BlogItemPage : StandardPage
     {
-        [Display(GroupName = SystemTabNames.Content)]
-        public virtual string Author { get; set; }
-
         [Display(GroupName = SystemTabNames.Content)]
         public virtual ContentArea RightContentArea { get; set; }
 

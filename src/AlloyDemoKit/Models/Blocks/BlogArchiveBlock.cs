@@ -1,14 +1,7 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Filters;
-using EPiServer.ServiceLocation;
-using EPiServer.Web.Routing;
-using AlloyDemoKit.Models.Blocks;
+﻿using EPiServer.Core;
+using System.ComponentModel;
 
-namespace AlloyDemoKit.Models.Pages.Models.Blocks
+namespace AlloyDemoKit.Models.Blocks
 {
     /// <summary>
     /// Used to insert a list of date pages where blogs are created

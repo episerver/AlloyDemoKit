@@ -1,0 +1,49 @@
+﻿@using AlloyDemoKit.Models.Pages.Blog
+@using EPiServer.Core
+@model ManageBlogViewModel
+<div class="row">
+    <div class="span12">
+        @using (Html.BeginForm("CreateNewBlog","BlogManage", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h3>Create new post</h3>
+            <h4>Add a title for your blog post (required)</h4>
+            @Html.TextBox("blogHeading", "", new { @class = "form-control", placeholder = "New Post Name" })
+            <button type="submit" id="createNewBlogBtn">
+                New Post
+            </button>
+        }
+    </div>
+    <div class="span12">
+        <h3>
+            Edit an existing post
+        </h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Post title</th>
+                    <th>Action</th>
+                    <th>Posted on</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var blog in Model.BlogPosts)
+                {
+                    <tr class="">
+                        <td style="width: 60%">
+                            <a href="@Url.ContentUrl(blog.ContentLink)">@blog.TeaserText</a>
+                        </td>
+
+                        <td>@Html.ActionLink("Edit", "EditBlog", new { blogid= blog.ContentLink.ID})</td>
+                        <td>
+                            @if (blog.Status == VersionStatus.Published && blog.StartPublish.HasValue)
+                            {
+                                 @Html.Raw(blog.StartPublish.Value.ToShortDateString())
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

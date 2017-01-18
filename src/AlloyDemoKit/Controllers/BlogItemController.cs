@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using EPiServer.Core;
-using AlloyDemoKit.Models.Pages.Models.Pages;
 using EPiServer.DataAbstraction;
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
+using AlloyDemoKit.Models.Pages.Blog;
 using EPiServer.Core.Html;
 using EPiServer.ServiceLocation;
 using AlloyDemoKit.Models.Pages.Tags;
@@ -34,6 +34,11 @@ namespace AlloyDemoKit.Models.Pages.Controllers
             };
 
             return PartialView("Preview", model);
+        }
+
+        public ActionResult Email(BlogItemPage currentPage)
+        {
+            return View(currentPage);
         }
 
         public ActionResult Full(BlogItemPage currentPage)

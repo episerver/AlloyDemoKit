@@ -8,7 +8,6 @@ using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using EPiServer.ServiceLocation;
 using EPiServer.DataAbstraction;
-using AlloyDemoKit.Models.Pages.Models.Pages;
 using AlloyDemoKit.Models.Pages.Tags;
 using System.Text;
 using System;
@@ -16,6 +15,9 @@ using System.Text.RegularExpressions;
 using EPiServer.Core.Html;
 using EPiServer;
 using AlloyDemoKit.Business;
+using AlloyDemoKit.Models.Blocks;
+using AlloyDemoKit.Models.Pages.Blog;
+using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Templates.Blog.Mvc.Models.ViewModels;
 using EPiServer.DynamicContent.Internal;
 

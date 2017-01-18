@@ -1,18 +1,16 @@
-﻿using EPiServer.Core;
+﻿using AlloyDemoKit.Models.Pages.Blog;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.Editor;
-using AlloyDemoKit.Models.Pages.Models.Pages;
+using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Routing;
-using EPiServer.ServiceLocation;
 
-namespace AlloyDemoKit.Models.Pages.Initialization
+namespace AlloyDemoKit.Business.Blog
 {
-    public class BlogPartialRouter : IPartialRouter<BlogStartPage, Category>
+    public class BlogPartialRouter : IPartialRouter<BlogUserStartPage, Category>
     {
 
         public PartialRouteData GetPartialVirtualPath(Category cat, string language, RouteValueDictionary routeValues, RequestContext requestContext)
@@ -33,7 +31,7 @@ namespace AlloyDemoKit.Models.Pages.Initialization
         }
 
 
-        public object RoutePartial(BlogStartPage content, EPiServer.Web.Routing.Segments.SegmentContext segmentContext)
+        public object RoutePartial(BlogUserStartPage content, EPiServer.Web.Routing.Segments.SegmentContext segmentContext)
         {
             //Expected format is Name/<otional>Header/
             var namePart = segmentContext.GetNextValue(segmentContext.RemainingPath);

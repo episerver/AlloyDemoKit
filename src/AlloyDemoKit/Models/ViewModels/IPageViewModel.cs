@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using EPiServer.Core;
 using AlloyDemoKit.Models.Pages;
 
@@ -15,5 +16,6 @@ namespace AlloyDemoKit.Models.ViewModels
         T CurrentPage { get; }
         LayoutModel Layout { get; set; }
         IContent Section { get; set; }
+        Dictionary<string,string> SalesForceProperties { get; set; }
     }
 }

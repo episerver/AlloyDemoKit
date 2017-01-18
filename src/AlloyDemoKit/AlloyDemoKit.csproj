@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AlloyDemoKit</RootNamespace>
     <AssemblyName>AlloyDemoKit</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -232,6 +233,22 @@
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Marketing.Testing.1.2.0\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.MarketingAutomation.SalesforceService, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.MarketingAutomationIntegration.Salesforce.1.3.1\lib\EPiServer.MarketingAutomation.SalesforceService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.MarketingAutomationIntegration, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.ConnectForMarketingAutomation.2.5.0\lib\EPiServer.MarketingAutomationIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.MarketingAutomationIntegration.Marketo, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.MarketingAutomationIntegration.Marketo.1.4.0\lib\EPiServer.MarketingAutomationIntegration.Marketo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.MarketingAutomationIntegration.Salesforce, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.MarketingAutomationIntegration.Salesforce.1.3.1\lib\EPiServer.MarketingAutomationIntegration.Salesforce.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Packaging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
@@ -521,6 +538,7 @@
     <Compile Include="AdminTools\EmployeeSettings.aspx.designer.cs">
       <DependentUpon>EmployeeSettings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Business\Attributes\MultipleButtonAttribute.cs" />
     <Compile Include="Business\Blog\BlogPartialRouter.cs" />
     <Compile Include="Business\Blog\BlogTagInitialization.cs" />
     <Compile Include="Business\Blog\TagFactory.cs" />
@@ -590,9 +608,11 @@
     <Compile Include="Business\UIDescriptors\WeatherBlockUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FindPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
+    <Compile Include="Controllers\BlogGlobalStartPageController.cs" />
     <Compile Include="Controllers\BlogItemController.cs" />
     <Compile Include="Controllers\BlogListBlockController.cs" />
-    <Compile Include="Controllers\BlogStartPageController.cs" />
+    <Compile Include="Controllers\BlogManageController.cs" />
+    <Compile Include="Controllers\BlogUserStartPageController.cs" />
     <Compile Include="Controllers\ClosestLocationBlockController.cs" />
     <Compile Include="Controllers\ContactBlockController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
@@ -654,9 +674,12 @@
     <Compile Include="Models\Media\PDFFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
+    <Compile Include="Models\Pages\Blog\AuthorList.cs" />
+    <Compile Include="Models\Pages\Blog\BlogGlobalStartPage.cs" />
     <Compile Include="Models\Pages\Blog\BlogItemPage.cs" />
     <Compile Include="Models\Pages\Blog\BlogListPage.cs" />
-    <Compile Include="Models\Pages\Blog\BlogStartPage.cs" />
+    <Compile Include="Models\Pages\Blog\BlogManage.cs" />
+    <Compile Include="Models\Pages\Blog\BlogUserStartPage.cs" />
     <Compile Include="Models\Pages\ContactPage.cs" />
     <Compile Include="Models\Pages\ContainerPage.cs" />
     <Compile Include="Models\Pages\EmployeeExpertise.cs" />
@@ -675,6 +698,8 @@
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\Properties\PropertyAuthorList.cs" />
+    <Compile Include="Models\Properties\PropertyListBase.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\SiteContentType.cs" />
     <Compile Include="Models\SiteImageUrl.cs" />
@@ -688,6 +713,8 @@
     <Compile Include="Models\ViewModels\ImageViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
+    <Compile Include="Models\ViewModels\ManageBlogItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\ManageBlogViewModel.cs" />
     <Compile Include="Models\ViewModels\PageListModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\ParkingViewModel.cs" />
@@ -863,6 +890,12 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation\EPiServer.ConnectForMarketingAutomation.zip" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Marketo\module.config" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Marketo\EPiServer.MAI.Marketo.config" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Marketo\EPiServer.ConnectForMarketingAutomation.Marketo.zip" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Salesforce\module.config" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Salesforce\EPiServer.ConnectForMarketingAutomation.Salesforce.zip" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -1069,7 +1102,7 @@
     <Content Include="Views\BlogItem\Preview.cshtml" />
     <Content Include="Views\BlogListBlock\Index.cshtml" />
     <Content Include="Views\BlogListPage\Index.cshtml" />
-    <Content Include="Views\BlogStartPage\Index.cshtml" />
+    <Content Include="Views\BlogUserStartPage\Index.cshtml" />
     <Content Include="Views\TagCloudBlock\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\BlogArchiveBlock.cshtml" />
     <Content Include="Views\Shared\Blocks\CarouselItemBlock.cshtml" />
@@ -1097,6 +1130,11 @@
     <Content Include="Views\Shared\Blocks\PDFFile.cshtml" />
     <Content Include="Views\Shared\Blocks\CallToActionBlock.cshtml" />
     <Content Include="Views\Shared\Readonly.cshtml" />
+    <Content Include="Views\BlogGlobalStartPage\Index.cshtml" />
+    <Content Include="Views\BlogManage\Index.cshtml" />
+    <Content Include="Views\Shared\_Authors.cshtml" />
+    <Content Include="Views\BlogManage\EditBlog.cshtml" />
+    <Content Include="Views\BlogItem\Email.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

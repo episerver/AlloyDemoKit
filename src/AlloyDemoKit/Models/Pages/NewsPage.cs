@@ -5,9 +5,9 @@ using EPiServer.Framework.Localization;
 using EPiServer.ServiceLocation;
 using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Blocks;
+using AlloyDemoKit.Models.Pages.Blog;
 using EPiServer.DataAnnotations;
 using EPiServer.Core;
-using AlloyDemoKit.Models.Pages.Models.Pages;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -18,7 +18,7 @@ namespace AlloyDemoKit.Models.Pages
     [SiteImageUrl]
     [AvailableContentTypes(
         Availability.Specific,
-        Exclude = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(FindPage), typeof(SearchPage), typeof(LandingPage), typeof(ContentFolder), typeof(ContactPage), typeof(BlogItemPage), typeof(BlogStartPage), typeof(BlogListPage) },
+        Exclude = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(FindPage), typeof(SearchPage), typeof(LandingPage), typeof(ContentFolder), typeof(ContactPage), typeof(BlogItemPage), typeof(BlogUserStartPage), typeof(BlogListPage) },
         Include = new[] { typeof(ArticlePage), typeof(StandardPage), typeof(NewsPage) })] // Pages we can create under the news page...
     public class NewsPage : StandardPage
     {

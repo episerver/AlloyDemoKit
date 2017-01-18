@@ -1,11 +1,12 @@
-using System.Web.Mvc;
-using System.Web.Security;
 using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Pages;
 using AlloyDemoKit.Models.ViewModels;
+using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
 using EPiServer.Web.Mvc;
 using System;
-using EPiServer.Shell.Security;
+using System.Web.Mvc;
+
 namespace AlloyDemoKit.Controllers
 {
     /// <summary>
@@ -15,7 +16,8 @@ namespace AlloyDemoKit.Controllers
     public abstract class PageControllerBase<T> : PageController<T>, IModifyLayout
         where T : SitePageData
     {
-        protected EPiServer.ServiceLocation.Injected<UISignInManager> UISignInManager;
+        protected Injected<UISignInManager> UISignInManager;
+        
         /// <summary>
         /// Signs out the current user and redirects to the Index action of the same controller.
         /// </summary>
@@ -31,6 +33,7 @@ namespace AlloyDemoKit.Controllers
             return RedirectToAction("Index");
         }
 
+        
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
             // don't throw 404 in edit mode
@@ -42,7 +45,7 @@ namespace AlloyDemoKit.Controllers
                     return;
                 }
             }
-
+            
             base.OnAuthorization(filterContext);
         }
 

@@ -1,14 +1,11 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
+﻿using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Filters;
-using EPiServer.ServiceLocation;
-using EPiServer.Web.Routing;
-using AlloyDemoKit.Models.Blocks;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace AlloyDemoKit.Models.Pages.Models.Blocks
+namespace AlloyDemoKit.Models.Blocks
 {
     /// <summary>
     /// Used to insert a list of pages, for example a news list

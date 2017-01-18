@@ -1,0 +1,45 @@
+﻿@model ManageBlogItemViewModel
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.ContentLink)
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <td>@Html.Label("Meta Title")</td>
+            <td>@Html.TextBoxFor(x => x.MetaTitle)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Meta Keywords")</td>
+            <td>@Html.TextBoxFor(x => x.MetaKeywords)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Meta Description")</td>
+            <td>@Html.TextAreaFor(x => x.MetaDescription)</td>
+        </tr>
+            <tr>
+                <td>@Html.Label("Post Title")</td>
+                <td>@Html.TextBoxFor(x => x.Title)</td>
+            </tr>
+        <tr>
+            <td>@Html.Label("Post")</td>
+            <td>@Html.TextAreaFor(x => x.Post)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save" id="btnSave" name="action:Save"/>
+                
+            </td>
+            <td><input type="submit" value="Pubslih" id="btnPubish" name="action:Publish" /></td>
+        </tr>
+        </tbody>
+    </table>
+}
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('Post');
+</script>
+            

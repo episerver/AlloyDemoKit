@@ -6,6 +6,7 @@ using AlloyDemoKit.Models.Blocks;
 using AlloyDemoKit.Models.Pages;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
+using AlloyDemoKit.Models.Pages.Blog;
 
 namespace AlloyDemoKit.Business.Rendering
 {
@@ -105,7 +106,14 @@ namespace AlloyDemoKit.Business.Rendering
                 Tags = new[] { Global.ContentAreaTags.OneThirdWidth },
                 AvailableWithoutTag = false,
                 Path = BlockPath("LinkedInCompanyBlockNarrow.cshtml"),
-            });            
+            });
+
+            viewTemplateModelRegistrator.Add(typeof(BlogItemPage), new TemplateModel
+            {
+                Tags = new[] { "email" },
+                AvailableWithoutTag = false,
+                Path = "~/Views/BlogItem/Email.cshtml",
+            });
         }
 
         private static string BlockPath(string fileName)

@@ -7,6 +7,7 @@ using AlloyDemoKit.Models.Pages;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Filters;
+using EPiServer.Globalization;
 using EPiServer.Web;
 
 namespace AlloyDemoKit.Business
@@ -27,7 +28,7 @@ namespace AlloyDemoKit.Business
         public virtual IEnumerable<T> GetAll<T>(ContentReference rootLink)
             where T : PageData
         {
-            var children = _contentLoader.GetChildren<PageData>(rootLink);
+            var children = _contentLoader.GetChildren<PageData>(rootLink, ContentLanguage.PreferredCulture);
             foreach (var child in children)
             {
                 var childOfRequestedTyped = child as T;

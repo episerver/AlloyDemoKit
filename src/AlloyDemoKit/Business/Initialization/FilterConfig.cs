@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
@@ -8,7 +9,7 @@ namespace AlloyDemoKit.Business.Initialization
     /// <summary>
     /// Module for registering filters which will be applied to controller actions.
     /// </summary>
-    [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
+    [ModuleDependency(typeof(EPiServer.Web.InitializationModule), typeof(ApplicationInitializationModule))]
     public class FilterConfig : IInitializableModule
     {
         public void Initialize(InitializationEngine context)

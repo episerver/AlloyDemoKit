@@ -1,4 +1,5 @@
 ﻿@model BlogArchiveBlock
+@using AlloyDemoKit.Models.Pages.Blog
 @using EPiServer
 @using AlloyDemoKit.Models.Pages.Models.Blocks
 
@@ -8,11 +9,11 @@
            <h3>Archive</h3>
         <ul>
             
-            @foreach (var year in DataFactory.Instance.GetChildren<AlloyDemoKit.Models.Pages.Models.Pages.BlogListPage>(Model.BlogStart))
+            @foreach (var year in DataFactory.Instance.GetChildren<BlogListPage>(Model.BlogStart))
             {
                 <li>@Html.PageLink(year)</li>
                 <ul>
-                    @foreach (var month in DataFactory.Instance.GetChildren<AlloyDemoKit.Models.Pages.Models.Pages.BlogListPage>(year.ContentLink))
+                    @foreach (var month in DataFactory.Instance.GetChildren<BlogListPage>(year.ContentLink))
 	                {
 		                 <li>@Html.PageLink(month)</li>
                     }

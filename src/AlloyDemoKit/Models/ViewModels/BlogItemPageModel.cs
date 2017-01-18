@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Web;
+﻿using AlloyDemoKit.Models.Pages.Blog;
 using EPiServer.Core;
 using System;
-using AlloyDemoKit.Models.ViewModels;
-using AlloyDemoKit.Models.Pages.Models.Pages;
+using System.Collections.Generic;
 
-namespace EPiServer.Templates.Blog.Mvc.Models.ViewModels
+namespace AlloyDemoKit.Models.ViewModels
 {
     public class BlogItemPageModel : PageViewModel<BlogItemPage>
     {

@@ -1,9 +1,11 @@
-﻿using EPiServer.Core;
+﻿using AlloyDemoKit.Models.Pages.Models.Blocks;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using AlloyDemoKit.Models.Pages.Models.Blocks;
 using System.ComponentModel.DataAnnotations;
-namespace AlloyDemoKit.Models.Pages.Models.Pages
+using AlloyDemoKit.Models.Blocks;
+
+namespace AlloyDemoKit.Models.Pages.Blog
 {
     /// <summary>
     /// Used primarily for publishing news articles on the website

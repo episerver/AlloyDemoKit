@@ -5,7 +5,7 @@
 
 @model BlogItemPageModel
 
-<div class="span8 clearfix">
+<div class="span12 clearfix">
    
     <div @Html.EditAttributes("PageCategory")>
         <span>Tags: </span>
@@ -17,6 +17,7 @@
     </div>
 </div>
 
-<div class="span8 clearfix" @Html.EditAttributes(x => x.MainBody)>
+<div class="span12 clearfix" @Html.EditAttributes(x => x.MainBody)>
         @Html.DisplayFor(x => x.MainBody)
     </div>
+<div class="mktEditable" id="mktEditableID"></div>

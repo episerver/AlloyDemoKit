@@ -1,7 +1,7 @@
 using EPiServer.Editor;
 using EPiServer.Shell;
 using AlloyDemoKit.Models.Pages;
-using AlloyDemoKit.Models.Pages.Models.Pages;
+using AlloyDemoKit.Models.Pages.Blog;
 
 namespace AlloyDemoKit.Business.UIDescriptors
 {
