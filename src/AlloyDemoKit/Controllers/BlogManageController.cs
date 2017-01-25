@@ -137,9 +137,9 @@ namespace AlloyDemoKit.Controllers
             blog.TeaserText = blogHeading;
             blog.Name = blogHeading;
             _contentRepository.Save(blog, SaveAction.Default, AccessLevel.NoAccess);
-            return RedirectToAction("EditBlog", new { id=blog.ContentLink.ID});
+            return RedirectToAction("EditBlog", new { blogid = blog.ContentLink.ID });
         }
 
-        
+
     }
 }

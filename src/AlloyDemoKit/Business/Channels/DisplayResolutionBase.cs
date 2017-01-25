@@ -14,7 +14,7 @@ namespace AlloyDemoKit.Business.Channels
         protected DisplayResolutionBase(string name, int width, int height)
         {
             Id = GetType().FullName;
-            Name = Translate(name);
+            Name = name;
             Width = width;
             Height = height;
         }

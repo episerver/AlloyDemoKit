@@ -34,6 +34,7 @@ using EPiServer.Framework.Web;
 using EPiServer.Globalization;
 using AlloyDemoKit.Models.Pages.Controllers;
 using EPiServer.Notification;
+using EPiServer.Shell.Security;
 
 namespace AlloyDemoKit.Business.Blog
 {
@@ -71,39 +72,37 @@ namespace AlloyDemoKit.Business.Blog
         }
 
         private void Events_PublishedContent(object sender,
-            ContentEventArgs e)
+           ContentEventArgs e)
         {
             var blog = e.Content as BlogItemPage;
-            if (blog == null)
+            if (blog == null || blog.Language != CultureInfo.GetCultureInfo("en"))
             {
                 return;
             }
             SendToMarketo(blog);
             UpdateLanguageBranches(blog);
+            NotifyEditors();
         }
 
         private void NotifyEditors()
         {
-            //_notifier.PostNotificationAsync(new NotificationMessage
-            //{
-            //    ChannelName = "blogsubscribed",
-            //    Content = "A page has been improved!",
-            //    Subject = "Improvement",
-            //    Recipients = new[] { new NotificationUser(),  },
-            //    Sender sender,
-            //    TypeName = "PageChanged"
-            //})
+
+            _notifier.PostNotificationAsync(new NotificationMessage
+            {
+                ChannelName = "blogsubscribed",
+                Content = "A New Blog Post has been published!",
+                Subject = "New Blog Post",
+                Recipients = ServiceLocator.Current.GetInstance<UIRoleProvider>().GetUsersInRole("Blogs").Select(x => new NotificationUser(x)),
+                Sender = new NotificationUser(HttpContext.Current.User.Identity.Name),
+                TypeName = "PageChanged"
+            });
         }
 
         private void UpdateLanguageBranches(BlogItemPage blog)
         {
-            foreach (var culture in new [] {"sv", "de"})
+            foreach (var culture in new[] { "sv", "de" })
             {
-                BlogItemPage langContent;
-                if (!_contentRepository.TryGet(blog.ContentLink, CultureInfo.GetCultureInfo(culture), out langContent))
-                {
-                    langContent = _contentRepository.CreateLanguageBranch<BlogItemPage>(blog.ContentLink, CultureInfo.GetCultureInfo(culture));
-                }
+                var langContent = _contentRepository.GetDefault<BlogItemPage>(blog.ContentLink, CultureInfo.GetCultureInfo(culture));
                 langContent.MainBody = blog.MainBody;
                 langContent.Name = blog.Name;
                 langContent.TeaserText = blog.TeaserText;

@@ -51,7 +51,8 @@ namespace AlloyDemoKit.Models.Pages.Controllers
                 Tags = GetTags(currentPage),
                 PreviewText = GetPreviewText(currentPage),
                 MainBody = currentPage.MainBody,
-                StartPublish = currentPage.StartPublish.Value
+                StartPublish = currentPage.StartPublish.HasValue ? currentPage.StartPublish.Value : DateTime.UtcNow
+
             };
 
             var editHints = ViewData.GetEditHints<BlogItemPageModel, BlogItemPage>();

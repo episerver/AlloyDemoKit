@@ -11,11 +11,10 @@
         @Html.PropertyFor(x => x.CurrentPage.BlogList)
     </div>
 </div>
-@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", Tag = AlloyDemoKit.Global.ContentAreaTags.TwoThirdsWidth })
-
 @section RelatedContent
 {
     @Html.Partial("_Authors", Model.CurrentPage.Authors ?? new List<AuthorList>())
-    @Html.PropertyFor(x => x.CurrentPage.TagCloud)
-    @Html.PropertyFor(x => x.CurrentPage.Archive)
+ 
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row equal-height", Tag = AlloyDemoKit.Global.ContentAreaTags.OneThirdWidth })
+
 }
