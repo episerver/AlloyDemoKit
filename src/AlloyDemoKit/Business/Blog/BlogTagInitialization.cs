@@ -65,7 +65,7 @@ namespace AlloyDemoKit.Business.Blog
             _templateResolver = ServiceLocator.Current.GetInstance<ITemplateResolver>();
             _contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
             _notifier = ServiceLocator.Current.GetInstance<INotifier>();
-
+                
             var events = ServiceLocator.Current.GetInstance<IContentEvents>();
             events.CreatingContent += CreatingContent;
             events.PublishedContent += Events_PublishedContent;
