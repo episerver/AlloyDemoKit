@@ -1,20 +1,22 @@
-﻿using AlloyDemoKit.Helpers;
-using AlloyDemoKit.Models.Pages.Blog;
+﻿using AlloyDemoKit.Models.Pages.Blog;
+using AlloyDemoKit.Models.Pages.Controllers;
 using EPiServer;
 using EPiServer.Core;
-using EPiServer.DataAbstraction;
 using EPiServer.DataAccess;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
+using EPiServer.Framework.Web;
+using EPiServer.Globalization;
 using EPiServer.Logging;
 using EPiServer.MarketingAutomationIntegration.Core;
-using EPiServer.MarketingAutomationIntegration.Helpers;
 using EPiServer.MarketingAutomationIntegration.Marketo.Implementation;
 using EPiServer.MarketingAutomationIntegration.Marketo.Services.REST;
 using EPiServer.MarketingAutomationIntegration.Marketo.Services.REST.Responses;
 using EPiServer.MarketingAutomationIntegration.Marketo.Services.REST.Responses.Results;
+using EPiServer.Notification;
 using EPiServer.Security;
 using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
@@ -22,19 +24,12 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Script.Serialization;
-using EPiServer.Framework.Web;
-using EPiServer.Globalization;
-using AlloyDemoKit.Models.Pages.Controllers;
-using EPiServer.Notification;
-using EPiServer.Shell.Security;
 
 namespace AlloyDemoKit.Business.Blog
 {

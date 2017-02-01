@@ -26,7 +26,7 @@ namespace AlloyDemoKit.Business
     {
         private readonly PageViewContextFactory _contextFactory;
         private readonly SalesforceManager _salesforceManager = new SalesforceManager();
-        private  Injected<UIUserProvider> _userManager;
+        private Injected<UIUserProvider> _userManager;
 
         public PageContextActionFilter(PageViewContextFactory contextFactory)
         {
@@ -41,15 +41,16 @@ namespace AlloyDemoKit.Business
             if (model != null)
             {
                 var currentContentLink = filterContext.RequestContext.GetContentLink();
-                
-                var layoutModel = model.Layout ?? _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
-                
+
+                var layoutModel = model.Layout ??
+                                  _contextFactory.CreateLayoutModel(currentContentLink, filterContext.RequestContext);
+
                 var layoutController = filterContext.Controller as IModifyLayout;
-                if(layoutController != null)
+                if (layoutController != null)
                 {
                     layoutController.ModifyLayout(layoutModel);
                 }
-                
+
                 model.Layout = layoutModel;
 
                 if (model.Section == null)
@@ -82,7 +83,15 @@ namespace AlloyDemoKit.Business
                 {
                     {"id", key.ToString()}
                 };
-                return _salesforceManager.GetObject(ObjectType.Contact, lookupcriteria);
+                try
+                {
+                    return _salesforceManager.GetObject(ObjectType.Contact, lookupcriteria);
+                }
+                catch (Exception)
+                {
+                    
+                }
+                
             }
 
             if (!principal.Identity.IsAuthenticated)
