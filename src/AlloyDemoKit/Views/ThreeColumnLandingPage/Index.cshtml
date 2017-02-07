@@ -1,0 +1,16 @@
+@using AlloyDemoKit
+@model PageViewModel<ThreeColumnLandingPage>
+
+<div class="campaign-wrapper">
+    <div class="row">
+        <div class="span4">
+            @Html.PropertyFor(x => x.CurrentPage.LeftHandContentArea, new { CssClass = "row", tag = Global.ContentAreaTags.OneThirdWidth })
+        </div>
+        <div class="span4">
+            @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row", tag = Global.ContentAreaTags.OneThirdWidth })
+        </div>
+        <div class="span4">
+            @Html.PropertyFor(x => x.CurrentPage.RightHandContentArea, new { CssClass = "row", tag = Global.ContentAreaTags.OneThirdWidth })
+        </div>
+    </div>
+</div>

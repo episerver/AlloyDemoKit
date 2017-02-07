@@ -675,6 +675,8 @@
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\Pages\ThreeColumnLandingPage.cs" />
+    <Compile Include="Models\Pages\TwoColumnLandingPage.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\SiteContentType.cs" />
     <Compile Include="Models\SiteImageUrl.cs" />
@@ -785,6 +787,9 @@
     <Content Include="NotFound.aspx" />
     <Content Include="Scripts\jquery.signalR-2.0.3.js" />
     <Content Include="Scripts\jquery.signalR-2.0.3.min.js" />
+    <Content Include="Static\gfx\page-type-thumbnail-landingpage-onecol.png" />
+    <Content Include="Static\gfx\page-type-thumbnail-landingpage-threecol.png" />
+    <Content Include="Static\gfx\page-type-thumbnail-landingpage-twocol.png" />
     <Content Include="Views\Shared\Forms\CaptchaElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\FileUploadElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\FormContainerBlock.ascx" />
@@ -1097,6 +1102,8 @@
     <Content Include="Views\Shared\Blocks\PDFFile.cshtml" />
     <Content Include="Views\Shared\Blocks\CallToActionBlock.cshtml" />
     <Content Include="Views\Shared\Readonly.cshtml" />
+    <Content Include="Views\ThreeColumnLandingPage\Index.cshtml" />
+    <Content Include="Views\TwoColumnLandingPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
