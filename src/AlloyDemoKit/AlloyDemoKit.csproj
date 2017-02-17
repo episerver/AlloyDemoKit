@@ -306,8 +306,8 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MenuPin, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MenuPin.4.0.0\lib\net45\MenuPin.dll</HintPath>
+    <Reference Include="MenuPin, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MenuPin.10.0.0\lib\net45\MenuPin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -719,8 +719,6 @@
     <Content Include="AdminTools\EmployeeSettings.aspx" />
     <Content Include="ClientResources\Images\icons\pdf-icon16x16.png" />
     <Content Include="ClientResources\Images\icons\pdf-icon32x32.png" />
-    <Content Include="ClientResources\Scripts\Initializer.js" />
-    <Content Include="ClientResources\Scripts\MenuPin\MenuPinInit.js" />
     <Content Include="ClientResources\Styles\ContentColabFix.css" />
     <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
     <Content Include="ClientResources\Scripts\Editors\StringList.js" />
@@ -738,9 +736,9 @@
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatchPageTemplate.aspx" />
-    <Content Include="ClientResources\Scripts\samples\commandsInitializer.js" />
-    <Content Include="ClientResources\Scripts\samples\relatedPagesCommandProvider.js" />
-    <Content Include="ClientResources\Scripts\samples\showRelatedPagesCommand.js" />
+    <Content Include="modules\commands\Scripts\samples\commandsInitializer.js" />
+    <Content Include="modules\commands\Scripts\samples\relatedPagesCommandProvider.js" />
+    <Content Include="modules\commands\Scripts\samples\showRelatedPagesCommand.js" />
     <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.2.0\ClientResources\Criteria\SubmittedValue.js" />
@@ -785,6 +783,7 @@
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\DateTimeElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\RecaptchaElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\Shared\EditorTemplates\FormModel.ascx" />
+    <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinInit.js" />
     <Content Include="NotFound.aspx" />
     <Content Include="Scripts\jquery.signalR-2.0.3.js" />
     <Content Include="Scripts\jquery.signalR-2.0.3.min.js" />
@@ -952,6 +951,8 @@
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
+    <Content Include="modules\commands\module.config" />
+    <Content Include="modules\_protected\MenuPin\module.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -1124,7 +1125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="modulesbin\" />
-    <Folder Include="modules\commands\Scripts\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
