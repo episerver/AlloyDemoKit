@@ -20,12 +20,10 @@
            canExecute: true,
 
            _execute: function () {
-               var content = new ContentReferences({
-                   model: {
-                       contentData: this.model.contentData,
-                       mode: "show",
-                   }
-               });
+
+               var contentItems = [this.model.contentData];
+               var params = { contentItems: contentItems, mode: "show" };
+               var content = new ContentReferences(params);
                content.startup();
 
                var dialog = new Dialog({
