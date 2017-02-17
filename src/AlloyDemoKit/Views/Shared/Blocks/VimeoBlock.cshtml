@@ -1,0 +1,19 @@
+@model VimeoBlock
+
+@if (Model.HasHeadingText)
+{
+    <div class="media">
+        <h1 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h1>
+        @Html.PropertyFor(x => x.VideoText)
+    </div>
+}
+@if (Model.HasVideo)
+{
+    <div class="vimeo-container">
+        @if (Model.HasCoverImage)
+        {
+            <a href="javascript:;" class="starter"><span class="sr-only">Play video</span></a>
+            <img src="@Model.CoverImage" />    }
+        <iframe @(string.IsNullOrEmpty(Model.VimeoVideo.GetIframeUrl(Model.HasCoverImage)) ? "" : "id=" + Model.VimeoVideo.GetIframeUrl(Model.HasCoverImage)) @(Model.HasCoverImage ? "src=about:blank data-" : "") src="@Model.VimeoVideo.GetIframeUrl(Model.HasCoverImage)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+}

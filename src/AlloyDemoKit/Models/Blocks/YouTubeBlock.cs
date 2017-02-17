@@ -8,9 +8,11 @@ using AlloyDemoKit.Models.Blocks;
 
 namespace EPiServer.Templates.Alloy.Models.Blocks
 {
-    [ContentType(DisplayName = "YouTube Block", GUID = "67429E0D-9365-407C-8A49-69489382BBDC", Description = "Display YouTube video",
+    [ContentType(DisplayName = "YouTube Block",
+        GUID = "67429E0D-9365-407C-8A49-69489382BBDC",
+        Description = "Display YouTube video",
         GroupName = "Specialized")]
-    [SiteImageUrl]
+    [SiteImageUrl("~/Static/gfx/Multimedia-thumbnail.png")]
     public class YouTubeBlock : SiteBlockData
     {
         /// <summary>

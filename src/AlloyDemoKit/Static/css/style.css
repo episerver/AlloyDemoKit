@@ -671,3 +671,6 @@ h1 { font-size: 2em; margin-bottom: 20px; }
 h2 { font-size: 1.5em; }
 a { color: #0065b7; }
 a:hover { color: #578300; }
+
+.vimeo-container { position: relative; padding-bottom: 43%; padding-top: 31px; height: 0; overflow: hidden; }
+.vimeo-container iframe, .vimeo-container object, .vimeo-container embed, .vimeo-container img { position: absolute; top: 0; left: 0;  width: 100%; height: 100%; }
