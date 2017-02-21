@@ -7,6 +7,7 @@ using EPiServer.DataAnnotations;
 namespace AlloyDemoKit.Models.Blocks
 {
     [ContentType(DisplayName = "Parking Block", GUID = "eabb66f4-bff0-4fdb-8b28-d8891f0796ee", Description = "Displays information for a parking location")]
+    [SiteImageUrl("~/Static/gfx/block-thumbnail-parking.png")]
     public class ParkingBlock : SiteBlockData
     {
         
