@@ -332,6 +332,9 @@
       <HintPath>..\packages\POSSIBLE.RobotsTxtHandler.3.0.0.0\lib\net45\POSSIBLE.RobotsTxtHandler.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PowerSlice, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PowerSlice.2.1.6.0\lib\net40\PowerSlice.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.dll</HintPath>
       <Private>True</Private>
@@ -531,6 +534,11 @@
     <Compile Include="Business\Parking\ParkingGateway.cs" />
     <Compile Include="Business\Parking\ParkingServer.cs" />
     <Compile Include="Business\Parking\ParkingStatus.cs" />
+    <Compile Include="Business\PowerSlice\ArticleSlice.cs" />
+    <Compile Include="Business\PowerSlice\BlockSlice.cs" />
+    <Compile Include="Business\PowerSlice\BlogSlice.cs" />
+    <Compile Include="Business\PowerSlice\MyPagesSlice.cs" />
+    <Compile Include="Business\PowerSlice\PagesSlice.cs" />
     <Compile Include="Business\QuickNavigator\AddAdminMode.cs" />
     <Compile Include="Business\Rendering\AlloyContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
