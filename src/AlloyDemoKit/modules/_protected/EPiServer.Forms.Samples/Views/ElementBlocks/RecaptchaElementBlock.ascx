@@ -11,6 +11,7 @@
 
 <%
     var formElement = Model.FormElement;
+    var errorMessage = Model.GetErrorMessage();
 %>
 
 <div class="Form__Element Form__CustomElement FormRecaptcha" data-epiforms-element-name="<%: formElement.ElementName %>" data-epiforms-sitekey="<%: Model.SiteKey %>" id="<%: formElement.Guid %>">
@@ -21,6 +22,6 @@
     else
     {  %>
         <div class="g-recaptcha"></div>
-        <span data-epiforms-linked-name="<%: formElement.ElementName %>" class="Form__Element__ValidationError" style="display: none;">*</span>
+        <span data-epiforms-linked-name="<%: formElement.ElementName %>" class="Form__Element__ValidationError" style="<%: string.IsNullOrEmpty(errorMessage) ? "display:none" : "" %>;"><%: errorMessage %></span>
     <% }  %>
 </div>
