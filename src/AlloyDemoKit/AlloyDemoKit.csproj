@@ -191,7 +191,6 @@
     </Reference>
     <Reference Include="EPIServer.Marketing.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Marketing.Messaging.1.2.0\lib\EPIServer.Marketing.Messaging.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Marketing.Testing.2.0.0\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
@@ -340,7 +339,6 @@
     </Reference>
     <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.web-signed.3.1.6.191\lib\net40\StructureMap.Web.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -817,13 +815,13 @@
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\module.config" />
-    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <Content Include="modules\_protected\EPiServer.Social\web.config" />
     <Content Include="modules\_protected\EPiServer.Social\Views\Web.config" />
     <Content Include="modules\_protected\EPiServer.Social\module.config" />
     <Content Include="modules\_protected\EPiServer.Social\EPiServerSocial.config" />
     <Content Include="modules\_protected\EPiServer.Social\EPiServer.Social.zip" />
     <Content Include="modules\_protected\MenuPin\module.config" />
+    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
