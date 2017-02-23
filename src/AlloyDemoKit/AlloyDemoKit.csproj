@@ -537,7 +537,9 @@
     <Compile Include="Business\PowerSlice\ArticleSlice.cs" />
     <Compile Include="Business\PowerSlice\BlockSlice.cs" />
     <Compile Include="Business\PowerSlice\BlogSlice.cs" />
+    <Compile Include="Business\PowerSlice\EverythingSlice.cs" />
     <Compile Include="Business\PowerSlice\MyPagesSlice.cs" />
+    <Compile Include="Business\PowerSlice\NewsSlice.cs" />
     <Compile Include="Business\PowerSlice\PagesSlice.cs" />
     <Compile Include="Business\QuickNavigator\AddAdminMode.cs" />
     <Compile Include="Business\Rendering\AlloyContentAreaRenderer.cs" />

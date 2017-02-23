@@ -6,7 +6,7 @@ using PowerSlice;
 using System.Collections.Generic;
 using AlloyDemoKit.Models.Pages;
 
-namespace EPiServer.Templates.Alloy.Business.PowerSlice
+namespace AlloyDemoKit.Business.PowerSlice
 {
     [ServiceConfiguration(typeof(IContentQuery)), ServiceConfiguration(typeof(IContentSlice))]
     public class BlogSlice : ContentSliceBase<BlogItemPage>
@@ -15,14 +15,10 @@ namespace EPiServer.Templates.Alloy.Business.PowerSlice
         {
             get { return "Blogs"; }
         }
-        public override IEnumerable<CreateOption> CreateOptions
+
+        public override string DisplayName
         {
-            get
-            {
-               
-                var contentType = ContentTypeRepository.Load(typeof(BlogItemPage));
-                yield return new CreateOption(contentType.LocalizedName, EPiServer.DataFactory.Instance.Get<StartPage>(SiteDefinition.Current.StartPage).BlogPageLink, contentType.ID);
-            }
+            get { return "Blogs"; }
         }
     }
 }

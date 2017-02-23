@@ -8,12 +8,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EPiServer.Templates.Alloy.Business.PowerSlice
+namespace AlloyDemoKit.Business.PowerSlice
 {
     [ServiceConfiguration(typeof(IContentQuery)), ServiceConfiguration(typeof(IContentSlice))]
     public class BlocksSlice : ContentSliceBase<SiteBlockData>
     {
         public override string Name
+        {
+            get { return "Blocks"; }
+        }
+        public override string DisplayName
         {
             get { return "Blocks"; }
         }

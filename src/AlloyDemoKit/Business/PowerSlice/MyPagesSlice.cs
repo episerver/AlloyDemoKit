@@ -7,12 +7,16 @@ using AlloyDemoKit.Models.Pages;
 using PowerSlice;
 using System.Web;
 
-namespace EPiServer.Templates.Alloy.Business.PowerSlice
+namespace AlloyDemoKit.Business.PowerSlice
 {
     [ServiceConfiguration(typeof(IContentQuery)), ServiceConfiguration(typeof(IContentSlice))]
     public class MyPagesSlice : ContentSliceBase<SitePageData>
     {
         public override string Name
+        {
+            get { return "My Pages"; }
+        }
+        public override string DisplayName
         {
             get { return "My Pages"; }
         }
