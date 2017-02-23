@@ -447,6 +447,9 @@
       <HintPath>..\packages\Episerver.GoogleMapsEditor.1.0.9.0\lib\net45\TedGustaf.Episerver.GoogleMapsEditor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="TextTVChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TextTVChannel.1.0.5\lib\net40\TextTVChannel.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -700,6 +703,7 @@
     <None Include="Hunspellx86.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="modulesbin\TextTVChannel.dll" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatchPageTemplate.aspx" />
@@ -708,6 +712,10 @@
     <Content Include="modules\commands\Scripts\samples\showRelatedPagesCommand.js" />
     <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
+    <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv-background.png" />
+    <Content Include="modules\TextTVChannel\ClientResources\TextTV\TextTv.css" />
+    <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv.png" />
+    <Content Include="modules\TextTVChannel\Views\Pages\TextTVPageTemplate.aspx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.3.0\ClientResources\Criteria\SubmittedValue.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.3.0\ClientResources\epi-formssamples\FormsSamplesModule.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.3.0\ClientResources\epi-formssamples\themes\sleek\FormsSamples.css" />
@@ -928,6 +936,9 @@
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <Content Include="modules\commands\module.config" />
     <Content Include="modules\_protected\MenuPin\module.config" />
+    <Content Include="modules\TextTVChannel\Views\web.config" />
+    <Content Include="modules\TextTVChannel\Views\Pages\TextTV.cshtml" />
+    <Content Include="modules\TextTVChannel\module.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -1098,9 +1109,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="modulesbin\" />
-  </ItemGroup>
+  <ItemGroup />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
