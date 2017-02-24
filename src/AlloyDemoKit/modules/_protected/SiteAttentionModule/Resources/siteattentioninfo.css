@@ -1,0 +1,4 @@
+﻿    #epi-globalDocument { height: 100%; display: block;}
+    #epi-applicationBody {height: 100%; overflow: hidden; display: block;}
+    #epi-application { height: 1200px; display: block;}
+    iframe { width:100%; height:100%;border:none;display: block; background-color: #FBFBFB; overflow: hidden;}

@@ -1,0 +1,90 @@
+﻿.checkboxwidth
+{
+    width:80px;
+}
+
+.checkboxpadding
+{
+    padding: 0px 5px 0px 5px;
+}
+
+.aligncentermiddle
+{
+    vertical-align:middle;
+    text-align:center;    
+}
+
+.checkboxarea
+{
+    padding: 0.9em 0em 0.9em 0em;
+    border-top: 1px solid #BEBEBE;
+}
+
+.checkboxarea input
+{
+    vertical-align:bottom;
+}
+
+
+.checkboxarea label
+{
+    margin-right:0.8em;
+    vertical-align:baseline;
+}
+
+.epi-contentArea h2
+{
+    font-family: Helvetica,Arial,Sans-Serif;
+    font-size: 1.4em;
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom:0.7em;
+}
+
+.buttonright 
+{
+    margin-left:1.5em;
+    vertical-align:bottom;
+}
+
+.episize300 {width:300px;}
+input.epi-cmsButton-tools {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: 0px;
+    height:18px;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    vertical-align:middle;
+    width:18px;
+}
+input.epi-cmsButton-text {
+    min-width: 20px;
+    padding-left:20px;
+    width:auto;
+}
+input.epi-cmsButton-tools {
+    background-image: url("SpriteTools.png");
+}
+.epi-cmsButton-File {
+    background-position: 0 -3776px;
+}
+.epi-cmsButton-Cancel {
+    background-position: 0 -1062px;
+}
+.epi-cmsButton-Save {
+    background-position: 0 -6842px;
+}
+
+span.epi-cmsButton, span.epi-cmsButtondisabled {
+    background-image: url("ToolButtonBg.gif");
+    background-position: left top;
+    background-repeat: repeat-x;
+    border: 1px solid #8D8D8D;
+    display: inline-block;
+    margin-right: 5px;
+    overflow: visible;
+    padding: 2px;
+    white-space: nowrap;
+}

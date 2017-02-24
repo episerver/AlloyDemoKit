@@ -335,6 +335,10 @@
     <Reference Include="PowerSlice, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PowerSlice.2.1.6.0\lib\net40\PowerSlice.dll</HintPath>
     </Reference>
+    <Reference Include="SiteAttentionModule, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SiteAttentionModule.2.5.0\lib\SiteAttentionModule.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="StructureMap, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.dll</HintPath>
       <Private>True</Private>
@@ -765,6 +769,15 @@
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\RecaptchaElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\Shared\EditorTemplates\FormModel.ascx" />
     <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinInit.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\CommandProviders\SiteAttentionCommandProvider.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Components\SiteAttentionWidget.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Content.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\DefaultModule.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattention.css" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattentioninfo.css" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\SpriteTools.png" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\ToolButtonBg.gif" />
+    <Content Include="modules\_protected\SiteAttentionModule\SiteAttentionPlugIn.aspx" />
     <Content Include="NotFound.aspx" />
     <Content Include="Scripts\jquery.signalR-2.0.3.js" />
     <Content Include="Scripts\jquery.signalR-2.0.3.min.js" />
@@ -939,6 +952,7 @@
     <Content Include="modules\TextTVChannel\Views\web.config" />
     <Content Include="modules\TextTVChannel\Views\Pages\TextTV.cshtml" />
     <Content Include="modules\TextTVChannel\module.config" />
+    <Content Include="modules\_protected\SiteAttentionModule\module.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
