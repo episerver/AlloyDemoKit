@@ -1,3 +1,4 @@
+using System;
 using EPiServer.Framework.Localization;
 using EPiServer.ServiceLocation;
 using EPiServer.Web;
@@ -10,6 +11,7 @@ namespace AlloyDemoKit.Business.Channels
     public abstract class DisplayResolutionBase : IDisplayResolution
     {
         private Injected<LocalizationService> LocalizationService { get; set; }
+        private static object syncLock = new Object();
 
         protected DisplayResolutionBase(string name, int width, int height)
         {
@@ -43,9 +45,12 @@ namespace AlloyDemoKit.Business.Channels
         {
             string value;
 
-            if(!LocalizationService.Service.TryGetString(resurceKey, out value))
+            lock (syncLock)
             {
-                value = resurceKey;
+                if (!LocalizationService.Service.TryGetString(resurceKey, out value))
+                {
+                    value = resurceKey;
+                }
             }
 
             return value;
