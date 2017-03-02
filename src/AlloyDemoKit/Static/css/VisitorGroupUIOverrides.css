@@ -1,0 +1,16 @@
+﻿/* New styles to make Visitor Group config easier to view during presentation */
+body.epi-visitorgroup-admin-ui.claro  {
+    font-size: 15px !important;
+}
+body.epi-visitorgroup-admin-ui .epi-default td:nth-of-type(1) a {
+    display: block; padding: 5px 10px; border-radius: 3px;
+}
+body.epi-visitorgroup-admin-ui .epi-default td:nth-of-type(1) a:hover {
+    background-color: #c2ce00; color: #444;
+}
+body.epi-visitorgroup-admin-ui .epi-default th {
+    background: #58595b  none; color: #fff; text-shadow: none; padding: 5px;
+}
+body.epi-visitorgroup-admin-ui .epi-default td:nth-of-type(2) {
+   font-size: 12px !important; color: #666;
+}

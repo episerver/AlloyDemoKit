@@ -564,6 +564,8 @@
     <Compile Include="Business\UIDescriptors\WeatherBlockUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FindPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
+    <Compile Include="Business\VisitorGroupUIStyling\OverrideVisitorGroupCss.cs" />
+    <Compile Include="Business\VisitorGroupUIStyling\OverrideVisitorGroupStylingInit.cs" />
     <Compile Include="Controllers\BlogItemController.cs" />
     <Compile Include="Controllers\BlogListBlockController.cs" />
     <Compile Include="Controllers\BlogStartPageController.cs" />
@@ -782,6 +784,7 @@
     <Content Include="NotFound.aspx" />
     <Content Include="Scripts\jquery.signalR-2.0.3.js" />
     <Content Include="Scripts\jquery.signalR-2.0.3.min.js" />
+    <Content Include="Static\css\VisitorGroupUIOverrides.css" />
     <Content Include="Static\gfx\block-thumbnail-parking.png" />
     <Content Include="Static\gfx\block-type-thumbnail-rss.png" />
     <Content Include="Static\gfx\carouselbackground.png" />
