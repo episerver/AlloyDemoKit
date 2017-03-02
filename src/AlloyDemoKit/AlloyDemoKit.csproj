@@ -264,8 +264,8 @@
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MenuPin, Version=10.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MenuPin.10.0.0\lib\net45\MenuPin.dll</HintPath>
+    <Reference Include="MenuPin, Version=10.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MenuPin.10.1.0\lib\net45\MenuPin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -768,6 +768,7 @@
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\DateTimeRangeElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\RecaptchaElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\Shared\EditorTemplates\FormModel.ascx" />
+    <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinForFind.js" />
     <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinInit.js" />
     <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\CommandProviders\SiteAttentionCommandProvider.js" />
     <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Components\SiteAttentionWidget.js" />
@@ -943,7 +944,6 @@
     <Content Include="modules\_protected\MenuPin\module.config" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <Content Include="modules\commands\module.config" />
-    <Content Include="modules\_protected\MenuPin\module.config" />
     <Content Include="modules\TextTVChannel\Views\web.config" />
     <Content Include="modules\TextTVChannel\Views\Pages\TextTV.cshtml" />
     <Content Include="modules\TextTVChannel\module.config" />
