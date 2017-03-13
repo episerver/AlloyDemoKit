@@ -1,9 +1,9 @@
 ﻿/* New styles to make Visitor Group config easier to view during presentation */
 body.epi-visitorgroup-admin-ui.claro  {
-    font-size: 15px !important;
+    font-size: 13px !important;
 }
 body.epi-visitorgroup-admin-ui .epi-default td:nth-of-type(1) a {
-    display: block; padding: 5px 10px; border-radius: 3px;
+    display: block; padding: 5px 5px; border-radius: 3px;
 }
 body.epi-visitorgroup-admin-ui .epi-default td:nth-of-type(1) a:hover {
     background-color: #c2ce00; color: #444;
@@ -12,5 +12,39 @@ body.epi-visitorgroup-admin-ui .epi-default th {
     background: #58595b  none; color: #fff; text-shadow: none; padding: 5px;
 }
 body.epi-visitorgroup-admin-ui .epi-default td:nth-of-type(2) {
-   font-size: 12px !important; color: #666;
+   font-size: 13px !important; color: #666; vertical-align:middle;
+}
+
+input.epi-cmsButton-text {
+	font-family: Verdana,Arial,Helvetica,sans-serif; padding: 2px 5px 0px 5px; width: auto; min-width: 22px; font-weight: bold;
+}
+	
+.epi-cmsButton-Save, .epi-cmsButton-Check,.epi-cmsButton-Delete, .epi-cmsButton-File,.epi-cmsButton-Cancel, .epi-cmsButton-Add  {
+    background-image: none;
+}
+
+.epi-criterionPlaceHolder {	
+  background-color: #ffffff; text-align: center;border: 2px solid #B4C600 !important;color: #000;
+}
+
+span.epi-cmsButton, span.epi-cmsButtondisabled { 
+	min-width: 22px;
+    background-repeat: repeat-x;
+    background-position: left top;
+    border: 1px solid #8d8d8d;
+    display: inline-block;
+    overflow: visible;
+    white-space: nowrap;
+    margin-right: 0px;
+	border-radius: 3px;
+    background: linear-gradient(to bottom, #fafafa 0, #e0e2e5 100%);
+    border: 1px solid #768388;
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0),inset 0 1px 0 rgba(255,255,255,0),inset 0 -1px 0 rgba(255,255,255,0);
+	cursor: pointer;
+	margin: 0;
+    line-height: normal;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+	height:22px;
 }
