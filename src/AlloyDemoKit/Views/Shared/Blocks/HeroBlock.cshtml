@@ -1,0 +1,46 @@
+﻿@model HeroBlock
+
+@{ 
+    var backgroundStyle = (Model.Callout.ShowBackgroundColor) ? "background-color: " + Model.Callout.BackgroundColor + ";" : "";
+
+    var positionStyle = "";
+
+    if (!string.IsNullOrEmpty(Model.Callout.PositionTop))
+    {
+        positionStyle = "top: " + Model.Callout.PositionTop + "; " + positionStyle;
+    }
+
+    if (!string.IsNullOrEmpty(Model.Callout.PositionBottom))
+    {
+        positionStyle = "bottom: " + Model.Callout.PositionBottom + "; " + positionStyle;
+    }
+
+    if (!string.IsNullOrEmpty(Model.Callout.PositionLeft))
+    {
+        positionStyle = "left: " + Model.Callout.PositionLeft + "; " + positionStyle;
+    }
+
+    if (!string.IsNullOrEmpty(Model.Callout.PositionRight))
+    {
+        positionStyle = "right: " + Model.Callout.PositionRight + "; " + positionStyle;
+    }
+
+    if (string.IsNullOrEmpty(positionStyle))
+    {
+        positionStyle = "top: 0; left: 0;";
+    }
+}
+
+@Html.FullRefreshPropertiesMetaData(new[] { "Callout" })
+
+<div class="heroBlock">
+
+    <a href="@Url.ContentUrl(Model.Link)">
+        @Html.PropertyFor(model => model.BackgroundImage, new { @class = "heroBlockBackgroundImage" })
+    </a>
+
+    <div class="heroBlockCallout" style="@backgroundStyle @positionStyle" @Html.EditAttributes(model => model.Callout)>
+        @Html.PropertyFor(model => model.Callout.CalloutContent)
+    </div>
+
+</div>

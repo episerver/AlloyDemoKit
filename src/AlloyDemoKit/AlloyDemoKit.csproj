@@ -607,6 +607,7 @@
     <Compile Include="Models\Blocks\ClosestLocationBlock.cs" />
     <Compile Include="Models\Blocks\ContactBlock.cs" />
     <Compile Include="Models\Blocks\FormElements\StyledTextBoxElementBlock.cs" />
+    <Compile Include="Models\Blocks\HeroBlock.cs" />
     <Compile Include="Models\Blocks\ParkingBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
     <Compile Include="Models\Blocks\FacebookBlock.cs" />
@@ -1113,6 +1114,7 @@
     <Content Include="Views\ThreeColumnLandingPage\Index.cshtml" />
     <Content Include="Views\TwoColumnLandingPage\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\VimeoBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\HeroBlock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
