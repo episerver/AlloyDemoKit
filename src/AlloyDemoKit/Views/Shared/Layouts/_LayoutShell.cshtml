@@ -1,0 +1,27 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using EPiServer.Framework.Web.Resources
+@using EPiServer.Shell.Navigation
+@using EPiServer.Shell.Web.Mvc.Html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    @Html.Raw(ClientResources.RenderResources("ShellCore"))
+    @Html.Raw(ClientResources.RenderResources("ShellWidgets"))
+    @Html.Raw(ClientResources.RenderResources("ShellCoreLightTheme"))
+    @Html.Raw(ClientResources.RenderResources("Navigation"))
+    @Html.Raw(ClientResources.RenderResources("DojoDashboardCompatibility", new[] { ClientResourceType.Style }))
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    @Html.ShellInitializationScript()
+    @Html.Raw(Html.GlobalMenu(string.Empty, "/global/cms/snippets"))
+    @RenderBody()
+    <script src="/static/js/jquery.js")" type="text/javascript"></script>
+    <script src="/static/js/bootstrap.js")" type="text/javascript"></script>
+</body>
+</html>

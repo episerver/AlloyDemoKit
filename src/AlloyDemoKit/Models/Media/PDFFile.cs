@@ -20,6 +20,8 @@ namespace AlloyDemoKit.Models.Media
 
         [Editable(false)]
         public virtual string FileSize { get; set; }
+
+        public virtual string TokenId { get; set; }
     }
 
 }

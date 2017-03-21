@@ -4,6 +4,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using AlloyDemoKit.Models.Blocks;
+using EPiServer.Web;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -52,6 +53,10 @@ namespace AlloyDemoKit.Models.Pages
 
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual PageReference BlogPageLink { get; set; }
+
+        [UIHint(UIHint.BlockFolder)]
+        [Display(GroupName = Global.GroupNames.SiteSettings)]
+        public virtual ContentReference SnippetReference { get; set; }
 
         [Display(GroupName = Global.GroupNames.SiteSettings, Name = "Employees Root Page", Order = 600)]
         public virtual ContentReference EmployeeContainerPageLink { get; set; }

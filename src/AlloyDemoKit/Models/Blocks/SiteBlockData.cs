@@ -6,5 +6,6 @@ namespace AlloyDemoKit.Models.Blocks
     /// </summary>
     public abstract class SiteBlockData : EPiServer.Core.BlockData
     {
+        public virtual string TokenId { get; set; }
     }
 }

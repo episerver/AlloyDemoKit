@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AlloyDemoKit</RootNamespace>
     <AssemblyName>AlloyDemoKit</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -556,6 +556,7 @@
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\SearchService.cs" />
     <Compile Include="Business\SetupAdminAndUsersPage.cs" />
+    <Compile Include="Business\SnippetMenuProvider.cs" />
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\BlogPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ArticlePageUIDescriptor.cs" />
@@ -586,6 +587,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RssReaderBlockController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
+    <Compile Include="Controllers\SnippetsController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\TagCloudBlockController.cs" />
     <Compile Include="Controllers\VideoFileController.cs" />
@@ -677,6 +679,7 @@
     <Compile Include="Models\ViewModels\FindSearchContentModel.cs" />
     <Compile Include="Models\ViewModels\SearchContentModel.cs" />
     <Compile Include="Models\ViewModels\SearchHit.cs" />
+    <Compile Include="Models\ViewModels\SnippetViewModel.cs" />
     <Compile Include="Models\ViewModels\TagCloudModel.cs" />
     <Compile Include="Models\ViewModels\VideoViewModel.cs" />
     <Compile Include="Models\ViewModels\WeatherBlockViewModel.cs" />
@@ -1115,6 +1118,8 @@
     <Content Include="Views\TwoColumnLandingPage\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\VimeoBlock.cshtml" />
     <Content Include="Views\Shared\Blocks\HeroBlock.cshtml" />
+    <Content Include="Views\Snippets\Index.cshtml" />
+    <Content Include="Views\Shared\Layouts\_LayoutShell.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
