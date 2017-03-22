@@ -1,13 +1,14 @@
-using System.Web.Mvc;
+using AlloyDemoKit.Business.Data;
+using AlloyDemoKit.Business.Rendering;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
-using AlloyDemoKit.Business.Rendering;
-using AlloyDemoKit.Helpers;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
+using Newtonsoft.Json;
 using StructureMap;
-using AlloyDemoKit.Business.Data;
+using System.Web.Http;
+using System.Web.Mvc;
 
 namespace AlloyDemoKit.Business.Initialization
 {
@@ -20,6 +21,14 @@ namespace AlloyDemoKit.Business.Initialization
             context.Container.Configure(ConfigureContainer);
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(context.Container));
+            GlobalConfiguration.Configure(config =>
+            {
+                config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
+                config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings();
+                config.Formatters.XmlFormatter.UseXmlSerializer = true;
+                config.DependencyResolver = new StructureMapResolver(context.Container);
+                config.MapHttpAttributeRoutes();
+            });
         }
 
         private static void ConfigureContainer(ConfigurationExpression container)
