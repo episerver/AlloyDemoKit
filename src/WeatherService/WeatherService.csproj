@@ -9,8 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WeatherService</RootNamespace>
     <AssemblyName>WeatherService</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HttpClientHelpers, Version=1.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HttpClientHelpers.1.0.1.2\lib\portable-net45+dnxcore50+win+wpa81+wp80\HttpClientHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -42,10 +58,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiConstants.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Models\Message.cs" />
-    <Compile Include="Models\Temperature.cs" />
-    <Compile Include="Models\WeatherData.cs" />
+    <Compile Include="Clients\ApiClientBase.cs" />
+    <Compile Include="Clients\IApiClientBase.cs" />
+    <Compile Include="Clients\ICurrentWeatherClient.cs" />
+    <Compile Include="Clients\IForecastClient.cs" />
+    <Compile Include="Clients\ISearchClient.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Helpers\Ensure.cs" />
+    <Compile Include="Helpers\IOpenWeatherMapRequest.cs" />
+    <Compile Include="Helpers\OpenWeatherMapRequest.cs" />
+    <Compile Include="IOpenWeatherMapClient.cs" />
+    <Compile Include="IOpenWeatherMapSettings.cs" />
+    <Compile Include="Models\Clouds.cs" />
+    <Compile Include="Models\Coord.cs" />
+    <Compile Include="Models\CurrentWeather.cs" />
+    <Compile Include="Models\CurrentWeather\CurrentWeatherResponse.cs" />
+    <Compile Include="Models\WeatherItem.cs" />
+    <Compile Include="Models\Main.cs" />
+    <Compile Include="Models\Rain.cs" />
+    <Compile Include="Models\Snow.cs" />
+    <Compile Include="Models\Sys.cs" />
+    <Compile Include="Models\Weather.cs" />
+    <Compile Include="Models\Wind.cs" />
+    <Compile Include="OpenWeatherMapClient.cs" />
+    <Compile Include="OpenWeatherMapException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\GlobalWeather\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -60,6 +101,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Service References\GlobalWeather\globalweather.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -77,7 +119,18 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Forecast\" />
+    <Folder Include="Models\Search\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
