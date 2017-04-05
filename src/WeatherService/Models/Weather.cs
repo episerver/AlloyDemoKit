@@ -6,7 +6,7 @@ namespace WeatherService
     public class Weather
     {
         [JsonProperty("id")]
-        public WeatherConditionCode Id { get; set; }
+        public ConditionCode Id { get; set; }
 
         [JsonProperty("main")]
         public string Main { get; set; }

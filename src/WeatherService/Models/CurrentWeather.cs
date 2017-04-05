@@ -20,7 +20,7 @@ namespace WeatherService
         public string Name { get; set; }
 
         [JsonProperty("coord")]
-        public Coord Coordinates { get; set; }
+        public Coordinates Coordinates { get; set; }
 
         [JsonProperty("sys")]
         public Sys Sys { get; set; }

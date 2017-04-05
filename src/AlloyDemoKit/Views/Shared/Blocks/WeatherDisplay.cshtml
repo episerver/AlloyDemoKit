@@ -3,25 +3,18 @@
 
 @model WeatherBlockViewModel
 
-<div class="border"> 
+<div class="border">
         <h2>@Model.Heading</h2>
         <p>
             @Model.Location<br />
-            @Model.Conditions
         </p>
         <div>
-            @if(Model.ShowCelsius && Model.ShowFahrenheit)
-            {
-                @: @Model.Celsius &deg;C (@Model.Fahrenheit &deg;F)
-            }
-            else if (Model.ShowFahrenheit)
-            {
-                @: @Model.Fahrenheit &deg;F
-            }
-            else
-            {
-                @: @Model.Celsius &deg;C
-            }
+            @Model.Temperature &deg;@Model.Unit
+            Humidity: @Model.Humidity%<br />
+            Pressure: @Model.Pressure hPa<br />
+            Wind: @Model.Windspeed<br />
+            <br />
+            @Model.Time
         </div>
 
 </div>

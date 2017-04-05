@@ -28,7 +28,7 @@ namespace WeatherService
     /// <summary>
     /// Enum WeatherCondition Codes
     /// </summary>
-    public enum WeatherConditionCode
+    public enum ConditionCode
     {
         /// <summary>
         /// THUNDERSTORM
@@ -139,7 +139,7 @@ namespace WeatherService
     /// <summary>
     /// Enum OpenWeatherMap Language
     /// </summary>
-    public enum OpenWeatherMapLanguage
+    public enum Language
     {
         /// <summary>
         /// English

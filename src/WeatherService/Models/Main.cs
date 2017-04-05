@@ -24,5 +24,7 @@ namespace WeatherService
 
         [JsonProperty("grnd_level")]
         public double AtmosphericPressureGroundLevel { get; set; }
+
+        public double? temp_kf { get; set; }
     }
 }

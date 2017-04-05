@@ -11,10 +11,11 @@ namespace AlloyDemoKit.Models.ViewModels
         public string Heading { get; set; }
         public string Location { get; set; }
         public string Conditions { get; set; }
-        public bool ShowCelsius { get; set; }
-        public bool ShowFahrenheit { get; set; }
-        public double Celsius { get; set; }
-        public double Fahrenheit { get; set; }
+        public double Windspeed { get; set; }
+        public int Humidity { get; set; }
+        public double Pressure { get; set; }
+        public double Temperature { get; set; }
         public DateTime Time { get; set; }
+        public string Unit { get; set; }
     }
 }

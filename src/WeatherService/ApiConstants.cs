@@ -15,6 +15,7 @@ namespace WeatherService
 
         public const string DataEndpoint = "/data/2.5";
 
-        public const string ServiceEndpoint = BaseUrl + DataEndpoint + "/weather";
+        public const string CurrentWeatherEndpoint =  DataEndpoint + "/weather";
+        public const string ForecastEndpoint = DataEndpoint + "/forecast";
     }
 }

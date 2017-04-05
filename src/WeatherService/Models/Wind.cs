@@ -7,6 +7,8 @@ namespace WeatherService
         [JsonProperty("speed")]
         public double Speed { get; set; }
 
+        public double? Gust { get; set; }
+
         [JsonProperty("deg")]
         public double Direction { get; set; }
     }
