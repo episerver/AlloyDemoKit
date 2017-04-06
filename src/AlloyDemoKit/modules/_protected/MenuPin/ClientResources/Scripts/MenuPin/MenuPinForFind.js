@@ -33,6 +33,7 @@
             cookieName: "menupinFindV10.1",
             menuPinButtons: null,
             _initHandle: null,
+            initComplete: false,
 
             initialize: function () {
 
@@ -46,6 +47,11 @@
             },
 
             _init: function () {
+
+                if (this.initComplete)
+                    return;
+
+                this.initComplete = true;
 
                 this._initHandle.remove();
 

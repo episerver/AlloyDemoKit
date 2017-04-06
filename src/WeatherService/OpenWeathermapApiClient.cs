@@ -45,7 +45,7 @@ namespace WeatherService
         {
             string url = string.Format($"{ApiConstants.CurrentWeatherEndpoint}?q={cityName},{countryName}&units={units.ToString().ToLowerInvariant()}");
             url = this.AddLanguage(url);
-            var result = await client.GetAsync(url);
+            var result = client.GetAsync(url).Result;
             return await GetWeatherInfo(result);
         }
 
@@ -54,7 +54,7 @@ namespace WeatherService
             //Seaching by geographic coordinats api.openweathermap.org/data/2.5/weather?lat=35&lon=139
             string url = string.Format($"{ApiConstants.CurrentWeatherEndpoint}?lat={latitude}&long={longitude}&units={units.ToString().ToLowerInvariant()}");
             url = this.AddLanguage(url);
-            var result = await client.GetAsync(url);
+            var result = client.GetAsync(url).Result;
             return await GetWeatherInfo(result);
         }
 
@@ -63,7 +63,7 @@ namespace WeatherService
             //Seaching by city ID api.openweathermap.org/data/2.5/weather?id=2172797
             string url = string.Format($"{ApiConstants.CurrentWeatherEndpoint}?id={cityId}&units={units.ToString().ToLowerInvariant()}");
             url = this.AddLanguage(url);
-            var result = await client.GetAsync(url);
+            var result = client.GetAsync(url).Result;
             return await GetWeatherInfo(result);
         }
 
@@ -71,7 +71,7 @@ namespace WeatherService
         {
             string url = string.Format($"{ApiConstants.CurrentWeatherEndpoint}?zip={zipCode},{countryCode}&units={units.ToString().ToLowerInvariant()}");
             url = this.AddLanguage(url);
-            var result = await client.GetAsync(url);
+            var result = client.GetAsync(url).Result;
             return await GetWeatherInfo(result);
         }
 
@@ -83,7 +83,7 @@ namespace WeatherService
                 url = string.Format($"{url}&cnt={days.Value}");
             }
             url = this.AddLanguage(url);
-            var result = await client.GetAsync(url);
+            var result = client.GetAsync(url).Result;
             return await GetForecastInfo(result);
         }
 
