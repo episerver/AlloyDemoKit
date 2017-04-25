@@ -36,7 +36,6 @@
             keyName: "menupinV3.3",
             menuPinButtons: null,
             _initHandle: null,
-            initComplete: false,
 
             initialize: function () {
 
@@ -52,11 +51,6 @@
             },
 
             _init: function () {
-
-                if (this.initComplete)
-                    return;
-
-                this.initComplete = true;
 
                 // Set up the references for the items we are going to interact with
                 this.menuPinButtons = query(".menuPinButton");
