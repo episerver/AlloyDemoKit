@@ -17,13 +17,19 @@ namespace AlloyDemoKit.Models.Pages.Models.Pages
     [AvailableContentTypes(
      Availability.Specific,
      Include = new[] { typeof(BlogListPage), typeof(BlogItemPage) })]  // Pages we can create under the start page...
-      public class BlogItemPage : StandardPage
+    public class BlogItemPage : StandardPage
     {
         [Display(GroupName = SystemTabNames.Content)]
         public virtual string Author { get; set; }
 
         [Display(GroupName = SystemTabNames.Content)]
         public virtual ContentArea RightContentArea { get; set; }
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+            StartPublish = DateTime.Now;
+        }
 
     }
 }

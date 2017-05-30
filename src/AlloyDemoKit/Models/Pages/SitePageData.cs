@@ -113,6 +113,10 @@ namespace AlloyDemoKit.Models.Pages
 
         private ContentReference FindEffectiveStartPage(ContentReference currentPageRef, IContentLoader loader)
         {
+            if (ContentReference.IsNullOrEmpty(currentPageRef))
+            {
+                return SiteDefinition.Current.StartPage;
+            }
             if (SiteDefinition.Current.StartPage == currentPageRef)
             {
                 return currentPageRef;

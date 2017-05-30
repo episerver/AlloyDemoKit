@@ -48,7 +48,7 @@ namespace AlloyDemoKit.Models.Pages.Tags
 
             if (string.Equals(page.PageTypeName, typeof(BlogItemPage).GetPageType().Name, StringComparison.OrdinalIgnoreCase))
             {
-                DateTime startPublish = page.StartPublish.Value;
+                DateTime blogDate = page.Created;
 
                 var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
 
@@ -56,7 +56,7 @@ namespace AlloyDemoKit.Models.Pages.Tags
 
                 if (parentPage is BlogStartPage)
                 {
-                    page.ParentLink = GetDatePageRef(parentPage, startPublish, contentRepository);
+                    page.ParentLink = GetDatePageRef(parentPage, blogDate, contentRepository);
                 }
             }
         }
@@ -79,37 +79,37 @@ namespace AlloyDemoKit.Models.Pages.Tags
         }
 
         // in here we know that the page is a blog start page and now we must create the date pages unless they are already created
-        public PageReference GetDatePageRef(PageData blogStart, DateTime published, IContentRepository contentRepository)
+        public PageReference GetDatePageRef(PageData blogStart, DateTime created, IContentRepository contentRepository)
         {
 
             foreach (var current in contentRepository.GetChildren<PageData>(blogStart.ContentLink))
             {
-                if (current.Name == published.Year.ToString())
+                if (current.Name == created.Year.ToString())
                 {
                     PageReference result;
-                foreach (PageData current2 in contentRepository.GetChildren<PageData>(current.ContentLink))
-                {
-                    if (current2.Name == published.Month.ToString())
+                    foreach (PageData current2 in contentRepository.GetChildren<PageData>(current.ContentLink))
                     {
-                        result = current2.PageLink;
-                        return result;
+                        if (current2.Name == created.Month.ToString())
+                        {
+                            result = current2.PageLink;
+                            return result;
+                        }
                     }
-                }
-                result = CreateDatePage(contentRepository, current.PageLink, published.Month.ToString(), new DateTime(published.Year, published.Month, 1));
-                return result;
+                    result = CreateDatePage(contentRepository, current.PageLink, created.Month.ToString(), new DateTime(created.Year, created.Month, 1));
+                    return result;
 
                 }
             }
-            PageReference parent = CreateDatePage(contentRepository, blogStart.ContentLink, published.Year.ToString(), new DateTime(published.Year, 1, 1));
-            return CreateDatePage(contentRepository, parent, published.Month.ToString(), new DateTime(published.Year, published.Month, 1));
+            PageReference parent = CreateDatePage(contentRepository, blogStart.ContentLink, created.Year.ToString(), new DateTime(created.Year, 1, 1));
+            return CreateDatePage(contentRepository, parent, created.Month.ToString(), new DateTime(created.Year, created.Month, 1));
         }
 
-        private PageReference CreateDatePage(IContentRepository contentRepository, ContentReference parent, string name, DateTime startPublish)
+        private PageReference CreateDatePage(IContentRepository contentRepository, ContentReference parent, string name, DateTime created)
         {
             BlogListPage defaultPageData = contentRepository.GetDefault<BlogListPage>(parent, typeof(BlogListPage).GetPageType().ID);
             defaultPageData.PageName = name;
             defaultPageData.Heading = name;
-            defaultPageData.StartPublish = startPublish;
+            defaultPageData.StartPublish = created;
             IUrlSegmentCreator urlSegment = ServiceLocator.Current.GetInstance<IUrlSegmentCreator>();
             defaultPageData.URLSegment = urlSegment.Create(defaultPageData);
             return contentRepository.Save(defaultPageData, SaveAction.Publish, AccessLevel.Publish).ToPageReference();
