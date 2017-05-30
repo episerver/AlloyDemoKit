@@ -20,15 +20,15 @@ namespace AlloyDemoKit.Business.ContentProviders
     /// <remarks>The current implementation only supports cloning of <see cref="PageData"/> content</remarks>
     /// <code>
     /// // Example of programmatically registering a cloned content provider
-    /// 
+    ///
     /// var rootPageOfContentToClone = new PageReference(10);
-    /// 
+    ///
     /// var pageWhereClonedContentShouldAppear = new PageReference(20);
-    /// 
+    ///
     /// var provider = new ClonedContentProvider(rootPageOfContentToClone, pageWhereClonedContentShouldAppear);
     ///
     /// var providerManager = ServiceLocator.Current.GetInstance<IContentProviderManager>();
-    /// 
+    ///
     /// providerManager.ProviderMap.AddProvider(provider);
     /// </code>
     public class ClonedContentProvider : ContentProvider, IPageCriteriaQueryService
@@ -57,7 +57,7 @@ namespace AlloyDemoKit.Business.ContentProviders
             // Set the entry point parameter
             Parameters.Add(ContentProviderElement.EntryPointString, EntryRoot.ID.ToString(CultureInfo.InvariantCulture));
         }
-        
+
         /// <summary>
         /// Clones a page to make it appear to come from where the content provider is attached
         /// </summary>
@@ -81,7 +81,7 @@ namespace AlloyDemoKit.Business.ContentProviders
             // All pages but the entry root should appear to come from this content provider
             if (!clone.PageLink.CompareToIgnoreWorkID(EntryRoot))
             {
-                clone.ContentLink.ProviderName = ProviderKey;    
+                clone.ContentLink.ProviderName = ProviderKey;
             }
 
             // Unless the parent is the entry root, it should appear to come from this content provider
@@ -93,7 +93,7 @@ namespace AlloyDemoKit.Business.ContentProviders
 
                 clone.ParentLink = parentLinkClone;
             }
-            
+
             // This is integral to map the cloned page to this content provider
             clone.LinkURL = ConstructContentUri(originalPage.PageTypeID, clone.ContentLink, clone.ContentGuid).ToString();
 
@@ -218,9 +218,8 @@ namespace AlloyDemoKit.Business.ContentProviders
             // If retrieving children for the entry point, we retrieve pages from the clone root
             contentLink = contentLink.CompareToIgnoreWorkID(EntryRoot) ? CloneRoot : contentLink;
 
-            FilterSortOrder sortOrder;
 
-            var children = ContentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out sortOrder);
+            var children = ContentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out FilterSortOrder sortOrder);
 
             languageSpecific = sortOrder == FilterSortOrder.Alphabetical;
 
@@ -328,8 +327,8 @@ namespace AlloyDemoKit.Business.ContentProviders
         /// <summary>
         /// Gets the service used to query for pages using criterias
         /// </summary>
-        protected virtual IPageCriteriaQueryService PageQueryService 
-        { 
+        protected virtual IPageCriteriaQueryService PageQueryService
+        {
             get { return ServiceLocator.Current.GetInstance<IPageCriteriaQueryService>(); }
         }
 

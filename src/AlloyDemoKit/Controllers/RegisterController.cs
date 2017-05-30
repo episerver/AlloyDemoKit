@@ -34,7 +34,6 @@ namespace AlloyDemoKit.Controllers
         public ActionResult Index()
         {
 
-            UIUserCreateStatus status;
             IEnumerable<string> errors = Enumerable.Empty<string>();
 
             UIRoleProvider.CreateRole(WebEditorsRoleName);
@@ -42,7 +41,7 @@ namespace AlloyDemoKit.Controllers
             IUIUser result = null;
 
             //Create News Editor
-            result = UIUserProvider.CreateUser("nancy", DefaultPassword, "nancy@alloy.com", null, null, true, out status, out errors);
+            result = UIUserProvider.CreateUser("nancy", DefaultPassword, "nancy@alloy.com", null, null, true, out UIUserCreateStatus status, out errors);
             if (status == UIUserCreateStatus.Success)
             {
                 UIRoleProvider.CreateRole(NewsEditorsRoleName);
