@@ -33,12 +33,65 @@ namespace AlloyDemoKit.Business.ContentProviders
     /// </code>
     public class ClonedContentProvider : ContentProvider, IPageCriteriaQueryService
     {
-        private static readonly ILogger Logger = LogManager.GetLogger();
-        private readonly NameValueCollection _parameters = new NameValueCollection(1);
+        private static readonly ILogger Logger = LogManager.GetLogger(typeof(ClonedContentProvider));
+        private PageReference _cloneRoot;
+        private PageReference _entryRoot;
+        private CategoryList _category;
+        private readonly IContentCacheKeyCreator _cacheCreator;
+        private readonly IContentLoader _contentLoader;
+        private readonly IContentCoreDataLoader _contentCoreDataLoader;
+        private readonly ContentStore _contentStore;
+        private readonly IPageCriteriaQueryService _pageQueryService;
+        private readonly IdentityMappingService _identityMappingService;
 
-        public ClonedContentProvider(PageReference cloneRoot, PageReference entryRoot) : this(cloneRoot, entryRoot, null) { }
+        /// <summary>
+        /// Gets a unique key for this content provider instance
+        /// </summary>
+        public override string ProviderKey
+        {
+            get
+            {
+                return string.Format("ClonedContent-{0}-{1}", _cloneRoot.ID, _entryRoot.ID);
+            }
+        }
 
-        public ClonedContentProvider(PageReference cloneRoot, PageReference entryRoot, CategoryList categoryFilter)
+        /// <summary>
+        /// Gets capabilities indicating no content editing can be performed through this provider
+        /// </summary>
+        public override ContentProviderCapabilities ProviderCapabilities
+        {
+            get
+            {
+                return ContentProviderCapabilities.Search;
+            }
+        }
+
+        ///// <summary>
+        ///// Gets configuration parameters for this content provider instance
+        ///// </summary>
+        //public override NameValueCollection Parameters
+        //{
+        //    get
+        //    {
+        //        return _parameters;
+        //    }
+        //}
+
+        public ClonedContentProvider() : this(ServiceLocator.Current.GetInstance<IdentityMappingService>(), ServiceLocator.Current.GetInstance<IContentLoader>(), ServiceLocator.Current.GetInstance<IContentCoreDataLoader>(), ServiceLocator.Current.GetInstance<ContentStore>(), ServiceLocator.Current.GetInstance<IContentCacheKeyCreator>())
+        {
+
+        }
+
+        public ClonedContentProvider(IdentityMappingService identityMappingService, IContentLoader contentLoader, IContentCoreDataLoader contentCoreDataLoader, ContentStore contentStore, IContentCacheKeyCreator contentCacheKeyCreator)
+        {
+            _identityMappingService = identityMappingService;
+            _contentLoader = contentLoader;
+            _contentCoreDataLoader = contentCoreDataLoader;
+            _contentStore = contentStore;
+            _cacheCreator = contentCacheKeyCreator;
+        }
+
+        public void Initialize(PageReference cloneRoot, PageReference entryRoot, CategoryList categoryFilter)
         {
             if (cloneRoot.CompareToIgnoreWorkID(entryRoot))
             {
@@ -50,12 +103,12 @@ namespace AlloyDemoKit.Business.ContentProviders
                 throw new NotSupportedException("Unable to create ClonedContentProvider, the EntryRoot property must point to leaf content (without children)");
             }
 
-            CloneRoot = cloneRoot;
-            EntryRoot = entryRoot;
-            Category = categoryFilter;
+            _cloneRoot = cloneRoot;
+            _entryRoot = entryRoot;
+            _category = categoryFilter;
 
             // Set the entry point parameter
-            Parameters.Add(ContentProviderElement.EntryPointString, EntryRoot.ID.ToString(CultureInfo.InvariantCulture));
+            Parameters.Add(ContentProviderElement.EntryPointString, _entryRoot.ID.ToString(CultureInfo.InvariantCulture));
         }
 
         /// <summary>
@@ -73,19 +126,19 @@ namespace AlloyDemoKit.Business.ContentProviders
             var clone = originalPage.CreateWritableClone();
 
             // If original page was under the clone root, we make it appear to be under the entry root instead
-            if (originalPage.ParentLink.CompareToIgnoreWorkID(CloneRoot))
+            if (originalPage.ParentLink.CompareToIgnoreWorkID(_cloneRoot))
             {
-                clone.ParentLink = EntryRoot;
+                clone.ParentLink = _entryRoot;
             }
 
             // All pages but the entry root should appear to come from this content provider
-            if (!clone.PageLink.CompareToIgnoreWorkID(EntryRoot))
+            if (!clone.PageLink.CompareToIgnoreWorkID(_entryRoot))
             {
                 clone.ContentLink.ProviderName = ProviderKey;
             }
 
             // Unless the parent is the entry root, it should appear to come from this content provider
-            if (!clone.ParentLink.CompareToIgnoreWorkID(EntryRoot))
+            if (!clone.ParentLink.CompareToIgnoreWorkID(_entryRoot))
             {
                 var parentLinkClone = clone.ParentLink.CreateWritableClone();
 
@@ -95,7 +148,7 @@ namespace AlloyDemoKit.Business.ContentProviders
             }
 
             // This is integral to map the cloned page to this content provider
-            clone.LinkURL = ConstructContentUri(originalPage.PageTypeID, clone.ContentLink, clone.ContentGuid).ToString();
+            clone.LinkURL = ConstructContentUri(originalPage.ContentTypeID, clone.ContentLink, clone.ContentGuid).ToString();
 
             return clone;
         }
@@ -107,7 +160,7 @@ namespace AlloyDemoKit.Business.ContentProviders
         /// <returns></returns>
         private IList<T> FilterByCategory<T>(IEnumerable<T> contentReferences)
         {
-            if (Category == null || !Category.Any())
+            if (_category == null || !_category.Any())
             {
                 return contentReferences.ToList();
             }
@@ -121,14 +174,15 @@ namespace AlloyDemoKit.Business.ContentProviders
                 if (contentReference is ContentReference)
                 {
                     content = (contentReference as ContentReference).Get<IContent>() as ICategorizable;
-                } else if (typeof(T) == typeof(GetChildrenReferenceResult))
+                }
+                else if (typeof(T) == typeof(GetChildrenReferenceResult))
                 {
                     content = (contentReference as GetChildrenReferenceResult).ContentLink.Get<IContent>() as ICategorizable;
                 }
 
                 if (content != null)
                 {
-                    var atLeastOneMatchingCategory = content.Category.Any(c => Category.Contains(c));
+                    var atLeastOneMatchingCategory = content.Category.Any(c => _category.Contains(c));
 
                     if (atLeastOneMatchingCategory)
                     {
@@ -151,9 +205,13 @@ namespace AlloyDemoKit.Business.ContentProviders
                 throw new ArgumentNullException("contentLink");
             }
 
+            var mappedItem = _identityMappingService.Get(contentLink);
+
+            if (mappedItem == null) return null;
+
             if (contentLink.WorkID > 0)
             {
-                return ContentStore.LoadVersion(contentLink, -1);
+                return _contentStore.LoadVersion(contentLink, -1);
             }
 
             var languageBranchRepository = ServiceLocator.Current.GetInstance<ILanguageBranchRepository>();
@@ -167,11 +225,11 @@ namespace AlloyDemoKit.Business.ContentProviders
 
             if (contentLink.GetPublishedOrLatest)
             {
-                return ContentStore.LoadVersion(contentLink, langBr != null ? langBr.ID : -1);
+                return _contentStore.LoadVersion(contentLink, langBr != null ? langBr.ID : -1);
             }
 
             // Get published version of Content
-            var originalContent = ContentStore.Load(contentLink, langBr != null ? langBr.ID : -1);
+            var originalContent = _contentStore.Load(contentLink, langBr != null ? langBr.ID : -1);
 
             var page = originalContent as PageData;
 
@@ -185,17 +243,17 @@ namespace AlloyDemoKit.Business.ContentProviders
 
         protected override ContentResolveResult ResolveContent(ContentReference contentLink)
         {
-            var contentData = ContentCoreDataLoader.Service.Load(contentLink.ID);
+            var contentData = _contentCoreDataLoader.Load(contentLink.ID);
 
             // All pages but the entry root should appear to come from this content provider
-            if (!contentLink.CompareToIgnoreWorkID(EntryRoot))
+            if (!contentLink.CompareToIgnoreWorkID(_entryRoot))
             {
                 contentData.ContentReference.ProviderName = ProviderKey;
             }
 
             var result = CreateContentResolveResult(contentData);
 
-            if (!result.ContentLink.CompareToIgnoreWorkID(EntryRoot))
+            if (!result.ContentLink.CompareToIgnoreWorkID(_entryRoot))
             {
                 result.ContentLink.ProviderName = ProviderKey;
             }
@@ -205,7 +263,7 @@ namespace AlloyDemoKit.Business.ContentProviders
 
         protected override Uri ConstructContentUri(int contentTypeId, ContentReference contentLink, Guid contentGuid)
         {
-            if (!contentLink.CompareToIgnoreWorkID(EntryRoot))
+            if (!contentLink.CompareToIgnoreWorkID(_entryRoot))
             {
                 contentLink.ProviderName = ProviderKey;
             }
@@ -216,25 +274,25 @@ namespace AlloyDemoKit.Business.ContentProviders
         protected override IList<GetChildrenReferenceResult> LoadChildrenReferencesAndTypes(ContentReference contentLink, string languageID, out bool languageSpecific)
         {
             // If retrieving children for the entry point, we retrieve pages from the clone root
-            contentLink = contentLink.CompareToIgnoreWorkID(EntryRoot) ? CloneRoot : contentLink;
+            contentLink = contentLink.CompareToIgnoreWorkID(_entryRoot) ? _cloneRoot : contentLink;
 
 
-            var children = ContentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out FilterSortOrder sortOrder);
+            var children = _contentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out FilterSortOrder sortOrder);
 
             languageSpecific = sortOrder == FilterSortOrder.Alphabetical;
 
-            foreach (var contentReference in children.Where(contentReference => !contentReference.ContentLink.CompareToIgnoreWorkID(EntryRoot)))
+            foreach (var contentReference in children.Where(contentReference => !contentReference.ContentLink.CompareToIgnoreWorkID(_entryRoot)))
             {
                 contentReference.ContentLink.ProviderName = ProviderKey;
             }
 
-            return FilterByCategory <GetChildrenReferenceResult>(children);
+            return FilterByCategory<GetChildrenReferenceResult>(children);
         }
 
         protected override IEnumerable<IContent> LoadContents(IList<ContentReference> contentReferences, ILanguageSelector selector)
         {
             return contentReferences
-                   .Select(contentReference => ClonePage(ContentLoader.Get<PageData>(contentReference.ToReferenceWithoutVersion())))
+                   .Select(contentReference => ClonePage(_contentLoader.Get<PageData>(contentReference.ToReferenceWithoutVersion())))
                    .Cast<IContent>()
                    .ToList();
         }
@@ -242,29 +300,29 @@ namespace AlloyDemoKit.Business.ContentProviders
         protected override void SetCacheSettings(IContent content, CacheSettings cacheSettings)
         {
             // Make the cache of this content provider depend on the original content
-            cacheSettings.CacheKeys.Add(DataFactoryCache.PageCommonCacheKey(new ContentReference(content.ContentLink.ID)));
+            cacheSettings.CacheKeys.Add(_cacheCreator.CreateCommonCacheKey(new ContentReference(content.ContentLink.ID)));
         }
 
         protected override void SetCacheSettings(ContentReference contentReference, IEnumerable<GetChildrenReferenceResult> children, CacheSettings cacheSettings)
         {
             // Make the cache of this content provider depend on the original content
 
-            cacheSettings.CacheKeys.Add(DataFactoryCache.PageCommonCacheKey(new ContentReference(contentReference.ID)));
+            cacheSettings.CacheKeys.Add(_cacheCreator.CreateCommonCacheKey(new ContentReference(contentReference.ID)));
 
             foreach (var child in children)
             {
-                cacheSettings.CacheKeys.Add(DataFactoryCache.PageCommonCacheKey(new ContentReference(child.ContentLink.ID)));
+                cacheSettings.CacheKeys.Add(_cacheCreator.CreateCommonCacheKey(new ContentReference(child.ContentLink.ID)));
             }
         }
 
         public override IList<ContentReference> GetDescendentReferences(ContentReference contentLink)
         {
             // If retrieving children for the entry point, we retrieve pages from the clone root
-            contentLink = contentLink.CompareToIgnoreWorkID(EntryRoot) ? CloneRoot : contentLink;
+            contentLink = contentLink.CompareToIgnoreWorkID(_entryRoot) ? _cloneRoot : contentLink;
 
-            var descendents = ContentStore.ListAll(contentLink);
+            var descendents = _contentStore.ListAll(contentLink);
 
-            foreach (var contentReference in descendents.Where(contentReference => !contentReference.CompareToIgnoreWorkID(EntryRoot)))
+            foreach (var contentReference in descendents.Where(contentReference => !contentReference.CompareToIgnoreWorkID(_entryRoot)))
             {
                 contentReference.ProviderName = ProviderKey;
             }
@@ -275,16 +333,16 @@ namespace AlloyDemoKit.Business.ContentProviders
         public PageDataCollection FindAllPagesWithCriteria(PageReference pageLink, PropertyCriteriaCollection criterias, string languageBranch, ILanguageSelector selector)
         {
             // Any search beneath the entry root should in fact be performed under the clone root as that's where the original content resides
-            if (pageLink.CompareToIgnoreWorkID(EntryRoot))
+            if (pageLink.CompareToIgnoreWorkID(_entryRoot))
             {
-                pageLink = CloneRoot;
+                pageLink = _cloneRoot;
             }
             else if (!string.IsNullOrWhiteSpace(pageLink.ProviderName)) // Any search beneath a cloned page should in fact be performed under the original page, so we use a page link without any provider information
             {
                 pageLink = new PageReference(pageLink.ID);
             }
 
-            var pages = PageQueryService.FindAllPagesWithCriteria(pageLink, criterias, languageBranch, selector);
+            var pages = _pageQueryService.FindAllPagesWithCriteria(pageLink, criterias, languageBranch, selector);
 
             // Return cloned search result set
             return new PageDataCollection(pages.Select(ClonePage));
@@ -293,80 +351,19 @@ namespace AlloyDemoKit.Business.ContentProviders
         public PageDataCollection FindPagesWithCriteria(PageReference pageLink, PropertyCriteriaCollection criterias, string languageBranch, ILanguageSelector selector)
         {
             // Any search beneath the entry root should in fact be performed under the clone root as that's where the original content resides
-            if (pageLink.CompareToIgnoreWorkID(EntryRoot))
+            if (pageLink.CompareToIgnoreWorkID(_entryRoot))
             {
-                pageLink = CloneRoot;
+                pageLink = _cloneRoot;
             }
             else if (!string.IsNullOrWhiteSpace(pageLink.ProviderName)) // Any search beneath a cloned page should in fact be performed under the original page, so we use a page link without any provider information
             {
                 pageLink = new PageReference(pageLink.ID);
             }
 
-            var pages = PageQueryService.FindPagesWithCriteria(pageLink, criterias, languageBranch, selector);
+            var pages = _pageQueryService.FindPagesWithCriteria(pageLink, criterias, languageBranch, selector);
 
             // Return cloned search result set
             return new PageDataCollection(pages.Select(ClonePage));
         }
-
-        /// <summary>
-        /// Gets the content store used to get original content
-        /// </summary>
-        protected virtual ContentStore ContentStore
-        {
-            get { return ServiceLocator.Current.GetInstance<ContentStore>(); }
-        }
-
-        /// <summary>
-        /// Gets the content loader used to get content
-        /// </summary>
-        protected virtual IContentLoader ContentLoader
-        {
-            get { return ServiceLocator.Current.GetInstance<IContentLoader>(); }
-        }
-
-        /// <summary>
-        /// Gets the service used to query for pages using criterias
-        /// </summary>
-        protected virtual IPageCriteriaQueryService PageQueryService
-        {
-            get { return ServiceLocator.Current.GetInstance<IPageCriteriaQueryService>(); }
-        }
-
-        /// <summary>
-        /// Content that should be cloned at the entry point
-        /// </summary>
-        public PageReference CloneRoot { get; protected set; }
-
-        /// <summary>
-        /// Gets the page where the cloned content will appear
-        /// </summary>
-        public PageReference EntryRoot { get; protected set; }
-
-        /// <summary>
-        /// Gets the category filters used for this content provider
-        /// </summary>
-        /// <remarks>If set, pages not matching at least one of these categories will be excluded from this content provider</remarks>
-        public CategoryList Category { get; protected set; }
-
-        /// <summary>
-        /// Gets a unique key for this content provider instance
-        /// </summary>
-        public override string ProviderKey
-        {
-            get
-            {
-                return string.Format("ClonedContent-{0}-{1}", CloneRoot.ID, EntryRoot.ID);
-            }
-        }
-
-        /// <summary>
-        /// Gets capabilities indicating no content editing can be performed through this provider
-        /// </summary>
-        public override ContentProviderCapabilities ProviderCapabilities { get { return ContentProviderCapabilities.Search; } }
-
-        /// <summary>
-        /// Gets configuration parameters for this content provider instance
-        /// </summary>
-        public override NameValueCollection Parameters { get { return _parameters; } }
     }
 }
