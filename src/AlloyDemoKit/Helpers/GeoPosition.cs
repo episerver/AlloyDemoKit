@@ -2,6 +2,7 @@
 using EPiServer.Find;
 using EPiServer.Personalization;
 using EPiServer.Personalization.Providers.MaxMind;
+using EPiServer.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +28,7 @@ namespace AlloyDemoKit.Helpers
                 var requestIp = GetRequestIp();
                 //requestIp = "146.185.31.213";//Temp, provoke error
                 var ip = IPAddress.Parse(requestIp);
-                var provider = Geolocation.Provider as GeolocationProvider;
+                var provider = ServiceLocator.Current.GetInstance<GeolocationProviderBase>();
                 IGeolocationResult result = provider.Lookup(ip);
                 return result != null ? result.Location : null;
             }
@@ -42,7 +43,7 @@ namespace AlloyDemoKit.Helpers
             var requestIp = GetRequestIp();
             //requestIp = "146.185.31.213";//Temp, provoke error
             var ip = IPAddress.Parse(requestIp);
-            var provider = Geolocation.Provider as GeolocationProvider;
+            var provider = ServiceLocator.Current.GetInstance<GeolocationProviderBase>();
             IGeolocationResult result = provider.Lookup(ip);
             return result != null ? result.Location : provider.Lookup(IPAddress.Parse("8.8.8.8")).Location;
 
@@ -57,13 +58,13 @@ namespace AlloyDemoKit.Helpers
                 var requestIp = GetRequestIp();
                 //requestIp = "146.185.31.213";//Temp, provoke error
                 var ip = IPAddress.Parse(requestIp);
-                var provider = Geolocation.Provider as GeolocationProvider;
+                var provider = ServiceLocator.Current.GetInstance<GeolocationProviderBase>();
                 IGeolocationResult result = provider.Lookup(ip);
                 return result ?? provider.Lookup(IPAddress.Parse("8.8.8.8"));
             }
             catch
             {
-                var provider = Geolocation.Provider as GeolocationProvider;
+                var provider = ServiceLocator.Current.GetInstance<GeolocationProviderBase>();
                 return provider.Lookup(IPAddress.Parse("8.8.8.8"));
             }
 

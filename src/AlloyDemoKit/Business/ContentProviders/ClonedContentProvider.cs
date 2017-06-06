@@ -66,28 +66,23 @@ namespace AlloyDemoKit.Business.ContentProviders
             }
         }
 
-        ///// <summary>
-        ///// Gets configuration parameters for this content provider instance
-        ///// </summary>
-        //public override NameValueCollection Parameters
-        //{
-        //    get
-        //    {
-        //        return _parameters;
-        //    }
-        //}
-
-        public ClonedContentProvider() : this(ServiceLocator.Current.GetInstance<IdentityMappingService>(), ServiceLocator.Current.GetInstance<IContentLoader>(), ServiceLocator.Current.GetInstance<IContentCoreDataLoader>(), ServiceLocator.Current.GetInstance<ContentStore>(), ServiceLocator.Current.GetInstance<IContentCacheKeyCreator>())
+        public ClonedContentProvider() : this(ServiceLocator.Current.GetInstance<IdentityMappingService>(), 
+                                            ServiceLocator.Current.GetInstance<IContentLoader>(), 
+                                            ServiceLocator.Current.GetInstance<IContentCoreDataLoader>(), 
+                                            ServiceLocator.Current.GetInstance<ContentStore>(), 
+                                            ServiceLocator.Current.GetInstance<IPageCriteriaQueryService>(), 
+                                            ServiceLocator.Current.GetInstance<IContentCacheKeyCreator>())
         {
 
         }
 
-        public ClonedContentProvider(IdentityMappingService identityMappingService, IContentLoader contentLoader, IContentCoreDataLoader contentCoreDataLoader, ContentStore contentStore, IContentCacheKeyCreator contentCacheKeyCreator)
+        public ClonedContentProvider(IdentityMappingService identityMappingService, IContentLoader contentLoader, IContentCoreDataLoader contentCoreDataLoader, ContentStore contentStore, IPageCriteriaQueryService pageCriteriaQueryService, IContentCacheKeyCreator contentCacheKeyCreator)
         {
             _identityMappingService = identityMappingService;
             _contentLoader = contentLoader;
             _contentCoreDataLoader = contentCoreDataLoader;
             _contentStore = contentStore;
+            _pageQueryService = pageCriteriaQueryService;
             _cacheCreator = contentCacheKeyCreator;
         }
 

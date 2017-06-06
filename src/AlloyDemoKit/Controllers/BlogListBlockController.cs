@@ -142,7 +142,7 @@ namespace AlloyDemoKit.Models.Pages.Controllers
                 if (currentBlock.PageTypeFilter != null)
                 {
                     pages = contentLoader.GetChildren<PageData>(listRoot)
-                        .Where(p => p.PageTypeID == currentBlock.PageTypeFilter.ID);
+                        .Where(p => p.ContentTypeID == currentBlock.PageTypeFilter.ID);
                 }
                 else
                 {

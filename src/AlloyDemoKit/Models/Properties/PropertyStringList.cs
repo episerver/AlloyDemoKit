@@ -64,6 +64,7 @@ namespace AlloyDemoKit.Models.Properties
             }
         }
 
+        [Obsolete]
         public override IPropertyControl CreatePropertyControl()
         {
             //No support for legacy edit mode

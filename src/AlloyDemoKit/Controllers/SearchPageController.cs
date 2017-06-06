@@ -49,7 +49,7 @@ namespace AlloyDemoKit.Controllers
                 var hits = Search(q.Trim(),
                     new[] { SiteDefinition.Current.StartPage, SiteDefinition.Current.GlobalAssetsRoot, SiteDefinition.Current.SiteAssetsRoot }, 
                     ControllerContext.HttpContext, 
-                    currentPage.LanguageID).ToList();
+                    currentPage.Language.Name).ToList();
                 model.Hits = hits;
                 model.NumberOfHits = hits.Count();
             }

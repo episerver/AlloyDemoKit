@@ -22,7 +22,7 @@ namespace AlloyDemoKit.Business
 
         public virtual bool IsActive
         {
-            get { return SearchSettings.Config.Active; }
+            get { return SearchSettings.Options.Active; }
         }
 
         public virtual SearchResults Search(string searchText, IEnumerable<ContentReference> searchRoots, HttpContextBase context, string languageBranch, int maxResults)
@@ -55,7 +55,7 @@ namespace AlloyDemoKit.Business
             //Create and add query which groups type conditions using OR
             var typeQueries = new GroupQuery(LuceneOperator.OR);
             query.QueryExpressions.Add(typeQueries);
-            
+
             foreach (var root in searchRoots)
             {
                 var contentRootQuery = new VirtualPathQuery();
