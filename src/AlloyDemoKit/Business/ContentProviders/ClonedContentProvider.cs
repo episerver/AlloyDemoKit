@@ -34,15 +34,13 @@ namespace AlloyDemoKit.Business.ContentProviders
     public class ClonedContentProvider : ContentProvider, IPageCriteriaQueryService
     {
         private static readonly ILogger Logger = LogManager.GetLogger(typeof(ClonedContentProvider));
+        private readonly NameValueCollection _parameters = new NameValueCollection(1);
         private PageReference _cloneRoot;
         private PageReference _entryRoot;
         private CategoryList _category;
-        private readonly IContentCacheKeyCreator _cacheCreator;
         private readonly IContentLoader _contentLoader;
-        private readonly IContentCoreDataLoader _contentCoreDataLoader;
         private readonly ContentStore _contentStore;
         private readonly IPageCriteriaQueryService _pageQueryService;
-        private readonly IdentityMappingService _identityMappingService;
 
         /// <summary>
         /// Gets a unique key for this content provider instance
@@ -66,24 +64,24 @@ namespace AlloyDemoKit.Business.ContentProviders
             }
         }
 
-        public ClonedContentProvider() : this(ServiceLocator.Current.GetInstance<IdentityMappingService>(), 
-                                            ServiceLocator.Current.GetInstance<IContentLoader>(), 
-                                            ServiceLocator.Current.GetInstance<IContentCoreDataLoader>(), 
-                                            ServiceLocator.Current.GetInstance<ContentStore>(), 
-                                            ServiceLocator.Current.GetInstance<IPageCriteriaQueryService>(), 
-                                            ServiceLocator.Current.GetInstance<IContentCacheKeyCreator>())
+        /// <summary>
+        /// Gets configuration parameters for this content provider instance
+        /// </summary>
+        public override NameValueCollection Parameters { get { return _parameters; } }
+
+        public ClonedContentProvider() : this(ServiceLocator.Current.GetInstance<IContentLoader>(),
+                                            ServiceLocator.Current.GetInstance<ContentStore>(),
+                                            ServiceLocator.Current.GetInstance<IPageCriteriaQueryService>()
+                                            )
         {
 
         }
 
-        public ClonedContentProvider(IdentityMappingService identityMappingService, IContentLoader contentLoader, IContentCoreDataLoader contentCoreDataLoader, ContentStore contentStore, IPageCriteriaQueryService pageCriteriaQueryService, IContentCacheKeyCreator contentCacheKeyCreator)
+        public ClonedContentProvider(IContentLoader contentLoader, ContentStore contentStore, IPageCriteriaQueryService pageCriteriaQueryService)
         {
-            _identityMappingService = identityMappingService;
             _contentLoader = contentLoader;
-            _contentCoreDataLoader = contentCoreDataLoader;
             _contentStore = contentStore;
             _pageQueryService = pageCriteriaQueryService;
-            _cacheCreator = contentCacheKeyCreator;
         }
 
         public void Initialize(PageReference cloneRoot, PageReference entryRoot, CategoryList categoryFilter)
@@ -200,16 +198,12 @@ namespace AlloyDemoKit.Business.ContentProviders
                 throw new ArgumentNullException("contentLink");
             }
 
-            var mappedItem = _identityMappingService.Get(contentLink);
-
-            if (mappedItem == null) return null;
-
             if (contentLink.WorkID > 0)
             {
                 return _contentStore.LoadVersion(contentLink, -1);
             }
 
-            var languageBranchRepository = ServiceLocator.Current.GetInstance<ILanguageBranchRepository>();
+            var languageBranchRepository = DependencyHelper.LanguageBranchRepository;
 
             LanguageBranch langBr = null;
 
@@ -238,7 +232,7 @@ namespace AlloyDemoKit.Business.ContentProviders
 
         protected override ContentResolveResult ResolveContent(ContentReference contentLink)
         {
-            var contentData = _contentCoreDataLoader.Load(contentLink.ID);
+            var contentData = DependencyHelper.ContentCoreDataLoader().Load(contentLink.ID);
 
             // All pages but the entry root should appear to come from this content provider
             if (!contentLink.CompareToIgnoreWorkID(_entryRoot))
@@ -295,18 +289,18 @@ namespace AlloyDemoKit.Business.ContentProviders
         protected override void SetCacheSettings(IContent content, CacheSettings cacheSettings)
         {
             // Make the cache of this content provider depend on the original content
-            cacheSettings.CacheKeys.Add(_cacheCreator.CreateCommonCacheKey(new ContentReference(content.ContentLink.ID)));
+            cacheSettings.CacheKeys.Add(DependencyHelper.ContentCacheKeyCreator.CreateCommonCacheKey(new ContentReference(content.ContentLink.ID)));
         }
 
         protected override void SetCacheSettings(ContentReference contentReference, IEnumerable<GetChildrenReferenceResult> children, CacheSettings cacheSettings)
         {
             // Make the cache of this content provider depend on the original content
 
-            cacheSettings.CacheKeys.Add(_cacheCreator.CreateCommonCacheKey(new ContentReference(contentReference.ID)));
+            cacheSettings.CacheKeys.Add(DependencyHelper.ContentCacheKeyCreator.CreateCommonCacheKey(new ContentReference(contentReference.ID)));
 
             foreach (var child in children)
             {
-                cacheSettings.CacheKeys.Add(_cacheCreator.CreateCommonCacheKey(new ContentReference(child.ContentLink.ID)));
+                cacheSettings.CacheKeys.Add(DependencyHelper.ContentCacheKeyCreator.CreateCommonCacheKey(new ContentReference(child.ContentLink.ID)));
             }
         }
 
