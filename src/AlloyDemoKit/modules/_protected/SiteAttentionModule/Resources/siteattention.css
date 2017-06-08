@@ -48,6 +48,7 @@
 }
 
 .episize300 {width:300px;}
+.episize400 {width: 400px;}
 input.epi-cmsButton-tools {
     background-color: Transparent;
     background-repeat: no-repeat;
@@ -87,4 +88,101 @@ span.epi-cmsButton, span.epi-cmsButtondisabled {
     overflow: visible;
     padding: 2px;
     white-space: nowrap;
+}
+
+input[type="text"]:disabled {
+    background: #dddddd;
+}
+input[type=text]:enabled {
+    background: #fff;
+}
+
+.row {
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 20px !important;
+}
+.row-normal {
+    display: block;
+}
+.row-padding {
+    padding: 15px;
+}
+.cell-row {
+    padding: 5px 0;
+    overflow: hidden;
+    min-height: 24px;
+}
+.col {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+}
+.col-normal {
+    display: block;
+    float: left;
+    padding: 0 10px;
+}
+.col__content {
+    -webkit-align-content: center;
+    align-content: center;
+    padding: 10px;
+}
+.col-half {
+    width: 50%;
+}
+.col-20 {
+    width: 20%;
+}
+.col-40 {
+    width: 40%;
+}
+.col-right-space {
+    padding-right: 10px;
+}
+.col-left-space {
+    padding-left: 10px;
+}
+.block-border {
+    border: 1px solid #000;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+}
+.table-infor {
+    padding: 15px;
+}
+.table-infor td {
+    padding: 4px 10px 4px 0;
+}
+.site-infor {
+    padding: 20px;
+}
+.site-logo {
+    max-width: 100%;
+    display: block;
+    margin: 0 0 30px;
+}
+.site-link {
+    display: block;
+}
+
+.input-full-width {
+    display: block;
+    padding: 2px 5px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.input-disable {
+    background-color: gray;
+}
+.button-right {
+    float: right;
+    padding: 0 4px;
 }
