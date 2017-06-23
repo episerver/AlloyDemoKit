@@ -4,9 +4,8 @@
 @using AlloyDemoKit.Business
 @model IPageViewModel<SitePageData>
 <!DOCTYPE html>
-<html lang="@Model.CurrentPage.LanguageBranch">
-<html>
-    
+<html lang="@Model.CurrentPage.Language">
+
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -16,7 +15,7 @@
         {
         <meta name="robots" content="NOINDEX, NOFOLLOW">
         }
-        
+
         @Html.CanonicalLink()
         @Html.AlternateLinks()
         @Styles.Render("~/bundles/css")

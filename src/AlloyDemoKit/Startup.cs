@@ -37,8 +37,6 @@ namespace AlloyDemoKit
                         regenerateIdentity: (manager, user) => manager.GenerateUserIdentityAsync(user))
                 }
             });
-
-            app.MapSignalR();
         }
     }
 }
