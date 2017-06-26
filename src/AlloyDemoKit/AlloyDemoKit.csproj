@@ -311,9 +311,6 @@
     <Reference Include="PowerSlice, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PowerSlice.2.1.6.0\lib\net40\PowerSlice.dll</HintPath>
     </Reference>
-    <Reference Include="SiteAttentionModule, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SiteAttentionModule.3.0.0\lib\SiteAttentionModule.dll</HintPath>
-    </Reference>
     <Reference Include="StructureMap, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.dll</HintPath>
       <Private>True</Private>
@@ -745,17 +742,6 @@
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\Shared\EditorTemplates\FormModel.ascx" />
     <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinForFind.js" />
     <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinInit.js" />
-    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\3.0\CommandProviders\SiteAttentionCommandProvider.js" />
-    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\3.0\Components\SiteAttentionWidget.js" />
-    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\3.0\Components\styles.css" />
-    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\3.0\Content.js" />
-    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\3.0\DefaultModule.js" />
-    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\3.0\SiteAttentionModule.js" />
-    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattention.css" />
-    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattentioninfo.css" />
-    <Content Include="modules\_protected\SiteAttentionModule\Resources\SpriteTools.png" />
-    <Content Include="modules\_protected\SiteAttentionModule\Resources\ToolButtonBg.gif" />
-    <Content Include="modules\_protected\SiteAttentionModule\SiteAttentionPlugIn.aspx" />
     <Content Include="NotFound.aspx" />
     <Content Include="Static\css\VisitorGroupUIOverrides.css" />
     <Content Include="Static\gfx\block-thumbnail-parking.png" />
@@ -916,7 +902,6 @@
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
     <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
-    <Content Include="modules\_protected\SiteAttentionModule\module.config" />
     <Content Include="modules\_protected\Shell\web.config" />
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
