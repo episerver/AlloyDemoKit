@@ -850,9 +850,6 @@
     <Content Include="Static\css\icons\submit.png" />
     <Content Include="Views\Shared\Forms\ChoiceElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\SelectionElementBlock.ascx" />
-    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation\module.config" />
-    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Silverpop\web.config" />
-    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Silverpop\module.config" />
     <Content Include="modules\AppleWatchChannel\Views\web.config" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatch.cshtml" />
     <Content Include="modules\AppleWatchChannel\module.config" />
