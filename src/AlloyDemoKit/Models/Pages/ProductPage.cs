@@ -19,7 +19,7 @@ namespace AlloyDemoKit.Models.Pages
         IncludeOn = new[] { typeof(StartPage) })]
     public class ProductPage : StandardPage, IHasRelatedContent
     {
-        [Required]
+        
         [BackingType(typeof(PropertyStringList))]
         [Display(Order = 305)]
         [UIHint(Global.SiteUIHints.Strings)]
