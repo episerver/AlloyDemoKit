@@ -77,8 +77,8 @@ namespace AlloyDemoKit.Business.Initialization
                     return ContentReference.EmptyReference;
                 }
 
-
-                if (!int.TryParse(pageLinkIdString, out int pageLinkId) || pageLinkId == 0)
+                int pageLinkId;
+                if (!int.TryParse(pageLinkIdString, out pageLinkId) || pageLinkId == 0)
                 {
                     Logger.Error("The '{0}' app setting was not set to a valid page ID, expected a positive integer", appSettingName);
 

@@ -86,14 +86,15 @@ namespace EPiServer.Labs.LanguageManager.Business.Providers
                 headerEntryWithAccessToken = string.Empty;
                 outputText = "MICROSOFT_TRANSLATOR_ERROR";
                 string str = string.Empty;
-                if (ex is WebException webException && webException.Response != null)
-                {
-                    using (HttpWebResponse response = (HttpWebResponse)webException.Response)
-                    {
-                        using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
-                            str = streamReader.ReadToEnd();
-                    }
-                }
+                //WebException webException;
+                //if (ex is WebException && webException.Response != null)
+                //{
+                //    using (HttpWebResponse response = (HttpWebResponse)webException.Response)
+                //    {
+                //        using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
+                //            str = streamReader.ReadToEnd();
+                //    }
+                //}
                 _logger.Error(string.Format($"{str}. Cannot translate with Mircosoft Translator Text API, input={inputText}, fromLang={fromLang}, toLang={toLang}"), ex);
             }
             finally

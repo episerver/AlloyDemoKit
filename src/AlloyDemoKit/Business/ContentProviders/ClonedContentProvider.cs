@@ -265,8 +265,8 @@ namespace AlloyDemoKit.Business.ContentProviders
             // If retrieving children for the entry point, we retrieve pages from the clone root
             contentLink = contentLink.CompareToIgnoreWorkID(_entryRoot) ? _cloneRoot : contentLink;
 
-
-            var children = _contentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out FilterSortOrder sortOrder);
+            FilterSortOrder sortOrder;
+            var children = _contentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out sortOrder);
 
             languageSpecific = sortOrder == FilterSortOrder.Alphabetical;
 

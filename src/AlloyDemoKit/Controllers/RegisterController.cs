@@ -41,7 +41,8 @@ namespace AlloyDemoKit.Controllers
             IUIUser result = null;
 
             //Create News Editor
-            result = UIUserProvider.CreateUser("nancy", DefaultPassword, "nancy@alloy.com", null, null, true, out UIUserCreateStatus status, out errors);
+            UIUserCreateStatus status;
+            result = UIUserProvider.CreateUser("nancy", DefaultPassword, "nancy@alloy.com", null, null, true, out status, out errors);
             if (status == UIUserCreateStatus.Success)
             {
                 UIRoleProvider.CreateRole(NewsEditorsRoleName);
