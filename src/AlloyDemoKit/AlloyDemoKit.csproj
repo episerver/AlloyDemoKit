@@ -547,6 +547,7 @@
     <Compile Include="Controllers\EmployeeSearchPageController.cs" />
     <Compile Include="Controllers\FindPageController.cs" />
     <Compile Include="Controllers\ImageFileController.cs" />
+    <Compile Include="Controllers\ImageGalleryBlockController.cs" />
     <Compile Include="Controllers\PageControllerBase.cs" />
     <Compile Include="Controllers\CarouselBlockController.cs" />
     <Compile Include="Controllers\PageListBlockController.cs" />
@@ -579,6 +580,7 @@
     <Compile Include="Models\Blocks\ContactBlock.cs" />
     <Compile Include="Models\Blocks\FormElements\StyledTextBoxElementBlock.cs" />
     <Compile Include="Models\Blocks\HeroBlock.cs" />
+    <Compile Include="Models\Blocks\ImageGalleryBlock.cs" />
     <Compile Include="Models\Blocks\ParkingBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
     <Compile Include="Models\Blocks\FacebookBlock.cs" />
@@ -1064,6 +1066,7 @@
     <Content Include="Views\TwoColumnLandingPage\Index.cshtml" />
     <Content Include="Views\Shared\Blocks\VimeoBlock.cshtml" />
     <Content Include="Views\Shared\Blocks\HeroBlock.cshtml" />
+    <Content Include="Views\ImageGalleryBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -1,0 +1,30 @@
+﻿@using EPiServer
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Framework.Web.Resources
+@using AlloyDemoKit.Models.Media
+
+@model IEnumerable<ImageFile>
+
+@{ 
+    ClientResources.RequireScript(Href("~/Static/fancyapps-fancyBox-3a66a9b/source/jquery.fancybox.js"));
+    ClientResources.RequireStyle(Href("~/Static/fancyapps-fancyBox-3a66a9b/source/jquery.fancybox.css"));
+ }
+
+<div class="row">
+    @if (Model != null)
+    {        
+        foreach (var image in Model)
+        {
+        <a class="fancybox" href="@Url.ContentUrl(image.ContentLink)" data-fancybox-group="gallery" title="@image.AltTag">
+            <img src="@Url.ContentUrl(image.ContentLink)" alt="@image.AltTag" width="40%" />
+        </a>
+        }     
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.fancybox').fancybox();
+    });
+</script>
