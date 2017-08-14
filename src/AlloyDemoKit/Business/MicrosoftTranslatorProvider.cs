@@ -55,8 +55,10 @@ namespace EPiServer.Labs.LanguageManager.Business.Providers
             return true;
         }
 
-
-
+        public bool Initialize(string subscriptionKey)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool Translate(string inputText, string fromLang, string toLang, out string outputText)
         {
