@@ -17,7 +17,7 @@ namespace AlloyDemoKit.Business.VisitorGroupUIStyling
         {
             var result = filterContext.Result as ViewResultBase;
             var view = result?.View as WebFormView;
-            return view != null 
+            return view != null
                 && (view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Index.aspx") || view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Edit.aspx"));
         }
     }
