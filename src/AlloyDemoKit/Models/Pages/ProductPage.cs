@@ -21,7 +21,6 @@ namespace AlloyDemoKit.Models.Pages
     public class ProductPage : StandardPage, IHasRelatedContent
     {
         [Required]
-        [HideOnContentCreate]
         [BackingType(typeof(PropertyStringList))]
         [Display(Order = 305)]
         [UIHint(Global.SiteUIHints.Strings)]

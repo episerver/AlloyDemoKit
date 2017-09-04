@@ -467,7 +467,6 @@
     <Compile Include="Business\Channels\DisplayResolutions.cs" />
     <Compile Include="Business\Channels\MobileChannel.cs" />
     <Compile Include="Business\Channels\WebChannel.cs" />
-    <Compile Include="Business\ContentCreateMetadataExtender.cs" />
     <Compile Include="Business\ContentExtensions.cs" />
     <Compile Include="Business\ContentLocator.cs" />
     <Compile Include="Business\ContentProviders\ClonedContentProvider.cs" />
@@ -492,7 +491,6 @@
     <Compile Include="Business\FormKPI\FilledInFormKpi.cs" />
     <Compile Include="Business\Forms\FormEventsInitialization.cs" />
     <Compile Include="Business\Forms\FormFieldSelectionFactory.cs" />
-    <Compile Include="Business\HideOnContentCreateAttribute.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
@@ -502,7 +500,6 @@
     <Compile Include="Business\Initialization\FileBasedEventsInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
     <Compile Include="Business\Initialization\GlobalNewsContentProviderInitialization.cs" />
-    <Compile Include="Business\Initialization\SiteMetadataExtenderInitialization.cs" />
     <Compile Include="Business\PageContextActionFilter.cs" />
     <Compile Include="Business\PageTypeExtensions.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
