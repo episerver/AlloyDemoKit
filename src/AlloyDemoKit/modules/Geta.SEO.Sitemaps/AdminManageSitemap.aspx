@@ -9,6 +9,7 @@
     <div class="epi-contentArea">
         <EPiServerUI:SystemPrefix id="SystemPrefixControl" runat="server" />
         <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="EP-validationSummary" ForeColor="Black" />
+        <%= System.Web.Helpers.AntiForgery.GetHtml() %>
     </div>
     <style type="text/css">
         a.add-button {

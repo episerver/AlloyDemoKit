@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Blocks;
+using AlloyDemoKit.Models.Properties;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using AlloyDemoKit.Models.Properties;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -14,12 +15,13 @@ namespace AlloyDemoKit.Models.Pages
         GUID = "17583DCD-3C11-49DD-A66D-0DEF0DD601FC",
         GroupName = Global.GroupNames.Products)]
     [SiteImageUrl(Global.StaticGraphicsFolderPath + "page-type-thumbnail-product.png")]
-    [AvailableContentTypes( 
+    [AvailableContentTypes(
         Availability = Availability.Specific,
         IncludeOn = new[] { typeof(StartPage) })]
     public class ProductPage : StandardPage, IHasRelatedContent
     {
-        
+        [Required]
+        [HideOnContentCreate]
         [BackingType(typeof(PropertyStringList))]
         [Display(Order = 305)]
         [UIHint(Global.SiteUIHints.Strings)]

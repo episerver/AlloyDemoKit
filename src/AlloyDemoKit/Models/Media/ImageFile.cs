@@ -17,6 +17,14 @@ namespace AlloyDemoKit.Models.Media
         /// </value>
         public virtual string Copyright { get; set; }
 
+        /// <summary>
+        /// Gets or sets the alt tag.
+        /// </summary>
+        /// <value>
+        /// The alt tag.
+        /// </value>
+        public virtual string AltTag { get; set; }
+
         [Editable(false)]
         public virtual string FileSize { get; set; }
     }
