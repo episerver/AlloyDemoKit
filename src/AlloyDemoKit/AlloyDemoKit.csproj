@@ -524,8 +524,8 @@
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Business\SearchService.cs" />
+    <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\SetupAdminAndUsersPage.cs" />
-    <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\BlogPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ArticlePageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FileIconDescriptor.cs" />

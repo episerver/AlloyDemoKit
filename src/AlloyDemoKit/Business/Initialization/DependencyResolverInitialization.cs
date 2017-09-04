@@ -3,37 +3,33 @@ using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
 using AlloyDemoKit.Business.Rendering;
-using AlloyDemoKit.Helpers;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
-using StructureMap;
 using AlloyDemoKit.Business.Data;
 
 namespace AlloyDemoKit.Business.Initialization
 {
     [InitializableModule]
-    [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class DependencyResolverInitialization : IConfigurableModule
     {
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
-            context.StructureMap().Configure(ConfigureContainer);
-
-            DependencyResolver.SetResolver(new StructureMapDependencyResolver(context.StructureMap()));
-        }
-
-        private static void ConfigureContainer(ConfigurationExpression container)
-        {
-            //Swap out the default ContentRenderer for our custom
-            container.For<IContentRenderer>().Use<ErrorHandlingContentRenderer>();
-            container.For<ContentAreaRenderer>().Use<AlloyContentAreaRenderer>();
 
             //Implementations for custom interfaces can be registered here.
-            container.For<IFileDataImporter>().Use<FileDataImporter>();
+
+            context.ConfigurationComplete += (o, e) =>
+            {
+                //Register custom implementations that should be used in favour of the default implementations
+                context.Services.AddTransient<IContentRenderer, ErrorHandlingContentRenderer>()
+                    .AddTransient<ContentAreaRenderer, AlloyContentAreaRenderer>()
+                    .AddTransient<IFileDataImporter, FileDataImporter>();
+
+            };
         }
 
         public void Initialize(InitializationEngine context)
         {
+            DependencyResolver.SetResolver(new ServiceLocatorDependencyResolver(context.Locate.Advanced));
         }
 
         public void Uninitialize(InitializationEngine context)
