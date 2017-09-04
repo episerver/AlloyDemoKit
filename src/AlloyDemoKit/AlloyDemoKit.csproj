@@ -490,6 +490,7 @@
     <Compile Include="Business\Employee\EmployeeLocationSelectionFactory.cs" />
     <Compile Include="Business\Employee\EmployeeLocationSelector.cs" />
     <Compile Include="Business\Employee\EmployeeSettingsModel.cs" />
+    <Compile Include="Business\FormKPI\FilledInFormKpi.cs" />
     <Compile Include="Business\Forms\FormEventsInitialization.cs" />
     <Compile Include="Business\Forms\FormFieldSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
