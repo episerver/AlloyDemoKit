@@ -66,17 +66,17 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DbLocalizationProvider, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LocalizationProvider.2.8.2\lib\net45\DbLocalizationProvider.dll</HintPath>
+    <Reference Include="DbLocalizationProvider, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LocalizationProvider.2.9.0\lib\net45\DbLocalizationProvider.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider.Abstractions, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LocalizationProvider.Abstractions.2.8.0\lib\net45\DbLocalizationProvider.Abstractions.dll</HintPath>
+    <Reference Include="DbLocalizationProvider.Abstractions, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LocalizationProvider.Abstractions.2.9.0\lib\net45\DbLocalizationProvider.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider.AdminUI.EPiServer, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DbLocalizationProvider.AdminUI.EPiServer.3.5.0\lib\net452\DbLocalizationProvider.AdminUI.EPiServer.dll</HintPath>
+    <Reference Include="DbLocalizationProvider.AdminUI.EPiServer, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DbLocalizationProvider.AdminUI.EPiServer.3.6.0\lib\net452\DbLocalizationProvider.AdminUI.EPiServer.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider.EPiServer, Version=3.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DbLocalizationProvider.EPiServer.3.5.1\lib\net452\DbLocalizationProvider.EPiServer.dll</HintPath>
+    <Reference Include="DbLocalizationProvider.EPiServer, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DbLocalizationProvider.EPiServer.3.6.0\lib\net452\DbLocalizationProvider.EPiServer.dll</HintPath>
     </Reference>
     <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
@@ -186,13 +186,13 @@
       <HintPath>..\packages\EPiServer.Marketing.Messaging.1.2.1\lib\EPIServer.Marketing.Messaging.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.2\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.3\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Marketing.Testing.Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.2\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.3\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.Marketing.Testing.Web, Version=2.4.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.2\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
+    <Reference Include="EPiServer.Marketing.Testing.Web, Version=2.4.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.3\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Packaging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Packaging.3.3.0\lib\net45\EPiServer.Packaging.dll</HintPath>
@@ -1045,8 +1045,6 @@
     <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\web.config" />
     <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\module.config" />
     <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\EPiServer.VisitorGroupsCriteriaPack.zip" />
-    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
-    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
     <Content Include="modules\_protected\EPiServer.Social\web.config" />
     <Content Include="modules\_protected\EPiServer.Social\Views\Web.config" />
     <Content Include="modules\_protected\EPiServer.Social\module.config" />
@@ -1059,11 +1057,13 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
-    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <Content Include="modules\_protected\Shell\web.config" />
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
+    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
+    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
