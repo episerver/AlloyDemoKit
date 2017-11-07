@@ -160,14 +160,14 @@
     <Reference Include="EPiServer.Framework, Version=10.10.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.10.10.4\lib\net45\EPiServer.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.GoogleAnalytics, Version=1.10.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.GoogleAnalytics.1.10.3\lib\EPiServer.GoogleAnalytics.dll</HintPath>
+    <Reference Include="EPiServer.GoogleAnalytics, Version=1.10.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.GoogleAnalytics.1.10.4\lib\EPiServer.GoogleAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.ImageLibrary, Version=10.10.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.Core.10.10.4\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.Labs.LanguageManager, Version=3.0.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Labs.LanguageManager.3.0.2\lib\EPiServer.Labs.LanguageManager.dll</HintPath>
+    <Reference Include="EPiServer.Labs.LanguageManager, Version=3.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Labs.LanguageManager.3.0.3\lib\EPiServer.Labs.LanguageManager.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Licensing, Version=10.10.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.10.10.4\lib\net45\EPiServer.Licensing.dll</HintPath>
@@ -1034,14 +1034,6 @@
     <Content Include="Views\ImageGalleryBlock\Index.cshtml" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\module.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
-    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
-    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\module.config" />
-    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
-    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
     <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\web.config" />
     <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\module.config" />
     <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\EPiServer.VisitorGroupsCriteriaPack.zip" />
@@ -1064,6 +1056,14 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\module.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.LanguageManager.config" />
+    <Content Include="modules\_protected\EPiServer.Labs.LanguageManager\EPiServer.Labs.LanguageManager.zip" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
