@@ -1,4 +1,5 @@
 @using AlloyDemoKit
+@using ImageProcessor.Web.Episerver
 @model PageViewModel<ProductPage>
 
 @{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
@@ -16,9 +17,12 @@
 {
     <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
         <div id="gallery">
-            <a href="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=800&height=600&scale=canvas" title="@Model.CurrentPage.PageName"><img src="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=370&scale=canvas" /></a>
-            <a href="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=400&height=300&scale=canvas" title="@Model.CurrentPage.PageName"></a>
-            <a href="@Url.ContentUrl(Model.CurrentPage.PageImage)?width=150&height=75&scale=canvas" title="@Model.CurrentPage.PageName"></a>
+            @{
+                var image = Url.ContentUrl(Model.CurrentPage.PageImage);
+                <a href="@Html.ProcessImage(image).Resize(800, 600)" title="@Model.CurrentPage.PageName"><img src="@Html.ProcessImage(image).Width(370)" /></a>
+                <a href="@Html.ProcessImage(image).Resize(400, 300)" title="@Model.CurrentPage.PageName"></a>
+                <a href="@Html.ProcessImage(image).Resize(150, 75)" title="@Model.CurrentPage.PageName"></a>
+            }
         </div>
     </div>
 
