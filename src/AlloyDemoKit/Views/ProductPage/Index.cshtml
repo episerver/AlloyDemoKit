@@ -19,9 +19,12 @@
         <div id="gallery">
             @{
                 var image = Url.ContentUrl(Model.CurrentPage.PageImage);
-                <a href="@Html.ProcessImage(image).Resize(800, 600)" title="@Model.CurrentPage.PageName"><img src="@Html.ProcessImage(image).Width(370)" /></a>
-                <a href="@Html.ProcessImage(image).Resize(400, 300)" title="@Model.CurrentPage.PageName"></a>
-                <a href="@Html.ProcessImage(image).Resize(150, 75)" title="@Model.CurrentPage.PageName"></a>
+                if (!string.IsNullOrWhiteSpace(image))
+                {
+                    <a href="@Html.ProcessImage(image).Resize(800, 600)" title="@Model.CurrentPage.PageName"><img src="@Html.ProcessImage(image).Width(370)" /></a>
+                    <a href="@Html.ProcessImage(image).Resize(400, 300)" title="@Model.CurrentPage.PageName"></a>
+                    <a href="@Html.ProcessImage(image).Resize(150, 75)" title="@Model.CurrentPage.PageName"></a>
+                }
             }
         </div>
     </div>

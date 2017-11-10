@@ -11,7 +11,7 @@
     {
         <h2 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h2>
         <p @Html.EditAttributes(x => x.Text)>@Model.Text</p>
-        <div @Html.EditAttributes(x => x.Image)><img src="@Html.ProcessImage(Url.ContentUrl(Model.Image)).Resize(368, 176)" /></div>
+        <div @Html.EditAttributes(x => x.Image)><img src="@Html.ProcessImage(Url.ContentUrl(Model.Image)).Resize(368, 176).BackgroundColor("ffffff")" /></div>
     }
 
 </div>
