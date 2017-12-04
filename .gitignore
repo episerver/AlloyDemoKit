@@ -129,7 +129,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -212,3 +212,4 @@ FakesAssemblies/
 /src/AlloyDemoKit/modules/Embed.aspx
 /src/AlloyDemoKit/modules/_protected/PowerBI
 /src/AlloyDemoKit/modules/_protected/Peerius
+/src/AlloyDemoKit/App_Data/**/3p!_*

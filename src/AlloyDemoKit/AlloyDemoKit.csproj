@@ -248,8 +248,8 @@
     <Reference Include="ImageProcessor.Web, Version=4.8.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageProcessor.Web.4.8.6\lib\net45\ImageProcessor.Web.dll</HintPath>
     </Reference>
-    <Reference Include="ImageProcessor.Web.Episerver, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.Web.Episerver.1.0.0.1\lib\net461\ImageProcessor.Web.Episerver.dll</HintPath>
+    <Reference Include="ImageProcessor.Web.Episerver, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.Episerver.1.0.1\lib\net461\ImageProcessor.Web.Episerver.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -678,7 +678,9 @@
     <Content Include="ClientResources\Styles\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="App_Data\GeoLiteCity.dat" />
-    <Content Include="config\imageprocessor\security.config" />
+    <Content Include="config\imageprocessor\security.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <None Include="Hunspellx64.dll">
