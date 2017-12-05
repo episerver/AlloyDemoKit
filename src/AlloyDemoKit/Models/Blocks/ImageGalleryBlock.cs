@@ -17,7 +17,7 @@ namespace AlloyDemoKit.Models.Blocks
              GroupName = SystemTabNames.Content,
              Order = 1)]
         [Required(AllowEmptyStrings = false)]
-        [UIHint(UIHint.MediaFolder)]
+        [UIHint(UIHint.AssetsFolder)]
         [CultureSpecific]
         public virtual ContentReference Images { get; set; }
     }

@@ -25,7 +25,7 @@ namespace AlloyDemoKit.Models.Blocks
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 2)]
-        [UIHint(UIHint.LongString)]
+        [UIHint(UIHint.Textarea)]
         public virtual string Text { get; set; }
 
         [CultureSpecific]

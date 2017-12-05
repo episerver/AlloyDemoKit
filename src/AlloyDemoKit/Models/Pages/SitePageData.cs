@@ -48,7 +48,7 @@ namespace AlloyDemoKit.Models.Pages
             GroupName = Global.GroupNames.MetaData,
             Order = 300)]
         [CultureSpecific]
-        [UIHint(UIHint.LongString)]
+        [UIHint(UIHint.Textarea)]
         public virtual string MetaDescription { get; set; }
 
         [Display(
@@ -73,7 +73,7 @@ namespace AlloyDemoKit.Models.Pages
             get
             {
                 var teaserText = this.GetPropertyValue(p => p.TeaserText);
-              
+
                 // Use explicitly set teaser text, otherwise fall back to description
                 return !string.IsNullOrWhiteSpace(teaserText)
                        ? teaserText
@@ -165,7 +165,7 @@ namespace AlloyDemoKit.Models.Pages
         [Display(
             GroupName = Global.GroupNames.Styles,
             Order = 110)]
-        [UIHint(UIHint.LongString)]
+        [UIHint(UIHint.Textarea)]
         public virtual string CSS { get; set; }
 
 
@@ -178,7 +178,7 @@ namespace AlloyDemoKit.Models.Pages
         [Display(
             GroupName = Global.GroupNames.Scripts,
             Order = 110)]
-        [UIHint(UIHint.LongString)]
+        [UIHint(UIHint.Textarea)]
         public virtual string Scripts { get; set; }
 
         [Display(
