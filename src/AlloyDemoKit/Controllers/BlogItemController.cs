@@ -12,7 +12,7 @@ using AlloyDemoKit.Models.Pages.Tags;
 using EPiServer.Web.Mvc;
 using EPiServer.Templates.Blog.Mvc.Models.ViewModels;
 using AlloyDemoKit.Models.ViewModels;
-using EPiServer.DynamicContent.Internal;
+//using EPiServer.DynamicContent.Internal;
 
 namespace AlloyDemoKit.Models.Pages.Controllers
 {
@@ -109,7 +109,7 @@ namespace AlloyDemoKit.Models.Pages.Controllers
 
             //If the MainBody contains DynamicContents, replace those with an empty string
             StringBuilder regexPattern = new StringBuilder(@"<span[\s\W\w]*?classid=""");
-            regexPattern.Append(DynamicContentFactory.Instance.DynamicContentId.ToString());
+            //regexPattern.Append(DynamicContentFactory.Instance.DynamicContentId.ToString());
             regexPattern.Append(@"""[\s\W\w]*?</span>");
             previewText = Regex.Replace(previewText, regexPattern.ToString(), string.Empty, RegexOptions.IgnoreCase | RegexOptions.Multiline);
 
