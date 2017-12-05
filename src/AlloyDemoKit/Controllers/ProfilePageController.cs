@@ -1,15 +1,6 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using EPiServer.Core;
-using EPiServer.Framework.Web;
-using EPiServer.Search;
-using AlloyDemoKit.Business;
-using AlloyDemoKit.Models.ViewModels;
+﻿using System.Web.Mvc;
 using AlloyDemoKit.Models.Pages;
-using EPiServer.Web;
-using EPiServer.Web.Hosting;
-using EPiServer.Web.Mvc.Html;
-using EPiServer.Web.Routing;
+using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Personalization;
 
 namespace AlloyDemoKit.Controllers

@@ -480,7 +480,6 @@
     <Compile Include="Business\Employee\EmployeeLocationSelectionFactory.cs" />
     <Compile Include="Business\Employee\EmployeeLocationSelector.cs" />
     <Compile Include="Business\Employee\EmployeeSettingsModel.cs" />
-    <Compile Include="Business\FormKPI\FilledInFormKpi.cs" />
     <Compile Include="Business\Forms\FormEventsInitialization.cs" />
     <Compile Include="Business\Forms\FormFieldSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
@@ -508,7 +507,6 @@
     <Compile Include="Business\Rendering\ICustomCssInContentArea.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
-    <Compile Include="Business\SearchService.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\SetupAdminAndUsersPage.cs" />
     <Compile Include="Business\UIDescriptors\BlogPageUIDescriptor.cs" />
@@ -538,7 +536,6 @@
     <Compile Include="Controllers\ProfilePageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\RssReaderBlockController.cs" />
-    <Compile Include="Controllers\SearchPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\TagCloudBlockController.cs" />
     <Compile Include="Controllers\VideoFileController.cs" />
@@ -565,7 +562,6 @@
     <Compile Include="Models\Blocks\ParkingBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
     <Compile Include="Models\Blocks\FacebookBlock.cs" />
-    <Compile Include="Models\Blocks\FormBlock.cs" />
     <Compile Include="Models\Blocks\JumbotronBlock.cs" />
     <Compile Include="Models\Blocks\LinkedInCompanyBlock.cs" />
     <Compile Include="Models\Blocks\PageListBlock.cs" />
@@ -608,7 +604,6 @@
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\Pages\ThreeColumnLandingPage.cs" />
     <Compile Include="Models\Pages\TwoColumnLandingPage.cs" />
-    <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\SiteContentType.cs" />
     <Compile Include="Models\SiteImageUrl.cs" />
     <Compile Include="Models\ViewModels\BlogItemPageModel.cs" />
@@ -1041,7 +1036,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\Properties\" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

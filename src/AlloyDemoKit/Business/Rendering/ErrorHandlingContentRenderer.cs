@@ -8,7 +8,6 @@ using EPiServer.DataAbstraction;
 using EPiServer.Security;
 using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Web.Mvc;
-using EPiServer.XForms;
 
 namespace AlloyDemoKit.Business.Rendering
 {
@@ -66,10 +65,6 @@ namespace AlloyDemoKit.Business.Rendering
                 HandlerError(helper, contentData, ex);
             }
             catch (EPiServerException ex)
-            {
-                HandlerError(helper, contentData, ex);
-            }
-            catch (XFormException ex)
             {
                 HandlerError(helper, contentData, ex);
             }

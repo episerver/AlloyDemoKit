@@ -92,7 +92,7 @@ namespace WeatherService
             string url = string.Format($"{ApiConstants.ForecastEndpoint}?id={cityId}&units={units.ToString().ToLowerInvariant()}");
             if (days.HasValue)
             {
-                url = string.Format("${url}&cnt={days.Value}");
+                url = string.Format($"{url}&cnt={days.Value}");
             }
             url = this.AddLanguage(url);
             var result = await client.GetAsync(url);
@@ -104,7 +104,7 @@ namespace WeatherService
             string url = string.Format($"{ApiConstants.ForecastEndpoint}?lat={latitude}&long={longitude}&units={units.ToString().ToLowerInvariant()}");
             if (days.HasValue)
             {
-                url = string.Format("${url}&cnt={days.Value}");
+                url = string.Format($"{url}&cnt={days.Value}");
             }
             url = this.AddLanguage(url);
             var result = await client.GetAsync(url);

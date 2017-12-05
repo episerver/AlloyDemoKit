@@ -3,7 +3,7 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using AlloyDemoKit.Business.Rendering;
-using AlloyDemoKit.Models.Properties;
+//using AlloyDemoKit.Models.Properties;
 using EPiServer.Web;
 using EPiServer.Shell.ObjectEditing;
 using System.Collections.Generic;
@@ -41,7 +41,7 @@ namespace AlloyDemoKit.Models.Pages
             GroupName = Global.GroupNames.MetaData,
             Order = 200)]
         [CultureSpecific]
-        [BackingType(typeof(PropertyStringList))]
+        [BackingType(typeof(EPiServer.SpecializedProperties.PropertyStringList))]
         public virtual string[] MetaKeywords { get; set; }
 
         [Display(

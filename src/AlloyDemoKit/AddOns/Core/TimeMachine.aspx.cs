@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using EPiServer.Shell.ViewComposition;
-using EPiServer.UI;
 using EPiServer.Core;
-using EPiServer.XForms.WebControls;
-using EPiServer.Shell.WebForms;
 using EPiServer.DataAbstraction;
+using EPiServer.Shell.ViewComposition;
+using EPiServer.Shell.WebForms;
 
 namespace EPiServer.Templates.Alloy.AddOns.Core
 {
-      [IFrameComponent(Url = "~/AddOns/Core/TimeMachine.aspx",
+    [IFrameComponent(Url = "~/AddOns/Core/TimeMachine.aspx",
         ReloadOnContextChange = false,
         PlugInAreas = "Assets",
         Title = "Time Machine", Description = "Revert back all content from a specific date",
@@ -70,7 +66,7 @@ namespace EPiServer.Templates.Alloy.AddOns.Core
                 //find page version that we are going to revert
                 FindVersionsToRevert(listpages, date, Pages);
 
-                
+
                 List<ContentReference> listblocks = new List<ContentReference>(contentRepository.GetDescendents(ContentReference.GlobalBlockFolder));
                  List<ContentVersion> Blocks = new List<ContentVersion>();
                 FindVersionsToRevert(listblocks, date, Blocks);
@@ -88,7 +84,7 @@ namespace EPiServer.Templates.Alloy.AddOns.Core
             //lets go through all the content
             foreach (var pageRefs in listpages)
             {
-                //the one we will revert to 
+                //the one we will revert to
                 ContentVersion contentVersion = versionRepository.LoadPublished(pageRefs);
 
                 //lets go through all the versions

@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Blocks;
-using AlloyDemoKit.Models.Properties;
+//using AlloyDemoKit.Models.Properties;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.SpecializedProperties;
 
 namespace AlloyDemoKit.Models.Pages
 {
