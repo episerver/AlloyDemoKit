@@ -55,9 +55,6 @@
     <Reference Include="AppleWatchChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AppleWatchChannel.1.1.12\lib\net40\AppleWatchChannel.dll</HintPath>
     </Reference>
-    <Reference Include="BVNetwork.EPi404, Version=10.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BVN.404Handler.10.1.1\lib\net45\BVNetwork.EPi404.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
@@ -98,9 +95,6 @@
     </Reference>
     <Reference Include="EPiServer.ApplicationModules, Version=10.10.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.10.10.4\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
-    </Reference>
-    <Reference Include="EPiServer.Cms.AddOns.Blocks, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Cms.AddOns.Blocks.2.3.1\lib\EPiServer.Cms.AddOns.Blocks.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Cms.Shell.UI, Version=10.12.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.UI.Core.10.12.2\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
@@ -178,20 +172,8 @@
       <HintPath>..\packages\EPiServer.Logging.Log4Net.2.1.0\lib\net45\EPiServer.Logging.Log4Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.Marketing.KPI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.KPI.2.4.1\lib\EPiServer.Marketing.KPI.dll</HintPath>
-    </Reference>
     <Reference Include="EPIServer.Marketing.Messaging, Version=1.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Marketing.Messaging.1.2.1\lib\EPIServer.Marketing.Messaging.dll</HintPath>
-    </Reference>
-    <Reference Include="EPiServer.Marketing.Testing.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.4\lib\EPiServer.Marketing.Testing.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EPiServer.Marketing.Testing.Dal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.4\lib\EPiServer.Marketing.Testing.Dal.dll</HintPath>
-    </Reference>
-    <Reference Include="EPiServer.Marketing.Testing.Web, Version=2.4.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.Marketing.Testing.2.4.4\lib\EPiServer.Marketing.Testing.Web.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Packaging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Packaging.3.3.0\lib\net45\EPiServer.Packaging.dll</HintPath>
@@ -223,15 +205,8 @@
     <Reference Include="EPiServer.Social.Providers, Version=2.2.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Social.2.2.4\lib\net452\EPiServer.Social.Providers.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.TinyMCESpellChecker, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.TinyMCESpellChecker.1.2.1\lib\EPiServer.TinyMCESpellChecker.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="EPiServer.UI, Version=10.12.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.UI.Core.10.12.2\lib\net45\EPiServer.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="EPiServer.VisitorGroupsCriteriaPack, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.VisitorGroupsCriteriaPack.1.3.1\lib\EPiServer.VisitorGroupsCriteriaPack.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Web.WebControls, Version=10.10.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.Core.10.10.4\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
@@ -253,9 +228,6 @@
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="MenuPin, Version=10.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MenuPin.10.1.4\lib\net45\MenuPin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -296,10 +268,6 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NHunspell, Version=1.2.5554.16953, Culture=neutral, PublicKeyToken=1ac793ea843b4366, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHunspell.1.2.5554.16953\lib\net\NHunspell.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NuGet.Core, Version=2.7.41101.299, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\NuGet.Core.2.7.2\lib\net40-Client\NuGet.Core.dll</HintPath>
       <Private>True</Private>
@@ -310,9 +278,6 @@
     <Reference Include="POSSIBLE.RobotsTxtHandler, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\POSSIBLE.RobotsTxtHandler.3.0.0.0\lib\net45\POSSIBLE.RobotsTxtHandler.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="PowerSlice, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PowerSlice.2.1.6.0\lib\net40\PowerSlice.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.dll</HintPath>
@@ -421,9 +386,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TedGustaf.Episerver.GoogleMapsEditor, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Episerver.GoogleMapsEditor.1.0.10.0\lib\net45\TedGustaf.Episerver.GoogleMapsEditor.dll</HintPath>
-    </Reference>
     <Reference Include="TextTVChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TextTVChannel.1.0.5\lib\net40\TextTVChannel.dll</HintPath>
     </Reference>
@@ -513,13 +475,6 @@
     <Compile Include="Business\Parking\ParkingGateway.cs" />
     <Compile Include="Business\Parking\ParkingServer.cs" />
     <Compile Include="Business\Parking\ParkingStatus.cs" />
-    <Compile Include="Business\PowerSlice\ArticleSlice.cs" />
-    <Compile Include="Business\PowerSlice\BlockSlice.cs" />
-    <Compile Include="Business\PowerSlice\BlogSlice.cs" />
-    <Compile Include="Business\PowerSlice\EverythingSlice.cs" />
-    <Compile Include="Business\PowerSlice\MyPagesSlice.cs" />
-    <Compile Include="Business\PowerSlice\NewsSlice.cs" />
-    <Compile Include="Business\PowerSlice\PagesSlice.cs" />
     <Compile Include="Business\QuickNavigator\AddAdminMode.cs" />
     <Compile Include="Business\Rendering\AlloyContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
@@ -536,8 +491,6 @@
     <Compile Include="Business\UIDescriptors\WeatherBlockUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FindPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
-    <Compile Include="Business\VisitorGroupUIStyling\OverrideVisitorGroupCss.cs" />
-    <Compile Include="Business\VisitorGroupUIStyling\OverrideVisitorGroupStylingInit.cs" />
     <Compile Include="Controllers\BlogItemController.cs" />
     <Compile Include="Controllers\BlogListBlockController.cs" />
     <Compile Include="Controllers\BlogStartPageController.cs" />
@@ -683,12 +636,6 @@
     </Content>
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
-    <None Include="Hunspellx64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Hunspellx86.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Content Include="modulesbin\TextTVChannel.dll" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
     <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
@@ -752,11 +699,6 @@
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\DateTimeRangeElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\RecaptchaElementBlock.ascx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\Shared\EditorTemplates\FormModel.ascx" />
-    <Content Include="modules\_protected\EPiServer.Marketing.Testing\abcapture\capture.js" />
-    <Content Include="modules\_protected\EPiServer.Marketing.Testing\abcapture\phantomjs.exe" />
-    <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinForFind.js" />
-    <Content Include="modules\_protected\MenuPin\ClientResources\Scripts\MenuPin\MenuPinInit.js" />
-    <Content Include="NotFound.aspx" />
     <Content Include="Static\css\VisitorGroupUIOverrides.css" />
     <Content Include="Static\gfx\block-thumbnail-parking.png" />
     <Content Include="Static\gfx\block-type-thumbnail-rss.png" />
@@ -875,18 +817,12 @@
     <Content Include="Views\Shared\Forms\ParagraphTextElementBlock.cshtml" />
     <Content Include="modules\_protected\EPiServer.Packaging.UI\web.config" />
     <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
-    <Content Include="modules\_protected\EPiServer.TinyMCESpellChecker\web.config" />
-    <Content Include="modules\_protected\EPiServer.TinyMCESpellChecker\module.config" />
-    <Content Include="modules\_protected\EPiServer.TinyMCESpellChecker\EPiServer.TinyMCESpellChecker.zip" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <Content Include="modules\commands\module.config" />
     <Content Include="modules\TextTVChannel\Views\web.config" />
     <Content Include="modules\TextTVChannel\Views\Pages\TextTV.cshtml" />
     <Content Include="modules\TextTVChannel\module.config" />
-    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
-    <Content Include="modules\_protected\TedGustaf.Episerver.GoogleMapsEditor\TedGustaf.Episerver.GoogleMapsEditor.zip" />
-    <Content Include="modules\_protected\MenuPin\module.config" />
     <Content Include="Static\css\bootstrap-collapse.js" />
     <Content Include="Static\css\bootstrap-responsive.css" />
     <Content Include="Static\css\bootstrap.css" />
@@ -1046,17 +982,11 @@
     <Content Include="Views\ImageGalleryBlock\Index.cshtml" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\module.config" />
-    <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\web.config" />
-    <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\module.config" />
-    <Content Include="modules\_protected\EPiServer.VisitorGroupsCriteriaPack\EPiServer.VisitorGroupsCriteriaPack.zip" />
     <Content Include="modules\_protected\EPiServer.Social\web.config" />
     <Content Include="modules\_protected\EPiServer.Social\Views\Web.config" />
     <Content Include="modules\_protected\EPiServer.Social\module.config" />
     <Content Include="modules\_protected\EPiServer.Social\EPiServerSocial.config" />
     <Content Include="modules\_protected\EPiServer.Social\EPiServer.Social.zip" />
-    <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\web.config" />
-    <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\module.config" />
-    <Content Include="modules\_protected\EPiServer.Cms.AddOns.Blocks\EPiServer.Cms.AddOns.Blocks.zip" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
     <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
@@ -1075,7 +1005,6 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
-    <Content Include="modules\_protected\EPiServer.Marketing.Testing\EPiServer.Marketing.Testing.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
