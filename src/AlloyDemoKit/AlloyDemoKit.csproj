@@ -52,9 +52,6 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AppleWatchChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AppleWatchChannel.1.1.12\lib\net40\AppleWatchChannel.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -412,9 +409,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TextTVChannel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TextTVChannel.1.0.5\lib\net40\TextTVChannel.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -656,19 +650,11 @@
     </Content>
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
-    <Content Include="modulesbin\TextTVChannel.dll" />
-    <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
-    <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
-    <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatchPageTemplate.aspx" />
     <Content Include="modules\commands\Scripts\samples\commandsInitializer.js" />
     <Content Include="modules\commands\Scripts\samples\relatedPagesCommandProvider.js" />
     <Content Include="modules\commands\Scripts\samples\showRelatedPagesCommand.js" />
     <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
-    <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv-background.png" />
-    <Content Include="modules\TextTVChannel\ClientResources\TextTV\TextTv.css" />
-    <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv.png" />
-    <Content Include="modules\TextTVChannel\Views\Pages\TextTVPageTemplate.aspx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\Criteria\SubmittedValue.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\epi-formssamples\FormsSamplesModule.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\epi-formssamples\themes\sleek\FormsSamples.css" />
@@ -826,9 +812,6 @@
     <Content Include="Static\css\icons\submit.png" />
     <Content Include="Views\Shared\Forms\ChoiceElementBlock.ascx" />
     <Content Include="Views\Shared\Forms\SelectionElementBlock.ascx" />
-    <Content Include="modules\AppleWatchChannel\Views\web.config" />
-    <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatch.cshtml" />
-    <Content Include="modules\AppleWatchChannel\module.config" />
     <Content Include="Views\Shared\Forms\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -837,9 +820,6 @@
     <Content Include="Views\Shared\Forms\ParagraphTextElementBlock.cshtml" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\Shared\AdminPlugin.Master" />
     <Content Include="modules\commands\module.config" />
-    <Content Include="modules\TextTVChannel\Views\web.config" />
-    <Content Include="modules\TextTVChannel\Views\Pages\TextTV.cshtml" />
-    <Content Include="modules\TextTVChannel\module.config" />
     <Content Include="Static\css\bootstrap-collapse.js" />
     <Content Include="Static\css\bootstrap-responsive.css" />
     <Content Include="Static\css\bootstrap.css" />
