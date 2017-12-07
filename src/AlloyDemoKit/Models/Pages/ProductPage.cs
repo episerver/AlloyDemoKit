@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Blocks;
@@ -26,7 +27,7 @@ namespace AlloyDemoKit.Models.Pages
         [Display(Order = 305)]
         [UIHint(Global.SiteUIHints.Strings)]
         [CultureSpecific]
-        public virtual string[] UniqueSellingPoints { get; set; }
+        public virtual IList<string> UniqueSellingPoints { get; set; }
 
         [Display(
             GroupName = SystemTabNames.Content,

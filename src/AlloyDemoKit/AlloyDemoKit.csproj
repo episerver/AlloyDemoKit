@@ -214,9 +214,6 @@
     <Reference Include="EPiServer.Web.WebControls, Version=11.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.2.1\lib\net461\EPiServer.Web.WebControls.dll</HintPath>
     </Reference>
-    <Reference Include="Geta.SEO.Sitemaps, Version=1.6.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Geta.SEO.Sitemaps.1.6.7\lib\net45\Geta.SEO.Sitemaps.dll</HintPath>
-    </Reference>
     <Reference Include="ImageProcessor, Version=2.5.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageProcessor.2.5.5\lib\net45\ImageProcessor.dll</HintPath>
     </Reference>
@@ -653,7 +650,6 @@
     <Content Include="modules\commands\Scripts\samples\commandsInitializer.js" />
     <Content Include="modules\commands\Scripts\samples\relatedPagesCommandProvider.js" />
     <Content Include="modules\commands\Scripts\samples\showRelatedPagesCommand.js" />
-    <Content Include="modules\Geta.SEO.Sitemaps\AdminManageSitemap.aspx" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\Criteria\SubmittedValue.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\epi-formssamples\FormsSamplesModule.js" />
