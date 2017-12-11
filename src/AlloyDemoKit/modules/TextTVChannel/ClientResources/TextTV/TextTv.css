@@ -1,0 +1,14 @@
+﻿/*
+    Adding styles for our Text TV resolution
+*/
+
+.Sleek .epi-viewPort-400x300
+{
+    background: url("texttv.png") center center no-repeat;
+    /* background-color: blue; */
+}
+
+.Sleek .epi-editorViewport .epi-editorViewport-center.epi-editorViewport-preview .epi-editorViewport-previewBox {
+    background: none !important;
+    /*overflow: hidden !important;*/
+}
