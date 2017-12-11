@@ -70,6 +70,9 @@
     <Reference Include="DbLocalizationProvider.EPiServer, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DbLocalizationProvider.EPiServer.4.0.1\lib\net461\DbLocalizationProvider.EPiServer.dll</HintPath>
     </Reference>
+    <Reference Include="DemoChannels, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DemoChannels.11.0.0\lib\net461\DemoChannels.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
       <Private>True</Private>
@@ -647,10 +650,15 @@
     </Content>
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
+    <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\AppleWatch.css" />
+    <Content Include="modules\AppleWatchChannel\ClientResources\AppleWatch\applewatch.png" />
     <Content Include="modules\commands\Scripts\samples\commandsInitializer.js" />
     <Content Include="modules\commands\Scripts\samples\relatedPagesCommandProvider.js" />
     <Content Include="modules\commands\Scripts\samples\showRelatedPagesCommand.js" />
     <Content Include="modules\POSSIBLE.RobotsTxtHandler\Views\RobotsTxtAdmin\Index.aspx" />
+    <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv-background.png" />
+    <Content Include="modules\TextTVChannel\ClientResources\TextTV\TextTv.css" />
+    <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv.png" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\Criteria\SubmittedValue.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\epi-formssamples\FormsSamplesModule.js" />
     <Content Include="modules\_protected\EPiServer.Forms.Samples\3.4.0\ClientResources\epi-formssamples\themes\sleek\FormsSamples.css" />
@@ -1000,6 +1008,12 @@
     <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
+    <Content Include="modules\TextTVChannel\Views\web.config" />
+    <Content Include="modules\TextTVChannel\Views\Pages\TextTV.cshtml" />
+    <Content Include="modules\TextTVChannel\module.config" />
+    <Content Include="modules\AppleWatchChannel\Views\web.config" />
+    <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatch.cshtml" />
+    <Content Include="modules\AppleWatchChannel\module.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
