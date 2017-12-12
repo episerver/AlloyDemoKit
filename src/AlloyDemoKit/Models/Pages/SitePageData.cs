@@ -41,8 +41,9 @@ namespace AlloyDemoKit.Models.Pages
             GroupName = Global.GroupNames.MetaData,
             Order = 200)]
         [CultureSpecific]
-        [BackingType(typeof(EPiServer.SpecializedProperties.PropertyStringList))]
-        public virtual string[] MetaKeywords { get; set; }
+        [BackingType(typeof(PropertyStringList))]
+        [UIHint(Global.SiteUIHints.Strings)]
+        public virtual IList<string> MetaKeywords { get; set; }
 
         [Display(
             GroupName = Global.GroupNames.MetaData,
