@@ -22,7 +22,7 @@ namespace AlloyDemoKit.Business
 
         public virtual bool IsActive
         {
-            get { return SearchSettings.Options.Active; }
+            get { return ServiceLocator.Current.GetInstance<SearchOptions>().Active; }
         }
 
         public virtual SearchResults Search(string searchText, IEnumerable<ContentReference> searchRoots, HttpContextBase context, string languageBranch, int maxResults)

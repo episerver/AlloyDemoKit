@@ -1,6 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using AlloyDemoKit.Business;
-using AlloyDemoKit.Business.EditorDescriptors;
 using AlloyDemoKit.Business.Rendering;
 using EPiServer.Web;
 using EPiServer.Core;
@@ -22,9 +20,9 @@ namespace AlloyDemoKit.Models.Pages
 
         [Display(GroupName = Global.GroupNames.Contact)]
         public virtual string Phone { get; set; }
-        
+
         [Display(GroupName = Global.GroupNames.Contact)]
-        [Business.EmailAddress]
+        [EmailAddress]
         public virtual string Email { get; set; }
     }
 }

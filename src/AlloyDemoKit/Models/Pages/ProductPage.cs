@@ -23,9 +23,8 @@ namespace AlloyDemoKit.Models.Pages
     public class ProductPage : StandardPage, IHasRelatedContent
     {
         [Required]
-        [BackingType(typeof(PropertyStringList))]
         [Display(Order = 305)]
-        [UIHint(Global.SiteUIHints.Strings)]
+        [UIHint(Global.SiteUIHints.StringsCollection)]
         [CultureSpecific]
         public virtual IList<string> UniqueSellingPoints { get; set; }
 

@@ -12,9 +12,11 @@ namespace AlloyDemoKit.Models.Blocks
     public class ButtonBlock : SiteBlockData
     {
         [Display(Order = 1, Name = "Text", GroupName = SystemTabNames.Content)]
+        [Required]
         public virtual string ButtonText { get; set; }
 
         [Display(Order = 2, Name = "Link", GroupName = SystemTabNames.Content)]
+        [Required]
         public virtual Url ButtonLink { get; set; }
 
         [Display(Order = 3, Name = "CSS Style", GroupName = SystemTabNames.Content)]

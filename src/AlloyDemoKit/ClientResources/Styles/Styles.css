@@ -1,3 +1,10 @@
 ﻿@import url("LayoutIcons.css");
 @import url("ContentIcons.css");
 @import url("ContentColabFix.css");
+.epiStringList .dijitTextArea {
+    width: 250px;
+}
+
+.epiStringList .epiStringListError .dijitTextArea {
+    border: solid 1px #d46464;
+}

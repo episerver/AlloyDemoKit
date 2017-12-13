@@ -10,10 +10,13 @@
     <div class="span8,search-form">
         @*We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other 
           query string values not in the form we can't use that in edit mode.*@
-        @using(Html.BeginForm(null, null, Model.Layout.SearchPageRouteValues, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get))
-        {
-            <input type="text" tabindex="1" name="q" value="@Model.SearchedQuery"/>
-            <input type="submit" tabindex="2" class="btn" value="@Html.Translate("/searchpagetemplate/searchbutton")" disabled="@(Model.SearchServiceDisabled ? "disabled" : null)"/>
+
+        @{
+            using (Html.BeginForm(null, null, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get, new { @action = Model.Layout.SearchActionUrl }))
+            {
+                <input type="text" tabindex="1" name="q" value="@Model.SearchedQuery" />
+                <input type="submit" tabindex="2" class="btn" value="@Html.Translate("/searchpagetemplate/searchbutton")" disabled="@(Model.SearchServiceDisabled ? "disabled" : null)" />
+            }
         }
     </div>
 </div>

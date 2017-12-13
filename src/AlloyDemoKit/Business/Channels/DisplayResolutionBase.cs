@@ -9,9 +9,7 @@ namespace AlloyDemoKit.Business.Channels
     /// </summary>
     public abstract class DisplayResolutionBase : IDisplayResolution
     {
-        private static readonly LocalizationService _localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
-        private string _internalName;
-
+        private Injected<LocalizationService> LocalizationService { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplayResolutionBase"/> class.
         /// </summary>
@@ -20,43 +18,37 @@ namespace AlloyDemoKit.Business.Channels
         /// <param name="height">The height in pixels.</param>
         protected DisplayResolutionBase(string name, int width, int height)
         {
-            Id = this.GetType().FullName;
-            _internalName = name;
+            Id = GetType().FullName;
+            Name = Translate(name);
             Width = width;
             Height = height;
         }
 
         /// <summary>
-        /// Gets the unique id for this resolution
+        /// Gets the unique ID for this resolution
         /// </summary>
         public string Id { get; protected set; }
 
         /// <summary>
-        /// Gets the name of resolution.
+        /// Gets the name of resolution
         /// </summary>
-        public string Name
-        {
-            get
-            {
-                return Translate(_internalName);
-            }
-        }
+        public string Name { get; protected set; }
 
         /// <summary>
-        /// Gets the resolution width in pixels.
+        /// Gets the resolution width in pixels
         /// </summary>
         public int Width { get; protected set; }
 
         /// <summary>
-        /// Gets the resolution height in pixels.
+        /// Gets the resolution height in pixels
         /// </summary>
         public int Height { get; protected set; }
 
-        private static string Translate(string resurceKey)
+        private string Translate(string resurceKey)
         {
-            string value = null;
+            string value;
 
-            if (!_localizationService.TryGetString(resurceKey, out value))
+            if(!LocalizationService.Service.TryGetString(resurceKey, out value))
             {
                 value = resurceKey;
             }
