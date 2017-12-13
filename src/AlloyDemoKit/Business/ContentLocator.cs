@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using AlloyDemoKit.Models.Pages;
 using EPiServer;
 using EPiServer.Core;
 using EPiServer.Filters;
+using EPiServer.Shell.Configuration;
 using EPiServer.Web;
 
 namespace AlloyDemoKit.Business
@@ -105,7 +105,7 @@ namespace AlloyDemoKit.Business
 
             if (ContentReference.IsNullOrEmpty(contactsRootPageLink))
             {
-                throw new ConfigurationErrorsException("No contact page root specified in site settings, unable to retrieve contact pages");
+                throw new MissingConfigurationException("No contact page root specified in site settings, unable to retrieve contact pages");
             }
 
             return _contentLoader.GetChildren<ContactPage>(contactsRootPageLink).OrderBy(p => p.PageName);

@@ -36,13 +36,13 @@ function (
 
     return declare("alloy.editors.StringList", [_Widget, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, _ValueRequiredMixin], {
 
-        templateString: '<div class="dijitInline" tabindex="-1" role="presentation">\
-                            <div data-dojo-attach-point="stateNode, tooltipNode">\
-                                <div data-dojo-attach-point="textArea" data-dojo-type="dijit.form.Textarea"></div>\
+        templateString: "<div class=\"dijitInline\" tabindex=\"-1\" role=\"presentation\">\
+                            <div data-dojo-attach-point=\"stateNode, tooltipNode\">\
+                                <div data-dojo-attach-point=\"textArea\" data-dojo-type=\"dijit.form.Textarea\"></div>\
                             </div>\
                             <br />\
                             <span>${helptext}</span>\
-                        </div>',
+                        </div>",
 
         baseClass: "epiStringList",
 
@@ -73,12 +73,22 @@ function (
             // tags:
             //    protected, override
 
-            return !this.required || lang.isArray(this.value) && this.value.length > 0 && this.value.join() != "";
+            return !this.required || lang.isArray(this.value) && this.value.length > 0 && this.value.join() !== "";
         },
 
         // Setter for value property
         _setValueAttr: function (value) {
             this._setValue(value, true);
+        },
+
+        _getValueAttr: function () {
+            // summary:
+            //   Returns the textbox value as array.
+            // tags:
+            //    protected, override
+
+            var val = this.textArea && this.textArea.get("value");
+            return this._stringToList(val);
         },
 
         _setReadOnlyAttr: function (value) {

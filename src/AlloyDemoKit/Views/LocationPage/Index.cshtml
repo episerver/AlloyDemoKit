@@ -4,11 +4,11 @@
 
 <style>
     #map_canvas {
-        width: 500px;
-        height: 400px;
+        /*width: 500px;*/
+        height: 500px;
     }
 </style>
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtTx5E75LxEitqDVEYJwhDdSFLfu1cDQs"></script>
 
 <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
 <p class="introduction" @Html.EditAttributes(x => x.CurrentPage.MetaDescription)>@Model.CurrentPage.MetaDescription</p>
@@ -25,7 +25,7 @@
         @Html.DisplayFor(m => m.CurrentPage.MainBody)
     </div>
 </div>
-<div class="row">    
+<div class="row">
  <div id="map_canvas" class="span8 clearfix"></div>
 </div>
 @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.TwoThirdsWidth })
@@ -41,6 +41,22 @@
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(map_canvas, map_options)
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(@Model.CurrentPage.GoogleLocation),
+            map: map,
+            optimized: false
+            //title: locations[j].name
+        });
+        var infowindow = new google.maps.InfoWindow();
+
+        google.maps.event.addListener(marker, 'click', (function (m) {
+            return function () {
+                infowindow.setContent("<h2>@Model.CurrentPage.LocationName</h2><p>@Model.CurrentPage.Address</p>");
+                infowindow.open(map, m);
+            };
+        })(marker));
+
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>

@@ -5,12 +5,12 @@ using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
 using EPiServer.Framework.Web;
 using AlloyDemoKit.Business;
-using AlloyDemoKit.Business.Rendering;
 using AlloyDemoKit.Models.Pages;
 using AlloyDemoKit.Models.ViewModels;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
 using EPiServer;
+using EPiServer.Framework.Web.Mvc;
 
 namespace AlloyDemoKit.Controllers
 {
@@ -24,6 +24,7 @@ namespace AlloyDemoKit.Controllers
         Tags = new[] { RenderingTags.Preview, RenderingTags.Edit },
         AvailableWithoutTag = false)]
     [VisitorGroupImpersonation]
+    [RequireClientResources]
     public class PreviewController : ActionControllerBase, IRenderTemplate<BlockData>, IModifyLayout
     {
         private readonly IContentLoader _contentLoader;
