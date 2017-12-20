@@ -498,6 +498,9 @@
     <Compile Include="Business\UIDescriptors\WeatherBlockUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\FindPageUIDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
+    <Compile Include="Business\VisitorGroupUIStyling\OutputProcessorActionFilterAttribute.cs" />
+    <Compile Include="Business\VisitorGroupUIStyling\OverrideVisitorGroupCss.cs" />
+    <Compile Include="Business\VisitorGroupUIStyling\OverrideVisitorGroupStylingInit.cs" />
     <Compile Include="Controllers\BlogItemController.cs" />
     <Compile Include="Controllers\BlogListBlockController.cs" />
     <Compile Include="Controllers\BlogStartPageController.cs" />
@@ -950,7 +953,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\VisitorGroupUIStyling\" />
     <Folder Include="ClientResources\Scripts\" />
     <Folder Include="modules\_protected\EPiServer.Labs.LanguageManager\" />
   </ItemGroup>
