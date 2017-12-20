@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
-using MenuPin.Attributes;
 
 namespace AlloyDemoKit.Business.VisitorGroupUIStyling
 {
