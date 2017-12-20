@@ -655,6 +655,7 @@
     <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv-background.png" />
     <Content Include="modules\TextTVChannel\ClientResources\TextTV\TextTv.css" />
     <Content Include="modules\TextTVChannel\ClientResources\TextTV\texttv.png" />
+    <Content Include="NotFound.aspx" />
     <Content Include="Static\css\VisitorGroupUIOverrides.css" />
     <Content Include="Static\gfx\block-thumbnail-parking.png" />
     <Content Include="Static\gfx\block-type-thumbnail-rss.png" />
