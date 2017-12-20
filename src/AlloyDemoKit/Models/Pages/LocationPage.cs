@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Find;
-using EPiServer.Shell.ObjectEditing;
-using AlloyDemoKit.Business.EditorDescriptors;
+using TedGustaf.Episerver.GoogleMapsEditor.Shell;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -30,7 +29,7 @@ namespace AlloyDemoKit.Models.Pages
         [Display(   Name = "Select Location",
                     GroupName = Global.GroupNames.Location,
                     Order = 5)]
-        [EditorDescriptor(EditorDescriptorType = typeof(CoordinatesEditorDescriptor))]
+        [UIHint(GoogleMapsEditorDescriptor.UIHint)]
         public virtual string GoogleLocation { get; set; }
 
         [Display(
@@ -38,7 +37,7 @@ namespace AlloyDemoKit.Models.Pages
             Order = 4)]
         public virtual string Country { get; set; }
 
-        
+
         [ScaffoldColumn(false)]
         public GeoLocation Coordinates
         {
