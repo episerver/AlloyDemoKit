@@ -62,17 +62,17 @@
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LocalizationProvider.2.10.0\lib\net461\DbLocalizationProvider.dll</HintPath>
+    <Reference Include="DbLocalizationProvider, Version=2.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LocalizationProvider.2.11.0\lib\net461\DbLocalizationProvider.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider.Abstractions, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LocalizationProvider.Abstractions.2.10.0\lib\net461\DbLocalizationProvider.Abstractions.dll</HintPath>
+    <Reference Include="DbLocalizationProvider.Abstractions, Version=2.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LocalizationProvider.Abstractions.2.11.0\lib\net461\DbLocalizationProvider.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider.AdminUI.EPiServer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DbLocalizationProvider.AdminUI.EPiServer.4.0.0\lib\net461\DbLocalizationProvider.AdminUI.EPiServer.dll</HintPath>
+    <Reference Include="DbLocalizationProvider.AdminUI.EPiServer, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DbLocalizationProvider.AdminUI.EPiServer.4.1.0\lib\net461\DbLocalizationProvider.AdminUI.EPiServer.dll</HintPath>
     </Reference>
-    <Reference Include="DbLocalizationProvider.EPiServer, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DbLocalizationProvider.EPiServer.4.0.1\lib\net461\DbLocalizationProvider.EPiServer.dll</HintPath>
+    <Reference Include="DbLocalizationProvider.EPiServer, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DbLocalizationProvider.EPiServer.4.1.0\lib\net461\DbLocalizationProvider.EPiServer.dll</HintPath>
     </Reference>
     <Reference Include="DemoChannels, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DemoChannels.11.0.0\lib\net461\DemoChannels.dll</HintPath>
@@ -284,12 +284,6 @@
     </Reference>
     <Reference Include="StructureMap, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.5.2\lib\net45\StructureMap.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Net4, Version=3.1.9.463, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap-signed.3.1.9.463\lib\net40\StructureMap.Net4.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -927,8 +921,6 @@
     <Content Include="modules\AppleWatchChannel\module.config" />
     <Content Include="modules\AppleWatchChannel\Views\Pages\AppleWatch.cshtml" />
     <Content Include="modules\AppleWatchChannel\Views\web.config" />
-    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
-    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\Shell\Shell.zip" />
@@ -938,6 +930,8 @@
     <Content Include="modules\_protected\TedGustaf.Episerver.GoogleMapsEditor\TedGustaf.Episerver.GoogleMapsEditor.zip" />
     <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
     <Content Include="modules\_protected\EPiServer.Packaging.UI\web.config" />
+    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\web.config" />
+    <Content Include="modules\_protected\DbLocalizationProvider.AdminUI.EPiServer\DbLocalizationProvider.AdminUI.EPiServer.zip" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
