@@ -3,7 +3,7 @@
 <h2 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h2>
 <hr />
 
-@foreach(var page in Model.Pages)
+@foreach(var page in Model.Pages.Where(x=>x.VisibleInMenu))
 {
     <div class="listResult @string.Join(" ", page.GetThemeCssClassNames())">
         <h3>
