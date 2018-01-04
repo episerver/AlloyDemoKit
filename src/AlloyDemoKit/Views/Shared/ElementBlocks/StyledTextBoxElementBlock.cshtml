@@ -1,0 +1,19 @@
+﻿@using EPiServer.Forms.Implementation.Elements
+@using EPiServer.Forms.EditView.Internal
+@using EPiServer.ServiceLocation
+@using AlloyDemoKit.Models.Blocks.FormElements
+
+@model StyledTextBoxElementBlock
+
+@{
+    var validationService = ServiceLocator.Current.GetInstance<ValidationService>();
+    var formElement = Model.FormElement;
+}
+
+<div class="Form__Element FormTextbox @validationService.GetValidationCssClasses(Model)" data-f-element-name="@formElement.ElementName">
+    <label for="@Model.FormElement.Guid" class="Form__Element__Caption">@Model.Label</label>
+    <input name="@formElement.ElementName" id="@Model.FormElement.Guid" type="text" class="@Model.Class"
+           placeholder="@Model.PlaceHolder" value="@Model.PredefinedValue" @Html.Raw(Model.AttributesString) />
+
+    <span data-f-linked-name="@formElement.ElementName" class="Form__Element__ValidationError" style="display: none;">*</span>
+</div>
