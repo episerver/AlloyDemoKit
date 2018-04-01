@@ -14,10 +14,10 @@
         @if (IsSectionDefined("RelatedContent"))
         {
             @RenderSection("RelatedContent")
-       }
+        }
         else if (Model.CurrentPage is IHasRelatedContent)
         {
             @Html.PropertyFor(x => ((IHasRelatedContent)x.CurrentPage).RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
-       }
+        }
     </div>
 </div>

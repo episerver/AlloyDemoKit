@@ -1,9 +1,7 @@
 @using EPiServer.Editor
 @using EPiServer.Find
-@using EPiServer.Security
-@using EPiServer.Find.Api.Facets
 @using EPiServer.Framework.Web.Resources
-@using System
+
 @model FindSearchContentModel
 
 @{
@@ -82,168 +80,131 @@
         });
 </script>
 
-<div class="span8 full search-form">
+<div class="full search-form">
     <h2>@Html.PropertyFor(m => m.CurrentPage.Heading)</h2>
 
-    @*We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other
-        query string values not in the form we can't use that in edit mode.*@
+    @* We use GET to submit the form to enable bookmarking etc of search results.  However, as GET will remove other
+        query string values not in the form we can't use that in edit mode. *@
     @using (Html.BeginForm(null, null, Model.Layout.SearchPageRouteValues, PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get))
     {
         <div class="input-group">
-            <input id="srchTxt" type="text" class="form-control" tabindex="1" name="q" style="width:75%;" value="@Model.Query">
+            <input id="srchTxt" type="text" class="form-control input-large" tabindex="1" name="q" style="width:75%;" value="@Model.Query">
             <span class="input-group-btn">
                 <input type="submit" tabindex="2" class="btn" style="width: 200px" value="@Html.Translate("/searchpagetemplate/searchbutton")" />
             </span>
-        </div><!-- /input-group -->
+        </div>
     }
 </div>
 
+@if (Model.Hits != null)
+{
+    <div class="well">
+        <h2>@Html.Translate("/searchpagetemplate/result")</h2>
+        <p>
+            @Html.Translate("/searchpagetemplate/searchfor") <i>@Model.Query</i>
+            @Html.Translate("/searchpagetemplate/resultedin")
 
-<div class="row">
-    @*Main area*@
-    <div class="span8">
+            @if (Model.NumberOfHits > 0)
+            {
+                @Model.NumberOfHits
+                @Html.Raw(" ")
+                @Html.Translate("/searchpagetemplate/hits")
+            }
+            else
+            {
+                @Html.Translate("/searchpagetemplate/zero")
 
-        @if (Model.Hits != null)
-        {
-            @*<div class="row">*@
-            <div class="span8 grayHead">
-                <h2>@Html.Translate("/searchpagetemplate/result")</h2>
-                <p>
-                    @Html.Translate("/searchpagetemplate/searchfor") <i>@Model.Query</i>
-                    @Html.Translate("/searchpagetemplate/resultedin")
-                    @if (Model.NumberOfHits > 0)
-                    {
-                        @Model.NumberOfHits
-                        @Html.Raw(" ")
-                        @Html.Translate("/searchpagetemplate/hits")
-                    }
-                    else
-                    {
-                        @Html.Translate("/searchpagetemplate/zero")
+                <script type="text/javascript">spellcheck("@Model.Query", @Model.NumberOfHits);</script>
+            }
 
-                        <script type="text/javascript">spellcheck("@Model.Query", @Model.NumberOfHits);</script>
-                    }
+            <script type="text/javascript">relatedQuery("@Model.Query", @Model.NumberOfHits);</script>
 
-                    <script type="text/javascript">relatedQuery("@Model.Query", @Model.NumberOfHits);</script>
+            @*@Html.Translate("/searchpagetemplate/hits")*@
 
-                    @*@Html.Translate("/searchpagetemplate/hits")*@
+            <div id="suggestion"></div>
+            <div id="suggestion2"></div>
 
-                    <div id="suggestion"></div>
-                    <div id="suggestion2"></div>
-
-                </p>
-            </div>
-
-
-
-            <div class="span8 SearchResults">
-                @foreach (var hit in Model.Hits)
-                {
-                    @*<div class="listResult" style="@(hit.HasBestBetStyle() ? "border: dotted; color: red; border-width: 2px;" : "") ">*@
-                    <div class="listResult" style="@(hit.HasBestBetStyle() ? "background-color: #CCE6FC;" : "") ">
-                        <h3><a href="@hit.Url">@Html.Raw(@hit.Title)</a></h3>
-
-                        <p>
-                            @*<%-- If an image exists and the editor has specified that images should be shown --%>
-                                <%-- by specifying a height for them we show it and let the browser scale the width --%>
-                                <%-- relative to the height. In a real scenario we should use an image scaling library. --%>*@
-                            @if (hit.ImageUri != null && Model.CurrentPage.HitImagesHeight > 0)
-                            {
-                                <img src="@hit.ImageUri.ToString()" height="@Model.CurrentPage.HitImagesHeight" />
-                            }
-                            @*                    <%-- Show the excerpt text. As it may contain HTML tags for highlighting we --%>
-                                <%-- don't HTML encode it. --%>*@
-                            @Html.Raw(@hit.Excerpt)
-                        </p>
-
-                        <hr />
-                    </div>
-                }
-            </div>
-
-            @* Display paging controls.*@
-            <div class="span8 pagination pagination-centered">
-                <ul>
-                    @*Link to the previous paging page.*@
-                    @*<li @Model.PagingPage == 1 ? class="disabled" : "active">*@
-                    <li>
-                        <a href="@Model.GetPagingUrl(@Model.PagingPage - 1)">&laquo; </a>
-                    </li>
-
-                    @*Display links for each specific paging page.*@
-                    @for (int pageNumber = 1; pageNumber <= @Model.TotalPagingPages; pageNumber++)
-                    {
-
-                        @*<li @Model.PagingPage == @pageNumber ? class=active : "disabled" >*@
-                        <li>
-                            <a href="@Model.GetPagingUrl(@pageNumber)"> @pageNumber </a>
-                        </li>
-                    }
-
-
-                    @*Link to the next paging page *@
-                    @*                    <li @Model.PagingPage == @Model.TotalPagingPages ? class="disabled" : "" >*@
-                    <li>
-                        <a href="@Model.GetPagingUrl(@Model.PagingPage+1)">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-            @*End of search results area. *@
-            @*</div>*@
-
-        }
-
+        </p>
     </div>
-</div>
+
+    <div class="SearchResults">
+        @foreach (var hit in Model.Hits)
+        {
+            <div class="listResult" style="@(hit.HasBestBetStyle() ? "background-color: #CCE6FC;" : "") ">
+                <h3><a href="@hit.Url">@Html.Raw(@hit.Title)</a></h3>
+
+                <p>
+                    @* If an image exists and the editor has specified that images should be shown
+                        by specifying a height for them we show it and let the browser scale the width
+                        relative to the height. In a real scenario we should use an image scaling library. *@
+
+                    @if (hit.ImageUri != null && Model.CurrentPage.HitImagesHeight > 0)
+                    {
+                        <img src="@hit.ImageUri.ToString()" height="@Model.CurrentPage.HitImagesHeight" />
+                    }
+
+                    @* Show the excerpt text. As it may contain HTML tags for highlighting we don't HTML encode it. *@
+
+                    @Html.Raw(@hit.Excerpt)
+                </p>
+
+                <hr />
+            </div>
+        }
+    </div>
+
+    <div class="pagination pagination-centered">
+        <ul>
+            <li>
+                <a href="@Model.GetPagingUrl(@Model.PagingPage - 1)">&laquo; </a>
+            </li>
+
+            @for (int pageNumber = 1; pageNumber <= @Model.TotalPagingPages; pageNumber++)
+            {
+                <li>
+                    <a href="@Model.GetPagingUrl(@pageNumber)"> @pageNumber </a>
+                </li>
+            }
+
+            <li>
+                <a href="@Model.GetPagingUrl(@Model.PagingPage+1)">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+}
 
 @section RelatedContent
 {
-    @*Right hand bar*@
-    <div>
+    @if (Model != null && Model.Hits != null && Model.Hits.TotalMatching > 0)
+    {
+        <div class="well block">
+            <h2>Sections</h2>
+            <ul class="nav nav-list">
 
-       @if (Model != null && Model.Hits != null && Model.Hits.TotalMatching > 0)
-        {
-            @*-- Sidebar in which facets/filter are shown. *@
-
-            @*Sections Facet*@
-            <div class="span4 well block">
-                <h2>Sections</h2>
-                <ul class="nav nav-list">
-
-                @*Link for clearing section filter.*@
-                    <li "@string.IsNullOrWhiteSpace(@Model.SectionFilter) ? class=\" active\" "" " >
-                        <li>
-                            <a href=" @Model.GetSectionGroupUrl("") ">
+                <li>
+                    <a href=" @Model.GetSectionGroupUrl("") ">
                         All (@Model.Hits.FilterFacet("AllSections").Count)
+                    </a>
+                </li>
+
+                @foreach (var sectionGroup in Model.Hits.TermsFacetFor(x => x.SearchSection))
+                {
+                    <li>
+                        <a href="@Model.GetSectionGroupUrl(sectionGroup.Term)">
+                            @if (@Model.SectionFilter == @sectionGroup.Term)
+                            {
+                                <strong>@sectionGroup.Term (@sectionGroup.Count)</strong>
+                            }
+                            else
+                            {
+                                <span>@sectionGroup.Term (@sectionGroup.Count)</span>
+                            }
                         </a>
                     </li>
 
-                    @foreach (var sectionGroup in Model.Hits.TermsFacetFor(x => x.SearchSection))
-                    {
-                        @*<li "@Model.SectionFilter == @sectionGroup.Term ?" class="active" : "" >*@
-                        <li>
-                            <a href="@Model.GetSectionGroupUrl(sectionGroup.Term)">
-                                @if (@Model.SectionFilter == @sectionGroup.Term)
-                                {
-                                    <strong>@sectionGroup.Term (@sectionGroup.Count)</strong>
-                                }
-                                else
-                                {
-                                    <span>@sectionGroup.Term (@sectionGroup.Count)</span>
-                                }
-                            </a>
-                        </li>
+                }
 
-                    }
-
-                    @*<%-- Display number of hits per section with link for filtering by section. --%>*@
-
-                </ul>
-            </div>
-
-
-            @*-- End of sidebar. --*@
-        }
-
-        </div>   
+            </ul>
+        </div>
+    }
 }
