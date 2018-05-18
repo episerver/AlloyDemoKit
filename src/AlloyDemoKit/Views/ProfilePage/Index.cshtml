@@ -2,39 +2,36 @@
 @using AlloyDemoKit.Models.ViewModels
 
 @model ProfilePageViewModel
+
+<h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
+
 <div class="row">
     <div class="span4">
-        <div class="row">
-            <div>
-                @Html.PropertyFor(m => m.CurrentPage.ProfileHeader)
-            </div>
-            <hr />
-            <div>
-                @using (Html.BeginForm("Save", "ProfilePage"))
-                {
-                    <h4>First Name</h4>
-                    @Html.EditorFor(m => m.Profile.FirstName)
+        <div>
+            @using (Html.BeginForm("Save", "ProfilePage"))
+            {
+                <h4>First Name</h4>
+                @Html.EditorFor(m => m.Profile.FirstName)
 
-                    <h4>Last Name</h4>
-                    @Html.EditorFor(m => m.Profile.LastName)
+                <h4>Last Name</h4>
+                @Html.EditorFor(m => m.Profile.LastName)
 
-                    <h4>Title</h4>
-                    @Html.EditorFor(m => m.Profile.Title)
+                <h4>Title</h4>
+                @Html.EditorFor(m => m.Profile.Title)
 
-                    <h4>Email</h4>
-                    @Html.EditorFor(m => m.Profile.Email)
+                <h4>Email</h4>
+                @Html.EditorFor(m => m.Profile.Email)
 
-                    <h4>Company</h4>
-                    @Html.EditorFor(m => m.Profile.Company)
+                <h4>Company</h4>
+                @Html.EditorFor(m => m.Profile.Company)
 
 
-                    <input type="submit" value="Save Your Profile" class="btn btn-blue" />
+                <input type="submit" value="Save Your Profile" class="btn btn-blue" />
 
-                }
-            </div>
-            <div>
-                @Html.PropertyFor(m => m.CurrentPage.LeftHandContentArea)
-            </div>
+            }
+        </div>
+        <div>
+            @Html.PropertyFor(m => m.CurrentPage.LeftHandContentArea)
         </div>
     </div>
     <div class="span8">
