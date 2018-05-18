@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace AlloyDemoKit.Business.VisitorGroupUIStyling
 {
@@ -15,7 +16,7 @@ namespace AlloyDemoKit.Business.VisitorGroupUIStyling
             var result = filterContext.Result as ViewResultBase;
             var view = result?.View as WebFormView;
             return view != null
-                && (view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Index.aspx") || view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Edit.aspx"));
+                && (view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Index.aspx", StringComparison.InvariantCultureIgnoreCase) || view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Edit.aspx", StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
