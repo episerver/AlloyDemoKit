@@ -16,38 +16,39 @@ namespace AlloyDemoKit
         [GroupDefinitions()]
         public static class GroupNames
         {
-            [Display(Name = "Contact", Order = 1)]
-            public const string Contact = "Contact";
 
-            [Display(Name = "Default", Order = 2)]
+            [Display(Name = "Default", Order = 11)]
             public const string Default = "Default";
 
-            [Display(Name = "Metadata", Order = 3)]
-            public const string MetaData = "Metadata";
+            [Display(Name = "Contact", Order = 13)]
+            public const string Contact = "Contact";
 
-            [Display(Name = "News", Order = 4)]
+            [Display(Name = "News", Order = 13)]
             public const string News = "News";
 
-            [Display(Name = "Products", Order = 5)]
+            [Display(Name = "Products", Order = 13)]
             public const string Products = "Products";
 
-            [Display(Name = "SiteSettings", Order = 6)]
-            public const string SiteSettings = "SiteSettings";
-
-            [Display(Name = "Specialized", Order = 7)]
+            [Display(Name = "Specialized", Order = 13)]
             public const string Specialized = "Specialized";
 
-            [Display(Name = "Location", Order = 8)]
+            [Display(Name = "Location", Order = 13)]
             public const string Location = "Location";
 
-            [Display(Name = "Review", Order = 9)]
+            [Display(Name = "Metadata", Order = 14)]
+            public const string MetaData = "Metadata";
+
+            [Display(Name = "Review", Order = 15)]
             public const string Review = "Review";
 
-            [Display(Name = "Styles", Order = 10)]
+            [Display(Name = "Styles", Order = 16)]
             public const string Styles = "Styles";
 
-            [Display(Name = "Scripts", Order = 11)]
+            [Display(Name = "Scripts", Order = 17)]
             public const string Scripts = "Scripts";
+
+            [Display(Name = "SiteSettings", Order = 18)]
+            public const string SiteSettings = "Sitesettings";
         }
 
         /// <summary>
