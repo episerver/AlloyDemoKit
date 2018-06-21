@@ -12,7 +12,7 @@ namespace AlloyDemoKit.Business.Data
     {
         public static string GetFileSize(MediaData media)
         {
-            if (media != null)
+            if (media != null && media.BinaryData != null)
             {
                 using (var stream = media.BinaryData.OpenRead())
                 {

@@ -1,23 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
-using EPiServer.Core;
-using EPiServer.Filters;
+using AlloyDemoKit.Business;
 using AlloyDemoKit.Models.Pages.Models.Blocks;
-using EPiServer.Web.Mvc;
-using EPiServer.Web.Routing;
-using EPiServer.ServiceLocation;
-using EPiServer.DataAbstraction;
 using AlloyDemoKit.Models.Pages.Models.Pages;
 using AlloyDemoKit.Models.Pages.Tags;
-using System.Text;
-using System;
-using System.Text.RegularExpressions;
-using EPiServer.Core.Html;
+using AlloyDemoKit.Models.ViewModels;
 using EPiServer;
-using AlloyDemoKit.Business;
-using EPiServer.Templates.Blog.Mvc.Models.ViewModels;
-//using EPiServer.DynamicContent.Internal;
+using EPiServer.Core;
+using EPiServer.Core.Html;
+using EPiServer.DataAbstraction;
+using EPiServer.Filters;
+using EPiServer.ServiceLocation;
+using EPiServer.Web.Mvc;
+using EPiServer.Web.Routing;
 
 namespace AlloyDemoKit.Models.Pages.Controllers
 {

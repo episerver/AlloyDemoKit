@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Web;
-using EPiServer.Core;
-using System;
-using AlloyDemoKit.Models.ViewModels;
+﻿using System;
+using System.Collections.Generic;
 using AlloyDemoKit.Models.Pages.Models.Pages;
+using EPiServer.Core;
 
-namespace EPiServer.Templates.Blog.Mvc.Models.ViewModels
+namespace AlloyDemoKit.Models.ViewModels
 {
     public class BlogItemPageModel : PageViewModel<BlogItemPage>
     {
@@ -14,7 +12,7 @@ namespace EPiServer.Templates.Blog.Mvc.Models.ViewModels
         {}
 
         public IEnumerable<TagItem> Tags { get; set; }
-     
+
         public string PreviewText { get; set; }
         public DateTime StartPublish { get; set; }
         public XhtmlString MainBody { get; set; }

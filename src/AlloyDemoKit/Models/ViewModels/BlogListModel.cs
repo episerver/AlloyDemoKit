@@ -2,7 +2,7 @@
 using EPiServer.Core;
 using AlloyDemoKit.Models.Pages.Models.Blocks;
 
-namespace EPiServer.Templates.Blog.Mvc.Models.ViewModels
+namespace AlloyDemoKit.Models.ViewModels
 {
     public class BlogListModel
     {
