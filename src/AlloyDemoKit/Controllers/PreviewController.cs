@@ -46,7 +46,7 @@ namespace AlloyDemoKit.Controllers
             var model = new PreviewModel(startPage, currentContent);
 
             var supportedDisplayOptions = _displayOptions
-                .Select(x => new { Tag = x.Tag, Name = x.Name, Supported = SupportsTag(currentContent, x.Tag) })
+                .Select(x => new { x.Tag, x.Name, Supported = SupportsTag(currentContent, x.Tag) })
                 .ToList();
 
             if (supportedDisplayOptions.Any(x => x.Supported))

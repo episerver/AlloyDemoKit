@@ -132,9 +132,8 @@ namespace AlloyDemoKit.Business.FormKPI
                     "/formkpi/errors/couldnotfindformid",
                     "Could not look up form id, check it hasn't been deleted and select again"));
 
-            Guid formGuid;
             var formId = foundFormId.Item1;
-            if (!string.IsNullOrEmpty(formId) && Guid.TryParse(formId, out formGuid))
+            if (!string.IsNullOrEmpty(formId) && Guid.TryParse(formId, out Guid formGuid))
             {
                 FormGuid = formGuid;
             }

@@ -14,8 +14,7 @@ namespace AlloyDemoKit.Business.VisitorGroupUIStyling
         protected override bool ShouldProcess(ResultExecutedContext filterContext)
         {
             var result = filterContext.Result as ViewResultBase;
-            var view = result?.View as WebFormView;
-            return view != null
+            return result?.View is WebFormView view
                 && (view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Index.aspx", StringComparison.InvariantCultureIgnoreCase) || view.ViewPath.Equals("/EPiServer/CMS/Views/VisitorGroups/Edit.aspx", StringComparison.InvariantCultureIgnoreCase));
         }
     }

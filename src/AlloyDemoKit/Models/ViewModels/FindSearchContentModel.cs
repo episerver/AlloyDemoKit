@@ -59,8 +59,7 @@ namespace AlloyDemoKit.Models.ViewModels
         {
             get
             {
-                int pagingPage;
-                if (!int.TryParse(HttpContext.Current.Request.QueryString["p"], out pagingPage))
+                if (!int.TryParse(HttpContext.Current.Request.QueryString["p"], out int pagingPage))
                 {
                     pagingPage = 1;
                 }

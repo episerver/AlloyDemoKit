@@ -12,10 +12,10 @@ namespace WeatherService
     {
         HttpClient client;
 
-        private string url;
-        private string apiKey;
+        private readonly string url;
+        private readonly string apiKey;
         private Units units;
-        private Language language;
+        private readonly Language language;
 
         public OpenWeatherMapApiClient(string apiKey, string url = ApiConstants.BaseUrl, Units units = Units.Metric, Language language = Language.EN)
         {

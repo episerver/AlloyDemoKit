@@ -48,8 +48,7 @@ namespace AlloyDemoKit.Business
 
         private static bool VisibleInMenu(IContent content)
         {
-            var page = content as PageData;
-            if (page == null)
+            if (!(content is PageData page))
             {
                 return true;
             }

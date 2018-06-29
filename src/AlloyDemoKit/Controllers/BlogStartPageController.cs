@@ -9,8 +9,9 @@ namespace AlloyDemoKit.Models.Pages.Controllers
 {
     public class BlogStartPageController : PageControllerBase<BlogStartPage>
     {
-        private ContentLocator contentLocator;
-        private IContentLoader contentLoader;
+        private readonly ContentLocator contentLocator;
+        private readonly IContentLoader contentLoader;
+
         public BlogStartPageController(ContentLocator contentLocator, IContentLoader contentLoader)
         {
             this.contentLocator = contentLocator;
@@ -21,8 +22,6 @@ namespace AlloyDemoKit.Models.Pages.Controllers
         {
 
             var model = new PageViewModel<BlogStartPage>(currentPage);
-
-         
 
             return View(model);
         }

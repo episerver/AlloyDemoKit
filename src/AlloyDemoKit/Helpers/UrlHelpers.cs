@@ -60,14 +60,16 @@ namespace AlloyDemoKit.Helpers
 
         public static RouteValueDictionary GetPageRoute(this RequestContext requestContext, ContentReference contentLink)
         {
-            var values = new RouteValueDictionary();
-            values[RoutingConstants.NodeKey] = contentLink;
-            values[RoutingConstants.LanguageKey] = ContentLanguage.PreferredCulture.Name;
+            var values = new RouteValueDictionary
+            {
+                [RoutingConstants.NodeKey] = contentLink,
+                [RoutingConstants.LanguageKey] = ContentLanguage.PreferredCulture.Name
+            };
             return values;
         }
 
         /// <summary>
-        /// Returns the target URL for an Employee location. 
+        /// Returns the target URL for an Employee location.
         /// </summary>
         public static IHtmlString EmployeeLocationUrl(this UrlHelper urlHelper, string location)
         {
@@ -100,7 +102,7 @@ namespace AlloyDemoKit.Helpers
         }
 
         /// <summary>
-        /// Returns the target URL for an Employee expertise. 
+        /// Returns the target URL for an Employee expertise.
         /// </summary>
         public static IHtmlString EmployeeExpertiseUrl(this UrlHelper urlHelper, string expertise)
         {
@@ -132,7 +134,7 @@ namespace AlloyDemoKit.Helpers
             return new MvcHtmlString(_expertiseRootUrl);
         }
 
-        private static volatile object _syncObject = new object();
+        private static readonly object _syncObject = new object();
         private static string _expertiseRootUrl = string.Empty;
         private static string _locationRootUrl = string.Empty;
 

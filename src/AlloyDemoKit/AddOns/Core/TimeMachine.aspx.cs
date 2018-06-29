@@ -59,10 +59,12 @@ namespace EPiServer.Templates.Alloy.AddOns.Core
                 var contentRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentRepository>();
                 var versionRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentVersionRepository>();
 
-                List<ContentReference> listpages = new List<ContentReference>(contentRepository.GetDescendents(ContentReference.StartPage));
-                listpages.Add(ContentReference.StartPage);
+                List<ContentReference> listpages = new List<ContentReference>(contentRepository.GetDescendents(ContentReference.StartPage))
+                {
+                    ContentReference.StartPage
+                };
 
-                 List<ContentVersion> Pages = new List<ContentVersion>();
+                List<ContentVersion> Pages = new List<ContentVersion>();
                 //find page version that we are going to revert
                 FindVersionsToRevert(listpages, date, Pages);
 
@@ -115,8 +117,10 @@ namespace EPiServer.Templates.Alloy.AddOns.Core
 
             DateTime date = InputDateBox.Value;
 
-            List<ContentReference> listpages = new List<ContentReference>(contentRepository.GetDescendents(ContentReference.StartPage));
-            listpages.Add(ContentReference.StartPage);
+            List<ContentReference> listpages = new List<ContentReference>(contentRepository.GetDescendents(ContentReference.StartPage))
+            {
+                ContentReference.StartPage
+            };
 
             List<ContentVersion> Pages = new List<ContentVersion>();
             //find page version that we are going to revert

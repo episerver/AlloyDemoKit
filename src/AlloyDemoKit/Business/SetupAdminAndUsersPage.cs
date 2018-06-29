@@ -24,8 +24,7 @@ namespace AlloyDemoKit
         private static bool IsAnyUserRegistered()
         {
             var provider = ServiceLocator.Current.GetInstance<UIUserProvider>();
-            int totalUsers = 0;
-            var res = provider.GetAllUsers(0, 1, out totalUsers);
+            var res = provider.GetAllUsers(0, 1, out int totalUsers);
             return totalUsers > 0;
         }
 
@@ -43,10 +42,12 @@ namespace AlloyDemoKit
 
         static void AddRoute()
         {
-            var routeData = new RouteValueDictionary();
-            routeData.Add("Controller", "Register");
-            routeData.Add("action", "Index");
-            routeData.Add("id", " UrlParameter.Optional");
+            var routeData = new RouteValueDictionary
+            {
+                { "Controller", "Register" },
+                { "action", "Index" },
+                { "id", " UrlParameter.Optional" }
+            };
             RouteTable.Routes.Add("Register", new Route("{controller}/{action}/{id}", routeData, new MvcRouteHandler()) { RouteExistingFiles = false });
         }
     }

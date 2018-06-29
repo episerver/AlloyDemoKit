@@ -48,8 +48,7 @@ namespace AlloyDemoKit.Business.Rendering
             var content = contentAreaItem.GetContent();
             var cssClass = content == null ? String.Empty : content.GetOriginalType().Name.ToLowerInvariant();
 
-            var customClassContent = content as ICustomCssInContentArea;
-            if (customClassContent != null && !string.IsNullOrWhiteSpace(customClassContent.ContentAreaCssClass))
+            if (content is ICustomCssInContentArea customClassContent && !string.IsNullOrWhiteSpace(customClassContent.ContentAreaCssClass))
             {
                 cssClass += string.Format(" {0}", customClassContent.ContentAreaCssClass);
             }

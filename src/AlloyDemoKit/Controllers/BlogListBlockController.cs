@@ -155,8 +155,10 @@ namespace AlloyDemoKit.Models.Pages.Controllers
             }
             else if(category != null)
             {
-                var catlist = new CategoryList();
-                catlist.Add(category.ID);
+                var catlist = new CategoryList
+                {
+                    category.ID
+                };
 
                 pages = pages.Where(x => x.Category.Intersect(catlist).Any());
             }

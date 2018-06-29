@@ -50,8 +50,7 @@ namespace AlloyDemoKit.Business.Forms
                         var elementId = formElements.Items.Where(i => i.ContentLink.ID == id).FirstOrDefault();
                         if (elementId != null)
                         {
-                            ElementBlockBase element = loader.Get<ElementBlockBase>(elementId.ContentLink) as ElementBlockBase;
-                            string friendlyName = element != null ? element.GetElementInfo().FriendlyName : item.Key;
+                            string friendlyName = loader.Get<ElementBlockBase>(elementId.ContentLink) is ElementBlockBase element ? element.GetElementInfo().FriendlyName : item.Key;
                             _logger.Information(friendlyName + ": " + item.Value);
                         }
                     }

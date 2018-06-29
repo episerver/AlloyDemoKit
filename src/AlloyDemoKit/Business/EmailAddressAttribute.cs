@@ -24,8 +24,7 @@ namespace AlloyDemoKit.Business
             {
                 return true;
             }
-            var input = value as string;
-            return ((input != null) && (ValidationRegex.Match(input).Length > 0));
+            return ((value is string input) && (ValidationRegex.Match(input).Length > 0));
         }
     }
 }

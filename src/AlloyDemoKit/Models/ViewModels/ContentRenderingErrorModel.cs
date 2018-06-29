@@ -8,8 +8,7 @@ namespace AlloyDemoKit.Models.ViewModels
     {
         public ContentRenderingErrorModel(IContentData contentData, Exception exception)
         {
-            var content = contentData as IContent;
-            if(content != null)
+            if (contentData is IContent content)
             {
                 ContentName = content.Name;
             }

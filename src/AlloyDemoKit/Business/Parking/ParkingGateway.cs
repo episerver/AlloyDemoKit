@@ -29,13 +29,12 @@ namespace AlloyDemoKit.Business.Parking
         {
             CacheEvictionPolicy policy = new CacheEvictionPolicy(TimeSpan.FromMinutes(2), CacheTimeoutType.Absolute);
 
-            List<string> items = CacheManager.Get(LocationsCacheKey) as List<string>;
 
-            if (items == null)
+            if (!(CacheManager.Get(LocationsCacheKey) is List<string> items))
             {
                 items = LocationsFromService();
                 CacheManager.Insert(LocationsCacheKey, items, policy);
-            }            
+            }
 
             return items;
         }
@@ -81,9 +80,8 @@ namespace AlloyDemoKit.Business.Parking
         {
             CacheEvictionPolicy policy = new CacheEvictionPolicy(TimeSpan.FromMinutes(4), CacheTimeoutType.Sliding);
 
-            List<ParkingGarage> allGarages = CacheManager.Get(LocationsCacheKey) as List<ParkingGarage>;
 
-            if (allGarages == null)
+            if (!(CacheManager.Get(LocationsCacheKey) is List<ParkingGarage> allGarages))
             {
 
                 allGarages = new List<ParkingGarage>();
@@ -95,11 +93,11 @@ namespace AlloyDemoKit.Business.Parking
 
 
                     foreach (var item in results)
-                    {                        
+                    {
                         string jsonItem = item.ToString().Replace("\r\n", "");
                         ParkingGarage garage = JsonConvert.DeserializeObject<ParkingGarage>(jsonItem);
                         allGarages.Add(garage);
-                        
+
                     }
                 }
 

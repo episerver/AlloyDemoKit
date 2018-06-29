@@ -14,7 +14,7 @@ namespace AlloyDemoKit.Controllers
 {
     public class CarouselBlockController : BlockController<CarouselBlock>
     {
-        private ContentLocator contentLocator;
+        private readonly ContentLocator contentLocator;
         private IContentLoader contentLoader;
         public CarouselBlockController(ContentLocator contentLocator, IContentLoader contentLoader)
         {

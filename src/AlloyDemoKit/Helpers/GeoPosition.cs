@@ -30,7 +30,7 @@ namespace AlloyDemoKit.Helpers
                 var ip = IPAddress.Parse(requestIp);
                 var provider = ServiceLocator.Current.GetInstance<GeolocationProviderBase>();
                 IGeolocationResult result = provider.Lookup(ip);
-                return result != null ? result.Location : null;
+                return result?.Location;
             }
             catch
             {

@@ -48,8 +48,7 @@ namespace newforms.Controllers
 
         private Guid GetFormId(string value)
         {
-            Guid formIdGuid;
-            Guid.TryParse(value.Split(">".ToCharArray())[0].Trim(), out formIdGuid);
+            Guid.TryParse(value.Split(">".ToCharArray())[0].Trim(), out Guid formIdGuid);
             return formIdGuid;
         }
 

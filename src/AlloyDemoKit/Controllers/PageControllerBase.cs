@@ -48,8 +48,7 @@ namespace AlloyDemoKit.Controllers
 
         public virtual void ModifyLayout(LayoutModel layoutModel)
         {
-            var page = PageContext.Page as SitePageData;
-            if(page != null)
+            if (PageContext.Page is SitePageData page)
             {
                 layoutModel.HideHeader = page.HideSiteHeader;
                 layoutModel.HideFooter = page.HideSiteFooter;

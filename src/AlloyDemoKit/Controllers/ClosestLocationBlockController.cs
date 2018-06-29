@@ -21,7 +21,7 @@ namespace AlloyDemoKit.Controllers
     [TemplateDescriptor(AvailableWithoutTag = true, Default = true, Inherited = false)]
     public class ClosestLocationBlockController : BlockController<ClosestLocationBlock>
     {
-        private IContentLoader contentLoader;
+        private readonly IContentLoader contentLoader;
 
         public ClosestLocationBlockController(IContentLoader loader)
         {
@@ -30,8 +30,10 @@ namespace AlloyDemoKit.Controllers
 
         public override ActionResult Index(ClosestLocationBlock currentBlock)
         {
-            var model = new ClosestLocationViewModel();
-            model.Heading = currentBlock.Heading;
+            var model = new ClosestLocationViewModel
+            {
+                Heading = currentBlock.Heading
+            };
 
             var results = SearchClient.Instance.Search<LocationPage>()
                 .OrderBy(x => x.Coordinates)

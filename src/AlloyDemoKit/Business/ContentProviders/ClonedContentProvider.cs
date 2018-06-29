@@ -220,9 +220,8 @@ namespace AlloyDemoKit.Business.ContentProviders
             // Get published version of Content
             var originalContent = _contentStore.Load(contentLink, langBr != null ? langBr.ID : -1);
 
-            var page = originalContent as PageData;
 
-            if (page == null)
+            if (!(originalContent is PageData page))
             {
                 throw new NotSupportedException("Only cloning of pages is supported");
             }
@@ -265,8 +264,7 @@ namespace AlloyDemoKit.Business.ContentProviders
             // If retrieving children for the entry point, we retrieve pages from the clone root
             contentLink = contentLink.CompareToIgnoreWorkID(_entryRoot) ? _cloneRoot : contentLink;
 
-            FilterSortOrder sortOrder;
-            var children = _contentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out sortOrder);
+            var children = _contentStore.LoadChildrenReferencesAndTypes(contentLink.ID, languageID, out FilterSortOrder sortOrder);
 
             languageSpecific = sortOrder == FilterSortOrder.Alphabetical;
 

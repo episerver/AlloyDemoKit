@@ -20,7 +20,7 @@ namespace AlloyDemoKit.Business.Employee
         private string _employeeDataFile;
         private string _locationDataFile;
         private string _expertiseDataFile;
-        private char[] TabDelimiter = new[] {'\t'};
+        private readonly char[] TabDelimiter = new[] {'\t'};
 
         public EmployeeDataImportJob()
         {

@@ -45,9 +45,8 @@ namespace AlloyDemoKit.Helpers
             var currentContentLink = helper.ViewContext.RequestContext.GetContentLink();
             var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
 
-            Func<IEnumerable<PageData>, IEnumerable<PageData>> filter = 
-                pages => pages.FilterForDisplay(requirePageTemplate, requireVisibleInMenu);
-            
+            IEnumerable<PageData> filter(IEnumerable<PageData> pages) => pages.FilterForDisplay(requirePageTemplate, requireVisibleInMenu);
+
             var pagePath = contentLoader.GetAncestors(currentContentLink)
                 .Reverse()
                 .Select(x => x.ContentLink)

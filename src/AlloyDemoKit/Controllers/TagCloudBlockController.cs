@@ -18,7 +18,7 @@ namespace EPiServer.Templates.Blog.Mvc.Controllers
 {
     public class TagCloudBlockController : BlockController<TagCloudBlock>
     {
-        private ContentLocator contentLocator;
+        private readonly ContentLocator contentLocator;
         private IContentLoader contentLoader;
         public TagCloudBlockController(ContentLocator contentLocator, IContentLoader contentLoader)
         {

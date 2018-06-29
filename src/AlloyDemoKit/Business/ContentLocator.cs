@@ -30,8 +30,7 @@ namespace AlloyDemoKit.Business
             var children = _contentLoader.GetChildren<PageData>(rootLink);
             foreach (var child in children)
             {
-                var childOfRequestedTyped = child as T;
-                if (childOfRequestedTyped != null)
+                if (child is T childOfRequestedTyped)
                 {
                     yield return childOfRequestedTyped;
                 }
