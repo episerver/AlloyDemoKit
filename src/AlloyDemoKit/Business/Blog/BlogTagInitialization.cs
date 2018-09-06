@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Linq;
+using System.Web.Routing;
+using AlloyDemoKit.Models.Pages.Initialization;
+using AlloyDemoKit.Models.Pages.Models.Pages;
+using EPiServer;
+using EPiServer.Core;
+using EPiServer.DataAbstraction;
+using EPiServer.DataAccess;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
-using EPiServer.BaseLibrary;
-using AlloyDemoKit.Models.Pages.Models.Pages;
-using EPiServer.Core;
-using EPiServer.ServiceLocation;
-using EPiServer.Web;
-using EPiServer.DataAccess;
-using EPiServer.Security;
-using AlloyDemoKit.Models.Pages.Initialization;
-using EPiServer.DataAbstraction;
-using System.Web.Routing;
 using EPiServer.Web.Routing;
-using EPiServer;
-using AlloyDemoKit.Business;
 
 namespace AlloyDemoKit.Models.Pages.Tags
 {
@@ -22,41 +17,59 @@ namespace AlloyDemoKit.Models.Pages.Tags
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class BlogTagInitialization : IInitializableModule
     {
+        private IContentRepository contentRepository { get; set; }
+        private IContentEvents events { get; set; }
+
         public void Initialize(InitializationEngine context)
         {
-            IContentEvents events = ServiceLocator.Current.GetInstance<IContentEvents>();
+            contentRepository = context.Locate.Advanced.GetInstance<IContentRepository>();
 
+            events = context.Locate.Advanced.GetInstance<IContentEvents>();
             events.CreatingContent += CreatingContent;
 
             var partialRouter = new BlogPartialRouter();
 
             RouteTable.Routes.RegisterPartialRouter<BlogStartPage, Category>(partialRouter);
-
         }
 
-        /*
-         * When a page gets created lets see if it is a blog post and if so lets create the date page information for it
-         */
+        // When a page gets created lets see if it is a blog post and if so lets create the date page information for it
         private void CreatingContent(object sender, ContentEventArgs e)
         {
-            if (this.IsImport() || e.Content == null || !(e.Content is PageData))
+            if (e.Content == null || !(e.Content is PageData))
             {
                 return;
             }
 
             var page = e.Content as PageData;
-
-            if (string.Equals(page.PageTypeName, typeof(BlogItemPage).GetPageType().Name, StringComparison.OrdinalIgnoreCase))
+            if (page is BlogItemPage)
             {
                 DateTime blogDate = page.Created;
-
-                var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
-
                 PageData parentPage = contentRepository.Get<PageData>(page.ParentLink);
+
+                var blogroot = parentPage.ContentLink.ToReferenceWithoutVersion();
 
                 if (parentPage is BlogStartPage)
                 {
-                    page.ParentLink = GetDatePageRef(parentPage, blogDate, contentRepository);
+                    // Handle Year
+                    var yearpage = contentRepository.GetChildren<BlogListPage>(blogroot).Where(lp => lp.Name == DateTime.Now.Year.ToString()).Select(lp => lp.ContentLink).FirstOrDefault();
+
+                    if (yearpage == null)
+                    {
+                        var p = contentRepository.GetDefault<BlogListPage>(blogroot);
+                        p.Name = DateTime.Now.Year.ToString();
+                        yearpage = contentRepository.Save(p, SaveAction.Publish);
+                    }
+
+                    //Handle Month
+                    var monthpage = contentRepository.GetChildren<BlogListPage>(yearpage).Where(lp => lp.Name == DateTime.Now.Month.ToString()).Select(lp => lp.ContentLink).FirstOrDefault();
+
+                    if (monthpage == null)
+                    {
+                        var p = contentRepository.GetDefault<BlogListPage>(yearpage);
+                        p.Name = DateTime.Now.Month.ToString();
+                        monthpage = contentRepository.Save(p, SaveAction.Publish);
+                    }
+                    page.ParentLink = (PageReference)monthpage;
                 }
             }
         }
@@ -71,58 +84,11 @@ namespace AlloyDemoKit.Models.Pages.Tags
 
         }
 
-        //Returns if we are doing an import or mirroring
-        public bool IsImport()
-        {
-            return false;
-            // TODO implementation return Context.Current["CurrentITransferContext"] != null;
-        }
-
-        // in here we know that the page is a blog start page and now we must create the date pages unless they are already created
-        public PageReference GetDatePageRef(PageData blogStart, DateTime created, IContentRepository contentRepository)
-        {
-
-            foreach (var current in contentRepository.GetChildren<PageData>(blogStart.ContentLink))
-            {
-                if (current.Name == created.Year.ToString())
-                {
-                    PageReference result;
-                    foreach (PageData current2 in contentRepository.GetChildren<PageData>(current.ContentLink))
-                    {
-                        if (current2.Name == created.Month.ToString())
-                        {
-                            result = current2.PageLink;
-                            return result;
-                        }
-                    }
-                    result = CreateDatePage(contentRepository, current.PageLink, created.Month.ToString(), new DateTime(created.Year, created.Month, 1));
-                    return result;
-
-                }
-            }
-            PageReference parent = CreateDatePage(contentRepository, blogStart.ContentLink, created.Year.ToString(), new DateTime(created.Year, 1, 1));
-            return CreateDatePage(contentRepository, parent, created.Month.ToString(), new DateTime(created.Year, created.Month, 1));
-        }
-
-        private PageReference CreateDatePage(IContentRepository contentRepository, ContentReference parent, string name, DateTime created)
-        {
-            BlogListPage defaultPageData = contentRepository.GetDefault<BlogListPage>(parent, typeof(BlogListPage).GetPageType().ID);
-            defaultPageData.PageName = name;
-            defaultPageData.Heading = name;
-            defaultPageData.StartPublish = created;
-            IUrlSegmentCreator urlSegment = ServiceLocator.Current.GetInstance<IUrlSegmentCreator>();
-            defaultPageData.URLSegment = urlSegment.Create(defaultPageData);
-            return contentRepository.Save(defaultPageData, SaveAction.Publish, AccessLevel.Publish).ToPageReference();
-        }
-
         public void Preload(string[] parameters) { }
 
         public void Uninitialize(InitializationEngine context)
         {
-            IContentEvents events = ServiceLocator.Current.GetInstance<IContentEvents>();
-
             events.CreatingContent -= CreatingContent;
-
         }
     }
 }
