@@ -93,8 +93,8 @@
 
             var startDateTimeString = values[0],
                 endDateTimeString = values[1];
-            var startDate = Date.parse(epi.EPiServer.Forms.Extension.toISODateTimeString(startDateTimeString));
-            var endDate = Date.parse(epi.EPiServer.Forms.Extension.toISODateTimeString(endDateTimeString));
+            var startDate = Date.parse(startDateTimeString);
+            var endDate = Date.parse(endDateTimeString);
             if (!startDate || !endDate || startDate >= endDate) {
                 return { isValid: false, message: validatorMetaData.model.message };
             }
@@ -148,23 +148,26 @@
         CustomBindingElements: {
             "EPiServer.Forms.Samples.Implementation.Elements.DateTimeElementBlock": function (elementInfo, val) {
 
-                if (!val || $.type(val) != "string") {
+                // Datetime with format YYYY-MM-DDTHH:mmTZD(ISO-8601) "2018-08-07T00:00+07:00"
+                if (!val || $.type(val) != "string" || !Date.parse(val)) {
                     return;
                 }
 
                 var picker = { settings: { dateFormat: dateFormat } },
-                    dateTimeSegments = val.split(" "),
-                    dateSegments = dateTimeSegments[0].split("-"),
-                    timeString = dateTimeSegments[1] + " " + dateTimeSegments[2],
-                    dateString = $.datetimepicker._formatDate(picker, dateSegments[2], +dateSegments[1] - 1, dateSegments[0]);
+                    dateTime = new Date(val),
+                    dateString = $.datetimepicker.formatDate(picker.settings.dateFormat, dateTime),
+                    //we only support time with AM/PM -> 'en-US' is used.
+                    timeString = dateTime.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }),  
+                    timeStringWithLeadingZero = ("0" + timeString).slice(-8); // with format "hh:mm tt", toLocaleString return hour without leading zero
+
 
                 switch (elementInfo.pickerType) {
                     case dateTimePickerTypes.datePicker:
                         return dateString;
                     case dateTimePickerTypes.dateTimePicker:
-                        return dateString + " " + timeString;
+                        return dateString + " " + timeStringWithLeadingZero;
                     case dateTimePickerTypes.timePicker:
-                        return timeString;
+                        return timeStringWithLeadingZero;
                 }
             },
 
@@ -197,6 +200,9 @@
                 }
                 if (locationObj.state) {
                     locationString += ', ' + locationObj.state;
+                }
+                if (locationObj.postalCode) {
+                    locationString += ', ' + locationObj.postalCode;
                 }
                 if (locationObj.country) {
                     locationString += ', ' + locationObj.country;
@@ -348,16 +354,17 @@
                         } else {
                             result += " 12:00 AM"; // add fake time string into return results, this will be ignored when rebind data
                         }
-                        return result;
+                        return this.toISODateTimeString(result);
 
                     case dateTimePickerTypes.timePicker:
                         if (!_utilsSvc.isMatchedReg(dateTimeString, timeRegex)) {
                             return { isValid: false };
                         }
-                        return "1900-01-01 " + dateTimeString; // add fake date string into return results, this will be ignored when rebind data
+                        var yearString = new Date().getFullYear();
+                        return this.toISODateTimeString(yearString + "-01-01 " + dateTimeString); // add fake date string into return results, this will be ignored when rebind data
                 }
 
-                return datetime;
+                return null;
             },
 
             // convert datetime format YYYY-MM-DD hh:mm tt to format YYYY-MM-DDTHH:mmTZD(ISO-8601)
@@ -385,7 +392,7 @@
                     return null;
                 }
 
-                return dateTimeSegments[0] + "T" + this.convertTo24Hour(timeString) + this.getTimeZoneDesignator();
+                return dateString + "T" + this.convertTo24Hour(timeString) + this.getTimeZoneDesignator(dateString);
             },
 
             // convert 12h base to 24h base
@@ -402,8 +409,11 @@
             },
 
             // get time zone designator TZD based on TimezoneOffset
-            getTimeZoneDesignator: function () {
-                var timeZoneOffset = -(new Date()).getTimezoneOffset(),
+            // Firefox and IE don't understand YYYY-MM-DD hh:mm tt format, we should use dateString only (ex:2018-01-01)
+            getTimeZoneDesignator: function (dateString) {
+                // note: on Chrome getTimeZoneDesignator return different result for different years (2018,1970,1900)
+                // ref: https://stackoverflow.com/questions/50609860/browsers-time-zones-chrome-67-error
+                var timeZoneOffset = -(new Date(dateString)).getTimezoneOffset(),
                     dif = timeZoneOffset >= 0 ? "+" : "-";
 
                 timeZoneOffset = Math.abs(timeZoneOffset);

@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="norsk" id="no">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Adresse</addresslabel>
+            <streetlabel>Gateadresse</streetlabel>
+            <citylabel>By</citylabel>
+            <statelabel>Stat</statelabel>
+            <postallabel>Postnummer</postallabel>
+            <countrylabel>Land</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Dato- og tidsperiode</displayname>
+            <message>Skriv inn gyldig dato- og tidsperiode.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Adresse</displayname>
+            <message>Skriv inn en gyldig adresse.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Dato- og tidsperiode</name>
+        <description/>
+        <newitemdefaultname>Ny dato- og tidsperiode</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Verktøytips</caption>
+            <help>Viser et verktøytips eller en hjelpetekst for et element.</help>
+          </description>
+
+          <pickertype>
+            <caption>Velgertype</caption>
+            <help>Velg velgertype for egenskapen.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Adresse</name>
+        <description/>
+        <newitemdefaultname>Ny adresse</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Verktøytips</caption>
+            <help>Viser et verktøytips eller en hjelpetekst for et element.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Kartbredde</caption>
+            <help>Bredden på kartet som er knyttet til elementet.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Karthøyde</caption>
+            <help>Høyden på kartet som er knyttet til elementet.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Detaljadresse</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Gateadresseetikett</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Byetikett</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Statetikett</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Postnummeretikett</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Landetikett</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

@@ -13,8 +13,7 @@
 <%  
     var formElement = Model.FormElement;
     var errorMessage = Model.GetErrorMessage();
-    var defaultValue = Model.GetDefaultValue();
-    var addressInfo = defaultValue != null? defaultValue.ToObject<AddressInfo>() : new AddressInfo();
+    var addressInfo = Model.GetDefaultAddressInfo();
     var addressDetail = addressInfo.address;
     var route = addressInfo.street; 
     var city = addressInfo.city; 

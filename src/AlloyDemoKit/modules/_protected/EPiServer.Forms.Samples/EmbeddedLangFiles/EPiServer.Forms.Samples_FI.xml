@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="suomi" id="fi">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Osoite</addresslabel>
+            <streetlabel>Katu</streetlabel>
+            <citylabel>Paikkakunta</citylabel>
+            <statelabel>Osavaltio</statelabel>
+            <postallabel>Postinumero</postallabel>
+            <countrylabel>Maa</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Päivämääräalue</displayname>
+            <message>Anna kelvollinen päivämääräalue.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Osoite</displayname>
+            <message>Anna kelvollinen osoite.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Päivämääräalue</name>
+        <description/>
+        <newitemdefaultname>Uusi päivämääräalue</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Työkaluvihje</caption>
+            <help>Näytetään elementin työkaluvihjeenä tai ohjetekstinä.</help>
+          </description>
+
+          <pickertype>
+            <caption>Valitsimen tyyppi</caption>
+            <help>Valitse ominaisuuden valitsintyyppi.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Osoite</name>
+        <description/>
+        <newitemdefaultname>Uusi osoite</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Työkaluvihje</caption>
+            <help>Näytetään elementin työkaluvihjeenä tai ohjetekstinä.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Kartan leveys</caption>
+            <help>Elementtiin liittyvän kartan leveys.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Kartan korkeus</caption>
+            <help>Elementtiin liittyvän kartan korkeus.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Yksityiskohtainen osoite</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Kadun nimiö</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Paikkakunnan nimiö</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Osavaltion nimiö</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Postinumeron nimiö</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Maan nimiö</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

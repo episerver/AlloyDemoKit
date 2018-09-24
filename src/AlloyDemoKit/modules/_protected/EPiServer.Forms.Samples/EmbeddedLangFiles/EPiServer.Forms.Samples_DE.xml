@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="Deutsch" id="de">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Adresse</addresslabel>
+            <streetlabel>Straße</streetlabel>
+            <citylabel>Stadt</citylabel>
+            <statelabel>Zustand</statelabel>
+            <postallabel>Postleitzahl</postallabel>
+            <countrylabel>Land</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Zeitraum</displayname>
+            <message>Einen gültigen Zeitraum eingeben.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Adresse</displayname>
+            <message>Eine gültige Adresse eingeben.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Zeitraum</name>
+        <description/>
+        <newitemdefaultname>Neuer Zeitraum</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Tooltip</caption>
+            <help>Anzeige als Textfenster oder Hilfetext eines Elements</help>
+          </description>
+
+          <pickertype>
+            <caption>Art der Auswahl.</caption>
+            <help>Den Auswahltyp für die Immobilie auswählen.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Adresse</name>
+        <description/>
+        <newitemdefaultname>Neue Adresse</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Textfenster</caption>
+            <help>Anzeige als Textfenster oder Hilfetext eines Elements</help>
+          </description>
+
+          <mapwidth>
+            <caption>Kartenbreite</caption>
+            <help>Breite der dem Element zugeordneten Karte</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Kartenhöhe</caption>
+            <help>Höhe der dem Element zugeordneten Karte</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Adressenzusatz</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Straßen-Code</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Stadt-Code</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Bundesland-Code</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Postleitzahl</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Landes-Code</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

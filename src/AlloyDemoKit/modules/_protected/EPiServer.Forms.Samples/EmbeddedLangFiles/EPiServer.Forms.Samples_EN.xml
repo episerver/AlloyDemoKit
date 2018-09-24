@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="English" id="en">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Address</addresslabel>
+            <streetlabel>Street</streetlabel>
+            <citylabel>City</citylabel>
+            <statelabel>State</statelabel>
+            <postallabel>Postal Code</postallabel>
+            <countrylabel>Country</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Date time range</displayname>
+            <message>Enter a valid date time range.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Address</displayname>
+            <message>Enter a valid address.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Date time range</name>
+        <description></description>
+        <newitemdefaultname>New date time range</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Tooltip</caption>
+            <help>Displays as a tooltip or help text of an element.</help>
+          </description>
+
+          <pickertype>
+            <caption>Picker type</caption>
+            <help>Select picker type for the property.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Address</name>
+        <description></description>
+        <newitemdefaultname>New Address</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Tooltip</caption>
+            <help>Displays as a tooltip or help text of an element.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Map width</caption>
+            <help>The with of the map associated with the element.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Map height</caption>
+            <help>The height of the map associated with the element.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Detail Address</caption>
+            <help></help>
+          </addresslabel>
+          <streetlabel>
+            <caption>Street Label</caption>
+            <help></help>
+          </streetlabel>
+          <citylabel>
+            <caption>City Label</caption>
+            <help></help>
+          </citylabel>
+          <statelabel>
+            <caption>State Label</caption>
+            <help></help>
+          </statelabel>
+          <postalLabel>
+            <caption>Postal Label</caption>
+            <help></help>
+          </postalLabel>
+          <countrylabel>
+            <caption>Country Label</caption>
+            <help></help>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

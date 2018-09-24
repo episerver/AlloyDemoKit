@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="日本語 (Japanese)" id="ja">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>住所</addresslabel>
+            <streetlabel>番地</streetlabel>
+            <citylabel>市町村</citylabel>
+            <statelabel>都道府県</statelabel>
+            <postallabel>郵便番号</postallabel>
+            <countrylabel>国</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>日付と時刻の範囲</displayname>
+            <message>有効な日付と時刻の範囲を入力してください。</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>住所</displayname>
+            <message>有効な住所を入力してください。</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>日付と時刻の範囲</name>
+        <description/>
+        <newitemdefaultname>新しい日付と時刻の範囲</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>ツールチップ</caption>
+            <help>要素のツールチップまたはヘルプテキストとして表示。</help>
+          </description>
+
+          <pickertype>
+            <caption>ピッカーのタイプ</caption>
+            <help>プロパティのピッカーのタイプを選択してください。</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>住所</name>
+        <description/>
+        <newitemdefaultname>新しい住所</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>ツールチップ</caption>
+            <help>要素のツールチップまたはヘルプテキストとして表示。</help>
+          </description>
+
+          <mapwidth>
+            <caption>マップの幅</caption>
+            <help>要素に関連付けられているマップの幅。</help>
+          </mapwidth>
+          <mapheight>
+            <caption>マップの高さ</caption>
+            <help>要素に関連付けられているマップの高さ。</help>
+          </mapheight>
+          <addresslabel>
+            <caption>詳細住所</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>番地ラベル</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>市町村ラベル</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>都道府県ラベル</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>郵便番号ラベル</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>国ラベル</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

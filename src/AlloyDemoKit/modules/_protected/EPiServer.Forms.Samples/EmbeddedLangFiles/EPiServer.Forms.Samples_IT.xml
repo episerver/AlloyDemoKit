@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="Italiano" id="it">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Indirizzo</addresslabel>
+            <streetlabel>Via</streetlabel>
+            <citylabel>Città</citylabel>
+            <statelabel>Stato</statelabel>
+            <postallabel>Codice postale</postallabel>
+            <countrylabel>Paese</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Intervallo di date</displayname>
+            <message>Inserisci un intervallo di date valido.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Indirizzo</displayname>
+            <message>Inserisci un indirizzo valido.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Intervallo di date</name>
+        <description/>
+        <newitemdefaultname>Nuovo intervallo di date</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Suggerimento</caption>
+            <help>Visualizza come suggerimento o testo di aiuto di un elemento.</help>
+          </description>
+
+          <pickertype>
+            <caption>Tipo di raccoglitore</caption>
+            <help>Seleziona il tipo di raccoglitore per la proprietà.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Indirizzo</name>
+        <description/>
+        <newitemdefaultname>Nuovo indirizzo</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Suggerimento</caption>
+            <help>Visualizza come suggerimento o testo di aiuto di un elemento.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Ampiezza della mappa</caption>
+            <help>Ampiezza della mappa associata all’elemento.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Altezza della mappa</caption>
+            <help>Altezza della mappa associata all’elemento.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Dettagli dell’indirizzo</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Etichetta della via</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Etichetta della città</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Etichetta dello stato</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Etichetta del codice postale</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Etichetta del paese</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

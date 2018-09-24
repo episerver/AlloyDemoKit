@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="Nederlands" id="nl">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Adres</addresslabel>
+            <streetlabel>Straat</streetlabel>
+            <citylabel>Plaats</citylabel>
+            <statelabel>Provincie</statelabel>
+            <postallabel>Postcode</postallabel>
+            <countrylabel>Land</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Datum-/tijdsperiode</displayname>
+            <message>Voer een geldig datum-/tijdsperiode in.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Adres</displayname>
+            <message>Voer een geldig adres in.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Datum-/tijdsperiode</name>
+        <description/>
+        <newitemdefaultname>Nieuwe datum-/tijdsperiode</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Knopinfo</caption>
+            <help>Wordt weergegeven als knopinfo of helptekst van een element.</help>
+          </description>
+
+          <pickertype>
+            <caption>Type kiezer</caption>
+            <help>Selecteer het type kiezer voor de eigenschap.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Adres</name>
+        <description/>
+        <newitemdefaultname>Nieuw adres</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Knopinfo</caption>
+            <help>Wordt weergegeven als knopinfo of helptekst van een element.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Breedte kaart</caption>
+            <help>De breedte van de kaart die aan het element is gekoppeld.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Hoogte kaart</caption>
+            <help>De hoogte van de kaart die aan het element is gekoppeld.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Detail adres</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Label straat</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Label stad</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Label provincie</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Postlabel</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Landelabel</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

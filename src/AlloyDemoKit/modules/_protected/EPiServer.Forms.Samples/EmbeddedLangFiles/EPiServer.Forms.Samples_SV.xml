@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="svenska" id="sv">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Adress</addresslabel>
+            <streetlabel>Gata</streetlabel>
+            <citylabel>Stad</citylabel>
+            <statelabel>Region</statelabel>
+            <postallabel>Postnummer</postallabel>
+            <countrylabel>Land</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Datum/tidsintervall</displayname>
+            <message>Ange ett giltigt datum/tidsintervall.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Adress</displayname>
+            <message>Ange en giltig adress.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Datum/tidsintervall</name>
+        <description></description>
+        <newitemdefaultname>Nytt datum/tidsintervall</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Skärmtips</caption>
+            <help>Visas som ett skärmtips eller hjälptext för en formulärdel.</help>
+          </description>
+
+          <pickertype>
+            <caption>Typ av väljare</caption>
+            <help>Välj en typ av väljare för egenskapen.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Adress</name>
+        <description></description>
+        <newitemdefaultname>Ny adress</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Skärmtips</caption>
+            <help>Visas som ett skärmtips eller hjälptext för en formulärdel.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Kartbredd</caption>
+            <help>Bredden på kartan som är associerad med formulärdelen.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Karthöjd</caption>
+            <help>Höjden på kartan som är associerad med formulärdelen.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Detaljadress</caption>
+            <help></help>
+          </addresslabel>
+          <streetlabel>
+            <caption>Gatuetikett</caption>
+            <help></help>
+          </streetlabel>
+          <citylabel>
+            <caption>Stadsetikett</caption>
+            <help></help>
+          </citylabel>
+          <statelabel>
+            <caption>Regionetikett</caption>
+            <help></help>
+          </statelabel>
+          <postalLabel>
+            <caption>Postkodsetikett</caption>
+            <help></help>
+          </postalLabel>
+          <countrylabel>
+            <caption>Landsetikett</caption>
+            <help></help>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

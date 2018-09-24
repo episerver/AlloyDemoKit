@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="español" id="es">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Dirección</addresslabel>
+            <streetlabel>Calle</streetlabel>
+            <citylabel>Ciudad</citylabel>
+            <statelabel>Provincia</statelabel>
+            <postallabel>Código postal</postallabel>
+            <countrylabel>País</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Intervalo de fecha y hora</displayname>
+            <message>Introduzca un intervalo de fecha y hora válido.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Dirección</displayname>
+            <message>Introduzca una dirección válida.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Intervalo de fecha y hora</name>
+        <description/>
+        <newitemdefaultname>Nuevo intervalo de fecha y hora</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Información sobre herramientas</caption>
+            <help>Se muestra como información sobre herramientas o texto de ayuda de un elemento.</help>
+          </description>
+
+          <pickertype>
+            <caption>Tipo de selector</caption>
+            <help>Seleccione el tipo de selector para la propiedad.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Dirección</name>
+        <description/>
+        <newitemdefaultname>Nueva dirección</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Información sobre herramientas</caption>
+            <help>Se muestra como información sobre herramientas o texto de ayuda de un elemento.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Ancho del mapa</caption>
+            <help>El ancho de mapa asociado al elemento.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Alto del mapa</caption>
+            <help>El alto de mapa asociado al elemento.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Detallar dirección</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Etiqueta de la calle</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Etiqueta de la ciudad</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Etiqueta de la provincia</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Etiqueta postal</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Etiqueta del país</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>

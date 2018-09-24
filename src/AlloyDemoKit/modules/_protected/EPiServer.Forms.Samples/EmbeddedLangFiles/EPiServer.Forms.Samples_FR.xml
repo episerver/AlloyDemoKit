@@ -1,9 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <languages>
 
   <language name="français" id="fr">
 
-    <!--The below group names should be removed after Forms 2.2 out-->
     <groups>
       <basicelements>Basic Elements</basicelements>
     </groups>
@@ -76,6 +75,16 @@
             </imagesubmitbutton>
           </messages>
         </samples>
+        <viewmode>
+          <addresselement>
+            <addresslabel>Adresse</addresslabel>
+            <streetlabel>Rue</streetlabel>
+            <citylabel>Ville</citylabel>
+            <statelabel>État</statelabel>
+            <postallabel>Code postal</postallabel>
+            <countrylabel>Pays</countrylabel>
+          </addresselement>          
+        </viewmode>
         <validators>
           <episerver.forms.samples.implementation.validation.datetimevalidator>
             <displayname>Datetime validator</displayname>
@@ -93,6 +102,14 @@
             <displayname>Recaptcha validator</displayname>
             <message>Invalid captcha value.</message>
           </episerver.forms.samples.implementation.validation.recaptchavalidator>
+          <episerver.forms.implementation.validation.datetimerangevalidator>
+            <displayname>Page de dates</displayname>
+            <message>Entrez une plage de dates valide.</message>
+          </episerver.forms.implementation.validation.datetimerangevalidator>
+          <episerver.forms.implementation.validation.addressvalidator>
+            <displayname>Adresse</displayname>
+            <message>Saisissez une adresse correcte.</message>
+          </episerver.forms.implementation.validation.addressvalidator>
         </validators>
       </forms>
     </episerver>
@@ -129,6 +146,68 @@
           </secretkey>
         </properties>
       </recaptchaelementblock>
+      <datetimerangeelementblock>
+        <name>Page de dates</name>
+        <description/>
+        <newitemdefaultname>Nouvelle plage de dates</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Info-bulle</caption>
+            <help>S'affiche comme une info-bulle ou texte d'aide d'un élément.</help>
+          </description>
+
+          <pickertype>
+            <caption>Type de sélecteur</caption>
+            <help>Sélectionnez le type de sélecteur pour la propriété.</help>
+          </pickertype>
+        </properties>
+      </datetimerangeelementblock>
+      <addresseselementblock>
+        <name>Adresse</name>
+        <description/>
+        <newitemdefaultname>Nouvelle adresse</newitemdefaultname>
+        <properties>
+
+          <description>
+            <caption>Info-bulle</caption>
+            <help>S'affiche comme une info-bulle ou texte d'aide d'un élément.</help>
+          </description>
+
+          <mapwidth>
+            <caption>Largeur carte</caption>
+            <help>La largeur de la carte associée à l'élément.</help>
+          </mapwidth>
+          <mapheight>
+            <caption>Hauteur carte</caption>
+            <help>La hauteur de la carte associée à l'élément.</help>
+          </mapheight>
+          <addresslabel>
+            <caption>Adresse de détail</caption>
+            <help/>
+          </addresslabel>
+          <streetlabel>
+            <caption>Étiquette de rue</caption>
+            <help/>
+          </streetlabel>
+          <citylabel>
+            <caption>Étiquette de ville</caption>
+            <help/>
+          </citylabel>
+          <statelabel>
+            <caption>Étiquette d’état</caption>
+            <help/>
+          </statelabel>
+          <postalLabel>
+            <caption>Étiquette de code postal</caption>
+            <help/>
+          </postalLabel>
+          <countrylabel>
+            <caption>Étiquette de pays</caption>
+            <help/>
+          </countrylabel>
+        </properties>
+      </addresseselementblock>
     </contenttypes>
   </language>
 </languages>
