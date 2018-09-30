@@ -52,7 +52,8 @@ namespace AlloyDemoKit.Business
                     LoginUrl = new MvcHtmlString(GetLoginUrl(currentContentLink)),
                     SearchPageRouteValues = requestContext.GetPageRoute(startPage.SearchPageLink),
                     SearchActionUrl = new MvcHtmlString(EPiServer.Web.Routing.UrlResolver.Current.GetUrl(startPage.SearchPageLink)),
-                    IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly
+                    IsInReadonlyMode = _databaseMode.DatabaseMode == DatabaseMode.ReadOnly,
+                    ContactForm = startPage.ContactForm
                 };
         }
 
