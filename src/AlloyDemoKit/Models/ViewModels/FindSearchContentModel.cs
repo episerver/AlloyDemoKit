@@ -1,10 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Web;
 using AlloyDemoKit.Models.Pages;
-using EPiServer.Find.UnifiedSearch;
-using EPiServer;
 using EPiServer.Find.Api.Facets;
-using System;
+using EPiServer.Find.UnifiedSearch;
+using EPiServer.Web;
 
 namespace AlloyDemoKit.Models.ViewModels
 {
@@ -12,7 +12,7 @@ namespace AlloyDemoKit.Models.ViewModels
     {
         public FindSearchContentModel(FindPage currentPage) : base(currentPage)
         {
-            
+
         }
 
         public UnifiedSearchResults Hits { get; set; }
@@ -21,8 +21,8 @@ namespace AlloyDemoKit.Models.ViewModels
 
         public string GetSectionGroupUrl(string groupName)
         {
-            string url = UriSupport.AddQueryString(HttpContext.Current.Request.RawUrl, "t", HttpContext.Current.Server.UrlEncode(groupName));
-            url = UriSupport.AddQueryString(url, "p", "1");
+            string url = UriUtil.AddQueryString(HttpContext.Current.Request.RawUrl, "t", HttpContext.Current.Server.UrlEncode(groupName));
+            url = UriUtil.AddQueryString(url, "p", "1");
             return url;
         }
 
@@ -86,12 +86,12 @@ namespace AlloyDemoKit.Models.ViewModels
         //Create URL for a specific paging page.
         public string GetPagingUrl(int pageNumber)
         {
-            return UriSupport.AddQueryString(HttpContext.Current.Request.RawUrl, "p", pageNumber.ToString());
+            return UriUtil.AddQueryString(HttpContext.Current.Request.RawUrl, "p", pageNumber.ToString());
         }
 
         public string Query
         {
             get { return (HttpContext.Current.Request.QueryString["q"] ?? string.Empty).Trim(); }
-        }  
+        }
     }
 }
