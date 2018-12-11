@@ -11,7 +11,7 @@
         @Html.DisplayFor(m => m.CurrentPage.MainBody)
     </div>
 </div>
-@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.TwoThirdsWidth })
+@Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row", Tag = AlloyDemoKit.Global.ContentAreaTags.TwoThirdsWidth })
 
 @section RelatedContent
 {
@@ -34,7 +34,7 @@
         @Html.PropertyFor(x => x.CurrentPage.UniqueSellingPoints)
     </div>
 
-    @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
+    @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { CssClass = "row", Tag = AlloyDemoKit.Global.ContentAreaTags.OneThirdWidth })
 }
 <script type="text/javascript">
     $(function () {
