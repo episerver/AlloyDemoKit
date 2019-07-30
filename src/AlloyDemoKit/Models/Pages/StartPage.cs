@@ -4,6 +4,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using AlloyDemoKit.Models.Blocks;
+using EPiServer.Forms.Implementation.Elements;
 
 namespace AlloyDemoKit.Models.Pages
 {
@@ -64,6 +65,10 @@ namespace AlloyDemoKit.Models.Pages
 
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual SiteLogotypeBlock SiteLogotype { get; set; }
+
+        [Display(GroupName = Global.GroupNames.SiteSettings)]
+        [AllowedTypes(typeof(FormContainerBlock))]
+        public virtual ContentArea ContactForm { get; set; }
 
     }
 }

@@ -25,5 +25,6 @@ namespace AlloyDemoKit.Models.ViewModels
         public MvcHtmlString SearchActionUrl { get; set; }
 
         public bool IsInReadonlyMode {get;set;}
+        public ContentArea ContactForm { get; internal set; }
     }
 }
